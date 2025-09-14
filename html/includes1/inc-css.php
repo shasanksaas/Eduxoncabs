@@ -20,3 +20,6 @@
       
       <!-- CSS:: MODERN DESIGN -->
       <link rel="stylesheet" type="text/css" href="assets/css/modern-design.css">
+      
+      <!-- CSS:: MOBILE RESPONSIVE -->
+      <link rel="stylesheet" type="text/css" href="assets/css/mobile-responsive.css">

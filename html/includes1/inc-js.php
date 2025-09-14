@@ -29,3 +29,9 @@
 
       <!-- JQUERY:: CUSTOM.JS -->
       <script src="assets/js/custom.js"></script>
+      
+      <!-- MOBILE RESPONSIVE JS -->
+      <script src="assets/js/mobile-responsive.js"></script>
+      
+      <!-- NAVBAR FIX JS -->
+      <script src="assets/js/navbar-fix.js"></script>

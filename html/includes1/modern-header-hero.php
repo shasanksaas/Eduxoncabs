@@ -1,14 +1,19 @@
 <!-- Modern SaaS-style Header -->
 <header class="modern-header">
   <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm fixed-top">
-    <div class="container-fluid px-4">
+    <div class="container-fluid px-4 d-flex align-items-center">
       <!-- Brand Logo -->
-      <a class="navbar-brand" href="/">
+      <a class="navbar-brand me-auto" href="/">
         <img src="img/Eduxoncabs.png" alt="EduxonCabs - Self Drive Car Rental Bhubaneswar" height="45" class="d-inline-block align-top">
       </a>
       
+      <!-- Mobile Toggle Button -->
+      <button class="navbar-toggler header-btn-collapse-nav ms-auto" type="button" data-toggle="collapse" data-target="#modernNavbar" aria-controls="modernNavbar" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fa fa-bars"></i>
+      </button>
+      
       <!-- Navigation Menu -->
-      <div class="navbar-collapse justify-content-center" id="modernNavbar">
+      <div class="collapse navbar-collapse justify-content-center" id="modernNavbar">
         <ul class="navbar-nav mx-auto">
           <li class="nav-item">
             <a class="nav-link font-weight-600 px-3" href="/">Home</a>
@@ -48,6 +53,7 @@
             </a>
           </li>
         </ul>
+      </div>
       </div>
     </div>
   </nav>
@@ -156,7 +162,7 @@
               </div>
               
               <div class="row">
-                <div class="col-md-6">
+                <div class="col-sm-6">
                   <div class="form-group-modern mb-4">
                     <label class="form-label-modern">
                       <i class="fa fa-calendar mr-2"></i>Pickup Date
@@ -166,7 +172,7 @@
                   </div>
                 </div>
                 
-                <div class="col-md-6">
+                <div class="col-sm-6">
                   <div class="form-group-modern mb-4">
                     <label class="form-label-modern">
                       <i class="fa fa-clock-o mr-2"></i>Pickup Time
@@ -186,7 +192,7 @@
               </div>
               
               <div class="row">
-                <div class="col-md-6">
+                <div class="col-sm-6">
                   <div class="form-group-modern mb-4">
                     <label class="form-label-modern">
                       <i class="fa fa-calendar mr-2"></i>Drop Date
@@ -196,7 +202,7 @@
                   </div>
                 </div>
                 
-                <div class="col-md-6">
+                <div class="col-sm-6">
                   <div class="form-group-modern mb-4">
                     <label class="form-label-modern">
                       <i class="fa fa-clock-o mr-2"></i>Drop Time
@@ -225,24 +231,25 @@
         </div>
       </div>
       
-      <!-- Mobile-only simplified features -->
-      <div class="hero-features-mobile d-lg-none text-center">
-        <div class="row">
-          <div class="col-6">
-            <div class="feature-mobile">
-              <i class="fa fa-shield text-success"></i>
-              <span>Verified Cars</span>
-            </div>
+    </div>
+    
+    <!-- Mobile-only simplified features - Moved after hero content -->
+    <div class="hero-features-mobile d-lg-none text-center">
+      <div class="row">
+        <div class="col-6">
+          <div class="feature-mobile">
+            <i class="fa fa-shield text-success"></i>
+            <span>Verified Cars</span>
           </div>
-          <div class="col-6">
-            <div class="feature-mobile">
-              <i class="fa fa-phone text-primary"></i>
-              <span>24/7 Support</span>
-            </div>
+        </div>
+        <div class="col-6">
+          <div class="feature-mobile">
+            <i class="fa fa-phone text-primary"></i>
+            <span>24/7 Support</span>
           </div>
         </div>
       </div>
-      
     </div>
+    
   </div>
 </section>

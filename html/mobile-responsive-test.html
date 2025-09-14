@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobile Responsive Test - EduxonCabs</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .test-section {
+            margin-bottom: 30px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+        .test-section h3 {
+            color: #007bff;
+            margin-top: 0;
+        }
+        .feature-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        .feature-list li {
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+        }
+        .feature-list li:before {
+            content: "✓ ";
+            color: #28a745;
+            font-weight: bold;
+        }
+        .responsive-note {
+            background: #e7f3ff;
+            padding: 15px;
+            border-radius: 6px;
+            margin-top: 20px;
+        }
+        .viewport-info {
+            background: #f8f9fa;
+            padding: 10px;
+            border-radius: 4px;
+            font-family: monospace;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <h1>📱 Homepage Mobile Responsive Test</h1>
+    
+    <div class="viewport-info">
+        <strong>Current Viewport:</strong> <span id="viewport-size"></span><br>
+        <strong>Device Type:</strong> <span id="device-type"></span><br>
+        <strong>User Agent:</strong> <span id="user-agent"></span>
+    </div>
+
+    <div class="test-section">
+        <h3>🚀 Mobile Navigation Features</h3>
+        <ul class="feature-list">
+            <li>Mobile hamburger menu with toggle functionality</li>
+            <li>Auto-collapse menu when clicking navigation links</li>
+            <li>Touch-friendly navigation items (44px+ touch targets)</li>
+            <li>Responsive logo sizing (35px on small screens, 40px on medium)</li>
+            <li>Proper dropdown menu handling on mobile</li>
+            <li>Swipe gestures for menu open/close</li>
+        </ul>
+    </div>
+
+    <div class="test-section">
+        <h3>🎯 Hero Section Mobile Optimizations</h3>
+        <ul class="feature-list">
+            <li>Responsive typography (2rem title on mobile vs 2.5rem desktop)</li>
+            <li>Proper content stacking (booking form shows first on mobile)</li>
+            <li>Mobile-first button layout (full-width with max-width)</li>
+            <li>Centered content alignment for mobile</li>
+            <li>Optimized feature list display</li>
+            <li>Mobile-specific hero features section</li>
+        </ul>
+    </div>
+
+    <div class="test-section">
+        <h3>📋 Booking Form Mobile Enhancements</h3>
+        <ul class="feature-list">
+            <li>16px font size inputs (prevents iOS zoom)</li>
+            <li>Touch-friendly form controls with proper spacing</li>
+            <li>Full-width search button with visual feedback</li>
+            <li>Mobile-optimized date picker integration</li>
+            <li>Form validation with mobile-friendly error messages</li>
+            <li>Auto-scroll to errors on form submission</li>
+            <li>Smart field advancement for time selectors</li>
+        </ul>
+    </div>
+
+    <div class="test-section">
+        <h3>🎨 Mobile UI/UX Features</h3>
+        <ul class="feature-list">
+            <li>Mobile CTA section with step-by-step booking guide</li>
+            <li>Responsive feature cards with proper mobile spacing</li>
+            <li>Sticky bottom booking button (only on mobile)</li>
+            <li>Smooth scrolling for anchor links</li>
+            <li>Mobile-optimized animations and transitions</li>
+            <li>Toast notifications for mobile feedback</li>
+        </ul>
+    </div>
+
+    <div class="test-section">
+        <h3>⚡ Performance & Accessibility</h3>
+        <ul class="feature-list">
+            <li>Lazy loading for images on mobile</li>
+            <li>Reduced motion support for accessibility</li>
+            <li>Proper focus states for keyboard navigation</li>
+            <li>Viewport height fixes for mobile browsers</li>
+            <li>Orientation change handling</li>
+            <li>Touch gesture optimizations</li>
+        </ul>
+    </div>
+
+    <div class="test-section">
+        <h3>📱 Device-Specific Optimizations</h3>
+        <ul class="feature-list">
+            <li>iOS zoom prevention on input focus</li>
+            <li>Android keyboard handling</li>
+            <li>Landscape orientation adjustments</li>
+            <li>Mobile browser compatibility (Safari, Chrome, Firefox)</li>
+            <li>PWA-ready viewport meta tag</li>
+            <li>Dark mode support preparation</li>
+        </ul>
+    </div>
+
+    <div class="responsive-note">
+        <h4>🧪 Test Instructions:</h4>
+        <p><strong>To test the mobile responsive features:</strong></p>
+        <ol>
+            <li>Open the homepage on your mobile device or use browser dev tools</li>
+            <li>Test different screen sizes: 320px, 375px, 414px, 768px</li>
+            <li>Verify navigation menu works on touch devices</li>
+            <li>Test form submission and validation</li>
+            <li>Check orientation changes (portrait/landscape)</li>
+            <li>Verify smooth scrolling and sticky elements</li>
+        </ol>
+    </div>
+
+    <script>
+        // Display current viewport information
+        function updateViewportInfo() {
+            document.getElementById('viewport-size').textContent = window.innerWidth + 'x' + window.innerHeight;
+            
+            let deviceType = 'Desktop';
+            if (window.innerWidth <= 575) {
+                deviceType = 'Mobile (Small)';
+            } else if (window.innerWidth <= 767) {
+                deviceType = 'Mobile (Medium)';
+            } else if (window.innerWidth <= 991) {
+                deviceType = 'Tablet';
+            }
+            
+            document.getElementById('device-type').textContent = deviceType;
+            document.getElementById('user-agent').textContent = navigator.userAgent.substring(0, 60) + '...';
+        }
+
+        // Update on load and resize
+        updateViewportInfo();
+        window.addEventListener('resize', updateViewportInfo);
+        window.addEventListener('orientationchange', function() {
+            setTimeout(updateViewportInfo, 100);
+        });
+    </script>
+</body>
+</html>

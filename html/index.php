@@ -1317,54 +1317,7 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
      
         
-<!-- Mobile Sticky Booking Button -->
-<div class="mobile-sticky-booking d-lg-none">
-  <div class="sticky-booking-content">
-    <div class="d-flex align-items-center justify-content-between">
-      <div class="booking-info">
-        <small class="text-muted">Starting from</small>
-        <div class="price-display">₹35<small>/hour</small></div>
-      </div>
-      <a href="#booking-form" class="btn btn-primary btn-lg px-4 py-2 smooth-scroll">
-        <i class="fa fa-calendar mr-2"></i>Book Now
-      </a>
-    </div>
-  </div>
-</div>
 
-<style>
-.mobile-sticky-booking {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  z-index: 1050;
-  background: white;
-  border-top: 1px solid #e9ecef;
-  box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
-  padding: 15px;
-}
-
-.sticky-booking-content {
-  max-width: 100%;
-}
-
-.booking-info .price-display {
-  font-size: 1.2rem;
-  font-weight: bold;
-  color: #007bff;
-}
-
-.booking-info small {
-  font-size: 0.75rem;
-}
-
-@media (max-width: 991px) {
-  body {
-    padding-bottom: 80px; /* Space for sticky button */
-  }
-}
-</style>
 
 </body>
 </html>
