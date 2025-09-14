@@ -11,6 +11,15 @@ require_once('php-mailer/PHPMailerAutoload.php');
 
 $db = new SiteData();
 $dbObj = new dbquery();
+
+// Clear booking form session data on successful completion
+unset($_SESSION['booking_name']);
+unset($_SESSION['booking_email']);
+unset($_SESSION['booking_phone']);
+unset($_SESSION['booking_dob']);
+unset($_SESSION['booking_license']);
+unset($_SESSION['booking_message']);
+
 if (filter($_GET['payment_id'] != "") && filter($_GET['payment_request_id']) != "") {
     ?>
     <!DOCTYPE html>
@@ -411,7 +420,12 @@ if (filter($_GET['payment_id'] != "") && filter($_GET['payment_request_id']) != 
 
     <?php include("includes/inc-js.php"); ?>
 
-
+    <!-- Clear saved form data on successful booking -->
+    <script type="text/javascript">
+        // Clear saved booking form data from localStorage
+        localStorage.removeItem('eduxon_booking_form_data');
+        console.log('Booking form data cleared after successful completion');
+    </script>
 
         </body>
 

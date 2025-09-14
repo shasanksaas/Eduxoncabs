@@ -33,18 +33,53 @@ $db = new SiteData();
   
   <!-- Modern Contact Page -->
   <div role="main" class="main modern-contact-page">
+    
+    <!-- Hero Section -->
+    <section class="contact-hero-section">
+      <div class="container">
+        <div class="contact-hero-content">
+          <div class="hero-badge">
+            <i class="fa fa-phone"></i>
+            <span>24/7 Support Available</span>
+          </div>
+          <h1 class="contact-hero-title">
+            Get In <span class="gradient-text">Touch</span> With Us
+          </h1>
+          <p class="contact-hero-description">
+            Ready to book your perfect self-drive car or need assistance? Our dedicated team is here to help you 24/7. Reach out to us through any of the channels below.
+          </p>
+        </div>
+      </div>
+    </section>
 
-    <!-- Main Contact Section - Form First -->
+    <!-- Quick Contact Buttons -->
+    <section class="quick-contact-section">
+      <div class="container">
+        <h2 class="quick-contact-title">Need Immediate Assistance?</h2>
+        <p class="quick-contact-subtitle">Contact us directly through your preferred method</p>
+        <div class="quick-contact-buttons">
+          <a href="tel:+919437144274" class="quick-contact-btn btn-call">
+            <i class="fa fa-phone"></i>
+            Call Now
+          </a>
+          <a href="https://wa.me/919437144274" class="quick-contact-btn btn-whatsapp" target="_blank">
+            <i class="fa fa-whatsapp"></i>
+            WhatsApp
+          </a>
+          <a href="mailto:eduxontechnologies@gmail.com" class="quick-contact-btn btn-email">
+            <i class="fa fa-envelope"></i>
+            Email Us
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Main Contact Section -->
     <section class="contact-main-section">
       <div class="container">
-        <div class="section-header">
-          <h2 class="section-title">Get In Touch</h2>
-          <p class="section-subtitle">Send us a message or use the contact information below</p>
-        </div>
-        
         <div class="row">
           <!-- Contact Form -->
-          <div class="col-lg-8 col-md-12">
+          <div class="col-lg-6 col-md-12">
             <div class="contact-form-card">
               <h3 class="contact-form-title">Send Us a Message</h3>
               
@@ -72,19 +107,9 @@ $db = new SiteData();
                   </div>
                 </div>
                 
-                <div class="row">
-                  <div class="col-md-6">
-                    <div class="modern-form-group">
-                      <label for="phone">Phone Number</label>
-                      <input type="tel" value="" maxlength="15" class="modern-form-control" name="phone" id="phone">
-                    </div>
-                  </div>
-                  <div class="col-md-6">
-                    <div class="modern-form-group">
-                      <label for="subject">Subject *</label>
-                      <input type="text" value="" data-msg-required="Please enter the subject." maxlength="100" class="modern-form-control" name="subject" id="subject" required>
-                    </div>
-                  </div>
+                <div class="modern-form-group">
+                  <label for="subject">Subject</label>
+                  <input type="text" value="" data-msg-required="Please enter the subject." maxlength="100" class="modern-form-control" name="subject" id="subject" required>
                 </div>
                 
                 <div class="modern-form-group">
@@ -101,7 +126,7 @@ $db = new SiteData();
           </div>
 
           <!-- Contact Information -->
-          <div class="col-lg-4 col-md-12">
+          <div class="col-lg-6 col-md-12">
             <div class="contact-info-card">
               <h3 class="contact-info-title">Contact Information</h3>
               
@@ -124,7 +149,7 @@ $db = new SiteData();
                     <div class="contact-info-label">Support & Bookings</div>
                     <p class="contact-info-text">
                       <a href="tel:+919437144274">+91-9437144274</a><br>
-                      <a href="tel:+919078212872">+91-9078212872</a>
+                      <a href="tel:+919437144274">+91-9437144274</a>
                     </p>
                   </div>
                 </li>
@@ -135,6 +160,19 @@ $db = new SiteData();
                   </div>
                   <div class="contact-info-content">
                     <div class="contact-info-label">Road-Side Assistance</div>
+                    <p class="contact-info-text">
+                      <a href="tel:+919439825591">+91-9439825591</a><br>
+                      <a href="tel:+917873001464">+91-7873001464</a>
+                    </p>
+                  </div>
+                </li>
+
+                <li class="contact-info-item">
+                  <div class="contact-info-icon">
+                    <i class="fa fa-car"></i>
+                  </div>
+                  <div class="contact-info-content">
+                    <div class="contact-info-label">Vehicle PickUp/Drop</div>
                     <p class="contact-info-text">
                       <a href="tel:+919439825591">+91-9439825591</a><br>
                       <a href="tel:+917873001464">+91-7873001464</a>
@@ -156,28 +194,6 @@ $db = new SiteData();
               </ul>
             </div>
           </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Quick Contact Buttons -->
-    <section class="quick-contact-section">
-      <div class="container">
-        <h2 class="quick-contact-title">Need Immediate Assistance?</h2>
-        <p class="quick-contact-subtitle">Contact us directly through your preferred method</p>
-        <div class="quick-contact-buttons">
-          <a href="tel:+919437144274" class="quick-contact-btn btn-call">
-            <i class="fa fa-phone"></i>
-            Call Now
-          </a>
-          <a href="https://wa.me/919437144274" class="quick-contact-btn btn-whatsapp" target="_blank">
-            <i class="fa fa-whatsapp"></i>
-            WhatsApp
-          </a>
-          <a href="mailto:eduxontechnologies@gmail.com" class="quick-contact-btn btn-email">
-            <i class="fa fa-envelope"></i>
-            Email Us
-          </a>
         </div>
       </div>
     </section>

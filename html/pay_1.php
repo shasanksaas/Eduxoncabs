@@ -27,7 +27,7 @@ $pickuploc = mysql_real_escape_string($_POST['pickuploc']);
 $dob = mysql_real_escape_string($_POST['dob']);
 $coupon_status = mysql_real_escape_string($_POST['gvcode']);
 $coupon_code = mysql_real_escape_string($_POST['coupon']);
-$gvamount= mysql_real_escape_string($_POST['gvamount']);
+$gvamount = isset($_POST['gvamount']) && $_POST['gvamount'] !== '' ? (int)mysql_real_escape_string($_POST['gvamount']) : 0;
 
 $_SESSION['trvlDte'] = mysql_real_escape_string($_POST['pdate']);
 $_SESSION['trvltme'] = mysql_real_escape_string($_POST['ptime']);
@@ -193,7 +193,7 @@ if ($get_car_unavail > 0) {
 
 
 
-            $ins_dta = $dbObj->insertToDb("tbl_order", "customer_id = '$customer_id' ,`payment_id` = '" . $response['id'] . "', `buyer_name`='$name', `car_id`='$car_id', `email`='$email', `phone`='$phone', `amount`='$price', `booked_car`='$product_name', `status`='Pending', `booked_dte`='$booked_dte', `booked_tme`='$booked_tme', `returned_dte`='$returned_dte', `return_tme`='$returned_tme',secur_pay_type='$securityPaymode',vehicle_type='$vehicle_type',city='$city',pickup_point='$pickuploc',customer_dob='$dob',coupon ='$coupon_code',coupon_status='$coupon_status',reedem_amount='$gvamount',from_date='$start_book_time',to_date='$end_book_time' ");
+            $ins_dta = $dbObj->insertToDb("tbl_order", "customer_id = '$customer_id', payment_id = '" . $response['id'] . "', order_id = '', buyer_name='$name', car_id='$car_id', bike_id='0', email='$email', phone='$phone', amount='$price', booked_car='$product_name', status='Pending', booked_dte='$booked_dte', booked_tme='$booked_tme', returned_dte='$returned_dte', return_tme='$returned_tme', secur_pay_type='$securityPaymode', vehicle_type='$vehicle_type', city='$city', pickup_point='$pickuploc', customer_dob='$dob', coupon='$coupon_code', coupon_status='$coupon_status', reedem_amount='$gvamount', from_date='$start_book_time', to_date='$end_book_time', regulardayhour='0', regulardayamount='0', weekendhour='0', weekendamount='0', extended_time='1970-01-01 00:00:00', return_status='0' ");
             $pay_ulr = $response['longurl'];
 
             //Redirect($response['longurl'],302); //Go to Payment page

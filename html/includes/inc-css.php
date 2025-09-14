@@ -20,6 +20,7 @@
 <link rel="stylesheet" href="css/skins/skin-corporate-7.css">
 <!-- Theme Custom CSS -->
 <link rel="stylesheet" href="css/custom.css">
+<link rel="stylesheet" href="assets/css/modern-design.css">
 
 <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
 <!-- Head Libs -->

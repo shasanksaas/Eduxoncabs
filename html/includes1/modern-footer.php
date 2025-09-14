@@ -1,5 +1,3 @@
-<?php include 'whatsapp-bot/index.php'; ?>
-
 <!-- Modern Footer -->
 <footer class="modern-footer">
   <div class="footer-main">
@@ -147,3 +145,5 @@
     </div>
   </div>
 </footer>
+
+<?php include 'whatsapp-bot/index.php'; ?>

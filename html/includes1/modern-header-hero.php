@@ -7,13 +7,8 @@
         <img src="img/Eduxoncabs.png" alt="EduxonCabs - Self Drive Car Rental Bhubaneswar" height="45" class="d-inline-block align-top">
       </a>
       
-      <!-- Mobile Toggle -->
-      <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#modernNavbar" aria-controls="modernNavbar" aria-expanded="false">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      
       <!-- Navigation Menu -->
-      <div class="collapse navbar-collapse justify-content-center" id="modernNavbar">
+      <div class="navbar-collapse justify-content-center" id="modernNavbar">
         <ul class="navbar-nav mx-auto">
           <li class="nav-item">
             <a class="nav-link font-weight-600 px-3" href="/">Home</a>
@@ -60,223 +55,194 @@
 
 <!-- Modern Hero Section -->
 <section class="hero-section">
-  <div class="hero-bg">
-    <div class="container">
-      <div class="row align-items-center min-vh-100">
-        
-        <!-- Hero Content -->
-        <div class="col-lg-6 col-md-12 hero-content">
-          <div class="hero-text">
-            <span class="badge badge-primary-light mb-3 px-3 py-2">
-              <i class="fa fa-star text-warning mr-1"></i>
-              30+ Car Types & Brands Available
+  <div class="container">
+    <div class="row align-items-center min-vh-100">
+      
+      <!-- Hero Content - Shows First on Desktop -->
+      <div class="col-lg-6 col-md-12 order-2 order-lg-1">
+        <div class="hero-content">
+          <div class="hero-badge mb-4">
+            <span class="badge-modern">
+              <i class="fa fa-star mr-2"></i>Premium Car Rental Service
             </span>
-            
-            <h1 class="hero-title mb-4">
-              Self Drive Cars 
-              <span class="text-primary">Bhubaneswar</span>
-              <br>Starting at <span class="price-highlight">₹35/Hour</span>
-            </h1>
-            
-            <p class="hero-subtitle mb-4">
-              Premium self drive car rental in Bhubaneswar with 24-hour service. 
-              Choose from sedan, SUV, luxury cars with unlimited km, doorstep delivery, 
-              and airport pickup/drop. Perfect for temple tours and outstation travel.
-            </p>
-            
-            <div class="hero-features mb-4">
-              <div class="feature-item">
-                <i class="fa fa-check-circle text-success mr-2"></i>
-                <span>24/7 Support</span>
-              </div>
-              <div class="feature-item">
-                <i class="fa fa-check-circle text-success mr-2"></i>
-                <span>Unlimited KM</span>
-              </div>
-              <div class="feature-item">
-                <i class="fa fa-check-circle text-success mr-2"></i>
-                <span>Airport Pickup</span>
-              </div>
+          </div>
+          
+          <h1 class="hero-title mb-4">
+            Self Drive Car
+            <span class="highlight-text">Rental</span>
+            <br>in Bhubaneswar
+          </h1>
+          
+          <p class="hero-subtitle mb-4">
+            Experience the freedom of self-drive car rentals with our premium fleet. 
+            Clean, verified vehicles with 24/7 support for your comfortable journey.
+          </p>
+          
+          <div class="hero-features mb-4">
+            <div class="feature-item-modern">
+              <i class="fa fa-check-circle"></i>
+              <span>Only ₹5,000 refundable deposit</span>
             </div>
-            
-            <div class="hero-cta">
-              <a href="#booking-form" class="btn btn-primary btn-lg px-5 py-3 mr-3 smooth-scroll">
-                <i class="fa fa-car mr-2"></i>Book Now
-              </a>
-              <a href="all-cars-for-self-drive-bhubaneswar.php" class="btn btn-outline-primary btn-lg px-5 py-3">
-                View All Cars
-              </a>
+            <div class="feature-item-modern">
+              <i class="fa fa-check-circle"></i>
+              <span>No loan liability, Zero downpayment</span>
             </div>
-            
-            <div class="hero-stats mt-5">
-              <div class="row">
-                <div class="col-4">
-                  <div class="stat-item">
-                    <h3 class="stat-number">10K+</h3>
-                    <p class="stat-label">Happy Customers</p>
-                  </div>
-                </div>
-                <div class="col-4">
-                  <div class="stat-item">
-                    <h3 class="stat-number">30+</h3>
-                    <p class="stat-label">Car Models</p>
-                  </div>
-                </div>
-                <div class="col-4">
-                  <div class="stat-item">
-                    <h3 class="stat-number">24/7</h3>
-                    <p class="stat-label">Support</p>
-                  </div>
-                </div>
-              </div>
+            <div class="feature-item-modern">
+              <i class="fa fa-check-circle"></i>
+              <span>Insurance & maintenance included</span>
             </div>
           </div>
+          
+          <div class="hero-cta">
+            <a href="#booking-form" class="btn-modern-primary">
+              Book Your Car Now
+            </a>
+            <a href="all-cars-for-self-drive-bhubaneswar.php" class="btn-modern-outline">
+              View All Cars
+            </a>
+          </div>
         </div>
-        
-        <!-- Booking Form -->
-        <div class="col-lg-6 col-md-12">
-          <div class="booking-card" id="booking-form">
-            <div class="card border-0 shadow-lg">
-              <div class="card-header bg-primary text-white text-center py-4">
-                <h4 class="mb-0 font-weight-bold">
-                  <i class="fa fa-calendar-check mr-2"></i>Book Your Car Now
-                </h4>
-                <p class="mb-0 mt-2 opacity-90">Quick & Easy Booking</p>
+      </div>
+      
+      <!-- Booking Form - Shows First on Mobile -->
+      <div class="col-lg-6 col-md-12 order-1 order-lg-2 mb-5 mb-lg-0">
+        <div class="booking-card-modern" id="booking-form">          
+          <div class="booking-form-container">
+            <h3 class="booking-title">Book Your Perfect Car</h3>
+            <p class="booking-subtitle">Choose from our premium fleet</p>
+            
+            <form method="get" action="all-cars-for-self-drive-bhubaneswar.php" class="modern-booking-form">
+              
+              <!-- Location & Date Selection -->
+              <div class="form-group-modern mb-4">
+                <label class="form-label-modern">
+                  <i class="fa fa-map-marker mr-2"></i>Pickup Location
+                </label>
+                <div class="input-group-modern">
+                  <select class="form-control-modern" name="pickuploc" id="pickuploc" required style="color: #000000 !important; background-color: #ffffff !important;">
+                    <option value="" style="color: #666666 !important;">Choose pickup location</option>
+                    <?php
+                    // Get location data for Bhubaneswar (city_id = 1)
+                    if (isset($dbObj)) {
+                        $get_pickup_locations = $dbObj->fetch_data("location", "city_id = '1'");
+                        foreach ($get_pickup_locations as $location) {
+                            echo '<option value="' . $location['id'] . '" style="color: #000000 !important; background-color: #ffffff !important;">' . $location['pickup_point'] . '</option>';
+                        }
+                    }
+                    ?>
+                  </select>
+                  <i class="fa fa-chevron-down dropdown-icon"></i>
+                </div>
               </div>
               
-              <div class="card-body p-4">
-                <form method="get" action="all-cars-for-self-drive-bhubaneswar.php" class="booking-form">
-                  
-                  <!-- Location Selection -->
-                  <div class="row">
-                    <div class="col-md-6 mb-3">
-                      <label class="form-label font-weight-600">
-                        <i class="fa fa-map-marker text-primary mr-2"></i>Pickup Location
-                      </label>
-                      <select class="form-control form-control-lg" name="pickuploc" id="pickuploc" required>
-                        <option value="">Select pickup location</option>
-                        <?php 
-                        $get_location_data = $dbObj->fetch_data("location", "city_id = '1'");
-                        foreach ($get_location_data as $data) {
-                            $pick_Point = $data['pick_point'];
-                        ?>
-                        <option value="<?=$data['id'];?>"><?=$pick_Point;?></option>
-                        <?php } ?>
-                      </select>
-                    </div>
-                    
-                    <div class="col-md-6 mb-3">
-                      <label class="form-label font-weight-600">
-                        <i class="fa fa-map-marker text-danger mr-2"></i>Drop Location
-                      </label>
-                      <select class="form-control form-control-lg" name="droploc" id="droploc" required>
-                        <option value="">Select drop location</option>
-                        <?php 
-                        $get_location_data1 = $dbObj->fetch_data("location", "city_id = '1'");
-                        foreach ($get_location_data1 as $data1) {
-                            $drp_Point = $data1['drop_point'];
-                        ?>
-                        <option value="<?=$data1['id'];?>"><?=$drp_Point;?></option>
-                        <?php } ?>
-                      </select>
-                    </div>
-                  </div>
-                  
-                  <!-- Date & Time Selection -->
-                  <div class="row">
-                    <div class="col-md-6 mb-3">
-                      <label class="form-label font-weight-600">
-                        <i class="fa fa-calendar text-success mr-2"></i>Pickup Date
-                      </label>
-                      <input type="text" class="form-control form-control-lg" name="pdate" id="pdate" 
-                             placeholder="Select date" required autocomplete="off"
-                             onChange="return calculateTime($('#dtime').val(),this.value,$('#ptime').val(),$('#ddate').val());">
-                    </div>
-                    
-                    <div class="col-md-6 mb-3">
-                      <label class="form-label font-weight-600">
-                        <i class="fa fa-clock-o text-info mr-2"></i>Pickup Time
-                      </label>
-                      <select class="form-control form-control-lg" name="ptime" id="ptime" required
-                              onChange="return calculateTime($('#dtime').val(),$('#pdate').val(),this.value,$('#ddate').val());">
-                        <option value="">Select time</option>
-                        <?php
-                        for ($i = 6; $i < 24; $i++) {
-                            $num = $i > 23 ? $i - 24 : $i;
-                            $ampm = $num > 11 && $num < 24 ? 'PM' : 'AM';
-                            echo "<option value=\"$num:00\"> $num:00 $ampm</option>\n";
+              <div class="form-group-modern mb-4">
+                <label class="form-label-modern">
+                  <i class="fa fa-map-marker mr-2"></i>Drop Location
+                </label>
+                <div class="input-group-modern">
+                  <select class="form-control-modern" name="droploc" id="droploc" required style="color: #000000 !important; background-color: #ffffff !important;">
+                    <option value="" style="color: #666666 !important;">Choose drop location</option>
+                    <?php
+                    // Use the same location data for drop-off points
+                    if (isset($dbObj) && isset($get_pickup_locations)) {
+                        foreach ($get_pickup_locations as $location) {
+                            echo '<option value="' . $location['id'] . '" style="color: #000000 !important; background-color: #ffffff !important;">' . $location['drop_point'] . '</option>';
                         }
-                        ?>
-                      </select>
-                    </div>
-                  </div>
-                  
-                  <div class="row">
-                    <div class="col-md-6 mb-3">
-                      <label class="form-label font-weight-600">
-                        <i class="fa fa-calendar text-warning mr-2"></i>Drop Date
-                      </label>
-                      <input type="text" class="form-control form-control-lg" name="ddate" id="ddate" 
-                             placeholder="Select date" required autocomplete="off"
-                             onChange="return calculateTime($('#dtime').val(),$('#pdate').val(),$('#ptime').val(),this.value);">
-                    </div>
-                    
-                    <div class="col-md-6 mb-3">
-                      <label class="form-label font-weight-600">
-                        <i class="fa fa-clock-o text-secondary mr-2"></i>Drop Time
-                      </label>
-                      <select class="form-control form-control-lg" name="dtime" id="dtime" required
-                              onChange="return calculateTime(this.value,$('#pdate').val(),$('#ptime').val(),$('#ddate').val());">
-                        <option value="">Select time</option>
-                        <?php
-                        for ($i = 6; $i < 24; $i++) {
-                            $num = $i > 23 ? $i - 24 : $i;
-                            $ampm = $num > 11 && $num < 24 ? 'PM' : 'AM';
-                            echo "<option value=\"$num:00\"> $num:00 $ampm</option>\n";
-                        }
-                        ?>
-                      </select>
-                    </div>
-                  </div>
-                  
-                  <!-- Search Button -->
-                  <div class="text-center mt-4">
-                    <button type="submit" class="btn btn-primary btn-lg btn-block py-3 font-weight-bold">
-                      <i class="fa fa-search mr-2"></i>Search Available Cars
-                    </button>
-                  </div>
-                  
-                  <!-- Additional Info -->
-                  <div class="booking-info mt-3">
-                    <div class="row text-center">
-                      <div class="col-4">
-                        <small class="text-muted">
-                          <i class="fa fa-shield text-success"></i><br>
-                          Verified Cars
-                        </small>
-                      </div>
-                      <div class="col-4">
-                        <small class="text-muted">
-                          <i class="fa fa-phone text-primary"></i><br>
-                          Instant Support
-                        </small>
-                      </div>
-                      <div class="col-4">
-                        <small class="text-muted">
-                          <i class="fa fa-money text-warning"></i><br>
-                          Best Prices
-                        </small>
-                      </div>
-                    </div>
-                  </div>
-                  
-                </form>
+                    }
+                    ?>
+                  </select>
+                  <i class="fa fa-chevron-down dropdown-icon"></i>
+                </div>
               </div>
+              
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group-modern mb-4">
+                    <label class="form-label-modern">
+                      <i class="fa fa-calendar mr-2"></i>Pickup Date
+                    </label>
+                    <input type="text" class="form-control-modern" name="pdate" id="pdate" 
+                           placeholder="Select date" required autocomplete="off">
+                  </div>
+                </div>
+                
+                <div class="col-md-6">
+                  <div class="form-group-modern mb-4">
+                    <label class="form-label-modern">
+                      <i class="fa fa-clock-o mr-2"></i>Pickup Time
+                    </label>
+                    <select class="form-control-modern" name="ptime" id="ptime" required>
+                      <option value="">Select time</option>
+                      <?php
+                      for ($i = 6; $i < 24; $i++) {
+                          $num = $i > 23 ? $i - 24 : $i;
+                          $ampm = $num > 11 && $num < 24 ? 'PM' : 'AM';
+                          echo "<option value=\"$num:00\"> $num:00 $ampm</option>\n";
+                      }
+                      ?>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group-modern mb-4">
+                    <label class="form-label-modern">
+                      <i class="fa fa-calendar mr-2"></i>Drop Date
+                    </label>
+                    <input type="text" class="form-control-modern" name="ddate" id="ddate" 
+                           placeholder="Select date" required autocomplete="off">
+                  </div>
+                </div>
+                
+                <div class="col-md-6">
+                  <div class="form-group-modern mb-4">
+                    <label class="form-label-modern">
+                      <i class="fa fa-clock-o mr-2"></i>Drop Time
+                    </label>
+                    <select class="form-control-modern" name="dtime" id="dtime" required>
+                      <option value="">Select time</option>
+                      <?php
+                      for ($i = 6; $i < 24; $i++) {
+                          $num = $i > 23 ? $i - 24 : $i;
+                          $ampm = $num > 11 && $num < 24 ? 'PM' : 'AM';
+                          echo "<option value=\"$num:00\"> $num:00 $ampm</option>\n";
+                      }
+                      ?>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Search Button -->
+              <button type="submit" class="btn-search-modern">
+                <i class="fa fa-search mr-2"></i>Search Available Cars
+              </button>
+              
+            </form>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Mobile-only simplified features -->
+      <div class="hero-features-mobile d-lg-none text-center">
+        <div class="row">
+          <div class="col-6">
+            <div class="feature-mobile">
+              <i class="fa fa-shield text-success"></i>
+              <span>Verified Cars</span>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="feature-mobile">
+              <i class="fa fa-phone text-primary"></i>
+              <span>24/7 Support</span>
             </div>
           </div>
         </div>
-        
       </div>
+      
     </div>
   </div>
 </section>

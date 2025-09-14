@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Checkout Color Test</title>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #dbeafe 0%, #ecfdf5 100%);
+            min-height: 100vh;
+        }
+        
+        .test-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .test-header {
+            background: linear-gradient(135deg, #60a5fa 0%, #34d399 100%);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(96, 165, 250, 0.3);
+        }
+        
+        .test-header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        
+        .test-content {
+            padding: 2rem;
+        }
+        
+        .test-button {
+            background: linear-gradient(135deg, #60a5fa, #10b981);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(96, 165, 250, 0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .test-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(96, 165, 250, 0.4);
+        }
+        
+        .color-palette {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        
+        .color-item {
+            padding: 1rem;
+            border-radius: 12px;
+            text-align: center;
+            color: white;
+            font-weight: 600;
+        }
+        
+        .primary { background: #60a5fa; }
+        .accent { background: #34d399; }
+        .success { background: #10b981; }
+        .light-bg { background: #dbeafe; color: #1f2937; }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <div class="test-header">
+            <h1>🚗 Secure Checkout</h1>
+            <p>Complete your booking details and secure your self-drive car rental</p>
+        </div>
+        
+        <div class="test-content">
+            <h2>New Light & Positive Color Scheme</h2>
+            <p>This preview shows the updated checkout page with lighter, more positive colors:</p>
+            
+            <div class="color-palette">
+                <div class="color-item primary">Light Blue<br>#60a5fa</div>
+                <div class="color-item accent">Green Accent<br>#34d399</div>
+                <div class="color-item success">Success Green<br>#10b981</div>
+                <div class="color-item light-bg">Light Background<br>#dbeafe → #ecfdf5</div>
+            </div>
+            
+            <br><br>
+            <button class="test-button">
+                🔒 Secure My Booking
+            </button>
+            
+            <h3>Key Improvements:</h3>
+            <ul>
+                <li>✨ Lighter, more welcoming background gradient</li>
+                <li>🎨 Positive blue-to-green header gradient</li>
+                <li>💚 Trust-building green accent colors</li>
+                <li>☀️ Overall brighter, more optimistic feel</li>
+                <li>🎯 Better contrast and accessibility</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

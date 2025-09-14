@@ -26,6 +26,8 @@ $db = new SiteData();
 <!-- Web Fonts  -->
 <?php include("includes/inc-css.php");?>
 <link rel="stylesheet" href="assets/css/modern-about-page.css">
+<!-- AOS Animation Library -->
+<link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
 </head>
 <body>
 <div class="body">
@@ -39,7 +41,7 @@ $db = new SiteData();
       <div class="container">
         <div class="row align-items-center min-vh-75">
           <div class="col-lg-6 col-md-12">
-            <div class="about-hero-content">
+            <div class="about-hero-content" data-aos="fade-up">
               <div class="hero-badge">
                 <i class="fa fa-star"></i>
                 <span>Trusted Since 2018</span>
@@ -69,7 +71,7 @@ $db = new SiteData();
             </div>
           </div>
           <div class="col-lg-6 col-md-12">
-            <div class="about-hero-image">
+            <div class="about-hero-image" data-aos="fade-left" data-aos-delay="200">
               <div class="hero-image-wrapper">
                 <div class="floating-card card-1">
                   <i class="fa fa-clock-o"></i>
@@ -97,7 +99,7 @@ $db = new SiteData();
     <section class="mission-vision-section">
       <div class="container">
         <div class="row">
-          <div class="col-lg-6 col-md-12">
+          <div class="col-lg-6 col-md-12" data-aos="fade-up">
             <div class="mission-card">
               <div class="card-icon">
                 <i class="fa fa-eye"></i>
@@ -106,7 +108,7 @@ $db = new SiteData();
               <p>To revolutionize India's transportation industry by providing organized, technology-driven, and customer-centric self-drive car rental solutions that set new standards for safety, reliability, and convenience.</p>
             </div>
           </div>
-          <div class="col-lg-6 col-md-12">
+          <div class="col-lg-6 col-md-12" data-aos="fade-up" data-aos-delay="200">
             <div class="mission-card">
               <div class="card-icon">
                 <i class="fa fa-bullseye"></i>
@@ -123,7 +125,7 @@ $db = new SiteData();
     <section class="story-section">
       <div class="container">
         <div class="row align-items-center">
-          <div class="col-lg-6 col-md-12">
+          <div class="col-lg-6 col-md-12" data-aos="fade-right">
             <div class="story-content">
               <h2 class="section-title">Our Journey</h2>
               <div class="story-timeline">
@@ -151,7 +153,7 @@ $db = new SiteData();
               </div>
             </div>
           </div>
-          <div class="col-lg-6 col-md-12">
+          <div class="col-lg-6 col-md-12" data-aos="fade-left" data-aos-delay="200">
             <div class="story-image">
               <div class="achievement-cards">
                 <div class="achievement-card">
@@ -184,12 +186,12 @@ $db = new SiteData();
     <!-- Why Choose Us Section -->
     <section class="why-choose-section">
       <div class="container">
-        <div class="text-center mb-5">
+        <div class="text-center mb-5" data-aos="fade-up">
           <h2 class="section-title">Why Choose EduxonCabs?</h2>
           <p class="section-subtitle">Experience the difference with our premium self-drive car rental services</p>
         </div>
         <div class="row">
-          <div class="col-lg-4 col-md-6 mb-4">
+          <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="100">
             <div class="feature-card">
               <div class="feature-icon">
                 <i class="fa fa-shield"></i>
@@ -198,7 +200,7 @@ $db = new SiteData();
               <p>All our vehicles undergo rigorous safety checks and are fully insured for your peace of mind.</p>
             </div>
           </div>
-          <div class="col-lg-4 col-md-6 mb-4">
+          <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="200">
             <div class="feature-card">
               <div class="feature-icon">
                 <i class="fa fa-rupee"></i>
@@ -207,7 +209,7 @@ $db = new SiteData();
               <p>Starting at just ₹35/hour, enjoy premium car rental services without breaking the bank.</p>
             </div>
           </div>
-          <div class="col-lg-4 col-md-6 mb-4">
+          <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="300">
             <div class="feature-card">
               <div class="feature-icon">
                 <i class="fa fa-clock-o"></i>
@@ -216,7 +218,7 @@ $db = new SiteData();
               <p>Round-the-clock roadside assistance ensures you're never stranded during your journey.</p>
             </div>
           </div>
-          <div class="col-lg-4 col-md-6 mb-4">
+          <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="400">
             <div class="feature-card">
               <div class="feature-icon">
                 <i class="fa fa-car"></i>
@@ -225,7 +227,7 @@ $db = new SiteData();
               <p>Choose from 30+ car models including hatchbacks, sedans, SUVs, and luxury vehicles.</p>
             </div>
           </div>
-          <div class="col-lg-4 col-md-6 mb-4">
+          <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="500">
             <div class="feature-card">
               <div class="feature-icon">
                 <i class="fa fa-map-marker"></i>
@@ -234,7 +236,7 @@ $db = new SiteData();
               <p>Convenient pickup points across Bhubaneswar and Odisha for easy accessibility.</p>
             </div>
           </div>
-          <div class="col-lg-4 col-md-6 mb-4">
+          <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="600">
             <div class="feature-card">
               <div class="feature-icon">
                 <i class="fa fa-mobile"></i>
@@ -251,7 +253,7 @@ $db = new SiteData();
     <section class="cta-section">
       <div class="container">
         <div class="row">
-          <div class="col-12 text-center">
+          <div class="col-12 text-center" data-aos="fade-up">
             <div class="cta-content">
               <h2>Ready to Experience the EduxonCabs Difference?</h2>
               <p>Join thousands of satisfied customers who trust us for their self-drive car rental needs</p>
@@ -277,7 +279,17 @@ $db = new SiteData();
 </div>
 <?php include("includes/inc-js.php");?>
 
+<!-- AOS Animation Library -->
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
 <script>
+  // Initialize AOS animations
+  AOS.init({
+    duration: 800,
+    easing: 'ease-in-out',
+    once: true,
+    offset: 100
+  });
+
   // Smooth scrolling for internal links
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
@@ -291,6 +303,24 @@ $db = new SiteData();
       }
     });
   });
+
+  // Performance optimization: Lazy load images
+  if ('IntersectionObserver' in window) {
+    const imageObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const img = entry.target;
+          img.src = img.dataset.src;
+          img.classList.remove('lazy');
+          observer.unobserve(img);
+        }
+      });
+    });
+
+    document.querySelectorAll('img[data-src]').forEach(img => {
+      imageObserver.observe(img);
+    });
+  }
 
   // Add scroll effect to navbar
   window.addEventListener('scroll', function() {

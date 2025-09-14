@@ -37,8 +37,18 @@ $pickuploc = $mysqli_conn->real_escape_string($_POST["pickuploc"]);
 $dob = $mysqli_conn->real_escape_string($_POST["dob"]);
 $coupon_status = $mysqli_conn->real_escape_string($_POST["gvcode"]);
 $coupon_code = $mysqli_conn->real_escape_string($_POST["coupon"]);
-$gvamount = $mysqli_conn->real_escape_string($_POST["gvamount"]);
+$gvamount = isset($_POST["gvamount"]) && $_POST["gvamount"] !== '' ? (int)$mysqli_conn->real_escape_string($_POST["gvamount"]) : 0;
 $licenseNumber = $mysqli_conn->real_escape_string($_POST["licenseNumber"]);
+
+// Save form data to session for persistence (in case user returns from payment)
+$_SESSION['booking_name'] = $name;
+$_SESSION['booking_email'] = $email;
+$_SESSION['booking_phone'] = $phone;
+$_SESSION['booking_dob'] = $dob;
+$_SESSION['booking_license'] = $licenseNumber;
+if (isset($_POST['message'])) {
+    $_SESSION['booking_message'] = $mysqli_conn->real_escape_string($_POST['message']);
+}
 
 $count = $dbObj->countRec("blocked_dl", "dl_number = '$licenseNumber'");
 if ($count > 0) {
@@ -47,10 +57,10 @@ if ($count > 0) {
     exit();
 }
 
-$wkdayshr = $mysqli_conn->real_escape_string($_POST["wkdayshr"]);
-$wkendhr = $mysqli_conn->real_escape_string($_POST["wkendhr"]);
-$wkdaysamnt = $mysqli_conn->real_escape_string($_POST["wkdaysamnt"]);
-$wkendamnt = $mysqli_conn->real_escape_string($_POST["wkendamnt"]);
+$wkdayshr = isset($_POST["wkdayshr"]) && $_POST["wkdayshr"] !== '' ? (int)$mysqli_conn->real_escape_string($_POST["wkdayshr"]) : 0;
+$wkendhr = isset($_POST["wkendhr"]) && $_POST["wkendhr"] !== '' ? (int)$mysqli_conn->real_escape_string($_POST["wkendhr"]) : 0;
+$wkdaysamnt = isset($_POST["wkdaysamnt"]) && $_POST["wkdaysamnt"] !== '' ? (float)$mysqli_conn->real_escape_string($_POST["wkdaysamnt"]) : 0;
+$wkendamnt = isset($_POST["wkendamnt"]) && $_POST["wkendamnt"] !== '' ? (float)$mysqli_conn->real_escape_string($_POST["wkendamnt"]) : 0;
 
 $_SESSION["trvlDte"] = $mysqli_conn->real_escape_string($_POST["pdate"]);
 $_SESSION["trvltme"] = $mysqli_conn->real_escape_string($_POST["ptime"]);
@@ -245,7 +255,7 @@ $updatelicenseImg = $dbObj->updateToDb(
 $razorpay_order_id = $_SESSION['razorpay_order_id'];
 $ins_dta = $dbObj->insertToDb(
     "tbl_order",
-    "customer_id = '$customer_id', `payment_id` = '', `order_id`='$razorpay_order_id', `buyer_name`='$name', `car_id`='$car_id', `email`='$email', `phone`='$phone', `amount`='$price', `booked_car`='$product_name', `status`='Pending', `booked_dte`='$booked_dte', `booked_tme`='$booked_tme', `returned_dte`='$returned_dte', `return_tme`='$returned_tme', secur_pay_type='$securityPaymode', vehicle_type='$vehicle_type', city='$city', pickup_point='$pickuploc', customer_dob='$dob', coupon ='$coupon_code', coupon_status='$coupon_status', reedem_amount='$gvamount', from_date='$start_book_time', to_date='$end_book_time', regulardayhour='$wkdayshr', regulardayamount='$wkdaysamnt', weekendhour='$wkendhr', weekendamount='$wkendamnt'"
+    "customer_id = '$customer_id', payment_id = '', order_id='$razorpay_order_id', buyer_name='$name', car_id='$car_id', bike_id='0', email='$email', phone='$phone', amount='$price', booked_car='$product_name', status='Pending', booked_dte='$booked_dte', booked_tme='$booked_tme', returned_dte='$returned_dte', return_tme='$returned_tme', secur_pay_type='$securityPaymode', vehicle_type='$vehicle_type', city='$city', pickup_point='$pickuploc', customer_dob='$dob', coupon='$coupon_code', coupon_status='$coupon_status', reedem_amount='$gvamount', from_date='$start_book_time', to_date='$end_book_time', regulardayhour='$wkdayshr', regulardayamount='$wkdaysamnt', weekendhour='$wkendhr', weekendamount='$wkendamnt', extended_time='1970-01-01 00:00:00', return_status='0'"
 );
 
 $pay_ulr = $response["longurl"];

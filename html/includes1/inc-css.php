@@ -17,3 +17,6 @@
       
       <!-- CSS:: TEXT OVERLAP FIX -->
       <link rel="stylesheet" type="text/css" href="assets/css/text-overlap-fix.css">
+      
+      <!-- CSS:: MODERN DESIGN -->
+      <link rel="stylesheet" type="text/css" href="assets/css/modern-design.css">
