@@ -15,9 +15,9 @@ $db = new SiteData();
 <!-- Basic -->
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>Contact Us | Eduxon Cars</title>
-<meta name="keywords" content="Eduxoncabs.com" />
-<meta name="description" content="Contact Eduxon Cabs for reliable self-drive car rentals in Bhubaneswar. Call us at +91-9078212872 or email at eduxontechnologies@gmail.com for bookings and support."/>
+<title>Contact EduxonCabs | Self Drive Car Rental Bhubaneswar | 24 Hour Support</title>
+<meta name="keywords" content="contact EduxonCabs, self drive car rental Bhubaneswar contact, car rental BBSR phone number, 24 hour car rental support, book self drive car online Bhubaneswar, EduxonCabs customer care, self drive cars Bhubaneswar booking" />
+<meta name="description" content="Contact EduxonCabs for self drive car rental Bhubaneswar. 24 hour support ☎ +91-9078212872. Book online or visit our office. Instant booking, doorstep delivery available."/>
 <meta name="author" content="Eduxoncabs.com">
 <!-- Favicon -->
 <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />

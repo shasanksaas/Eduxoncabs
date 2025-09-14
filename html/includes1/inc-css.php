@@ -14,3 +14,6 @@
       <link rel="stylesheet" type="text/css" href="assets/css/main.css">
       <link rel="stylesheet" type="text/css" id="r-color-roller" href="assets/color-files/color-08.css">
       <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+      
+      <!-- CSS:: TEXT OVERLAP FIX -->
+      <link rel="stylesheet" type="text/css" href="assets/css/text-overlap-fix.css">

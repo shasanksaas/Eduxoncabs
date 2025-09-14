@@ -14,9 +14,9 @@ $db = new SiteData();
 <!-- Basic -->
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>Frequently Asked Questions (FAQ) | Eduxon Cars</title>
-<meta name="keywords" content="Eduxoncabs.com" />
-<meta name="description" content="Find answers to common questions about our self-drive car rental services, booking process, pricing, policies, and more for a hassle-free experience."/>
+<title>FAQ - Self Drive Car Rental Bhubaneswar | Booking Process & Policies</title>
+<meta name="keywords" content="self drive car rental FAQ, car rental booking process Bhubaneswar, self drive cars rental policies, how to book car rental Bhubaneswar, car rental documents required, self drive car charges Bhubaneswar, EduxonCabs FAQ, car rental without driver Bhubaneswar" />
+<meta name="description" content="FAQ for self drive car rental Bhubaneswar. Learn about booking process, documents required, charges, policies for car rental without driver. Get answers about EduxonCabs services."/>
 <meta name="author" content="Eduxoncabs.com">
 <!-- Favicon -->
 <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />

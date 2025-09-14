@@ -19,6 +19,25 @@ RewriteRule ^(.*)$ index.php?$1 [L,QSA]
 RewriteCond %{HTTP_HOST} ^.*$
 RewriteRule ^allbikes\-bike\-for\-rental\.php$ https://www.eduxoncabs.com/all-bikes-bike-for-rental-bhubaneswar.php [R=301,L]
 
+# SEO-friendly redirects for common search terms
+RewriteRule ^self-drive-cars-bhubaneswar/?$ / [R=301,L]
+RewriteRule ^car-rental-bhubaneswar/?$ / [R=301,L]
+RewriteRule ^self-drive-cars-bbsr/?$ / [R=301,L]
+RewriteRule ^car-rental-bbsr/?$ / [R=301,L]
+RewriteRule ^cheap-car-rental-bhubaneswar/?$ / [R=301,L]
+RewriteRule ^hourly-car-rental-bhubaneswar/?$ / [R=301,L]
+RewriteRule ^24-hour-car-rental-bhubaneswar/?$ / [R=301,L]
+
+# Vehicle-specific redirects
+RewriteRule ^sedan-rental-bhubaneswar/?$ all-cars-for-self-drive-bhubaneswar.php [R=301,L]
+RewriteRule ^suv-rental-bhubaneswar/?$ all-cars-for-self-drive-bhubaneswar.php [R=301,L]
+RewriteRule ^maruti-dzire-rental-bhubaneswar/?$ all-cars-for-self-drive-bhubaneswar.php [R=301,L]
+RewriteRule ^luxury-car-rental-bhubaneswar/?$ all-cars-for-self-drive-bhubaneswar.php [R=301,L]
+
+# Location-specific redirects
+RewriteRule ^car-rental-bhubaneswar-airport/?$ self-drive-car-rental-bhubaneswar-airport.php [R=301,L]
+RewriteRule ^airport-car-rental/?$ self-drive-car-rental-bhubaneswar-airport.php [R=301,L]
+
 # -----------------------------------------------
 # Redirect HTTP to HTTPS
 # -----------------------------------------------

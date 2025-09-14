@@ -67,13 +67,17 @@ if (isset($_POST["act"]) && $_POST["act"] == "subscribe") {
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
-<title>Book Best-Self Drive Car Rental In Bhubaneswar at lowest Price</title>
-<meta name="keywords" content="Best Car Rental For Self drive, Self Drive Car Rental In Bhubaneswar, Self Drive Cars In Bhubaneswar, Self Drive Car Rental In Bhubaneswar Airport, Cheapest Self Drive Car Rental In Bhubaneswar, No.#1 Self Drive Cars In Bhubaneswar, Self Drive Car In Bhubaneswar, Self Drive Cars In Bhubaneswar at Affordable Prices"/>
-<meta name="description" content="Best Self drive car rental in Bhubaneswar starting@₹35/hour. Free airport pickup/drop, unlimited km. Renault Kwid AT(2025),Tata Punch(2025), Hyundai creta(2024),Mahindra Scorpio N(2025),Maruti Fronx any many more new car available for rent."/>
-<meta name="author" content="Best Self Drive Car Rental in Bhubaneswar">
-<meta property="product:brand" content="Best Self Drive Car Rental In Bhubaneswar" />
-<meta property="og:site_name" content="Best Self Drive Car Rental In Bhubaneswar" />
-<meta property="og:title" content="Best Self Drive Car Rental In Bhubaneswar" />
+<title>Self Drive Cars Bhubaneswar | Car Rental BBSR Starting ₹35/Hour | 24 Hour Service</title>
+<meta name="keywords" content="self drive cars Bhubaneswar, self drive car rental Bhubaneswar, car rental Bhubaneswar, self drive cars BBSR, self drive cars Bhubaneswar airport, car rental Bhubaneswar airport, 24 hour car rental Bhubaneswar, hourly car rental Bhubaneswar, unlimited km car rental Bhubaneswar, doorstep delivery car rental Bhubaneswar, cheap car rental Bhubaneswar, affordable self drive cars Bhubaneswar, sedan rental Bhubaneswar, SUV rental Bhubaneswar"/>
+<meta name="description" content="Best self drive cars Bhubaneswar starting ₹35/hour. 24 hour car rental BBSR with unlimited km, doorstep delivery & airport pickup. Book sedan, SUV rental Bhubaneswar online. Affordable self drive car rental with no hidden charges."/>
+<meta name="author" content="EduxonCabs - Self Drive Car Rental Bhubaneswar">
+<meta property="product:brand" content="Self Drive Cars Bhubaneswar | EduxonCabs" />
+<meta property="og:site_name" content="EduxonCabs - Self Drive Car Rental Bhubaneswar" />
+<meta property="og:title" content="Self Drive Cars Bhubaneswar | Car Rental BBSR ₹35/Hour | EduxonCabs" />
+<meta property="og:description" content="Best self drive cars Bhubaneswar starting ₹35/hour. 24 hour car rental BBSR with unlimited km, doorstep delivery & airport pickup. Book online now!" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://www.eduxoncabs.com/" />
+<meta property="og:image" content="https://www.eduxoncabs.com/img/logo.png" />
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-R24JTT23LT">
 </script>
 <script>
@@ -110,6 +114,10 @@ if (isset($_POST["act"]) && $_POST["act"] == "subscribe") {
 <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
 <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
 <?php include "includes1/inc-css.php"; ?>
+<!-- Modern Design CSS -->
+<link href="assets/css/modern-design.css" rel="stylesheet">
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 
 <!--Start of Tawk.to Script-->
 <script type="text/javascript">
@@ -126,14 +134,101 @@ s0.parentNode.insertBefore(s1,s0);
 <script type="application/ld+json">
 {
   "@context": "https://schema.org/",
-  "@type": "WebSite",
-  "name": "Best Self Drive Car Rental In Bhubaneswar",
+  "@type": "LocalBusiness",
+  "name": "EduxonCabs - Self Drive Car Rental Bhubaneswar",
+  "description": "Best self drive cars Bhubaneswar starting ₹35/hour. 24 hour car rental BBSR with unlimited km, doorstep delivery & airport pickup.",
   "url": "https://www.eduxoncabs.com/",
+  "telephone": "+91-9776614199",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Bhubaneswar",
+    "addressRegion": "Odisha",
+    "addressCountry": "IN"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 20.2961,
+    "longitude": 85.8245
+  },
+  "openingHours": "Mo-Su 00:00-23:59",
+  "priceRange": "₹35-₹2000",
+  "serviceArea": {
+    "@type": "City",
+    "name": "Bhubaneswar"
+  },
+  "hasOfferingCatalog": {
+    "@type": "OfferingCatalog",
+    "name": "Self Drive Car Rental Services",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Hourly Car Rental Bhubaneswar",
+          "description": "Self drive cars starting ₹35/hour"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Daily Car Rental Bhubaneswar",
+          "description": "24 hour car rental with unlimited km"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Airport Car Rental Bhubaneswar",
+          "description": "Car rental Bhubaneswar airport pickup and drop"
+        }
+      }
+    ]
+  },
   "potentialAction": {
     "@type": "SearchAction",
     "target": "https://www.eduxoncabs.com/{search_term_string}",
     "query-input": "required name=search_term_string"
   }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "AutoRental",
+  "name": "EduxonCabs Self Drive Car Rental",
+  "description": "Self drive cars Bhubaneswar starting ₹35/hour. Sedan, SUV rental with unlimited km, doorstep delivery, airport pickup.",
+  "provider": {
+    "@type": "Organization",
+    "name": "EduxonCabs",
+    "url": "https://www.eduxoncabs.com"
+  },
+  "areaServed": {
+    "@type": "City",
+    "name": "Bhubaneswar",
+    "addressRegion": "Odisha",
+    "addressCountry": "IN"
+  },
+  "offers": [
+    {
+      "@type": "Offer",
+      "name": "Hourly Car Rental Bhubaneswar",
+      "description": "Self drive cars starting ₹35/hour",
+      "price": "35",
+      "priceCurrency": "INR",
+      "availability": "https://schema.org/InStock"
+    },
+    {
+      "@type": "Offer", 
+      "name": "Daily Car Rental Bhubaneswar",
+      "description": "24 hour car rental with unlimited km",
+      "price": "1000",
+      "priceCurrency": "INR",
+      "availability": "https://schema.org/InStock"
+    }
+  ]
 }
 </script>
 
@@ -204,153 +299,196 @@ s0.parentNode.insertBefore(s1,s0);
 </head>
 <body>
 <div class="r-wrapper">
-  <?php include "includes1/site-banner1.php"; ?>
-  <section id="r-advantages-part" class="r-advantages-part">
-    <div class="r-advantage-main-part r-advantage-main-part-white">
-      <div class="container clearfix">
-        <div class="advantage-head">
-          <div class="row clearfix">
-            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 text-left"> <span>30+ CARS TYPE &amp; BRANDS</span>
-              <h1>Best Self Drive Car Rental Service in Bhubaneswar<b></b></h1>
+  <?php include "includes1/modern-header-hero.php"; ?>
+  <!-- Modern Features Section -->
+  <section class="modern-features section-padding">
+    <div class="container">
+      <div class="text-center mb-5">
+        <span class="badge badge-primary-light text-uppercase px-3 py-2 mb-3">Why Choose EduxonCabs</span>
+        <h2 class="section-title">Self Drive Cars Bhubaneswar | Car Rental BBSR Starting ₹35/Hour</h2>
+        <p class="section-subtitle">
+          <a href="https://eduxoncabs.com/index.php" target="_bhubaneswar">EduxonCabs offers the best self drive cars Bhubaneswar</a> 
+          with 24 hour service at affordable rates. Choose from our <a href="https://www.eduxoncabs.com/all-cars-for-self-drive-bhubaneswar.php">premium sedan, SUV rental Bhubaneswar</a> 
+          fleet including Maruti Dzire, Hyundai Creta, and luxury cars. Enjoy unlimited km car rental with doorstep delivery, airport pickup/drop, and hourly rental starting ₹35/hour.
+        </p>
+      </div>
+      
+      <div class="row">
+        <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fa fa-headphones"></i>
             </div>
-            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 text-left">
-              <p class="r-sub-head-text"><a href="https://eduxoncabs.com/index.php" target="_bhubaneswar">Eduxon Cabs provides Bhubaneswar's Best self drive car rental service </a> at exceptional pricing. Our selection of <a href="https://www.eduxoncabs.com/all-cars-for-self-drive-bhubaneswar.php">well-maintained rental cars </a> allows customers to freely explore Bhubaneswar as well as surrounding regions. Guests can choose between daily or weekly or outstation rental trips from Eduxon Cabs while benefiting from unrestricted mileage and nonstop service support and premium vehicles from famous manufacturers. Our transportation system ensures all cars receive scheduled maintenance in addition to cleanliness which guarantees a risk-free driving experience for each user.</p>
-            </div>
+            <h3 class="feature-title">24x7 Customer Support</h3>
+            <p class="feature-description">
+              Best <a href="all-cars-for-self-drive-bhubaneswar.php">self drive cars in Bhubaneswar</a> with 24x7 assistance for seamless travel experience.
+            </p>
           </div>
         </div>
-        <div class="row clearfix">
-          <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-xs-12">
-            <div class="r-advantages-box">
-              <div class="icon">
-                  <picture>
-  <source type="image/webp" srcset="assets/images/support.webp">
-  <img src="assets/images/support.png" class="icon-img" alt="Best self drive cars in Bhubaneswar with 24x7 assistance">
-</picture>
-
+        
+        <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fa fa-rupee"></i>
+            </div>
+            <h3 class="feature-title">Lowest Price Guaranteed</h3>
+            <p class="feature-description">
+              Starting at just ₹35/hr – <a href="/">affordable self drive car rental in Bhubaneswar</a> with transparent pricing.
+            </p>
+          </div>
+        </div>
+        
+        <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fa fa-map-marker"></i>
+            </div>
+            <h3 class="feature-title">Flexible Pickup Locations</h3>
+            <p class="feature-description">
+              Pickup from <a href="self-drive-car-rental-bhubaneswar-airport.php">Bhubaneswar Airport</a> or multiple city spots for your convenience.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Modern About Section -->
+  <section class="section-padding" style="background: linear-gradient(135deg, #f8f9ff 0%, #e8f2ff 100%);">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-xl-6 col-lg-6 col-md-6">
+          <div class="mb-4">
+            <span class="badge badge-primary-light text-uppercase px-3 py-2 mb-3">Know More About Us</span>
+            <h2 class="section-title text-left mb-4">About <span class="text-primary">EduxonCabs</span> – Best Self Drive Car Rental in Bhubaneswar</h2>
+            <p class="mb-4">
+              <a href="https://eduxoncabs.com/index.php" target="_blank" rel="noopener noreferrer">Eduxon Cabs</a>
+              has been offering reliable self drive car rentals in Bhubaneswar since 2016. With over 5000+ satisfied customers and a fleet of 30+ vehicles, we deliver safe, flexible travel across the city and airport.
+            </p>
+            
+            <div class="row mb-4">
+              <div class="col-md-6">
+                <ul class="list-unstyled">
+                  <li class="mb-2"><i class="fa fa-check-circle text-success mr-2"></i> 5000+ happy customers</li>
+                  <li class="mb-2"><i class="fa fa-check-circle text-success mr-2"></i> City & Airport pickup</li>
+                </ul>
               </div>
-              <div class="head">24x7 Customer Support</div>
-              <div class="sub-text">Best self drive cars in Bhubaneswar with 24x7 assistance.</div>
+              <div class="col-md-6">
+                <ul class="list-unstyled">
+                  <li class="mb-2"><i class="fa fa-check-circle text-success mr-2"></i> Unlimited kilometers</li>
+                  <li class="mb-2"><i class="fa fa-check-circle text-success mr-2"></i> Zero hidden charges</li>
+                </ul>
+              </div>
             </div>
+            
+            <a href="https://www.eduxoncabs.com/all-cars-for-self-drive-bhubaneswar.php" class="btn btn-primary btn-lg">
+              View All Vehicles <i class="fa fa-arrow-right ml-2"></i>
+            </a>
           </div>
-          <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-xs-12">
-            <div class="r-advantages-box">
-              <div class="icon">
-                 <picture>
-                <source type="image/webp" srcset="assets/images/calendar.webp">
-                  <img src="assets/images/calendar.png" class="icon-img" alt="Starting at just ₹35/hr – affordable self drive car rental in Bhubaneswa">
-             </picture>
-          </div>
-              <div class="head">Lowest Price Guaranteed</div>
-              <div class="sub-text">Starting at just ₹35/hr – affordable self drive car rental in Bhubaneswar.</div>
+        </div>
+        
+        <div class="col-xl-6 col-lg-6 col-md-6">
+          <div class="row">
+            <div class="col-md-6 mb-4">
+              <div class="text-center p-4 bg-white rounded shadow-sm">
+                <div class="stat-number text-primary">5000+</div>
+                <p class="stat-label">Happy Customers</p>
+              </div>
             </div>
-          </div>
-          <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-xs-12">
-            <div class="r-advantages-box">
-              <div class="icon">
-                 <picture>
-               <source type="image/webp" srcset="assets/images/destination.webp">
-             <img src="assets/images/destination.png" class="icon-img" alt="Pickup from Bhubaneswar Airport">
-             </picture>
-             </div>
-              <div class="head">Choice of Picking Locations</div>
-              <div class="sub-text">Pickup from Bhubaneswar Airport or multiple city spots.</div>
+            <div class="col-md-6 mb-4">
+              <div class="text-center p-4 bg-white rounded shadow-sm">
+                <div class="stat-number text-success">30+</div>
+                <p class="stat-label">Cars Available</p>
+              </div>
+            </div>
+            <div class="col-md-6 mb-4">
+              <div class="text-center p-4 bg-white rounded shadow-sm">
+                <div class="stat-number text-info">24/7</div>
+                <p class="stat-label">Customer Support</p>
+              </div>
+            </div>
+            <div class="col-md-6 mb-4">
+              <div class="text-center p-4 bg-white rounded shadow-sm">
+                <div class="stat-number text-warning">₹35</div>
+                <p class="stat-label">Starting Price/Hour</p>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
   </section>
-  <section id="r-who-royal">
-    <div class="r-who-royal">
-      <div class="container">
-        <div class="row clearfix">
-          <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
-            <div class="r-about-info-content">
-              <div class="r-sec-head r-sec-head-left r-sec-head-line r-sec-head-w pt-0"> <span>KNOW MORE ABOUT US</span>
-                <h2 class="heading-white">About <b>Eduxon cabs</b> – Best Self Drive Car Rental in Bhubaneswar</h2>
-              </div>
-              <p><a href="https://eduxoncabs.com/index.php" target="_blank" rel="noopener noreferrer">Eduxon Cabs</a>
-              has been offering reliable self drive car rentals in Bhubaneswar since 2016. With over 5000+ satisfied customers and a fleet of 30+ vehicles, we deliver safe, flexible travel across the city and airport. </p>
-              <ul class="mb-0 pl-0">
-                <li><i class="fa fa-check-circle"></i> 5000+ happy customers</li>
-                <li><i class="fa fa-check-circle"></i> Pickup from city or Bhubaneswar Airport</li>
-                <li><i class="fa fa-check-circle"></i> Unlimited kilometers, zero hidden charges</li>
-                <li><i class="fa fa-check-circle"></i> Best self drive car rental in bhubaneswar</li>
+  <!-- Modern Car Showcase Section -->
+  <section class="car-grid section-padding">
+    <div class="container">
+      <div class="text-center mb-5">
+        <span class="badge badge-primary-light text-uppercase px-3 py-2 mb-3">Featured Cars</span>
+        <h2 class="section-title">Our Best Offers</h2>
+        <p class="section-subtitle">Choose from our premium fleet of self-drive cars in Bhubaneswar with competitive pricing and excellent service.</p>
+      </div>
+      
+      <div class="row">
+        <?php
+        $cnt = $dbObj->countRec("tbl_cabs", "status = 1");
+        if ($cnt > 0) {
+            $getCar = $dbObj->fetch_data("tbl_cabs", "status = 1 LIMIT 6");
+            foreach ($getCar as $key) {
+                $id = $key["id"];
+                $get_unavail = $dbObj->countRec(
+                    "tbl_unavail_dtes",
+                    "car_id = $id AND ('$pdate' BETWEEN `unavail_dte` AND `unavail_dte_to`)"
+                );
+                ?>
+        <div class="col-lg-4 col-md-6">
+          <div class="car-card">
+            <div class="car-image">
+              <a href="https://www.eduxoncabs.com/all-cars-for-self-drive-bhubaneswar.php">
+                <img src="uploadedDocument/cab/<?php echo $key["car_image"]; ?>" 
+                     class="img-fluid" 
+                     alt="<?php echo $key["car_nme"]; ?> - Self Drive Car Rental Bhubaneswar">
+              </a>
+            </div>
+            <div class="car-info">
+              <h3 class="car-name">
+                <a href="https://www.eduxoncabs.com/all-cars-for-self-drive-bhubaneswar.php" class="text-decoration-none">
+                  <?php echo $key["car_nme"]; ?>
+                </a>
+              </h3>
+              <div class="car-price">₹<?php echo $key["cost"]; ?> <small class="text-muted">/24 Hr</small></div>
+              
+              <ul class="car-features">
+                <li><i class="fa fa-car"></i> <?php echo $key["fuel"]; ?> Engine</li>
+                <li><i class="fa fa-users"></i> <?php echo $key["no_of_seat"]; ?> Seater</li>
+                <li><i class="fa fa-road"></i> Unlimited Kilometers</li>
+                <li><i class="fa fa-shield"></i> 24x7 Support</li>
               </ul>
-              <a href="https://www.eduxoncabs.com/all-cars-for-self-drive-bhubaneswar.php" class="btn-primary eduxon-button">VIEW ALL VEHICLES</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <section id="r-best-offer">
-    <div class="r-best-vehicles">
-      <div class="r-sec-head r-accent-color r-sec-head-v"> <span>FEATURED CARS</span>
-        <h2>Our <b>Best Offers.</b></h2>
-      </div>
-      <div class="container">
-        <div class="row clearfix r-best-offer-list owl-theme owl-carousel" id="r-best-offers">
-          <?php
-          $cnt = $dbObj->countRec("tbl_cabs", "status = 1");
-          if ($cnt > 0) {
-              $getCar = $dbObj->fetch_data("tbl_cabs", "status = 1");
-              foreach ($getCar as $key) {
-
-                  $id = $key["id"];
-                  $get_unavail = $dbObj->countRec(
-                      "tbl_unavail_dtes",
-                      "car_id = $id AND ('$pdate' BETWEEN `unavail_dte` AND `unavail_dte_to`)"
-                  );
-                  ?>
-          <div class="">
-            <div class="r-best-offer-single">
-              <div class="r-best-offer-in">
-                <div class="r-offer-img"> <a class="d-inline-block" href="https://www.eduxoncabs.com/all-cars-for-self-drive-bhubaneswar.php"><img src="uploadedDocument/cab/<?php echo $key[
-                    "car_image"
-                ]; ?>" class="img-fluid d-block m-auto" alt=" Bike Rental In Bhubaneswar"></a> <a href="car-booking.html" class="d-block">
-                  <div class="r-offer-img-over"> <i class="fa fa-search"></i> </div>
-                  </a> </div>
-               <div class="r-best-offer-content black-text">
-  <a href="https://www.eduxoncabs.com/all-cars-for-self-drive-bhubaneswar.php" class="highlight-link">
-    <?php echo $key["car_nme"]; ?>
-  </a>
-                  <p>Start at <b>Rs <?php echo $key["cost"]; ?> </b> /24 Hr</p>
-                  <ul class="pl-0 mb-0">
-                    <li><i class="fa fa-beer"></i><span><?php echo $key[
-                        "fuel"
-                    ]; ?></span></li>
-                    <li><i class="fa fa-wheelchair"></i><span><?php echo $key[
-                        "no_of_seat"
-                    ]; ?></span></li>
-                  </ul>
-                </div>
-                <div class="r-offer-rewst-this">
-                  <?php if ($get_unavail > 0) { ?>
-                  <span class="text-uppercase">Car Booked</span>
-                  <?php } else { ?>
-                  <span class="text-uppercase"><a href="checkout.php?pdate=<?php echo date(
-                      "Y-m-d"
-                  ); ?>&ptime=6:00&ddate=<?php echo date(
-    "Y-m-d"
-); ?>&dtime=12:00&car=<?php echo md5(
-    $key["car_nme"]
-); ?>&cartype=<?php echo md5($key["fuel"]); ?>&cardta=<?php echo md5(
-    $key["id"]
-); ?>" class="btn btn-primary mb-xl">Book Now</a></span>
-                  <?php } ?>
-                </div>
+              
+              <div class="mt-3">
+                <?php if ($get_unavail > 0) { ?>
+                <button class="btn btn-secondary btn-block" disabled>Currently Booked</button>
+                <?php } else { ?>
+                <a href="checkout.php?pdate=<?php echo date("Y-m-d"); ?>&ptime=6:00&ddate=<?php echo date("Y-m-d"); ?>&dtime=12:00&car=<?php echo md5($key["car_nme"]); ?>&cartype=<?php echo md5($key["fuel"]); ?>&cardta=<?php echo md5($key["id"]); ?>" 
+                   class="btn btn-primary btn-block">Book Now</a>
+                <?php } ?>
               </div>
             </div>
           </div>
-          <?php
-              }
-          } else {
-               ?>
-          <h4>Sorry!!! No record found..</h4>
-          <?php
-          }
-          ?>
         </div>
+        <?php
+            }
+        } else {
+            ?>
+        <div class="col-12 text-center">
+          <h4>Sorry! No cars available at the moment.</h4>
+        </div>
+        <?php
+        }
+        ?>
+      </div>
+      
+      <div class="text-center mt-5">
+        <a href="https://www.eduxoncabs.com/all-cars-for-self-drive-bhubaneswar.php" class="btn btn-outline-primary btn-lg">
+          View All Vehicles <i class="fa fa-arrow-right ml-2"></i>
+        </a>
       </div>
     </div>
   </section>
@@ -391,7 +529,7 @@ s0.parentNode.insertBefore(s1,s0);
         <div class="r-newsletter-head"> 
        <picture>
         <source type="image/webp" srcset="assets/images/Eduxoncabs.webp">
-       <img src="assets/images/Eduxoncabs.png" class="d-block img-fluid m-auto" alt="Self Drive Car Rental In Bhubaneswar">
+       <img src="assets/images/Eduxoncabs.png" class="d-block img-fluid m-auto" alt="EduxonCabs - Self Drive Car Rental Bhubaneswar Logo">
        </picture>
         </div>
         <div class="r-newsletter-form"> <i class="fa fa-envelope"></i>
@@ -411,7 +549,7 @@ s0.parentNode.insertBefore(s1,s0);
       <div class="row">
         <div class="col-lg-3 col-md-4 col-sm-6">
           <div class="r-counter-box">
-            <div class="r-counter-icon"> <img src="assets/images/icon-happy-customer-white.png" alt=" Bike Rental In Bhubaneswar" class="img-fluid"> </div>
+            <div class="r-counter-icon"> <img src="assets/images/icon-happy-customer-white.png" alt="Happy Customers - Self Drive Car Rental Bhubaneswar" class="img-fluid"> </div>
             <div class="r-counts" data-count="4567">
               <!-- 1.172.700 -->
               <span class="r-count">0</span> </div>
@@ -427,7 +565,7 @@ s0.parentNode.insertBefore(s1,s0);
         </div>
         <div class="col-lg-3 col-md-4 col-sm-6">
           <div class="r-counter-box">
-            <div class="r-counter-icon"> <img src="assets/images/icon-total-km-white.png" alt=" Bike Rental In Bhubaneswar" class="img-fluid"> </div>
+            <div class="r-counter-icon"> <img src="assets/images/icon-total-km-white.png" alt="Unlimited KM Car Rental Bhubaneswar" class="img-fluid"> </div>
             <div class="r-counts" data-count="127100">
               <!-- 1.211.100 -->
               <span class="r-count">0</span> </div>
@@ -844,6 +982,77 @@ $min_hour = $get_hour_res[0]["hours"];
   text-align: center;
 }
 </style>
+
+<!-- Modern JavaScript Enhancements -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+
+    // Add fade-in animation to feature cards on scroll
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('fade-in-up');
+            }
+        });
+    }, observerOptions);
+
+    // Observe feature cards and car cards
+    document.querySelectorAll('.feature-card, .car-card').forEach(card => {
+        observer.observe(card);
+    });
+
+    // Enhanced navbar scroll effect
+    let lastScrollTop = 0;
+    const navbar = document.querySelector('.navbar');
+    
+    window.addEventListener('scroll', function() {
+        let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        
+        if (scrollTop > 100) {
+            navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+            navbar.style.boxShadow = '0 2px 20px rgba(0,0,0,0.1)';
+        } else {
+            navbar.style.background = 'rgba(255, 255, 255, 0.9)';
+            navbar.style.boxShadow = 'none';
+        }
+        
+        lastScrollTop = scrollTop;
+    });
+
+    // Loading states for buttons
+    document.querySelectorAll('.btn').forEach(button => {
+        button.addEventListener('click', function() {
+            if (this.type === 'submit' || this.href) {
+                const originalText = this.textContent;
+                if (!this.disabled) {
+                    this.innerHTML = '<i class="fa fa-spinner fa-spin"></i> Loading...';
+                    setTimeout(() => {
+                        this.innerHTML = originalText;
+                    }, 2000);
+                }
+            }
+        });
+    });
+});
+</script>
      
         
         

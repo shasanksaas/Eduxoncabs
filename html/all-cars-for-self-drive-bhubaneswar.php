@@ -55,9 +55,9 @@ $nxt18hr = date('Y-m-d H:i:s',strtotime($st_dte ."+18 hour"));
 <!-- Basic -->
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>All Cars for Self Drive in Bhubaneswar – Eduxon Cabs</title>
-<meta name="keywords" content="Eduxoncabs.com" />
-<meta name="description" content="Browse all self-drive cars in Bhubaneswar with Eduxon Cabs. Affordable rentals, no hidden charges, and unlimited kilometers. Book your ride today!"/>
+<title>All Self Drive Cars Bhubaneswar | Sedan, SUV Rental BBSR | EduxonCabs</title>
+<meta name="keywords" content="all self drive cars Bhubaneswar, sedan rental Bhubaneswar, SUV rental Bhubaneswar, Maruti Dzire rental Bhubaneswar, luxury car rental Bhubaneswar, self drive cars BBSR, car rental Bhubaneswar, affordable self drive cars Bhubaneswar, unlimited km car rental Bhubaneswar, hourly car rental Bhubaneswar" />
+<meta name="description" content="Browse all self drive cars Bhubaneswar including sedan, SUV, luxury cars. Maruti Dzire, Hyundai Creta, Honda City available. Unlimited km, hourly rental from ₹35/hour. Book online!"/>
 <meta name="author" content="Eduxoncabs.com">
 <!-- Favicon -->
 <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />

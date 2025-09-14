@@ -44,9 +44,9 @@ $nxt18hr = date('Y-m-d H:i:s',strtotime($date ."+18 hour"));
 <!-- Basic -->
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>Best Self Drive Car Rental in Bhubaneswar Airport – Eduxon Cabs</title>
-<meta name="keywords" content="Eduxoncabs.com" />
-<meta name="description" content="Rent self-drive cars at Bhubaneswar Airport with Eduxon Cabs. Hassle-free booking, affordable prices & free doorstep delivery. Book now for a seamless travel experience!"/>
+<title>Self Drive Cars Bhubaneswar Airport | Car Rental BBSR Airport Pickup & Drop</title>
+<meta name="keywords" content="self drive cars Bhubaneswar airport, car rental Bhubaneswar airport, airport pickup car rental, self drive car rental Bhubaneswar airport, car rental BBSR airport, doorstep delivery car rental Bhubaneswar, 24 hour car rental Bhubaneswar, unlimited km car rental Bhubaneswar, instant booking car rental Bhubaneswar" />
+<meta name="description" content="Self drive cars Bhubaneswar airport with free pickup & drop. 24 hour car rental service at BBSR airport. Doorstep delivery, unlimited km. Book online for instant confirmation!"/>
 <meta name="author" content="Eduxoncabs.com">
 <!-- Favicon -->
 <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
