@@ -1,0 +1,86 @@
+# Enable URL rewriting
+RewriteEngine On
+RewriteOptions inherit
+
+# -----------------------------------------------
+# Redirect index.php to the root URL
+# -----------------------------------------------
+RewriteCond %{THE_REQUEST} /index\.php [NC]
+RewriteRule ^index\.php$ / [L,R=301]
+
+# Remove index.php from all URLs and enable pretty URLs
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php?$1 [L,QSA]
+
+# -----------------------------------------------
+# Custom page redirect
+# -----------------------------------------------
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^allbikes\-bike\-for\-rental\.php$ https://www.eduxoncabs.com/all-bikes-bike-for-rental-bhubaneswar.php [R=301,L]
+
+# -----------------------------------------------
+# Redirect HTTP to HTTPS
+# -----------------------------------------------
+RewriteCond %{HTTPS} off
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# Redirect non-www to www
+RewriteCond %{HTTP_HOST} ^eduxoncabs\.com [NC]
+RewriteRule ^(.*)$ https://www.eduxoncabs.com/$1 [L,R=301]
+
+# -----------------------------------------------
+# Enforce Strict HTTPS (HSTS)
+# -----------------------------------------------
+<IfModule mod_headers.c>
+  Header always set Strict-Transport-Security "max-age=63072000; includeSubDomains; preload"
+</IfModule>
+
+# -----------------------------------------------
+# Caching rules to improve SEO and speed
+# -----------------------------------------------
+<IfModule mod_expires.c>
+    ExpiresActive On
+
+    # HTML
+    ExpiresByType text/html "access plus 1 hour"
+
+    # JavaScript
+    ExpiresByType text/javascript "access plus 1 month"
+    ExpiresByType application/javascript "access plus 1 month"
+
+    # CSS
+    ExpiresByType text/css "access plus 1 month"
+
+    # Images
+    ExpiresByType image/jpeg "access plus 1 month"
+    ExpiresByType image/png "access plus 1 month"
+    ExpiresByType image/gif "access plus 1 month"
+    ExpiresByType image/webp "access plus 1 month"
+
+    # Fonts
+    ExpiresByType font/woff2 "access plus 1 year"
+    ExpiresByType font/woff "access plus 1 year"
+</IfModule>
+
+# -----------------------------------------------
+# GZIP Compression
+# -----------------------------------------------
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/plain
+  AddOutputFilterByType DEFLATE text/html
+  AddOutputFilterByType DEFLATE text/xml
+  AddOutputFilterByType DEFLATE text/css
+  AddOutputFilterByType DEFLATE application/javascript
+  AddOutputFilterByType DEFLATE application/json
+  AddOutputFilterByType DEFLATE font/woff2
+</IfModule>
+
+# -----------------------------------------------
+# Cache-Control Headers (for CDN & browser caching)
+# -----------------------------------------------
+<IfModule mod_headers.c>
+  <FilesMatch "\.(jpg|jpeg|png|gif|webp|css|js|woff2|woff)$">
+    Header set Cache-Control "public, max-age=2592000"
+  </FilesMatch>
+</IfModule>

@@ -1,0 +1,39 @@
+# PHP
+*.log
+*.tmp
+*.cache
+error_log
+php_error.log
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Dependencies
+vendor/
+node_modules/
+
+# Config files (uncomment if you want to ignore config files)
+# config.php
+# database.php
+
+# Upload directories
+uploadedDocument/
+uploads/
+
+# Temporary files
+tmp/
+temp/
+
+# Backup files
+*.bak
+*.backup
+*_backup.*
+*_bkp.*
