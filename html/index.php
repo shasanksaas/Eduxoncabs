@@ -1,17 +1,23 @@
 <?php
 session_start();
 
-// Get the requested path
-$path = trim(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH), '/');
+// Get the requested path and normalize it when site is served from a subdirectory
+$reqPath = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+$scriptDir = rtrim(dirname($_SERVER['SCRIPT_NAME']), '/\\');
+if ($scriptDir !== '' && strpos($reqPath, $scriptDir) === 0) {
+  $reqPath = substr($reqPath, strlen($scriptDir));
+}
+$path = trim($reqPath, '/');
 
-// Check if it's the homepage or an actual PHP file
-if ($path === '' || file_exists($path)) {
-    // Continue as usual — let the page render
+// Check if it's the homepage or an actual PHP file (check filesystem within this directory)
+$fullPath = __DIR__ . ($path !== '' ? '/' . $path : '');
+if ($path === '' || file_exists($fullPath)) {
+  // Continue as usual — let the page render
 } else {
-    // If file does not exist — show 404
-    http_response_code(404);
-    include '404.php';
-    exit;
+  // If file does not exist — show 404
+  http_response_code(404);
+  include '404.php';
+  exit;
 }
 
 require_once "includes/settings.php";
