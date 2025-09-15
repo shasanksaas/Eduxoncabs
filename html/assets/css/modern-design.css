@@ -500,7 +500,7 @@ body {
     font-size: 14px;
     text-align: center;
     margin-bottom: 1.5rem;
-    color: #666;
+    color: #000;
   }
   
   .form-group-modern {
@@ -1293,15 +1293,16 @@ html {
 
 /* ===== END MOBILE OPTIMIZATION ===== */
 
-/* ===== HERO SECTION - MODERN DESIGN ===== */
+/* ===== HERO SECTION - MODERN DESIGN WITH CAR BACKGROUND ===== */
 .hero-section {
   position: relative;
-  background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 50%, #f0fdf4 100%);
+  background: linear-gradient(135deg, #1e40af 0%, #3b82f6 50%, #60a5fa 100%);
   padding: 120px 0 80px;
   min-height: 100vh;
   overflow: hidden;
 }
 
+/* Car Background Pattern */
 .hero-section::before {
   content: '';
   position: absolute;
@@ -1309,13 +1310,57 @@ html {
   left: 0;
   right: 0;
   bottom: 0;
-  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" opacity="0.05"><defs><pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M 40 0 L 0 0 0 40" fill="none" stroke="currentColor" stroke-width="1"/></pattern></defs><rect width="100%" height="100%" fill="url(%23grid)"/></svg>');
+  background-image: 
+    /* Modern car silhouette */
+    url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 500" opacity="0.25"><g fill="white"><path d="M200 350c0-11 9-20 20-20h20c11 0 20 9 20 20v40h-60v-40zM740 350c0-11 9-20 20-20h20c11 0 20 9 20 20v40h-60v-40z"/><path d="M120 250h760l-80-60H200l-80 60z"/><path d="M40 300h920c35 0 60 25 60 60v60c0 20-15 35-35 35h-50v-40c0-33-27-60-60-60h-20c-33 0-60 27-60 60v40H305v-40c0-33-27-60-60-60h-20c-33 0-60 27-60 60v40H115c-20 0-35-15-35-35v-60c0-35 25-60 60-60z"/><circle cx="245" cy="380" r="25" fill="rgba(255,255,255,0.8)"/><circle cx="755" cy="380" r="25" fill="rgba(255,255,255,0.8)"/></g></svg>'),
+    /* Floating elements */
+    url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" opacity="0.1"><g fill="white"><circle cx="100" cy="100" r="8"/><circle cx="300" cy="150" r="6"/><circle cx="150" cy="300" r="10"/><circle cx="350" cy="300" r="5"/></g></svg>'),
+    /* Road pattern */
+    url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 40" opacity="0.15"><g fill="white"><rect x="0" y="18" width="50" height="4"/><rect x="70" y="18" width="50" height="4"/><rect x="140" y="18" width="50" height="4"/></g></svg>');
+  background-position: 
+    right -150px center,
+    left top,
+    bottom center;
+  background-repeat: no-repeat, no-repeat, repeat-x;
+  background-size: 900px auto, 400px auto, 200px 40px;
+  animation: carFloat 8s ease-in-out infinite;
+  z-index: 1;
+}
+
+@keyframes carFloat {
+  0%, 100% { 
+    background-position: 
+      right -150px center,
+      left top,
+      bottom center;
+  }
+  50% { 
+    background-position: 
+      right -120px center,
+      left 20px top,
+      bottom center;
+  }
+}
+
+/* Additional overlay for better text readability */
+.hero-section::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, 
+    rgba(30, 64, 175, 0.6) 0%, 
+    rgba(59, 130, 246, 0.4) 50%, 
+    rgba(96, 165, 250, 0.3) 100%
+  );
   z-index: 1;
 }
 
 .hero-content {
   position: relative;
-  z-index: 2;
+  z-index: 3;
   padding: 2rem 0;
 }
 
@@ -1323,106 +1368,134 @@ html {
 .badge-modern {
   display: inline-flex;
   align-items: center;
-  background: rgba(59, 130, 246, 0.1);
-  color: #2563eb;
-  padding: 8px 16px;
+  background: rgba(255, 255, 255, 0.9);
+  color: #1e40af;
+  padding: 10px 20px;
   border-radius: 50px;
   font-size: 0.875rem;
-  font-weight: 500;
-  border: 1px solid rgba(59, 130, 246, 0.2);
+  font-weight: 600;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
 /* Modern Typography */
 .hero-title {
-  font-size: 3.5rem;
-  font-weight: 700;
+  font-size: 3.8rem;
+  font-weight: 800;
   line-height: 1.1;
-  color: #1f2937;
+  color: #ffffff;
   margin-bottom: 1.5rem;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
 }
 
 .highlight-text {
-  color: #3b82f6;
+  color: #fbbf24;
   position: relative;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
 }
 
 .hero-subtitle {
-  font-size: 1.125rem;
-  color: #6b7280;
+  font-size: 1.2rem;
+  color: #ffffff !important;
   line-height: 1.6;
   margin-bottom: 2rem;
   max-width: 500px;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+  font-weight: 400;
+}
+
+/* Additional override for hero subtitle text color */
+.hero-section .hero-subtitle,
+.hero-section p.hero-subtitle,
+.hero-content .hero-subtitle {
+  color: #ffffff !important;
+}
+
+/* Override any Bootstrap paragraph defaults in hero */
+.hero-section p {
+  color: #ffffff !important;
 }
 
 /* Modern Features */
 .feature-item-modern {
   display: flex;
   align-items: center;
-  margin-bottom: 12px;
-  font-size: 0.95rem;
-  color: #374151;
+  margin-bottom: 16px;
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.95);
+  background: rgba(255, 255, 255, 0.1);
+  padding: 12px 16px;
+  border-radius: 10px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .feature-item-modern i {
-  color: #10b981;
+  color: #fbbf24;
   margin-right: 12px;
-  font-size: 1rem;
+  font-size: 1.1rem;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
 }
 
 /* Modern Buttons */
 .btn-modern-primary {
   display: inline-flex;
   align-items: center;
-  background: #3b82f6;
-  color: white;
-  padding: 14px 28px;
-  border-radius: 12px;
+  background: #fbbf24;
+  color: #1e40af;
+  padding: 16px 32px;
+  border-radius: 50px;
   text-decoration: none;
-  font-weight: 600;
-  font-size: 1rem;
+  font-weight: 700;
+  font-size: 1.1rem;
   transition: all 0.3s ease;
   border: none;
   margin-right: 16px;
-  box-shadow: 0 4px 6px rgba(59, 130, 246, 0.25);
+  box-shadow: 0 6px 20px rgba(251, 191, 36, 0.4);
 }
 
 .btn-modern-primary:hover {
-  background: #2563eb;
-  transform: translateY(-1px);
-  box-shadow: 0 6px 12px rgba(59, 130, 246, 0.35);
-  color: white;
+  background: #f59e0b;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(251, 191, 36, 0.5);
+  color: #1e40af;
   text-decoration: none;
 }
 
 .btn-modern-outline {
   display: inline-flex;
   align-items: center;
-  background: transparent;
-  color: #3b82f6;
-  padding: 14px 28px;
-  border: 2px solid #3b82f6;
-  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  padding: 16px 32px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50px;
   text-decoration: none;
   font-weight: 600;
-  font-size: 1rem;
+  font-size: 1.1rem;
   transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
 }
 
 .btn-modern-outline:hover {
-  background: #3b82f6;
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.5);
   color: white;
-  transform: translateY(-1px);
+  transform: translateY(-2px);
   text-decoration: none;
 }
 
 /* Modern Booking Card */
 .booking-card-modern {
-  background: white;
-  border-radius: 20px;
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 24px;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
   overflow: hidden;
   position: relative;
-  z-index: 2;
+  z-index: 3;
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 /* Booking Tabs */
@@ -1454,6 +1527,62 @@ html {
 /* Booking Form Container */
 .booking-form-container {
   padding: 32px;
+  border: 2px solid transparent;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  position: relative;
+  overflow: hidden;
+  
+  /* Neon outline effect */
+  box-shadow: 
+    0 0 20px rgba(59, 130, 246, 0.3),
+    0 0 40px rgba(59, 130, 246, 0.2),
+    0 0 60px rgba(59, 130, 246, 0.1),
+    inset 0 0 20px rgba(255, 255, 255, 0.1);
+  
+  /* Animated neon border */
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.95)),
+    linear-gradient(45deg, 
+      #3b82f6, 
+      #60a5fa, 
+      #93c5fd, 
+      #dbeafe, 
+      #3b82f6);
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+  
+  animation: neonPulse 3s ease-in-out infinite alternate;
+}
+
+@keyframes neonPulse {
+  0% {
+    box-shadow: 
+      0 0 20px rgba(59, 130, 246, 0.3),
+      0 0 40px rgba(59, 130, 246, 0.2),
+      0 0 60px rgba(59, 130, 246, 0.1),
+      inset 0 0 20px rgba(255, 255, 255, 0.1);
+  }
+  100% {
+    box-shadow: 
+      0 0 30px rgba(59, 130, 246, 0.6),
+      0 0 60px rgba(59, 130, 246, 0.4),
+      0 0 90px rgba(59, 130, 246, 0.3),
+      inset 0 0 30px rgba(255, 255, 255, 0.2);
+  }
+}
+
+/* Enhanced neon effect on hover */
+.booking-form-container:hover {
+  box-shadow: 
+    0 0 40px rgba(59, 130, 246, 0.8),
+    0 0 80px rgba(59, 130, 246, 0.6),
+    0 0 120px rgba(59, 130, 246, 0.4),
+    inset 0 0 40px rgba(255, 255, 255, 0.3);
+  
+  transform: translateY(-2px);
+  transition: all 0.3s ease;
 }
 
 .booking-title {
@@ -1464,7 +1593,7 @@ html {
 }
 
 .booking-subtitle {
-  color: #6b7280;
+  color: #000000;
   margin-bottom: 32px;
   font-size: 0.95rem;
 }
@@ -1499,12 +1628,19 @@ html {
   transition: all 0.3s ease;
   background: white;
   color: #1f2937;
+  position: relative;
 }
 
 .form-control-modern:focus {
   outline: none;
   border-color: #3b82f6;
-  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+  box-shadow: 
+    0 0 0 3px rgba(59, 130, 246, 0.1),
+    0 0 20px rgba(59, 130, 246, 0.3),
+    0 0 30px rgba(59, 130, 246, 0.2);
+  
+  /* Subtle neon glow on focus */
+  background: rgba(255, 255, 255, 0.98);
 }
 
 .dropdown-icon {
@@ -1519,7 +1655,7 @@ html {
 /* Search Button */
 .btn-search-modern {
   width: 100%;
-  background: #3b82f6;
+  background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
   color: white;
   padding: 16px 24px;
   border: none;
@@ -1529,12 +1665,36 @@ html {
   transition: all 0.3s ease;
   cursor: pointer;
   margin-top: 16px;
+  position: relative;
+  overflow: hidden;
+  
+  /* Neon button effect */
+  box-shadow: 
+    0 0 20px rgba(59, 130, 246, 0.4),
+    0 4px 15px rgba(59, 130, 246, 0.3);
+}
+
+.btn-search-modern::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.6s ease;
+}
+
+.btn-search-modern:hover::before {
+  left: 100%;
 }
 
 .btn-search-modern:hover {
-  background: #2563eb;
-  transform: translateY(-1px);
-  box-shadow: 0 6px 12px rgba(59, 130, 246, 0.25);
+  background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+  transform: translateY(-2px);
+  box-shadow: 
+    0 0 30px rgba(59, 130, 246, 0.6),
+    0 8px 25px rgba(59, 130, 246, 0.4);
 }
 
 .text-primary {

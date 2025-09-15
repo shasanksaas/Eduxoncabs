@@ -229,7 +229,7 @@ body {
   .booking-subtitle {
     font-size: 13px;
     margin-bottom: 1.25rem;
-    color: #666;
+    color: #000 !important;
     text-align: center;
     line-height: 1.4;
   }

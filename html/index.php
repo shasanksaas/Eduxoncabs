@@ -67,6 +67,12 @@ if (isset($_POST["act"]) && $_POST["act"] == "subscribe") {
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+
+<!-- Resource hints for better performance -->
+<link rel="preconnect" href="https://code.jquery.com">
+<link rel="dns-prefetch" href="//fonts.googleapis.com">
+<link rel="dns-prefetch" href="//code.jquery.com">
+
 <title>Self Drive Cars Bhubaneswar | Car Rental BBSR Starting ₹35/Hour | 24 Hour Service</title>
 <meta name="keywords" content="self drive cars Bhubaneswar, self drive car rental Bhubaneswar, car rental Bhubaneswar, self drive cars BBSR, self drive cars Bhubaneswar airport, car rental Bhubaneswar airport, 24 hour car rental Bhubaneswar, hourly car rental Bhubaneswar, unlimited km car rental Bhubaneswar, doorstep delivery car rental Bhubaneswar, cheap car rental Bhubaneswar, affordable self drive cars Bhubaneswar, sedan rental Bhubaneswar, SUV rental Bhubaneswar"/>
 <meta name="description" content="Best self drive cars Bhubaneswar starting ₹35/hour. 24 hour car rental BBSR with unlimited km, doorstep delivery & airport pickup. Book sedan, SUV rental Bhubaneswar online. Affordable self drive car rental with no hidden charges."/>
@@ -78,37 +84,25 @@ if (isset($_POST["act"]) && $_POST["act"] == "subscribe") {
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://www.eduxoncabs.com/" />
 <meta property="og:image" content="https://www.eduxoncabs.com/img/logo.png" />
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-R24JTT23LT">
-</script>
+
+<!-- Defer Analytics for better LCP -->
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
- 
-  gtag('config', 'G-R24JTT23LT');
-</script>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-J20L19B243">
-</script>
-<script>
-
-  window.dataLayer = window.dataLayer || [];
-
-  function gtag(){dataLayer.push(arguments);}
-
-  gtag('js', new Date());
- 
-  gtag('config', 'G-J20L19B243');
-</script>
- 
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-11129753133"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'AW-11129753133');
+window.addEventListener('load', function() {
+  setTimeout(function() {
+    // Load Google Analytics after page load
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.googletagmanager.com/gtag/js?id=G-R24JTT23LT','gtag');
+    
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-R24JTT23LT');
+    gtag('config', 'G-J20L19B243');
+    gtag('config', 'AW-11129753133');
+  }, 1000);
+});
 </script>
 <!-- Favicon -->
 <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
@@ -461,7 +455,7 @@ s0.parentNode.insertBefore(s1,s0);
               </div>
             </div>
             
-            <a href="https://www.eduxoncabs.com/all-cars-for-self-drive-bhubaneswar.php" class="btn btn-primary btn-lg">
+            <a href="all-cars-for-self-drive-bhubaneswar.php" class="btn btn-primary btn-lg">
               View All Vehicles <i class="fa fa-arrow-right ml-2"></i>
             </a>
           </div>
@@ -567,7 +561,7 @@ s0.parentNode.insertBefore(s1,s0);
       </div>
       
       <div class="text-center mt-5">
-        <a href="https://www.eduxoncabs.com/all-cars-for-self-drive-bhubaneswar.php" class="btn btn-outline-primary btn-lg">
+        <a href="all-cars-for-self-drive-bhubaneswar.php" class="btn btn-outline-primary btn-lg">
           View All Vehicles <i class="fa fa-arrow-right ml-2"></i>
         </a>
       </div>

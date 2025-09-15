@@ -70,6 +70,11 @@ $nxt18hr = date('Y-m-d H:i:s',strtotime($st_dte ."+18 hour"));
 <!-- Web Fonts  -->
 <?php include("includes/inc-css.php");?>
 <link rel="stylesheet" type="text/css" href="assets/css/modern-cars-page.css">
+<style>
+body {
+    padding-top: 0px !important;
+}
+</style>
 </head>
 </head>
 <body>

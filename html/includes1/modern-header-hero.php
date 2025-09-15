@@ -4,7 +4,7 @@
     <div class="container-fluid px-4 d-flex align-items-center">
       <!-- Brand Logo -->
       <a class="navbar-brand me-auto" href="/">
-        <img src="img/Eduxoncabs.png" alt="EduxonCabs - Self Drive Car Rental Bhubaneswar" height="45" class="d-inline-block align-top">
+        <img src="img/Eduxoncabs.png" alt="EduxonCabs - Self Drive Car Rental Bhubaneswar" class="d-inline-block align-top" fetchpriority="high" loading="eager">
       </a>
       
       <!-- Mobile Toggle Button -->
@@ -21,15 +21,8 @@
           <li class="nav-item">
             <a class="nav-link font-weight-600 px-3" href="about-us.php">About Us</a>
           </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle font-weight-600 px-3" href="#" id="carsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              All Cars
-            </a>
-            <div class="dropdown-menu border-0 shadow" aria-labelledby="carsDropdown">
-              <a class="dropdown-item" href="all-cars-for-self-drive-bhubaneswar.php">All Cars</a>
-              <a class="dropdown-item" href="automatic.php">Automatic Cars</a>
-              <a class="dropdown-item" href="self-drive-cars-rental.php">Rental Cars</a>
-            </div>
+          <li class="nav-item">
+            <a class="nav-link font-weight-600 px-3" href="all-cars-for-self-drive-bhubaneswar.php">All Cars</a>
           </li>
           <li class="nav-item">
             <a class="nav-link font-weight-600 px-3" href="all-bikes-bike-for-rental-bhubaneswar.php">All Bikes</a>
@@ -87,20 +80,20 @@
           <div class="hero-features mb-4">
             <div class="feature-item-modern">
               <i class="fa fa-check-circle"></i>
-              <span>Only ₹5,000 refundable deposit</span>
+              <span>Best Car Rental in Bhubaneswar</span>
             </div>
             <div class="feature-item-modern">
               <i class="fa fa-check-circle"></i>
-              <span>No loan liability, Zero downpayment</span>
+              <span>Starting @ Rs. 35/hour with Unlimited Kilometers</span>
             </div>
             <div class="feature-item-modern">
               <i class="fa fa-check-circle"></i>
-              <span>Insurance & maintenance included</span>
+              <span>24x7 Emergency Assistance</span>
             </div>
           </div>
           
           <div class="hero-cta">
-            <a href="#booking-form" class="btn-modern-primary">
+            <a href="all-cars-for-self-drive-bhubaneswar.php" class="btn-modern-primary">
               Book Your Car Now
             </a>
             <a href="all-cars-for-self-drive-bhubaneswar.php" class="btn-modern-outline">
@@ -231,24 +224,6 @@
         </div>
       </div>
       
-    </div>
-    
-    <!-- Mobile-only simplified features - Moved after hero content -->
-    <div class="hero-features-mobile d-lg-none text-center">
-      <div class="row">
-        <div class="col-6">
-          <div class="feature-mobile">
-            <i class="fa fa-shield text-success"></i>
-            <span>Verified Cars</span>
-          </div>
-        </div>
-        <div class="col-6">
-          <div class="feature-mobile">
-            <i class="fa fa-phone text-primary"></i>
-            <span>24/7 Support</span>
-          </div>
-        </div>
-      </div>
     </div>
     
   </div>

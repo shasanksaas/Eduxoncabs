@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LCP Performance Test - EduxonCabs</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f8fafc;
+        }
+        .test-container {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .metric {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        .metric:last-child {
+            border-bottom: none;
+        }
+        .metric-name {
+            font-weight: 600;
+            color: #374151;
+        }
+        .metric-value {
+            font-weight: 700;
+            font-size: 18px;
+        }
+        .good { color: #10b981; }
+        .needs-improvement { color: #f59e0b; }
+        .poor { color: #ef4444; }
+        .test-btn {
+            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            margin: 10px 5px;
+            transition: all 0.2s;
+        }
+        .test-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+        }
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid #3b82f6;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .test-url {
+            background: #f3f4f6;
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-family: monospace;
+            margin: 10px 0;
+            word-break: break-all;
+        }
+        .recommendations {
+            background: #fef3c7;
+            border: 1px solid #f59e0b;
+            border-radius: 8px;
+            padding: 16px;
+            margin-top: 20px;
+        }
+        .recommendations h3 {
+            color: #92400e;
+            margin-top: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <h1>🚀 LCP Performance Test - EduxonCabs</h1>
+        <p>Test the Largest Contentful Paint (LCP) performance of your website. LCP should be under 2.5 seconds for good user experience.</p>
+        
+        <div class="test-url">Test URL: http://localhost:8000/index.php</div>
+        
+        <button class="test-btn" onclick="testLCP()">Test LCP Performance</button>
+        <button class="test-btn" onclick="testWithPageSpeed()">Test with PageSpeed Insights</button>
+        <button class="test-btn" onclick="openDevTools()">Open DevTools Guide</button>
+    </div>
+
+    <div class="test-container" id="results" style="display: none;">
+        <h2>📊 Performance Results</h2>
+        <div id="metrics"></div>
+    </div>
+
+    <div class="test-container">
+        <h2>🔧 How to Test LCP</h2>
+        <ol>
+            <li><strong>Chrome DevTools:</strong>
+                <ul>
+                    <li>Open Chrome DevTools (F12)</li>
+                    <li>Go to "Lighthouse" tab</li>
+                    <li>Click "Generate report" for Performance</li>
+                    <li>Look for "Largest Contentful Paint" in Core Web Vitals</li>
+                </ul>
+            </li>
+            <li><strong>Real User Monitoring:</strong>
+                <ul>
+                    <li>Use the browser's Performance API</li>
+                    <li>Check Web Vitals extension</li>
+                    <li>Monitor in production with analytics</li>
+                </ul>
+            </li>
+            <li><strong>PageSpeed Insights:</strong>
+                <ul>
+                    <li>Visit: <a href="https://pagespeed.web.dev/" target="_blank">pagespeed.web.dev</a></li>
+                    <li>Enter your website URL</li>
+                    <li>Analyze both Mobile and Desktop</li>
+                </ul>
+            </li>
+        </ol>
+    </div>
+
+    <div class="test-container">
+        <h2>✅ LCP Optimizations Applied</h2>
+        <ul>
+            <li>✅ Critical CSS inlined</li>
+            <li>✅ Font loading optimized with font-display: swap</li>
+            <li>✅ Hero image preloaded with fetchpriority="high"</li>
+            <li>✅ Non-critical JavaScript deferred</li>
+            <li>✅ Resource preloading implemented</li>
+            <li>✅ DNS prefetch for external domains</li>
+        </ul>
+    </div>
+
+    <script>
+        function getMetricClass(value, thresholds) {
+            if (value <= thresholds.good) return 'good';
+            if (value <= thresholds.needsImprovement) return 'needs-improvement';
+            return 'poor';
+        }
+
+        function formatTime(ms) {
+            return ms < 1000 ? `${Math.round(ms)}ms` : `${(ms/1000).toFixed(2)}s`;
+        }
+
+        function testLCP() {
+            const button = event.target;
+            const originalText = button.textContent;
+            button.innerHTML = '<span class="loading"></span> Testing...';
+            button.disabled = true;
+
+            // Open the main site in a new tab for testing
+            const testWindow = window.open('http://localhost:8000/index.php', '_blank');
+            
+            setTimeout(() => {
+                button.textContent = originalText;
+                button.disabled = false;
+                
+                // Show instructions
+                document.getElementById('results').style.display = 'block';
+                document.getElementById('metrics').innerHTML = `
+                    <div class="recommendations">
+                        <h3>🎯 Testing Instructions</h3>
+                        <p>A new tab opened with your website. To test LCP:</p>
+                        <ol>
+                            <li>In the new tab, press <strong>F12</strong> to open DevTools</li>
+                            <li>Go to the <strong>Lighthouse</strong> tab</li>
+                            <li>Click <strong>"Analyze page load"</strong></li>
+                            <li>Check the <strong>"Largest Contentful Paint"</strong> score</li>
+                            <li>Target: <strong>Under 2.5 seconds</strong> ✅</li>
+                        </ol>
+                        <p>Or use the Performance tab to see real-time LCP measurements!</p>
+                    </div>
+                `;
+            }, 1000);
+        }
+
+        function testWithPageSpeed() {
+            // Note: PageSpeed Insights requires a public URL
+            alert('PageSpeed Insights requires a public URL. For local testing, use Chrome DevTools Lighthouse instead.');
+        }
+
+        function openDevTools() {
+            document.getElementById('results').style.display = 'block';
+            document.getElementById('metrics').innerHTML = `
+                <div class="recommendations">
+                    <h3>🔧 Chrome DevTools Testing Guide</h3>
+                    <ol>
+                        <li><strong>Open your website</strong> in Chrome: <code>http://localhost:8000</code></li>
+                        <li><strong>Press F12</strong> or right-click → "Inspect"</li>
+                        <li><strong>Go to Performance tab</strong> in DevTools</li>
+                        <li><strong>Click the record button</strong> (circle)</li>
+                        <li><strong>Refresh the page</strong> (Ctrl+R or Cmd+R)</li>
+                        <li><strong>Stop recording</strong> after page loads</li>
+                        <li><strong>Look for "LCP"</strong> marker in the timeline</li>
+                    </ol>
+                    <p><strong>Alternative:</strong> Use the <strong>Lighthouse</strong> tab for a comprehensive report!</p>
+                </div>
+            `;
+        }
+
+        // Real-time LCP monitoring if available
+        if ('PerformanceObserver' in window) {
+            try {
+                const observer = new PerformanceObserver((list) => {
+                    const entries = list.getEntries();
+                    const lastEntry = entries[entries.length - 1];
+                    
+                    const resultsDiv = document.getElementById('results');
+                    const metricsDiv = document.getElementById('metrics');
+                    
+                    resultsDiv.style.display = 'block';
+                    
+                    const lcpTime = lastEntry.startTime;
+                    const lcpClass = getMetricClass(lcpTime, { good: 2500, needsImprovement: 4000 });
+                    
+                    metricsDiv.innerHTML = `
+                        <div class="metric">
+                            <span class="metric-name">Largest Contentful Paint (LCP)</span>
+                            <span class="metric-value ${lcpClass}">${formatTime(lcpTime)}</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-name">LCP Element</span>
+                            <span class="metric-value">${lastEntry.element?.tagName || 'Unknown'}</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-name">Status</span>
+                            <span class="metric-value ${lcpClass}">
+                                ${lcpTime <= 2500 ? '✅ Good' : lcpTime <= 4000 ? '⚠️ Needs Improvement' : '❌ Poor'}
+                            </span>
+                        </div>
+                    `;
+                });
+                
+                observer.observe({ entryTypes: ['largest-contentful-paint'] });
+            } catch (e) {
+                console.log('LCP monitoring not available');
+            }
+        }
+    </script>
+</body>
+</html>

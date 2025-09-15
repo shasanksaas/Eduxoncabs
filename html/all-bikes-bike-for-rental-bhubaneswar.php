@@ -61,6 +61,11 @@ if($tdate!="" && $ptime!="" && $ddate!="" && $dtime){
 <!-- Web Fonts  -->
 <?php include("includes/inc-css.php");?>
 <link rel="stylesheet" type="text/css" href="assets/css/modern-bikes-page.css">
+<style>
+body {
+    padding-top: 0px !important;
+}
+</style>
 </head>
 <body>
 <div class="body">

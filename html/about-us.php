@@ -26,6 +26,11 @@ $db = new SiteData();
 <!-- Web Fonts  -->
 <?php include("includes/inc-css.php");?>
 <link rel="stylesheet" href="assets/css/modern-about-page.css">
+<style>
+body {
+    padding-top: 0px !important;
+}
+</style>
 </head>
 <body>
 <div class="body">
