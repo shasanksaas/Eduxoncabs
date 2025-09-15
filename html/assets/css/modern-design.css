@@ -30,6 +30,13 @@ body {
   min-height: 70px;
 }
 
+/* Modern Golden Navbar */
+.modern-navbar {
+  background: linear-gradient(135deg, #d4af37 0%, #f4d03f 50%, #d4af37 100%);
+  border-bottom: 3px solid #b8860b;
+  box-shadow: 0 4px 20px rgba(212, 175, 55, 0.3);
+}
+
 /* Ensure proper navbar container layout */
 .navbar .container-fluid {
   display: flex !important;
@@ -39,6 +46,16 @@ body {
 
 .navbar-brand {
   margin-right: 0 !important;
+}
+
+/* Logo styling for golden navbar */
+.modern-navbar .navbar-brand img {
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+  transition: all 0.3s ease;
+}
+
+.modern-navbar .navbar-brand img:hover {
+  transform: scale(1.05);
 }
 
 /* Ensure proper spacing after fixed navbar */
@@ -63,7 +80,7 @@ body {
 }
 
 .navbar-nav .nav-link {
-  color: #333 !important;
+  color: #2c3e50 !important;
   font-weight: 600;
   padding: 0.75rem 1rem !important;
   border-radius: 8px;
@@ -71,35 +88,62 @@ body {
   position: relative;
   white-space: nowrap;
   font-size: 16px;
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.5);
 }
 
 .navbar-nav .nav-link:hover {
-  color: #007bff !important;
-  background-color: rgba(0, 123, 255, 0.1);
+  color: #1a252f !important;
+  background-color: rgba(255, 255, 255, 0.2);
   transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .navbar-nav .nav-link.active {
-  color: #007bff !important;
-  background-color: rgba(0, 123, 255, 0.1);
+  color: #1a252f !important;
+  background-color: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 /* Dropdown Styles */
 .dropdown-menu {
   border: none;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
   border-radius: 10px;
   margin-top: 0.5rem;
+  background: #fff;
 }
 
 .dropdown-item {
   padding: 0.75rem 1.5rem;
   transition: all 0.3s ease;
+  color: #2c3e50;
 }
 
 .dropdown-item:hover {
-  background-color: rgba(0, 123, 255, 0.1);
-  color: #007bff;
+  background: linear-gradient(135deg, #f4d03f 0%, #d4af37 100%);
+  color: #1a252f;
+  transform: translateX(5px);
+}
+
+/* Pay Now Button Styling for Golden Theme */
+.modern-navbar .btn-primary {
+  background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+  border: none;
+  color: white;
+  font-weight: 600;
+  padding: 0.6rem 1.5rem;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-size: 14px;
+}
+
+.modern-navbar .btn-primary:hover {
+  background: linear-gradient(135deg, #c0392b 0%, #a93226 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(231, 76, 60, 0.4);
 }
 
 /* ============================================
@@ -116,6 +160,25 @@ body {
   .navbar-expand-lg .navbar-toggler {
     display: none !important;
   }
+}
+
+/* Mobile Navbar Toggler for Golden Theme */
+.modern-navbar .navbar-toggler {
+  border: 2px solid #2c3e50;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  padding: 0.4rem 0.6rem;
+  transition: all 0.3s ease;
+}
+
+.modern-navbar .navbar-toggler:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: scale(1.05);
+}
+
+.modern-navbar .navbar-toggler .fa-bars {
+  color: #2c3e50;
+  font-size: 18px;
 }
 
 /* Modern and responsive navbar toggle under logo */
@@ -484,55 +547,7 @@ body {
   }
 }
 
-/* Mobile Features Section */
-@media (max-width: 991.98px) {
-  .hero-features-mobile {
-    margin-top: 2rem;
-    padding: 1rem 0;
-  }
-  
-  .feature-mobile {
-    text-align: center;
-    padding: 1rem 0.5rem;
-  }
-  
-  .feature-mobile i {
-    font-size: 1.5rem;
-    margin-bottom: 0.5rem;
-    display: block;
-  }
-  
-  .feature-mobile span {
-    font-size: 12px;
-    font-weight: 600;
-    color: #666;
-  }
-}
-
-/* Mobile CTA Section Styles */
-@media (max-width: 991.98px) {
-  .mobile-cta-section {
-    display: block !important;
-  }
-  
-  .cta-step {
-    padding: 0.5rem;
-  }
-  
-  .step-icon {
-    margin-bottom: 0.5rem !important;
-  }
-  
-  .cta-step small {
-    font-size: 11px;
-    line-height: 1.2;
-  }
-  
-  .mobile-cta-section .btn {
-    font-size: 14px;
-    padding: 0.5rem 1rem;
-  }
-}
+/* Mobile features and CTA sections removed as per request */
 
 /* Mobile Features Section */
 @media (max-width: 991.98px) {
@@ -828,24 +843,11 @@ body {
 }
 
 /* ===== END MODERN FEATURES SECTION ===== */
-  
-  .feature-mobile {
-    text-align: center;
-    padding: 10px;
-  }
-  
-  .feature-mobile i {
-    font-size: 1.5rem;
-    margin-bottom: 5px;
-    display: block;
-  }
-  
-  .feature-mobile span {
-    font-size: 0.85rem;
-    color: #666;
-    font-weight: 500;
-  }
-  
+
+/* Feature mobile styles removed */
+
+/* Additional Mobile Optimizations */
+@media (max-width: 991px) {
   /* Booking Form Mobile Priority */
   .booking-card {
     margin-bottom: 30px;
@@ -1130,9 +1132,7 @@ body {
     font-size: 0.9rem;
   }
   
-  .feature-mobile span {
-    font-size: 0.8rem;
-  }
+  /* Feature mobile styles removed */
   
   /* Container padding on mobile */
   .container {
@@ -1182,25 +1182,7 @@ body {
   }
 }
 
-/* Mobile CTA Section */
-.mobile-cta-section {
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-}
-
-.cta-step {
-  padding: 15px 10px;
-}
-
-.step-icon {
-  background: rgba(255,255,255,0.2);
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto;
-}
+/* Mobile CTA section styles removed */
 
 /* Additional Mobile Optimizations */
 @media (max-width: 991px) {
@@ -1271,38 +1253,7 @@ body {
   }
 }
 
-@media (max-width: 767px) {
-  /* Car Grid - Stack on mobile */
-  .car-grid .col-lg-4 {
-    margin-bottom: 20px;
-  }
-  
-  /* Reviews - Single column */
-  .reviews-section .col-lg-4 {
-    margin-bottom: 20px;
-  }
-  
-  /* Gallery - Full width items */
-  .gallery-item {
-    margin-bottom: 20px;
-  }
-  
-  /* Reduce padding for small screens */
-  .card-body {
-    padding: 15px !important;
-  }
-  
-  .btn {
-    width: 100%;
-    margin-bottom: 10px;
-  }
-  
-  .btn + .btn {
-    margin-left: 0;
-  }
-}
-
-@media (max-width: 575px) {
+@media (max-width: 576px) {
   .hero-title {
     font-size: 1.7rem;
   }
@@ -2600,5 +2551,309 @@ html {
   .payment-methods {
     justify-content: center;
     margin-top: 0.5rem;
+  }
+}
+
+/* ============================================
+   🎯 MOBILE-FIRST NAVBAR OVERRIDE - CLEAN SLATE
+   Exact golden bar layout as requested
+   ============================================ */
+
+/* MOBILE VIEW: Custom toggle button and dropdown styling */
+@media (max-width: 991.98px) {
+  .modern-navbar {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    z-index: 1030 !important;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+    padding: 0.5rem 1rem !important;
+    min-height: 60px !important;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1) !important;
+    border: none !important;
+  }
+  
+  .modern-navbar .container-fluid {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    max-width: none !important;
+    width: 100% !important;
+    height: 100% !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+  }
+  
+  .modern-navbar .navbar-brand {
+    margin: 0 !important;
+    padding: 0 !important;
+    flex: none !important;
+    order: 1 !important;
+  }
+  
+  .modern-navbar .navbar-brand img {
+    height: 40px !important;
+    width: auto !important;
+    filter: none !important;
+    transform: none !important;
+    transition: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  
+  /* Custom Hamburger Toggle Button */
+  .modern-navbar .navbar-toggler {
+    background: #ffffff !important;
+    border: 1px solid #000000 !important;
+    border-radius: 6px !important;
+    padding: 8px !important;
+    margin: 0 !important;
+    width: 45px !important;
+    height: 45px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    order: 2 !important;
+    flex: none !important;
+    transition: background-color 0.3s ease !important;
+    box-shadow: none !important;
+    gap: 4px !important;
+  }
+  
+  .modern-navbar .navbar-toggler:hover {
+    background: #f5f5f5 !important;
+    border: 1px solid #000000 !important;
+  }
+  
+  .modern-navbar .navbar-toggler:active,
+  .modern-navbar .navbar-toggler:focus {
+    background: linear-gradient(135deg, #ffffff 0%, #e0e0e0 100%) !important;
+    border: 1px solid #000000 !important;
+    outline: none !important;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1) !important;
+  }
+  
+  /* Hide default Bootstrap icon */
+  .modern-navbar .navbar-toggler-icon {
+    display: none !important;
+  }
+  
+  /* Custom hamburger lines */
+  .modern-navbar .navbar-toggler .hamburger-line {
+    width: 20px;
+    height: 2px;
+    background-color: #000000;
+    border-radius: 1px;
+    transition: all 0.3s ease;
+    display: block;
+  }
+  
+  /* Mobile Navigation Layout */
+  .modern-navbar .navbar-nav {
+    width: 100% !important;
+  }
+  
+  /* Hide all nav items on mobile in collapsed state */
+  .modern-navbar .navbar-collapse:not(.show) {
+    display: none !important;
+  }
+  
+  /* Custom Dropdown Menu Styling */
+  .modern-navbar .navbar-collapse.show {
+    position: absolute !important;
+    top: 100% !important;
+    left: 0 !important;
+    right: 0 !important;
+    background: white !important;
+    border-radius: 0 0 10px 10px !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15) !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    z-index: 1020 !important;
+  }
+  
+  .modern-navbar .navbar-collapse.show .navbar-nav {
+    display: flex !important;
+    flex-direction: column !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    list-style: none !important;
+  }
+  
+  .modern-navbar .navbar-collapse.show .navbar-nav .nav-item {
+    margin: 0 !important;
+    border-bottom: 1px solid #f0f0f0 !important;
+  }
+  
+  .modern-navbar .navbar-collapse.show .navbar-nav .nav-item:last-child {
+    border-bottom: none !important;
+  }
+  
+  .modern-navbar .navbar-collapse.show .navbar-nav .nav-link {
+    color: #333 !important;
+    padding: 1rem 1.5rem !important;
+    border-radius: 0 !important;
+    transition: all 0.3s ease !important;
+    text-decoration: none !important;
+    display: block !important;
+    font-size: 16px !important;
+    font-weight: 500 !important;
+  }
+  
+  .modern-navbar .navbar-collapse.show .navbar-nav .nav-link:hover {
+    background-color: #f9f9f9 !important;
+    color: #B22222 !important;
+  }
+  
+  /* Custom Pay Now Button in Mobile Menu */
+  .modern-navbar .navbar-collapse.show .navbar-nav .nav-item:last-child {
+    padding: 1rem !important;
+    border-bottom: none !important;
+  }
+  
+  .modern-navbar .navbar-collapse.show .btn-primary {
+    width: 90% !important;
+    margin: 0 auto !important;
+    background: linear-gradient(135deg, #E53935, #B22222) !important;
+    border: none !important;
+    color: white !important;
+    font-weight: bold !important;
+    font-size: 16px !important;
+    padding: 0.8rem 1.5rem !important;
+    border-radius: 8px !important;
+    box-shadow: 0 4px 12px rgba(229, 57, 53, 0.3) !important;
+    transition: all 0.3s ease !important;
+    text-transform: none !important;
+    display: block !important;
+    text-align: center !important;
+  }
+  
+  .modern-navbar .navbar-collapse.show .btn-primary:hover {
+    background: linear-gradient(135deg, #D32F2F, #A91E1E) !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 16px rgba(229, 57, 53, 0.4) !important;
+  }
+}
+
+/* DESKTOP VIEW: Keep existing modern styles (>= 992px) */
+@media (min-width: 992px) {
+  .modern-navbar {
+    background: linear-gradient(135deg, #d4af37 0%, #f4d03f 50%, #d4af37 100%) !important;
+    border-bottom: 3px solid #b8860b !important;
+    box-shadow: 0 4px 20px rgba(212, 175, 55, 0.3) !important;
+    padding: 0.75rem 0 !important;
+    transition: all 0.3s ease !important;
+    backdrop-filter: blur(10px) !important;
+    min-height: 70px !important;
+  }
+  
+  .modern-navbar .container-fluid {
+    display: flex !important;
+    align-items: center !important;
+    flex-wrap: nowrap !important;
+    padding: 0 2rem !important;
+  }
+  
+  .modern-navbar .navbar-brand {
+    margin-right: 0 !important;
+  }
+  
+  .modern-navbar .navbar-brand img {
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2)) !important;
+    transition: all 0.3s ease !important;
+    height: 45px !important;
+  }
+  
+  .modern-navbar .navbar-brand img:hover {
+    transform: scale(1.05) !important;
+  }
+  
+  .modern-navbar .navbar-toggler {
+    display: none !important;
+  }
+  
+  .modern-navbar .navbar-collapse {
+    flex-grow: 1 !important;
+  }
+  
+  .modern-navbar .navbar-nav {
+    align-items: center !important;
+    margin: 0 auto !important;
+  }
+  
+  .modern-navbar .navbar-nav .nav-item {
+    margin: 0 0.25rem !important;
+  }
+  
+  .modern-navbar .navbar-nav .nav-link {
+    color: #2c3e50 !important;
+    font-weight: 600 !important;
+    padding: 0.75rem 1rem !important;
+    border-radius: 8px !important;
+    transition: all 0.3s ease !important;
+    position: relative !important;
+    white-space: nowrap !important;
+    font-size: 16px !important;
+    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.5) !important;
+  }
+  
+  .modern-navbar .navbar-nav .nav-link:hover {
+    color: #1a252f !important;
+    background-color: rgba(255, 255, 255, 0.2) !important;
+    transform: translateY(-1px) !important;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1) !important;
+  }
+  
+  .modern-navbar .navbar-nav .nav-link.active {
+    color: #1a252f !important;
+    background-color: rgba(255, 255, 255, 0.25) !important;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
+  }
+  
+  /* Desktop Dropdown Styles */
+  .modern-navbar .dropdown-menu {
+    border: none !important;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15) !important;
+    border-radius: 10px !important;
+    margin-top: 0.5rem !important;
+    background: #fff !important;
+  }
+  
+  .modern-navbar .dropdown-item {
+    padding: 0.75rem 1.5rem !important;
+    transition: all 0.3s ease !important;
+    color: #2c3e50 !important;
+  }
+  
+  .modern-navbar .dropdown-item:hover {
+    background: linear-gradient(135deg, #f4d03f 0%, #d4af37 100%) !important;
+    color: #1a252f !important;
+    transform: translateX(5px) !important;
+  }
+  
+  /* Desktop Pay Now Button */
+  .modern-navbar .btn-primary {
+    background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%) !important;
+    border: none !important;
+    color: white !important;
+    font-weight: 600 !important;
+    padding: 0.6rem 1.5rem !important;
+    border-radius: 25px !important;
+    transition: all 0.3s ease !important;
+    box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3) !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
+    font-size: 14px !important;
+    margin-left: 1rem !important;
+  }
+  
+  .modern-navbar .btn-primary:hover {
+    background: linear-gradient(135deg, #c0392b 0%, #a93226 100%) !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 20px rgba(231, 76, 60, 0.4) !important;
   }
 }

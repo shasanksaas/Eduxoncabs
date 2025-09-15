@@ -281,17 +281,9 @@ if($tdate!="" && $ptime!="" && $ddate!="" && $dtime){
                       Bike Booked
                     </button>
                   <?php else: ?>
-                    <form action="checkout_3.php" method="post" class="booking-form">
-                      <input type='hidden' name='vehicle_id' value='<?= md5($bike["id"]); ?>' />
-                      <input type='hidden' name='vehicle_type' value='2' />
-                      <input type='hidden' name='from_dt_time' value='<?= $from_dt_time; ?>' />
-                      <input type='hidden' name='to_dt_time' value='<?= $to_dt_time; ?>' />
-                      
-                      <button type="submit" name="book_bike" class="btn-book-now">
-                        <i class="fa fa-calendar-check-o"></i>
-                        Book Now
-                      </button>
-                    </form>
+                    <a href="checkout.php?pdate=<?php echo !empty($tdate) ? $tdate : date('Y-m-d'); ?>&ptime=<?php echo !empty($ptime) ? $ptime : '6:00'; ?>&ddate=<?php echo !empty($ddate) ? $ddate : date('Y-m-d'); ?>&dtime=<?php echo !empty($dtime) ? $dtime : '12:00'; ?>&car=<?php echo md5($bike['bike_name']); ?>&cartype=<?php echo md5($bike['fuel']); ?>&cardta=<?php echo md5($bike['id']); ?>&vehicle_type=bike" class="btn-book-now">
+                      <i class="fa fa-calendar mr-2"></i>Book Now
+                    </a>
                   <?php endif; ?>
                   
                   <div class="bike-info-actions">

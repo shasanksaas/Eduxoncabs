@@ -24,7 +24,28 @@ if ($mysqli_conn->connect_error) {
 
 $get_id = filter($_GET['cardta'],$mysqli_conn);
 
-$get_car_dta = $dbObj->fetch_data("tbl_cabs", "md5(id) = '$get_id'");
+// Determine vehicle type (car or bike)
+$vehicle_type = isset($_GET['vehicle_type']) ? filter($_GET['vehicle_type'], $mysqli_conn) : 'car';
+
+// Fetch vehicle data based on type
+if($vehicle_type == 'bike') {
+    $get_vehicle_data = $dbObj->fetch_data("tbl_bikes", "md5(id) = '$get_id'");
+    $vehicle_table = 'tbl_bikes';
+    $vehicle_name_field = 'bike_name';
+    $vehicle_image_field = 'bike_image';
+    $vehicle_image_folder = 'bikes';
+    $vehicle_type_display = 'Bike';
+} else {
+    $get_vehicle_data = $dbObj->fetch_data("tbl_cabs", "md5(id) = '$get_id'");
+    $vehicle_table = 'tbl_cabs';
+    $vehicle_name_field = 'car_nme';
+    $vehicle_image_field = 'car_image';
+    $vehicle_image_folder = 'cab';
+    $vehicle_type_display = 'Car';
+}
+
+// Keep backward compatibility by setting $get_car_dta
+$get_car_dta = $get_vehicle_data;
 
 
 $pdate = filter($_GET['pdate'],$mysqli_conn);
@@ -48,9 +69,9 @@ if ($pdate != '' || $ptime != '' || $ddate != '' || $dtime != '') {
    <head>
       <meta charset="utf-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <title>Checkout - Complete Your Booking | EduxonCabs</title>
-      <meta name="keywords" content="car rental checkout, self drive booking, EduxonCabs payment" />
-      <meta name="description" content="Complete your self-drive car rental booking with EduxonCabs. Secure payment and instant confirmation.">
+      <title>Checkout - Complete Your <?php echo $vehicle_type_display; ?> Booking | EduxonCabs</title>
+      <meta name="keywords" content="<?php echo strtolower($vehicle_type_display); ?> rental checkout, self drive booking, EduxonCabs payment" />
+      <meta name="description" content="Complete your self-drive <?php echo strtolower($vehicle_type_display); ?> rental booking with EduxonCabs. Secure payment and instant confirmation.">
       <meta name="author" content="EduxonCabs">
       <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
       <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
@@ -561,7 +582,7 @@ if ($pdate != '' || $ptime != '' || $ddate != '' || $dtime != '') {
                      <input type="hidden" name="wkendhr" id="wkendhr" value="0" />
                      <input type="hidden" name="wkdaysamnt" id="wkdaysamnt" value="0" />
                      <input type="hidden" name="wkendamnt" id="wkendamnt" value="0" />
-                     <input type="hidden" name="carnme" id="carnme" value="<?php echo $get_car_dta[0]['car_nme']; ?>" />
+                     <input type="hidden" name="carnme" id="carnme" value="<?php echo $get_car_dta[0][$vehicle_name_field]; ?>" />
                      <input type="hidden" id="securitymoneyprice" name='securitymoneyprice' value="<?php echo $get_car_dta[0]['security']; ?>" />
 
                      <!-- Personal Information Section -->
@@ -811,9 +832,9 @@ if ($pdate != '' || $ptime != '' || $ddate != '' || $dtime != '') {
                <!-- Car Summary -->
                <div class="col-lg-4">
                   <div class="car-summary">
-                     <img src="uploadedDocument/cab/<?php echo $get_car_dta[0]['car_image']; ?>" class="car-image" alt="<?php echo $get_car_dta[0]['car_nme']; ?>">
+                     <img src="uploadedDocument/<?php echo $vehicle_image_folder; ?>/<?php echo $get_car_dta[0][$vehicle_image_field]; ?>" class="car-image" alt="<?php echo $get_car_dta[0][$vehicle_name_field]; ?>">
                      
-                     <h3 class="car-title"><?php echo $get_car_dta[0]['car_nme']; ?></h3>
+                     <h3 class="car-title"><?php echo $get_car_dta[0][$vehicle_name_field]; ?></h3>
                      
                      <div class="pricing-details">
                         <div class="pricing-item">

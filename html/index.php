@@ -116,6 +116,8 @@ if (isset($_POST["act"]) && $_POST["act"] == "subscribe") {
 <?php include "includes1/inc-css.php"; ?>
 <!-- Modern Design CSS -->
 <link href="assets/css/modern-design.css" rel="stylesheet">
+<!-- Modern FAQ Section CSS -->
+<link href="assets/css/modern-faq-section.css" rel="stylesheet">
 <!-- Google Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 
@@ -757,77 +759,247 @@ s0.parentNode.insertBefore(s1,s0);
       </div>
     </div>
   </div>
-  <section id="r-faq-section">
-    <div class="r-faq-section r-faq-white-bg">
-      <div class="container">
-        <div class="row v-align-center r-faq-header-wrapper">
-          <div class="col-md-8 col-sm-12">
-            <div class="r-faq-header"> <span>FIND YOUR ANSWER HERE</span>
-              <h2>Frequenly <strong>Ask &amp; Questions.</strong></h2>
+  <!-- Modern SaaS FAQ Section -->
+  <section id="modern-faq-section" class="section-padding">
+    <div class="container">
+      <!-- FAQ Header -->
+      <div class="text-center mb-5">
+        <div class="faq-badge">
+          <span class="badge-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 2C13.1 2 14 2.9 14 4C14 5.1 13.1 6 12 6C10.9 6 10 5.1 10 4C10 2.9 10.9 2 12 2ZM21 9V7L15 1H5C3.89 1 3 1.89 3 3V21C3 22.1 3.89 23 5 23H19C20.1 23 21 22.1 21 21V9M19 9H14V4H5V21H19V9Z" fill="currentColor"/>
+            </svg>
+          </span>
+          Support Center
+        </div>
+        <h2 class="faq-title">Frequently Asked <span class="gradient-text">Questions</span></h2>
+        <p class="faq-subtitle">Find answers to common questions about our self-drive car rental services in Bhubaneswar</p>
+      </div>
+
+      <!-- FAQ Grid -->
+      <div class="faq-grid">
+        <div class="row">
+          <div class="col-lg-6 mb-4">
+            <div class="faq-card" data-aos="fade-up" data-aos-delay="100">
+              <div class="faq-header" onclick="toggleFAQ(this)">
+                <div class="faq-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z" fill="currentColor"/>
+                  </svg>
+                </div>
+                <h3 class="faq-question">What documents are required to rent a car?</h3>
+                <div class="faq-toggle">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" fill="currentColor"/>
+                  </svg>
+                </div>
+              </div>
+              <div class="faq-content">
+                <div class="faq-answer">
+                  <ul class="faq-list">
+                    <li><strong>Valid Driving License</strong> and additional ID proof (Aadhaar Card, Voter ID, PAN Card, or any government-issued ID)</li>
+                    <li><strong>For Students/Local IDs:</strong> Job/College/Institution ID Card required for address proof</li>
+                    <li><strong>Pre-verification:</strong> Email your documents to eduxonassociates@gmail.com</li>
+                    <li><strong>Important:</strong> Without valid documents, booking will be cancelled with Rs.500/- deduction</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-6 mb-4">
+            <div class="faq-card" data-aos="fade-up" data-aos-delay="200">
+              <div class="faq-header" onclick="toggleFAQ(this)">
+                <div class="faq-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12,4A4,4 0 0,1 16,8A4,4 0 0,1 12,12A4,4 0 0,1 8,8A4,4 0 0,1 12,4M12,14C16.42,14 20,15.79 20,18V20H4V18C4,15.79 7.58,14 12,14Z" fill="currentColor"/>
+                  </svg>
+                </div>
+                <h3 class="faq-question">What is the minimum age requirement?</h3>
+                <div class="faq-toggle">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" fill="currentColor"/>
+                  </svg>
+                </div>
+              </div>
+              <div class="faq-content">
+                <div class="faq-answer">
+                  <p class="highlight-answer">You must be <strong>minimum 21 years old</strong> to rent our vehicles. This applies to all standard vehicles in our fleet.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-6 mb-4">
+            <div class="faq-card" data-aos="fade-up" data-aos-delay="300">
+              <div class="faq-header" onclick="toggleFAQ(this)">
+                <div class="faq-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12,8A4,4 0 0,0 8,12A4,4 0 0,0 12,16A4,4 0 0,0 16,12A4,4 0 0,0 12,8M3.05,13H1V11H3.05C3.5,6.83 6.83,3.5 11,3.05V1H13V3.05C17.17,3.5 20.5,6.83 20.95,11H23V13H20.95C20.5,17.17 17.17,20.5 13,20.95V23H11V20.95C6.83,20.5 3.5,17.17 3.05,13M12,18A6,6 0 0,1 6,12A6,6 0 0,1 12,6A6,6 0 0,1 18,12A6,6 0 0,1 12,18Z" fill="currentColor"/>
+                  </svg>
+                </div>
+                <h3 class="faq-question">What are the speeding charges?</h3>
+                <div class="faq-toggle">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" fill="currentColor"/>
+                  </svg>
+                </div>
+              </div>
+              <div class="faq-content">
+                <div class="faq-answer">
+                  <div class="penalty-info">
+                    <div class="penalty-item">
+                      <span class="penalty-label">First Instance:</span>
+                      <span class="penalty-amount">Rs. 200/-</span>
+                    </div>
+                    <div class="penalty-item">
+                      <span class="penalty-label">Subsequent Violations:</span>
+                      <span class="penalty-amount">Rs. 500/- each</span>
+                    </div>
+                    <p class="penalty-note">Speed limit: 80km/hour maximum</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-6 mb-4">
+            <div class="faq-card" data-aos="fade-up" data-aos-delay="400">
+              <div class="faq-header" onclick="toggleFAQ(this)">
+                <div class="faq-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12,8A4,4 0 0,0 8,12A4,4 0 0,0 12,16A4,4 0 0,0 16,12A4,4 0 0,0 12,8M3.05,13H1V11H3.05C3.5,6.83 6.83,3.5 11,3.05V1H13V3.05C17.17,3.5 20.5,6.83 20.95,11H23V13H20.95C20.5,17.17 17.17,20.5 13,20.95V23H11V20.95C6.83,20.5 3.5,17.17 3.05,13M12,18A6,6 0 0,1 6,12A6,6 0 0,1 12,6A6,6 0 0,1 18,12A6,6 0 0,1 12,18Z" fill="currentColor"/>
+                  </svg>
+                </div>
+                <h3 class="faq-question">Are there kilometer limitations?</h3>
+                <div class="faq-toggle">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" fill="currentColor"/>
+                  </svg>
+                </div>
+              </div>
+              <div class="faq-content">
+                <div class="faq-answer">
+                  <div class="km-limitations">
+                    <div class="km-category">
+                      <h4>Standard Vehicles</h4>
+                      <p class="unlimited">✅ Unlimited Kilometers</p>
+                    </div>
+                    <div class="km-category">
+                      <h4>Premium Vehicles (BMW, Mercedes, Audi)</h4>
+                      <p>📍 180 KM per 24 hours</p>
+                      <p class="extra-charge">Extra: Rs. 30/km beyond limit</p>
+                    </div>
+                    <p class="interstate-note">💡 Inform in advance for interstate travel</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-6 mb-4">
+            <div class="faq-card" data-aos="fade-up" data-aos-delay="500">
+              <div class="faq-header" onclick="toggleFAQ(this)">
+                <div class="faq-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12.5,7V12.25L17,14.92L16.25,16.15L11,13V7H12.5Z" fill="currentColor"/>
+                  </svg>
+                </div>
+                <h3 class="faq-question">What are the late return charges?</h3>
+                <div class="faq-toggle">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" fill="currentColor"/>
+                  </svg>
+                </div>
+              </div>
+              <div class="faq-content">
+                <div class="faq-answer">
+                  <div class="late-charges">
+                    <div class="warning-box">
+                      <strong>⚠️ Late Return Penalty</strong>
+                      <p>Without 6-hour advance notice:</p>
+                    </div>
+                    <div class="charge-breakdown">
+                      <div class="charge-item">
+                        <span>Late Fee:</span>
+                        <span class="amount">Rs. 500/-</span>
+                      </div>
+                      <div class="charge-item">
+                        <span>Per Hour Charge:</span>
+                        <span class="amount">Rs. 200/hour</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-6 mb-4">
+            <div class="faq-card" data-aos="fade-up" data-aos-delay="600">
+              <div class="faq-header" onclick="toggleFAQ(this)">
+                <div class="faq-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12,3L2,12H5V20H19V12H22L12,3M12,8.75A2.25,2.25 0 0,1 14.25,11A2.25,2.25 0 0,1 12,13.25A2.25,2.25 0 0,1 9.75,11A2.25,2.25 0 0,1 12,8.75Z" fill="currentColor"/>
+                  </svg>
+                </div>
+                <h3 class="faq-question">Do you provide home delivery?</h3>
+                <div class="faq-toggle">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" fill="currentColor"/>
+                  </svg>
+                </div>
+              </div>
+              <div class="faq-content">
+                <div class="faq-answer">
+                  <div class="delivery-options">
+                    <div class="delivery-item free">
+                      <span class="delivery-icon">✈️</span>
+                      <div class="delivery-info">
+                        <h4>Airport Delivery</h4>
+                        <p class="free-label">FREE (Only toll charges apply)</p>
+                      </div>
+                    </div>
+                    <div class="delivery-item paid">
+                      <span class="delivery-icon">🏠</span>
+                      <div class="delivery-info">
+                        <h4>Home Delivery</h4>
+                        <p>Rs. 400/- (Pick-up & Drop within 20km radius)</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-        <div class="row r-faq-accordion-wrapper">
-          <div class="col-lg-6 col-md-12">
-            <div class="r-accordion">
-              <div class="r-accordion-heading"> <span class="r-accordion-toggle"> <i class="fa-arrow-circle-down fa"></i> </span> What are Documents needed to reserved a car here? </div>
-              <div class="r-accordion-body">
-                <p> a.Copy of Driving license and Other ID Proof Such as Adhar Card, Voter Id, Pan Card, Any other ID Issued by Authority or Institution.</p>
- <p>b. Local IDs/Students Must carry their Job/Collage/institution Id Card for the Address Proof.</p>
- <p>c. Without absence of Job/Collage ID,No Local IDs is eligible to rent a car under Eduxon Platform.</p>
- <p>d. Mail  your Driving license,Adhar Card Copy or Other ID & Live Photo  in eduxonassociates@gmail.com for the Pre verification of your documents.</p>
- <p>e. In the absence of any Valid/required Documents the booking will be treated as Cancelled and Rs.500/- is deuctable from Total amount Paid. </p>
-              </div>
-            </div>
-            <!-- /r-accordion -->
-            <div class="r-accordion">
-              <div class="r-accordion-heading"> <span class="r-accordion-toggle"> <i class="fa-arrow-circle-down fa"></i> </span> Age Requirement for booking car? </div>
-              <div class="r-accordion-body">
-                <p> Minimum 21 Years for Normal vehicles. </p>
-              </div>
-            </div>
-            <!-- /r-accordion -->
-            <div class="r-accordion">
-              <div class="r-accordion-heading"> <span class="r-accordion-toggle"> <i class="fa-arrow-circle-down fa"></i> </span> Over Speeding charges: (Exceeding 80km/Hour)? </div>
-              <div class="r-accordion-body">
-                <p> a. A penalty of Rs. 200 shall be charged on the first instance.</p>
-<p>b. An additional penalty of Rs 500/- shall be charged each time from the second instance of speed violation. </p>
-              </div>
-            </div>
-            <!-- /r-accordion -->
+      </div>
+
+      <!-- Contact Support -->
+      <div class="faq-support-section">
+        <div class="support-card">
+          <div class="support-content">
+            <h3>Still have questions?</h3>
+            <p>Our support team is here to help you 24/7</p>
           </div>
-          <div class="col-lg-6 col-md-12">
-            <div class="r-accordion">
-              <div class="r-accordion-heading"> <span class="r-accordion-toggle"> <i class="fa-arrow-circle-down fa"></i> </span>What are Kilometers Limitation? </div>
-              <div class="r-accordion-body is-hidden">
-                <p> a.There is Unlimited Kms Offered to the Customer In the Normal range vehicles.</p>
- <p>b. 180 Kms/24 Hours is limited In the BMW, Mercedes, Audi Range Vehicles. Extra per Kilometers Charges is Rs, 30/km Will be charged from the customer.</p>
- <p>c.Customer Must Infrom In Advance if planning to go Outisde the Odisha State Border.</p>
-              </div>
-            </div>
-            <!-- /r-accordion -->
-            <div class="r-accordion">
-              <div class="r-accordion-heading"> <span class="r-accordion-toggle"> <i class="fa-arrow-circle-down fa"></i> </span> What are Late Charges? </div>
-              <div class="r-accordion-body">
-                <p> If the Customer Exceeds the Time Limit without any information Before 06 Hours of expiry Of time then it will be Chargeable Rs, 500/- as a fine in addition to extra Per Hour Charge Rs, 200/Hour. </p>
-              </div>
-            </div>
-            <!-- /r-accordion -->
-            <div class="r-accordion">
-              <div class="r-accordion-heading"> <span class="r-accordion-toggle"> <i class="fa-arrow-circle-down fa"></i> </span> Home delievery? </div>
-              <div class="r-accordion-body">
-                <p> a.Airport Delivery is free(Only toll charges applicable)</p>
-<p>b.Home delivery is Chargeble Rs. 400/- Including Pick up/Drop up within the radius of 20Km.</p>
-              </div>
-            </div>
-            <!-- /r-accordion -->
+          <div class="support-actions">
+            <a href="contact-us.php" class="support-btn primary">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M6.62,10.79C8.06,13.62 10.38,15.94 13.21,17.38L15.41,15.18C15.69,14.9 16.08,14.82 16.43,14.93C17.55,15.3 18.75,15.5 20,15.5A1,1 0 0,1 21,16.5V20A1,1 0 0,1 20,21A17,17 0 0,1 3,4A1,1 0 0,1 4,3H7.5A1,1 0 0,1 8.5,4C8.5,5.25 8.7,6.45 9.07,7.57C9.18,7.92 9.1,8.31 8.82,8.59L6.62,10.79Z" fill="currentColor"/>
+              </svg>
+              Contact Support
+            </a>
+            <a href="mailto:eduxonassociates@gmail.com" class="support-btn secondary">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M20,8L12,13L4,8V6L12,11L20,6M20,4H4C2.89,4 2,4.89 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V6C22,4.89 21.1,4 20,4Z" fill="currentColor"/>
+              </svg>
+              Email Us
+            </a>
           </div>
         </div>
-        <!--<div class="row">
-          <div class="col-md-12 text-center"> <a href="#" class="btn-primary icon-btn"> <i class="fa fa-question-circle icon"></i> MAKE A QUESTIONS </a> </div>
-        </div>-->
       </div>
     </div>
+  </section>
   <!-- Modern Gallery & News Section -->
   <section class="section-padding" style="background: #fff;">
     <div class="container">
@@ -1313,6 +1485,93 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
+});
+
+// Modern FAQ Toggle Functionality
+function toggleFAQ(element) {
+    const faqCard = element.closest('.faq-card');
+    const faqContent = faqCard.querySelector('.faq-content');
+    const toggle = faqCard.querySelector('.faq-toggle');
+    
+    // Close all other FAQ cards
+    document.querySelectorAll('.faq-card').forEach(card => {
+        if (card !== faqCard && card.classList.contains('active')) {
+            card.classList.remove('active');
+            const otherContent = card.querySelector('.faq-content');
+            const otherToggle = card.querySelector('.faq-toggle');
+            otherContent.style.maxHeight = '0';
+            otherToggle.style.transform = 'rotate(0deg)';
+        }
+    });
+    
+    // Toggle current FAQ card
+    faqCard.classList.toggle('active');
+    
+    if (faqCard.classList.contains('active')) {
+        faqContent.style.maxHeight = faqContent.scrollHeight + 'px';
+        toggle.style.transform = 'rotate(180deg)';
+        
+        // Add a small delay to ensure smooth animation
+        setTimeout(() => {
+            faqContent.style.maxHeight = 'none';
+        }, 300);
+    } else {
+        faqContent.style.maxHeight = faqContent.scrollHeight + 'px';
+        toggle.style.transform = 'rotate(0deg)';
+        
+        // Force reflow and then set to 0
+        setTimeout(() => {
+            faqContent.style.maxHeight = '0';
+        }, 10);
+    }
+}
+
+// Initialize AOS (Animate On Scroll) if available
+document.addEventListener('DOMContentLoaded', function() {
+    // FAQ Animation on scroll
+    const faqCards = document.querySelectorAll('.faq-card');
+    const faqObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry, index) => {
+            if (entry.isIntersecting) {
+                setTimeout(() => {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }, index * 100);
+            }
+        });
+    }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    });
+
+    faqCards.forEach(card => {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(30px)';
+        card.style.transition = 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
+        faqObserver.observe(card);
+    });
+
+    // Support section animation
+    const supportSection = document.querySelector('.faq-support-section');
+    if (supportSection) {
+        const supportObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const supportCard = entry.target.querySelector('.support-card');
+                    supportCard.style.opacity = '1';
+                    supportCard.style.transform = 'translateY(0) scale(1)';
+                }
+            });
+        }, { threshold: 0.3 });
+
+        const supportCard = supportSection.querySelector('.support-card');
+        if (supportCard) {
+            supportCard.style.opacity = '0';
+            supportCard.style.transform = 'translateY(50px) scale(0.95)';
+            supportCard.style.transition = 'all 0.8s cubic-bezier(0.4, 0, 0.2, 1)';
+        }
+        supportObserver.observe(supportSection);
+    }
 });
 </script>
      
