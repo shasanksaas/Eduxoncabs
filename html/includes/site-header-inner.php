@@ -99,6 +99,17 @@
     left: 0;
     right: 0;
     z-index: 1000; /* Lower than mobile menu but higher than content */
+    transition: transform 0.3s ease-in-out;
+    transform: translateY(0);
+  }
+  
+  /* Smart navbar states */
+  .mobile-app-header.navbar-hidden {
+    transform: translateY(-100%);
+  }
+  
+  .mobile-app-header.navbar-visible {
+    transform: translateY(0);
   }
 
   .mobile-app-row {
@@ -290,6 +301,27 @@
       display: none !important; /* Hide desktop nav on mobile */
     }
     
+    /* CRITICAL FIX: Force mobile header row to flex and push burger to far right */
+    #header .header-row.mobile-app-row {
+      display: flex !important;
+      align-items: center !important;
+      justify-content: space-between !important;
+      width: 100% !important;
+    }
+    
+    /* Ensure logo stays on left */
+    #header .header-row.mobile-app-row .logo-column {
+      order: 1 !important;
+      flex: 0 0 auto !important;
+    }
+    
+    /* Push mobile menu column to far right */
+    #header .header-row.mobile-app-row .mobile-menu-column {
+      order: 3 !important;
+      flex: 0 0 auto !important;
+      margin-left: auto !important;
+    }
+    
     .mobile-app-row {
       padding: 8px 15px;
       min-height: 56px;
@@ -354,11 +386,162 @@
     pointer-events: none !important;
     user-select: none !important;
   }
+  
+  /* CRITICAL FIX: Lower filter section z-index when mobile menu is open */
+  body.mobile-menu-open .compact-filter-section {
+    z-index: 1 !important;
+    position: relative !important;
+  }
 
   /* Ensure mobile menu content is always interactive */
   .mobile-app-nav-content * {
     pointer-events: all !important;
     user-select: auto !important;
+  }
+
+  /* Beautiful desktop dropdowns */
+  @media (min-width: 992px) {
+    /* Add hover gap to catch mouse movement between button and dropdown */
+    .header-nav .dropdown::after {
+      content: '' !important;
+      position: absolute !important;
+      left: 0 !important; 
+      right: 0 !important;
+      bottom: -15px !important; /* Create invisible area below menu item */
+      height: 15px !important;
+      z-index: 2001 !important;
+    }
+    
+    .header-nav .dropdown { position: relative; }
+
+    /* Base menu styling */
+    .header-nav .dropdown-menu {
+      position: absolute !important;
+      top: 100% !important;
+      left: 0 !important;
+      display: block !important; /* allow transition via visibility/opacity */
+      opacity: 0 !important;
+      visibility: hidden !important;
+      transform: translateY(5px) scale(0.98) !important; /* Reduced distance from 10px to 5px */
+      pointer-events: none !important;
+      background: #ffffff !important;
+      min-width: 320px !important;
+      padding: 10px 6px !important;
+      margin-top: 0px !important; /* Reduced from 10px to 0px - closer to parent */
+      border-radius: 14px !important;
+      border: 1px solid rgba(0,0,0,0.08) !important;
+      box-shadow: 0 24px 48px rgba(2, 6, 23, 0.18), 0 8px 16px rgba(2, 6, 23, 0.12) !important;
+      transition: opacity 250ms cubic-bezier(0.4,0,0.2,1), /* Increased time from 180ms to 250ms */
+                  transform 250ms cubic-bezier(0.4,0,0.2,1),
+                  visibility 0s linear 250ms !important;
+      z-index: 2000 !important; /* above page filters */
+      backdrop-filter: saturate(120%) blur(8px);
+    }
+
+    /* Reveal on hover */
+    .header-nav .dropdown:hover > .dropdown-menu {
+      opacity: 1 !important;
+      visibility: visible !important;
+      transform: translateY(0) scale(1) !important;
+      pointer-events: auto !important;
+      transition-delay: 0s, 0s, 0s !important;
+    }
+    
+    /* Keep dropdown visible during transition to submenu */
+    .header-nav .dropdown-menu:hover {
+      opacity: 1 !important;
+      visibility: visible !important;
+      pointer-events: auto !important;
+    }
+
+    /* Items */
+    .header-nav .dropdown-menu > li { list-style: none !important; }
+    .header-nav .dropdown-menu > li + li { margin-top: 2px !important; }
+    .header-nav .dropdown-menu a {
+      display: block !important;
+      padding: 12px 16px !important;
+      margin: 0 8px !important;
+      border-radius: 10px !important;
+      text-decoration: none !important;
+      font-weight: 600 !important;
+      font-size: 14px !important;
+      color: #1f2937 !important; /* override inline white links */
+      transition: transform 140ms ease, background-color 160ms ease, color 160ms ease !important;
+    }
+    .header-nav .dropdown-menu a:hover {
+      background: linear-gradient(180deg, #f8fafc 0%, #eef2f7 100%) !important;
+      color: #2563eb !important;
+      transform: translateX(4px) !important;
+    }
+
+    /* Submenu */
+    .header-nav .dropdown-submenu { position: relative !important; }
+    .header-nav .dropdown-submenu > .dropdown-menu {
+      top: -8px !important;
+      left: calc(100% + 5px) !important; /* Reduced from 10px to 5px */
+      margin-top: 0 !important;
+      min-width: 260px !important;
+      transform: translateY(0) scale(0.98) !important; /* Changed from translateY(8px) to 0 for closer positioning */
+      transition-delay: 0.1s !important; /* Added small delay before hiding submenu */
+    }
+    
+    /* Create hover bridge to submenu */
+    .header-nav .dropdown-submenu::after {
+      content: '' !important;
+      position: absolute !important;
+      top: 0 !important;
+      right: -10px !important;
+      bottom: 0 !important;
+      width: 15px !important; /* Wider bridge to catch mouse movement */
+      z-index: 2001 !important;
+    }
+    .header-nav .dropdown-submenu:hover > .dropdown-menu {
+      opacity: 1 !important;
+      visibility: visible !important;
+      transform: translateY(0) scale(1) !important;
+      pointer-events: auto !important;
+      transition-delay: 0s !important;
+    }
+    
+    /* Extend hover time - don't hide immediately */
+    .header-nav .dropdown-menu {
+      transition: opacity 250ms cubic-bezier(0.4,0,0.2,1),
+                  transform 250ms cubic-bezier(0.4,0,0.2,1),
+                  visibility 0s linear 500ms !important; /* Longer delay before hiding (500ms) */
+    }
+
+    /* Submenu arrow indicator */
+    .header-nav .dropdown-submenu > a { position: relative !important; }
+    .header-nav .dropdown-submenu > a::after {
+      content: "\f105" !important; /* fa-angle-right */
+      font-family: FontAwesome !important;
+      position: absolute !important;
+      right: 14px !important;
+      top: 50% !important;
+      transform: translateY(-50%) !important;
+      color: #9ca3af !important;
+      font-size: 12px !important;
+      transition: transform 140ms ease, color 160ms ease !important;
+    }
+    .header-nav .dropdown-submenu:hover > a::after {
+      color: #2563eb !important;
+      transform: translateY(-50%) translateX(2px) !important;
+    }
+
+    /* Toggle arrow for top-level dropdowns */
+    .header-nav .dropdown > .dropdown-toggle { position: relative !important; }
+    .header-nav .dropdown > .dropdown-toggle::after {
+      content: "\f107" !important; /* fa-angle-down */
+      font-family: FontAwesome !important;
+      margin-left: 8px !important;
+      font-size: 12px !important;
+      color: #6b7280 !important;
+      transition: transform 180ms ease, color 160ms ease !important;
+    }
+    .header-nav .dropdown:hover > .dropdown-toggle::after {
+      transform: rotate(180deg) !important;
+      color: #2563eb !important;
+    }
   }
   </style>
 
@@ -456,5 +639,51 @@
         e.preventDefault();
       }
     }, { passive: false });
+    
+    // Smart navbar - hide on scroll down, show on scroll up
+    let lastScrollTop = 0;
+    let scrollThreshold = 5; // Reduced threshold for more responsive behavior
+    const header = document.getElementById('header');
+    
+    function handleSmartNavbar() {
+      const currentScrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      const scrollDiff = Math.abs(currentScrollTop - lastScrollTop);
+      
+      // Only trigger if scroll difference is significant enough
+      if (scrollDiff < scrollThreshold) {
+        return;
+      }
+      
+      // Always show navbar at the very top of the page
+      if (currentScrollTop <= 50) {
+        header.classList.remove('navbar-hidden');
+        header.classList.add('navbar-visible');
+      } else {
+        // Scrolling down - hide navbar (only if scrolling down significantly)
+        if (currentScrollTop > lastScrollTop && scrollDiff > 8) {
+          header.classList.add('navbar-hidden');
+          header.classList.remove('navbar-visible');
+        }
+        // Scrolling up - show navbar immediately (even small upward scrolls)
+        else if (currentScrollTop < lastScrollTop) {
+          header.classList.remove('navbar-hidden');
+          header.classList.add('navbar-visible');
+        }
+      }
+      
+      lastScrollTop = currentScrollTop;
+    }
+    
+    // Throttle scroll events for better performance
+    let scrollTimer = null;
+    window.addEventListener('scroll', function() {
+      if (scrollTimer !== null) {
+        clearTimeout(scrollTimer);
+      }
+      scrollTimer = setTimeout(handleSmartNavbar, 10);
+    });
+    
+    // Initialize navbar state
+    header.classList.add('navbar-visible');
   });
   </script>

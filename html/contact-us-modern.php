@@ -26,6 +26,7 @@ $db = new SiteData();
 <!-- Web Fonts  -->
 <?php include("includes/inc-css.php");?>
 <link rel="stylesheet" href="assets/css/modern-contact-page.css">
+<link rel="stylesheet" href="assets/css/footer-center-fix.css">
 </head>
 <body>
 <div class="body">
