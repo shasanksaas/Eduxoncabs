@@ -430,6 +430,26 @@ body {
   }
 }
 
+/* Small-Medium Screen Hero CTA - Center alignment fix */
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .hero-cta {
+    flex-direction: row !important;
+    gap: 1rem !important;
+    justify-content: center !important;
+    align-items: center !important;
+    text-align: center !important;
+  }
+  
+  .btn-modern-primary,
+  .btn-modern-outline {
+    width: auto !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 0.75rem 1.25rem !important;
+    flex: 0 0 auto !important;
+  }
+}
+
 /* Medium Screen Hero CTA - Keep buttons horizontal */
 @media (min-width: 768px) and (max-width: 991.98px) {
   .hero-cta {
