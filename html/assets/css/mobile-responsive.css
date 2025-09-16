@@ -24,6 +24,16 @@ body {
 }
 
 /* ============================================
+   LARGE SCREEN HERO SECTION (Desktop)
+   ============================================ */
+@media (min-width: 992px) {
+  /* Left align hero content text on large screens */
+  .hero-content {
+    text-align: left !important;
+  }
+}
+
+/* ============================================
    MEDIUM SCREEN HERO SECTION (Tablets)
    ============================================ */
 @media (min-width: 768px) and (max-width: 991.98px) {
@@ -38,6 +48,11 @@ body {
   .hero-section .order-2 {
     flex: 1 !important;
     width: auto !important;
+  }
+  
+  /* Left align hero content text on medium screens */
+  .hero-content {
+    text-align: left !important;
   }
 }
 
