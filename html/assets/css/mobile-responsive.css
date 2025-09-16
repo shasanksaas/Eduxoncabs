@@ -54,6 +54,9 @@ body {
   .hero-content {
     text-align: left !important;
   }
+  .btn-search-modern{
+    width: 100%;
+  }
 }
 
 /* ============================================
@@ -336,8 +339,9 @@ body {
   select.form-control-modern {
     padding-right: 40px;
     background-image: none;
-  }  .btn-search-modern {
-    width: 100%;
+  }  
+  .btn-search-modern {
+    width: 60%;
     padding: 0.875rem 1.5rem;
     font-size: 16px;
     font-weight: 600;

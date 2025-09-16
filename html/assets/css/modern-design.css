@@ -772,6 +772,7 @@ body {
   
   .btn-search-modern {
     padding: 14px 20px;
+    width: 60% !important;
   }
 }
 
@@ -1693,7 +1694,7 @@ html {
 
 /* Search Button */
 .btn-search-modern {
-  width: 60%;
+  width: 100%;
   margin-left: auto;
   margin-right: auto;
   background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
