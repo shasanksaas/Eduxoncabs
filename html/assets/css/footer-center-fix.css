@@ -1,384 +1,197 @@
-/* Footer Centering Fix for Small and Medium Screens */
-@media (max-width: 991.98px) {
-  /* Center all footer widgets and make them wider */
-  .footer-widget {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    text-align: center !important;
-    width: 90% !important; /* Make widgets wider */
-    max-width: 450px !important; /* Set a maximum width */
-    margin-left: auto !important;
-    margin-right: auto !important;
-    padding: 1rem !important;
-  }
-  
-  /* Center footer titles with larger font */
-  .footer-title {
-    text-align: center !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
-    font-size: 1.4rem !important; /* Increased font size */
-  }
-  
-  /* Center footer links with center alignment and larger font */
-  .footer-links {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    width: fit-content !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
-    padding-left: 0 !important;
-    list-style: none !important;
-  }
-  
-  .footer-links li {
-    text-align: center !important;
-    width: 100% !important;
-    list-style-type: none !important;
-    padding-left: 0 !important;
-  }
-  
-  .footer-links a {
-    text-align: center !important;
-    display: block !important;
-    font-size: 1.35rem !important; /* Significantly increased font size */
-    padding: 8px 0 !important; /* Added more vertical padding for better tap targets */
-    font-weight: 500 !important; /* Added slightly bolder font weight for emphasis */
-  }
-  
-  /* Center footer description and make it wider */
-  .footer-description {
-    text-align: center !important;
-    width: 100% !important;
-    font-size: 1.1rem !important; /* Larger text */
-    margin-bottom: 2rem !important;
-    padding: 0 1rem !important;
-  }
-  
-  /* Center contact cards and make them wider */
-  .contact-card {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    text-align: center !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
-    width: 90% !important; /* Make contact cards wider */
-    max-width: 350px !important; /* Set a maximum width for larger screens */
-    padding: 1.5rem 1rem !important; /* Increase padding */
-  }
-  
-  .contact-icon {
-    margin-right: 0 !important;
-    margin-bottom: 0.75rem !important;
-    width: 65px !important; /* Make the contact icon larger */
-    height: 65px !important;
-  }
-  
-  .contact-info {
-    text-align: center !important;
-    width: 100% !important;
-  }
-  
-  .contact-info strong {
-    text-align: center !important;
-    display: block !important;
-    font-size: 1.25rem !important; /* Larger text */
-    margin-bottom: 0.5rem !important;
-  }
-  
-  .contact-info p {
-    text-align: center !important;
-    margin: 0 !important;
-    font-size: 1.1rem !important; /* Larger text */
-  }
-  
-  /* Center social links */
-  .footer-social {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    width: 100% !important;
-  }
-  
-  .social-title {
-    text-align: center;
-    font-size: 1.3rem !important; /* Larger text */
-    margin-bottom: 1rem !important;
-  }
-  
-  .social-links {
-    justify-content: center;
-    width: 90% !important; /* Make wider */
-    max-width: 400px !important;
-    gap: 1.5rem !important; /* More spacing between social icons */
-  }
-  
-  /* Center footer stats and make them wider */
-  .footer-stats,
-  .modern-footer .footer-stats {
-    width: 100% !important;
-    margin-bottom: 1.5rem !important;
-  }
-  
-  .footer-stats .row,
-  .modern-footer .footer-stats .row {
-    justify-content: center !important;
-    display: flex !important;
-    flex-wrap: wrap !important;
-    width: 100% !important;
-    gap: 1rem !important;
-  }
-  
-  .footer-stats .stat-item,
-  .modern-footer .footer-stats .stat-item {
-    text-align: center !important;
-    width: 90% !important; /* Make stat items wider */
-    max-width: 350px !important; /* Match contact cards max-width */
-    margin-left: auto !important;
-    margin-right: auto !important;
-    padding: 1.5rem 1rem !important; /* Match contact cards padding */
-    background: rgba(255, 255, 255, 0.1) !important;
-    border-radius: 10px !important;
-    margin-bottom: 1.5rem !important;
-  }
-  
-  .footer-stats .stat-item strong,
-  .modern-footer .footer-stats .stat-item strong {
-    font-size: 1.8rem !important; /* Make numbers larger */
-    color: #007bff !important;
-    margin-bottom: 0.5rem !important;
-    display: block !important;
-  }
-  
-  .footer-stats .stat-item span,
-  .modern-footer .footer-stats .stat-item span {
-    font-size: 1.2rem !important; /* Make text larger */
-    color: #b0b0b0 !important;
-  }
-  
-  /* Center footer bottom elements and make them wider */
-  .footer-bottom .row {
-    justify-content: center !important;
-    text-align: center !important;
-    width: 100% !important;
-  }
-  
-  .footer-copyright,
-  .footer-payment {
-    text-align: center !important;
-    width: 100% !important;
-    max-width: 100% !important;
-    padding: 0.75rem 1rem !important; /* Add more padding */
-  }
-  
-  .footer-copyright p {
-    font-size: 1.1rem !important; /* Larger text */
-    margin: 0.5rem 0 !important;
-  }
-  
-  .payment-methods {
-    justify-content: center !important;
-    width: 100% !important;
-    margin-top: 0.75rem !important;
-    gap: 1.25rem !important; /* Increase spacing between payment icons */
-  }
-  
-  .payment-methods i {
-    font-size: 1.8rem !important; /* Larger payment icons */
-  }
+/* Footer Style Reset to Match Home Page */
+/* Remove all custom footer overrides and let the default modern footer styles apply */
+
+/* Reset footer widgets to default styling */
+.footer-widget {
+  display: block !important;
+  flex-direction: row !important;
+  align-items: flex-start !important;
+  text-align: left !important;
+  width: 100% !important;
+  max-width: none !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  padding: 0 !important;
 }
 
-/* Ensure Desktop Footer Layout Consistency (992px and above) */
-@media (min-width: 992px) {
-  /* Lock in desktop footer layout - no mobile overrides */
-  .footer-widget {
-    display: block !important;
-    flex-direction: row !important;
-    align-items: flex-start !important;
-    text-align: left !important;
-    width: 100% !important;
-    max-width: none !important;
-    margin-left: 0 !important;
-    margin-right: 0 !important;
-    padding: 0 !important;
-  }
-  
-  .footer-title {
-    text-align: left !important;
-    margin-left: 0 !important;
-    margin-right: 0 !important;
-    font-size: 1.25rem !important;
-  }
-  
-  .footer-links {
-    display: block !important;
-    flex-direction: column !important;
-    align-items: flex-start !important;
-    width: 100% !important;
-    margin-left: 0 !important;
-    margin-right: 0 !important;
-    padding-left: 0 !important;
-    list-style: none !important;
-  }
-  
-  .footer-links li {
-    text-align: left !important;
-    width: 100% !important;
-    list-style-type: none !important;
-    padding-left: 0 !important;
-  }
-  
-  .footer-links a {
-    text-align: left !important;
-    display: block !important;
-    font-size: 0.95rem !important;
-    padding: 0 !important;
-    font-weight: normal !important;
-  }
-  
-  .footer-description {
-    text-align: left !important;
-    width: 100% !important;
-    font-size: inherit !important;
-    margin-bottom: 2rem !important;
-    padding: 0 !important;
-  }
-  
-  .contact-card {
-    display: flex !important;
-    flex-direction: row !important;
-    align-items: flex-start !important;
-    text-align: left !important;
-    margin-left: 0 !important;
-    margin-right: 0 !important;
-    width: 100% !important;
-    max-width: none !important;
-    padding: 1rem !important;
-  }
-  
-  .contact-icon {
-    margin-right: 1rem !important;
-    margin-bottom: 0 !important;
-    width: 50px !important;
-    height: 50px !important;
-  }
-  
-  .contact-info {
-    text-align: left !important;
-    width: auto !important;
-  }
-  
-  .contact-info strong {
-    text-align: left !important;
-    display: block !important;
-    font-size: 1rem !important;
-    margin-bottom: 0.25rem !important;
-  }
-  
-  .contact-info p {
-    text-align: left !important;
-    margin: 0 !important;
-    font-size: 0.9rem !important;
-  }
-  
-  .footer-social {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: flex-start !important;
-    text-align: left !important;
-    width: 100% !important;
-  }
-  
-  .social-title {
-    text-align: left !important;
-    font-size: 1rem !important;
-    margin-bottom: 1rem !important;
-  }
-  
-  .social-links {
-    justify-content: flex-start !important;
-    width: auto !important;
-    max-width: none !important;
-    gap: 1rem !important;
-  }
-  
-  .footer-stats,
-  .modern-footer .footer-stats {
-    width: 100% !important;
-    margin-bottom: 1.5rem !important;
-  }
-  
-  .footer-stats .row,
-  .modern-footer .footer-stats .row {
-    justify-content: flex-start !important;
-    display: flex !important;
-    flex-wrap: wrap !important;
-    width: 100% !important;
-    gap: 0 !important;
-  }
-  
-  .footer-stats .stat-item,
-  .modern-footer .footer-stats .stat-item {
-    text-align: center !important;
-    width: auto !important;
-    max-width: none !important;
-    margin-left: 0 !important;
-    margin-right: 0 !important;
-    padding: 1rem !important;
-    background: rgba(255, 255, 255, 0.1) !important;
-    border-radius: 10px !important;
-    margin-bottom: 1rem !important;
-  }
-  
-  .footer-stats .stat-item strong,
-  .modern-footer .footer-stats .stat-item strong {
-    font-size: 1.5rem !important;
-    color: #007bff !important;
-    margin-bottom: 0.25rem !important;
-    display: block !important;
-  }
-  
-  .footer-stats .stat-item span,
-  .modern-footer .footer-stats .stat-item span {
-    font-size: 0.85rem !important;
-    color: #b0b0b0 !important;
-  }
-  
-  .footer-bottom .row {
-    justify-content: space-between !important;
-    text-align: left !important;
-    width: 100% !important;
-  }
-  
-  .footer-copyright,
-  .footer-payment {
-    text-align: left !important;
-    width: auto !important;
-    max-width: none !important;
-    padding: 0 !important;
-  }
-  
-  .footer-payment {
-    text-align: right !important;
-  }
-  
-  .footer-copyright p {
-    font-size: 0.9rem !important;
-    margin: 0 !important;
-  }
-  
-  .payment-methods {
-    justify-content: flex-end !important;
-    width: auto !important;
-    margin-top: 0 !important;
-    gap: 0.75rem !important;
-  }
-  
-  .payment-methods i {
-    font-size: 1.5rem !important;
-  }
+/* Reset footer titles to default */
+.footer-title {
+  text-align: left !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  font-size: 1.25rem !important;
+}
+
+/* Reset footer links to default */
+.footer-links {
+  display: block !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  width: 100% !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  padding-left: 0 !important;
+  list-style: none !important;
+}
+
+.footer-links li {
+  text-align: left !important;
+  width: 100% !important;
+  list-style-type: none !important;
+  padding-left: 0 !important;
+}
+
+.footer-links a {
+  text-align: left !important;
+  display: block !important;
+  font-size: 0.95rem !important;
+  padding: 0 !important;
+  font-weight: normal !important;
+}
+
+/* Reset footer description to default */
+.footer-description {
+  text-align: left !important;
+  width: 100% !important;
+  font-size: inherit !important;
+  margin-bottom: 2rem !important;
+  padding: 0 !important;
+}
+
+/* Reset contact cards to default */
+.contact-card {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: flex-start !important;
+  text-align: left !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  width: 100% !important;
+  max-width: none !important;
+  padding: 1rem !important;
+}
+
+.contact-icon {
+  margin-right: 1rem !important;
+  margin-bottom: 0 !important;
+  width: 50px !important;
+  height: 50px !important;
+}
+
+.contact-info {
+  text-align: left !important;
+  width: auto !important;
+}
+
+.contact-info strong {
+  text-align: left !important;
+  display: block !important;
+  font-size: 1rem !important;
+  margin-bottom: 0.25rem !important;
+}
+
+.contact-info p {
+  text-align: left !important;
+  margin: 0 !important;
+  font-size: 0.9rem !important;
+}
+
+/* Reset footer social to default */
+.footer-social {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  text-align: left !important;
+  width: 100% !important;
+}
+
+.social-title {
+  text-align: left !important;
+  font-size: 1rem !important;
+  margin-bottom: 1rem !important;
+}
+
+.social-links {
+  justify-content: flex-start !important;
+  width: auto !important;
+  max-width: none !important;
+  gap: 1rem !important;
+}
+
+/* Reset footer stats to default */
+.footer-stats,
+.modern-footer .footer-stats {
+  width: 100% !important;
+  margin-bottom: 1.5rem !important;
+}
+
+.footer-stats .row,
+.modern-footer .footer-stats .row {
+  justify-content: flex-start !important;
+  display: flex !important;
+  flex-wrap: wrap !important;
+  width: 100% !important;
+  gap: 0 !important;
+}
+
+.footer-stats .stat-item,
+.modern-footer .footer-stats .stat-item {
+  text-align: center !important;
+  width: auto !important;
+  max-width: none !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  padding: 1rem !important;
+  background: rgba(255, 255, 255, 0.1) !important;
+  border-radius: 10px !important;
+  margin-bottom: 1rem !important;
+}
+
+.footer-stats .stat-item strong,
+.modern-footer .footer-stats .stat-item strong {
+  font-size: 1.5rem !important;
+  color: #007bff !important;
+  margin-bottom: 0.25rem !important;
+  display: block !important;
+}
+
+.footer-stats .stat-item span,
+.modern-footer .footer-stats .stat-item span {
+  font-size: 0.85rem !important;
+  color: #b0b0b0 !important;
+}
+
+/* Reset footer bottom to default */
+.footer-bottom .row {
+  justify-content: space-between !important;
+  text-align: left !important;
+  width: 100% !important;
+}
+
+.footer-copyright,
+.footer-payment {
+  text-align: left !important;
+  width: auto !important;
+  max-width: none !important;
+  padding: 0 !important;
+}
+
+.footer-payment {
+  text-align: right !important;
+}
+
+.footer-copyright p {
+  font-size: 0.9rem !important;
+  margin: 0 !important;
+}
+
+.payment-methods {
+  justify-content: flex-end !important;
+  width: auto !important;
+  margin-top: 0 !important;
+  gap: 0.75rem !important;
+}
+
+.payment-methods i {
+  font-size: 1.5rem !important;
 }
