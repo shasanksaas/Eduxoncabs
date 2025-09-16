@@ -24,10 +24,28 @@ body {
 }
 
 /* ============================================
-   MOBILE FORM PRIORITY OVERRIDE
+   MEDIUM SCREEN HERO SECTION (Tablets)
    ============================================ */
-@media (max-width: 991.98px) {
-  /* Force booking form to appear first on all mobile devices */
+@media (min-width: 768px) and (max-width: 991.98px) {
+  /* Keep row layout for medium screens but optimize spacing */
+  .hero-section .row {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+  }
+  
+  .hero-section .order-1,
+  .hero-section .order-2 {
+    flex: 1 !important;
+    width: auto !important;
+  }
+}
+
+/* ============================================
+   MOBILE FORM PRIORITY OVERRIDE (Mobile Only)
+   ============================================ */
+@media (max-width: 767.98px) {
+  /* Force booking form to appear first on mobile devices only */
   .hero-section .row {
     display: flex !important;
     flex-direction: column !important;
