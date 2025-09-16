@@ -768,12 +768,12 @@ body {
     width: 100% !important;
   }
 
-  /* Right-aligned dropdown for better mobile UX */
+  /* Right-aligned dropdown for better mobile UX - aligned with menu button right edge */
   .navbar-collapse.show {
-    right: 0 !important;
+    right: 15px !important;
     left: auto !important;
     width: 280px !important;
-    max-width: calc(100vw - 20px) !important;
+    max-width: calc(100vw - 30px) !important;
   }
 
   /* Enhanced Pay Now button in mobile dropdown */
