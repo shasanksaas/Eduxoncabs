@@ -28,7 +28,7 @@ $db = new SiteData();
 <link rel="stylesheet" href="assets/css/modern-faq-page.css">
 <style>
 body {
-    padding-top: 0px !important;
+    /* Removed padding-top override to allow header spacing */
 }
 </style>
 </head>

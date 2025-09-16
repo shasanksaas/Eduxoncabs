@@ -90,26 +90,31 @@
   </header>
 
   <style>
-  /* Mobile App Header Styles */
+  /* Global body adjustment for fixed header */
+  body {
+    padding-top: 70px !important; /* Adjust for fixed header height */
+  }
+  
+  /* Mobile App Header Styles - ALWAYS STICKY */
   .mobile-app-header {
     background: #fff;
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    position: fixed;
-    top: 0;
+    position: fixed !important;
+    top: 0 !important;
     left: 0;
     right: 0;
-    z-index: 1000; /* Lower than mobile menu but higher than content */
-    transition: transform 0.3s ease-in-out;
-    transform: translateY(0);
+    z-index: 9999 !important; /* Higher z-index to be above filter sections */
+    transition: none !important; /* Remove any transitions that might hide it */
+    transform: translateY(0) !important; /* Always visible */
   }
   
-  /* Smart navbar states */
+  /* Override any smart navbar states - always keep visible */
   .mobile-app-header.navbar-hidden {
-    transform: translateY(-100%);
+    transform: translateY(0) !important; /* Never hide */
   }
   
   .mobile-app-header.navbar-visible {
-    transform: translateY(0);
+    transform: translateY(0) !important;
   }
 
   .mobile-app-row {
@@ -292,6 +297,10 @@
 
   /* Mobile Responsive */
   @media (max-width: 991px) {
+    body {
+      padding-top: 56px !important; /* Smaller padding for mobile header */
+    }
+    
     .mobile-menu-column {
       display: block !important; /* Only show on mobile */
       margin-left: auto !important;
@@ -640,50 +649,30 @@
       }
     }, { passive: false });
     
-    // Smart navbar - hide on scroll down, show on scroll up
-    let lastScrollTop = 0;
-    let scrollThreshold = 5; // Reduced threshold for more responsive behavior
+    // Keep header always visible - NO smart navbar behavior
     const header = document.getElementById('header');
     
-    function handleSmartNavbar() {
-      const currentScrollTop = window.pageYOffset || document.documentElement.scrollTop;
-      const scrollDiff = Math.abs(currentScrollTop - lastScrollTop);
+    // Force header to always be visible
+    if (header) {
+      header.classList.remove('navbar-hidden');
+      header.classList.add('navbar-visible');
       
-      // Only trigger if scroll difference is significant enough
-      if (scrollDiff < scrollThreshold) {
-        return;
-      }
+      // Override any attempts to hide the header
+      const observer = new MutationObserver(function(mutations) {
+        mutations.forEach(function(mutation) {
+          if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
+            if (header.classList.contains('navbar-hidden')) {
+              header.classList.remove('navbar-hidden');
+              header.classList.add('navbar-visible');
+            }
+          }
+        });
+      });
       
-      // Always show navbar at the very top of the page
-      if (currentScrollTop <= 50) {
-        header.classList.remove('navbar-hidden');
-        header.classList.add('navbar-visible');
-      } else {
-        // Scrolling down - hide navbar (only if scrolling down significantly)
-        if (currentScrollTop > lastScrollTop && scrollDiff > 8) {
-          header.classList.add('navbar-hidden');
-          header.classList.remove('navbar-visible');
-        }
-        // Scrolling up - show navbar immediately (even small upward scrolls)
-        else if (currentScrollTop < lastScrollTop) {
-          header.classList.remove('navbar-hidden');
-          header.classList.add('navbar-visible');
-        }
-      }
-      
-      lastScrollTop = currentScrollTop;
+      observer.observe(header, {
+        attributes: true,
+        attributeFilter: ['class']
+      });
     }
-    
-    // Throttle scroll events for better performance
-    let scrollTimer = null;
-    window.addEventListener('scroll', function() {
-      if (scrollTimer !== null) {
-        clearTimeout(scrollTimer);
-      }
-      scrollTimer = setTimeout(handleSmartNavbar, 10);
-    });
-    
-    // Initialize navbar state
-    header.classList.add('navbar-visible');
   });
   </script>

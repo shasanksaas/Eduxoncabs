@@ -73,7 +73,7 @@ $nxt18hr = date('Y-m-d H:i:s',strtotime($st_dte ."+18 hour"));
 <link rel="stylesheet" href="assets/css/footer-center-fix.css">
 <style>
 body {
-    padding-top: 0px !important;
+    /* Removed padding-top override to allow header spacing */
 }
 </style>
 </head>
