@@ -386,6 +386,12 @@
     pointer-events: none !important;
     user-select: none !important;
   }
+  
+  /* CRITICAL FIX: Lower filter section z-index when mobile menu is open */
+  body.mobile-menu-open .compact-filter-section {
+    z-index: 1 !important;
+    position: relative !important;
+  }
 
   /* Ensure mobile menu content is always interactive */
   .mobile-app-nav-content * {
