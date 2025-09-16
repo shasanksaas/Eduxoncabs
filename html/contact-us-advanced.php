@@ -161,6 +161,9 @@ if(isset($_POST['emailSent'])) {
 
 		<!-- Theme Custom CSS -->
 		<link rel="stylesheet" href="css/custom.css">
+		
+		<!-- Footer Center Fix CSS -->
+		<link rel="stylesheet" href="assets/css/footer-center-fix.css">
 
 		<!-- Head Libs -->
 		<script src="vendor/modernizr/modernizr.min.js"></script>
