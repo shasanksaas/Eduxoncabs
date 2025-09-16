@@ -449,6 +449,86 @@ body {
 }
 
 /* ============================================
+   VIEW ALL VEHICLES BUTTON - SMALL SCREENS
+   ============================================ */
+@media (max-width: 767.98px) {
+  /* Target "View all vehicles" buttons specifically without affecting other buttons */
+  .btn-primary.btn-lg:contains("View all vehicles"),
+  .btn-outline-primary.btn-lg:contains("View all vehicles"),
+  .btn[href*="all-cars"]:not(.btn-search-modern),
+  .btn[href*="all-bikes"]:not(.btn-search-modern) {
+    width: 60% !important;
+    max-width: 250px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+  }
+  
+  /* More specific selector for buttons containing "View all" text */
+  a.btn.btn-primary.btn-lg[href*="all-cars"],
+  a.btn.btn-outline-primary.btn-lg[href*="all-cars"],
+  a.btn.btn-primary.btn-lg[href*="all-bikes"],
+  a.btn.btn-outline-primary.btn-lg[href*="all-bikes"] {
+    width: 60% !important;
+    max-width: 250px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+  }
+}
+
+/* ============================================
+   PRODUCT CARD BUTTONS - SMALL SCREENS
+   ============================================ */
+@media (max-width: 767.98px) {
+  /* Target specific booking buttons with mb-xl class */
+  .btn.btn-primary.mb-xl:not(.btn-search-modern):not([href*="all-cars"]):not([href*="all-bikes"]):not([value="SEARCH"]) {
+    width: 60% !important;
+    max-width: 200px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    margin-bottom: 0.5rem !important;
+  }
+  
+  /* Target buttons inside hdetails class (common wrapper for booking buttons) */
+  .hdetails .btn.btn-primary.mb-xl,
+  .hdetails .btn:not(.btn-search-modern) {
+    width: 60% !important;
+    max-width: 200px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    margin-bottom: 0.5rem !important;
+  }
+  
+  /* Target input buttons with Book Now value */
+  input[type="submit"][value="Book Now"].btn.btn-primary.mb-xl {
+    width: 60% !important;
+    max-width: 200px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    margin-bottom: 0.5rem !important;
+  }
+}
+
+/* ============================================
    MOBILE CTA SECTION
    ============================================ */
 @media (max-width: 991.98px) {
