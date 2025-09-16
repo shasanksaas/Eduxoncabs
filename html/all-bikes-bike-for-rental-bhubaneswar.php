@@ -362,12 +362,12 @@ function toggleMobileFilters() {
   const mobileFilters = document.getElementById('mobileFilters');
   const toggleBtn = document.querySelector('.btn-mobile-filter i.fa-chevron-down');
   
-  if (mobileFilters.style.display === 'block') {
-    mobileFilters.style.display = 'none';
-    toggleBtn.style.transform = 'rotate(0deg)';
+  if (mobileFilters.classList.contains('show')) {
+    mobileFilters.classList.remove('show');
+    if (toggleBtn) toggleBtn.style.transform = 'rotate(0deg)';
   } else {
-    mobileFilters.style.display = 'block';
-    toggleBtn.style.transform = 'rotate(180deg)';
+    mobileFilters.classList.add('show');
+    if (toggleBtn) toggleBtn.style.transform = 'rotate(180deg)';
   }
 }
 

@@ -492,7 +492,7 @@ if(isset($_GET['ermsg']) && $_GET['ermsg']==2){
 
   <script>
   // Mobile Filter Toggle
-  function toggleMobileFilter() {
+  function toggleMobileFilters() {
     const dropdown = document.querySelector('.mobile-filter-dropdown');
     const isVisible = dropdown.classList.contains('show');
     

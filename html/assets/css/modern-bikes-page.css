@@ -98,32 +98,67 @@
 }
 
 .btn-mobile-filter {
-  background: #f3f4f6;
-  border: 1px solid #d1d5db;
-  padding: 8px 12px;
+  background: linear-gradient(135deg, #059669, #047857);
+  color: white;
+  border: none;
+  padding: 12px 16px;
   border-radius: 8px;
   font-size: 14px;
+  font-weight: 600;
   cursor: pointer;
   display: flex;
   align-items: center;
-  gap: 8px;
+  justify-content: space-between;
   width: 100%;
-  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.btn-mobile-filter:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(5, 150, 105, 0.3);
 }
 
 .mobile-filter-dropdown {
   display: none;
   margin-top: 10px;
-  background: #f9fafb;
+  background: white;
   padding: 15px;
   border-radius: 8px;
   border: 1px solid #e5e7eb;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.mobile-filter-dropdown.show {
+  display: block;
 }
 
 .mobile-filter-grid {
   display: grid;
   grid-template-columns: 1fr;
   gap: 10px;
+}
+
+/* Desktop Hide Mobile Elements */
+@media (min-width: 768px) {
+  .mobile-filter-toggle,
+  .mobile-filter-dropdown {
+    display: none !important;
+  }
+}
+
+/* Mobile Show Only Mobile Elements */
+@media (max-width: 767px) {
+  .filter-row {
+    display: none;
+  }
+  
+  .mobile-filter-toggle {
+    display: block;
+  }
+  
+  .compact-filter-section {
+    position: relative;
+  }
 }
 
 /* Bikes Grid Section */
@@ -488,16 +523,8 @@
   font-size: 14px;
 }
 
-/* Responsive Design */
+/* Additional Mobile Responsive */
 @media (max-width: 768px) {
-  .mobile-filter-toggle {
-    display: block;
-  }
-  
-  .filter-row {
-    display: none;
-  }
-  
   .mobile-filter-grid {
     grid-template-columns: 1fr 1fr;
   }
