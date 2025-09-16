@@ -667,8 +667,8 @@ if(isset($_POST['resend_otp']) && isset($_SESSION['otp_phone'])) {
                             <p class="text-muted mb-0">Enter your registered Indian mobile number (without +91) to receive an OTP for secure access to your booking history.</p>
                         </div>
                         <div class="col-lg-4">
-                            <form action="" method="post" class="d-flex gap-2">
-                                <div class="input-group">
+                            <form action="" method="post" class="d-flex flex-column align-items-center gap-3">
+                                <div class="input-group w-100">
                                     <span class="input-group-text bg-light">+91</span>
                                     <input type="text" 
                                            name="phone_number" 
@@ -680,7 +680,7 @@ if(isset($_POST['resend_otp']) && isset($_SESSION['otp_phone'])) {
                                            value="<?php echo isset($_POST['phone_number']) ? htmlspecialchars(preg_replace('/[^0-9]/', '', $_POST['phone_number'])) : ''; ?>"
                                            required />
                                 </div>
-                                <button type="submit" name="send_otp" class="btn-modern btn-primary-modern">
+                                <button type="submit" name="send_otp" class="btn-modern btn-primary-modern w-75 text-center justify-content-center">
                                     <i class="fa fa-paper-plane"></i> Send OTP
                                 </button>
                             </form>

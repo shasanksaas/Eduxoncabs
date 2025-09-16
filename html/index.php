@@ -451,10 +451,6 @@ s0.parentNode.insertBefore(s1,s0);
                 <ul class="list-unstyled">
                   <li class="mb-2"><i class="fa fa-check-circle text-success mr-2"></i> 5000+ happy customers</li>
                   <li class="mb-2"><i class="fa fa-check-circle text-success mr-2"></i> City & Airport pickup</li>
-                </ul>
-              </div>
-              <div class="col-md-6">
-                <ul class="list-unstyled">
                   <li class="mb-2"><i class="fa fa-check-circle text-success mr-2"></i> Unlimited kilometers</li>
                   <li class="mb-2"><i class="fa fa-check-circle text-success mr-2"></i> Zero hidden charges</li>
                 </ul>
@@ -1020,7 +1016,7 @@ s0.parentNode.insertBefore(s1,s0);
             </a>
           </li>
           <li class="nav-item" role="presentation">
-            <a class="nav-link" id="news-tab" data-toggle="pill" href="#news-gallery" role="tab">
+            <a class="nav-link" id="cars-tab" data-toggle="pill" href="#cars-gallery" role="tab">
               <i class="fa fa-newspaper-o mr-2"></i>Latest News
             </a>
           </li>
@@ -1075,7 +1071,7 @@ s0.parentNode.insertBefore(s1,s0);
         
         <!-- News Gallery Tab -->
         <div class="tab-pane fade" id="news-gallery" role="tabpanel">
-          <div class="row">
+          <div class="row" id="latest-news-section">
             <!-- News Article 1 -->
             <div class="col-lg-4 col-md-6 mb-4">
               <div class="news-card h-100">
@@ -1573,6 +1569,17 @@ document.addEventListener('DOMContentLoaded', function() {
         supportObserver.observe(supportSection);
     }
 });
+
+// Function to scroll to the news section
+function scrollToNews() {
+    const newsSection = document.getElementById('latest-news-section');
+    if (newsSection) {
+        window.scrollTo({
+            top: newsSection.offsetTop - 100, // 100px offset to account for sticky header
+            behavior: 'smooth'
+        });
+    }
+}
 </script>
 
 <!-- Smart Navbar Script -->
