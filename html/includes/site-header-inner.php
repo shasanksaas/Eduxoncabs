@@ -92,22 +92,24 @@
   <style>
   /* Global body adjustment for fixed header */
   body {
-    padding-top: 50px !important; /* REDUCED from 70px */
+    padding-top: 65px !important; /* INCREASED by 15px */
   }
   
   /* Mobile App Header Styles - ALWAYS STICKY */
   .mobile-app-header {
-    background: #fff;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    background: #fff !important;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1) !important;
     position: fixed !important;
     top: 0 !important;
-    left: 0;
-    right: 0;
+    left: 0 !important;
+    right: 0 !important;
     z-index: 9999 !important;
     transition: none !important;
     transform: translateY(0) !important;
-    min-height: 50px !important; /* REDUCED from 60px */
-    height: 50px !important; /* FIXED HEIGHT */
+    min-height: 65px !important; /* INCREASED by 15px */
+    height: 65px !important; /* FIXED HEIGHT */
+    max-height: none !important; /* ALLOW overflow for dropdowns */
+    overflow: visible !important; /* ALLOW dropdowns to show */
   }
   
   /* CRITICAL: Override smart navbar behavior completely */
@@ -117,15 +119,21 @@
     transform: translateY(0) !important; /* NO MOVEMENT EVER */
     transition: none !important;
     top: 0 !important;
+    min-height: 65px !important; /* INCREASED by 15px */
+    height: 65px !important; /* INCREASED by 15px */
+    max-height: none !important; /* ALLOW overflow for dropdowns */
+    overflow: visible !important; /* ALLOW dropdowns to show */
   }
 
   .mobile-app-row {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 8px 15px !important; /* REDUCED padding */
-    min-height: 50px !important; /* REDUCED height */
-    height: 50px !important; /* FIXED HEIGHT */
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    padding: 12px 15px !important; /* INCREASED padding for better look */
+    min-height: 65px !important; /* INCREASED by 15px */
+    height: 65px !important; /* FIXED HEIGHT */
+    max-height: none !important; /* ALLOW overflow for dropdowns */
+    overflow: visible !important; /* ALLOW dropdowns to show */
   }
 
   .logo-column {
@@ -146,8 +154,8 @@
 
   /* SMALLER logo */
   .header-logo img {
-    width: 95px !important; /* REDUCED from 110px */
-    height: 35px !important; /* REDUCED from 40px */
+    width: 110px !important; /* RESTORED to original size */
+    height: 40px !important; /* RESTORED to original size */
   }
 
   .mobile-app-menu-toggle {
@@ -307,7 +315,7 @@
   /* Mobile Responsive */
   @media (max-width: 991px) {
     body {
-      padding-top: 45px !important; /* EVEN SMALLER for mobile */
+      padding-top: 60px !important; /* INCREASED for mobile */
     }
     
     .mobile-menu-column {
@@ -320,8 +328,10 @@
     }
     
     .mobile-app-header {
-      min-height: 45px !important; /* SMALLER mobile header */
-      height: 45px !important;
+      min-height: 60px !important; /* INCREASED mobile header */
+      height: 60px !important;
+      max-height: none !important; /* ALLOW overflow for dropdowns */
+      overflow: visible !important; /* ALLOW dropdowns to show */
     }
     
     #header .header-row.mobile-app-row {
@@ -329,8 +339,10 @@
       align-items: center !important;
       justify-content: space-between !important;
       width: 100% !important;
-      min-height: 45px !important;
-      height: 45px !important;
+      min-height: 60px !important;
+      height: 60px !important;
+      max-height: none !important; /* ALLOW overflow for dropdowns */
+      overflow: visible !important; /* ALLOW dropdowns to show */
     }
     
     #header .header-row.mobile-app-row .logo-column {
@@ -345,15 +357,17 @@
     }
     
     .mobile-app-row {
-      padding: 6px 15px !important; /* SMALLER padding for mobile */
-      min-height: 45px !important;
-      height: 45px !important;
-      justify-content: space-between;
+      padding: 10px 15px !important; /* INCREASED padding for mobile */
+      min-height: 60px !important;
+      height: 60px !important;
+      max-height: none !important; /* ALLOW overflow for dropdowns */
+      justify-content: space-between !important;
+      overflow: visible !important; /* ALLOW dropdowns to show */
     }
     
     .header-logo img {
-      width: 90px !important; /* SMALLER for mobile */
-      height: 32px !important;
+      width: 105px !important; /* SLIGHTLY smaller for mobile */
+      height: 38px !important;
     }
   }
 
@@ -565,6 +579,41 @@
     const closeBtn = document.querySelector('.mobile-app-nav-close');
     
     let originalBodyStyle = '';
+    
+    // FORCE HEADER HEIGHT - this will override any JavaScript that might be changing it
+    function enforceHeaderHeight() {
+      const header = document.querySelector('.mobile-app-header');
+      const headerRow = document.querySelector('.mobile-app-row');
+      
+      if (header) {
+        const isDesktop = window.innerWidth >= 992;
+        const targetHeight = isDesktop ? '50px' : '45px';
+        
+        // Force height with inline styles (highest priority)
+        header.style.cssText += `height: ${targetHeight} !important; min-height: ${targetHeight} !important; max-height: ${targetHeight} !important;`;
+        
+        if (headerRow) {
+          headerRow.style.cssText += `height: ${targetHeight} !important; min-height: ${targetHeight} !important; max-height: ${targetHeight} !important;`;
+        }
+        
+        // Update body padding
+        document.body.style.paddingTop = targetHeight + ' !important';
+      }
+    }
+    
+    // Run immediately
+    enforceHeaderHeight();
+    
+    // Run after any other scripts might have loaded
+    setTimeout(enforceHeaderHeight, 100);
+    setTimeout(enforceHeaderHeight, 500);
+    setTimeout(enforceHeaderHeight, 1000);
+    
+    // Run on resize
+    window.addEventListener('resize', enforceHeaderHeight);
+    
+    // Run periodically to catch any dynamic changes
+    setInterval(enforceHeaderHeight, 2000);
     
     function closeMobileMenu() {
       if (mobileNav) {
