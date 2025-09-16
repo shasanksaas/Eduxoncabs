@@ -289,7 +289,7 @@
       </div>
       
       <!-- Mobile Menu Toggle Button - Always on Right -->
-      <button class="btn mobile-app-menu-toggle navbar-toggler" type="button" aria-expanded="false" aria-label="Toggle navigation" style="order: 3 !important; flex: 0 0 auto !important; margin-left: auto !important;">
+      <button class="btn mobile-app-menu-toggle navbar-toggler" type="button" aria-expanded="false" aria-label="Toggle navigation" style="order: 3 !important; flex: 0 0 auto !important; margin-left: auto !important;width: 48px;!important;">
         <i class="fa fa-bars"></i>
       </button>
     </div>
