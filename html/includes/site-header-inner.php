@@ -99,6 +99,17 @@
     left: 0;
     right: 0;
     z-index: 1000; /* Lower than mobile menu but higher than content */
+    transition: transform 0.3s ease-in-out;
+    transform: translateY(0);
+  }
+  
+  /* Smart navbar states */
+  .mobile-app-header.navbar-hidden {
+    transform: translateY(-100%);
+  }
+  
+  .mobile-app-header.navbar-visible {
+    transform: translateY(0);
   }
 
   .mobile-app-row {
@@ -290,6 +301,27 @@
       display: none !important; /* Hide desktop nav on mobile */
     }
     
+    /* CRITICAL FIX: Force mobile header row to flex and push burger to far right */
+    #header .header-row.mobile-app-row {
+      display: flex !important;
+      align-items: center !important;
+      justify-content: space-between !important;
+      width: 100% !important;
+    }
+    
+    /* Ensure logo stays on left */
+    #header .header-row.mobile-app-row .logo-column {
+      order: 1 !important;
+      flex: 0 0 auto !important;
+    }
+    
+    /* Push mobile menu column to far right */
+    #header .header-row.mobile-app-row .mobile-menu-column {
+      order: 3 !important;
+      flex: 0 0 auto !important;
+      margin-left: auto !important;
+    }
+    
     .mobile-app-row {
       padding: 8px 15px;
       min-height: 56px;
@@ -456,5 +488,51 @@
         e.preventDefault();
       }
     }, { passive: false });
+    
+    // Smart navbar - hide on scroll down, show on scroll up
+    let lastScrollTop = 0;
+    let scrollThreshold = 5; // Reduced threshold for more responsive behavior
+    const header = document.getElementById('header');
+    
+    function handleSmartNavbar() {
+      const currentScrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      const scrollDiff = Math.abs(currentScrollTop - lastScrollTop);
+      
+      // Only trigger if scroll difference is significant enough
+      if (scrollDiff < scrollThreshold) {
+        return;
+      }
+      
+      // Always show navbar at the very top of the page
+      if (currentScrollTop <= 50) {
+        header.classList.remove('navbar-hidden');
+        header.classList.add('navbar-visible');
+      } else {
+        // Scrolling down - hide navbar (only if scrolling down significantly)
+        if (currentScrollTop > lastScrollTop && scrollDiff > 8) {
+          header.classList.add('navbar-hidden');
+          header.classList.remove('navbar-visible');
+        }
+        // Scrolling up - show navbar immediately (even small upward scrolls)
+        else if (currentScrollTop < lastScrollTop) {
+          header.classList.remove('navbar-hidden');
+          header.classList.add('navbar-visible');
+        }
+      }
+      
+      lastScrollTop = currentScrollTop;
+    }
+    
+    // Throttle scroll events for better performance
+    let scrollTimer = null;
+    window.addEventListener('scroll', function() {
+      if (scrollTimer !== null) {
+        clearTimeout(scrollTimer);
+      }
+      scrollTimer = setTimeout(handleSmartNavbar, 10);
+    });
+    
+    // Initialize navbar state
+    header.classList.add('navbar-visible');
   });
   </script>
