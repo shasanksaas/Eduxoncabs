@@ -1,4 +1,14 @@
 <!-- Modern SaaS-style Header -->
+<style>
+  @media (max-width: 767px) {
+    .mobile-centered-btn {
+      text-align: center !important;
+      display: block !important;
+      width: 100% !important;
+      margin-bottom: 10px !important;
+    }
+  }
+</style>
 <header class="modern-header">
   <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm fixed-top">
     
@@ -68,8 +78,8 @@
           
           <h1 class="hero-title mb-4">
             Self Drive Car
-            <span class="highlight-text">Rental</span>
-            <br>in Bhubaneswar
+            <span class="highlight-text" style="margin-bottom: -20px; ">Rental</span>
+            <br style="margin-top: -5px; line-height: 0.8;">in Bhubaneswar
           </h1>
           
           <p class="hero-subtitle mb-4">
@@ -93,10 +103,10 @@
           </div>
           
           <div class="hero-cta">
-            <a href="all-cars-for-self-drive-bhubaneswar.php" class="btn-modern-primary">
+            <a href="all-cars-for-self-drive-bhubaneswar.php" class="btn-modern-primary mobile-centered-btn">
               Book Your Car Now
             </a>
-            <a href="all-cars-for-self-drive-bhubaneswar.php" class="btn-modern-outline">
+            <a href="all-cars-for-self-drive-bhubaneswar.php" class="btn-modern-outline mobile-centered-btn">
               View All Cars
             </a>
           </div>
