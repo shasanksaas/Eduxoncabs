@@ -30,8 +30,8 @@
   }
 </style>
 <header class="modern-header">
-  <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm"
-    
+  <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm fixed-top" style="display: flex !important; align-items: center !important; justify-content: space-between !important;">
+    <div class="container" style="display: flex !important; align-items: center !important; justify-content: space-between !important; width: 100% !important;">
       <!-- Brand Logo -->
       <a class="navbar-brand me-auto" href="/">
         <img src="img/Eduxoncabs.png" alt="EduxonCabs - Self Drive Car Rental Bhubaneswar" class="d-inline-block align-top" fetchpriority="high" loading="eager">
@@ -260,40 +260,78 @@
 </section>
 
 <script>
-// Ensure header never gets hidden
+// Absolutely prevent header from ever being hidden
 document.addEventListener('DOMContentLoaded', function() {
   const header = document.querySelector('.modern-header .navbar');
   if (header) {
-    // Force fixed positioning and visibility
-    header.style.position = 'fixed';
-    header.style.top = '0';
-    header.style.width = '100%';
-    header.style.zIndex = '9999';
-    header.style.display = 'block';
-    header.style.visibility = 'visible';
+    // Force fixed positioning and visibility immediately
+    function forceHeaderVisible() {
+      header.style.position = 'fixed !important';
+      header.style.top = '0 !important';
+      header.style.width = '100% !important';
+      header.style.zIndex = '9999 !important';
+      header.style.display = 'block !important';
+      header.style.visibility = 'visible !important';
+      header.style.transform = 'translateY(0px) !important';
+      header.classList.remove('navbar-hidden');
+      header.classList.add('show');
+    }
+    
+    // Apply immediately
+    forceHeaderVisible();
+    
+    // Override any Bootstrap navbar behavior
+    if (window.jQuery && window.jQuery.fn.collapse) {
+      window.jQuery(header).off('hidden.bs.collapse shown.bs.collapse');
+    }
     
     // Monitor for any attempts to hide the header
     const observer = new MutationObserver(function(mutations) {
-      mutations.forEach(function(mutation) {
-        if (mutation.type === 'attributes') {
-          if (header.style.display === 'none' || 
-              header.style.visibility === 'hidden' || 
-              header.style.top !== '0px' ||
-              header.style.position !== 'fixed') {
-            header.style.position = 'fixed';
-            header.style.top = '0';
-            header.style.display = 'block';
-            header.style.visibility = 'visible';
-            header.style.zIndex = '9999';
-          }
-        }
-      });
+      forceHeaderVisible();
     });
     
     observer.observe(header, {
       attributes: true,
-      attributeFilter: ['style', 'class']
+      attributeFilter: ['style', 'class'],
+      subtree: true
     });
+    
+    // Also monitor on scroll to prevent smart navbar hiding
+    let scrollTimer;
+    window.addEventListener('scroll', function() {
+      clearTimeout(scrollTimer);
+      scrollTimer = setTimeout(forceHeaderVisible, 10);
+    });
+    
+    // Force visibility every 100ms as backup
+    setInterval(forceHeaderVisible, 100);
+  }
+});
+
+// Override any external scripts trying to hide navbar
+window.addEventListener('load', function() {
+  const header = document.querySelector('.modern-header .navbar');
+  if (header) {
+    // Disable any smart navbar scripts
+    if (window.SmartNavbar) {
+      window.SmartNavbar = null;
+    }
+    
+    // Override common navbar hiding functions
+    const originalHide = header.hide;
+    header.hide = function() { return false; };
+    
+    if (header.style) {
+      Object.defineProperty(header.style, 'display', {
+        set: function(value) {
+          if (value === 'none') return;
+          this.setProperty('display', 'block', 'important');
+        },
+        get: function() {
+          return 'block';
+        }
+      });
+    }
   }
 });
 </script>
