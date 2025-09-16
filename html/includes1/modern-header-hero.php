@@ -1,5 +1,20 @@
 <!-- Modern SaaS-style Header -->
 <style>
+  /* Ensure header always stays on top */
+  .modern-header .navbar {
+    position: fixed !important;
+    top: 0 !important;
+    width: 100% !important;
+    z-index: 9999 !important;
+    background-color: white !important;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1) !important;
+  }
+  
+  /* Add body padding to prevent content from going under header */
+  body {
+    padding-top: 70px !important;
+  }
+  
   @media (max-width: 767px) {
     .mobile-centered-btn {
       text-align: center !important;
@@ -7,10 +22,15 @@
       width: 100% !important;
       margin-bottom: 10px !important;
     }
+    
+    /* Smaller padding for mobile */
+    body {
+      padding-top: 56px !important;
+    }
   }
 </style>
 <header class="modern-header">
-  <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm fixed-top">
+  <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm"
     
       <!-- Brand Logo -->
       <a class="navbar-brand me-auto" href="/">
@@ -238,3 +258,42 @@
     
   </div>
 </section>
+
+<script>
+// Ensure header never gets hidden
+document.addEventListener('DOMContentLoaded', function() {
+  const header = document.querySelector('.modern-header .navbar');
+  if (header) {
+    // Force fixed positioning and visibility
+    header.style.position = 'fixed';
+    header.style.top = '0';
+    header.style.width = '100%';
+    header.style.zIndex = '9999';
+    header.style.display = 'block';
+    header.style.visibility = 'visible';
+    
+    // Monitor for any attempts to hide the header
+    const observer = new MutationObserver(function(mutations) {
+      mutations.forEach(function(mutation) {
+        if (mutation.type === 'attributes') {
+          if (header.style.display === 'none' || 
+              header.style.visibility === 'hidden' || 
+              header.style.top !== '0px' ||
+              header.style.position !== 'fixed') {
+            header.style.position = 'fixed';
+            header.style.top = '0';
+            header.style.display = 'block';
+            header.style.visibility = 'visible';
+            header.style.zIndex = '9999';
+          }
+        }
+      });
+    });
+    
+    observer.observe(header, {
+      attributes: true,
+      attributeFilter: ['style', 'class']
+    });
+  }
+});
+</script>
