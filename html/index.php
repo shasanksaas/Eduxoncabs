@@ -335,7 +335,7 @@ s0.parentNode.insertBefore(s1,s0);
       </div>
       <div class="mt-3">
         <a href="#booking-form" class="btn btn-light btn-lg px-4 py-2 smooth-scroll" style="color: #007bff; font-weight: bold;">
-          <i class="fa fa-arrow-up mr-2"></i>Book Now Above
+          Book Now
         </a>
       </div>
     </div>
