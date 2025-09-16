@@ -3098,3 +3098,55 @@ html {
     box-shadow: 0 6px 20px rgba(231, 76, 60, 0.4) !important;
   }
 }
+
+/* Counter Section Vertical Centering for 568px screens */
+@media (max-width: 568px) {
+  .r-counter-section {
+    display: flex !important;
+    align-items: center !important;
+    min-height: 100vh !important;
+  }
+  
+  .r-counter-section .container {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 100% !important;
+  }
+  
+  .r-counter-section .row {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex-wrap: wrap !important;
+    text-align: center !important;
+  }
+  
+  .r-counter-section div[class*="col-"] {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin-bottom: 2rem !important;
+  }
+  
+  .r-counter-box {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    padding-left: 0 !important;
+  }
+  
+  .r-counter-box .r-counter-icon {
+    position: static !important;
+    margin-bottom: 1rem !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+  
+  .r-counter-box .r-counts {
+    margin-bottom: 0.5rem !important;
+  }
+}
