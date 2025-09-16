@@ -206,7 +206,7 @@ body {
 
 /* Modern and responsive navbar toggle under logo */
 .navbar-toggler.header-btn-collapse-nav {
-  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%) !important;
+  background: #007bff !important;
   color: #ffffff !important;
   border: none !important;
   padding: 16px 24px !important;
