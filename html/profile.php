@@ -598,6 +598,10 @@ if(isset($_POST['resend_otp']) && isset($_SESSION['otp_phone'])) {
             .customer-info {
                 padding: 1rem;
             }
+            
+            .input-group {
+                justify-content: center !important;
+            }
         }
     </style>
 </head>
@@ -668,17 +672,21 @@ if(isset($_POST['resend_otp']) && isset($_SESSION['otp_phone'])) {
                         </div>
                         <div class="col-lg-4">
                             <form action="" method="post" class="d-flex flex-column align-items-center gap-3">
-                                <div class="input-group w-100">
-                                    <span class="input-group-text bg-light">+91</span>
-                                    <input type="text" 
-                                           name="phone_number" 
-                                           class="form-control-modern" 
-                                           placeholder="9692627257" 
-                                           pattern="[6-9][0-9]{9}" 
-                                           maxlength="10"
-                                           title="Enter 10-digit Indian mobile number starting with 6, 7, 8, or 9"
-                                           value="<?php echo isset($_POST['phone_number']) ? htmlspecialchars(preg_replace('/[^0-9]/', '', $_POST['phone_number'])) : ''; ?>"
-                                           required />
+                                <div class="input-group w-100 justify-content-center">
+                                    <div class="w-100">
+                                        <div class="input-group">
+                                            <span class="input-group-text bg-light">+91</span>
+                                            <input type="text" 
+                                                   name="phone_number" 
+                                                   class="form-control-modern text-center" 
+                                                   placeholder="9692627257" 
+                                                   pattern="[6-9][0-9]{9}" 
+                                                   maxlength="10"
+                                                   title="Enter 10-digit Indian mobile number starting with 6, 7, 8, or 9"
+                                                   value="<?php echo isset($_POST['phone_number']) ? htmlspecialchars(preg_replace('/[^0-9]/', '', $_POST['phone_number'])) : ''; ?>"
+                                                   required />
+                                        </div>
+                                    </div>
                                 </div>
                                 <button type="submit" name="send_otp" class="btn-modern btn-primary-modern w-75 text-center justify-content-center">
                                     <i class="fa fa-paper-plane"></i> Send OTP
