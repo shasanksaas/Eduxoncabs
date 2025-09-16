@@ -260,78 +260,15 @@
 </section>
 
 <script>
-// Absolutely prevent header from ever being hidden
+// Simple header fix - just ensure it stays fixed
 document.addEventListener('DOMContentLoaded', function() {
   const header = document.querySelector('.modern-header .navbar');
   if (header) {
-    // Force fixed positioning and visibility immediately
-    function forceHeaderVisible() {
-      header.style.position = 'fixed !important';
-      header.style.top = '0 !important';
-      header.style.width = '100% !important';
-      header.style.zIndex = '9999 !important';
-      header.style.display = 'block !important';
-      header.style.visibility = 'visible !important';
-      header.style.transform = 'translateY(0px) !important';
-      header.classList.remove('navbar-hidden');
-      header.classList.add('show');
-    }
-    
-    // Apply immediately
-    forceHeaderVisible();
-    
-    // Override any Bootstrap navbar behavior
-    if (window.jQuery && window.jQuery.fn.collapse) {
-      window.jQuery(header).off('hidden.bs.collapse shown.bs.collapse');
-    }
-    
-    // Monitor for any attempts to hide the header
-    const observer = new MutationObserver(function(mutations) {
-      forceHeaderVisible();
-    });
-    
-    observer.observe(header, {
-      attributes: true,
-      attributeFilter: ['style', 'class'],
-      subtree: true
-    });
-    
-    // Also monitor on scroll to prevent smart navbar hiding
-    let scrollTimer;
-    window.addEventListener('scroll', function() {
-      clearTimeout(scrollTimer);
-      scrollTimer = setTimeout(forceHeaderVisible, 10);
-    });
-    
-    // Force visibility every 100ms as backup
-    setInterval(forceHeaderVisible, 100);
-  }
-});
-
-// Override any external scripts trying to hide navbar
-window.addEventListener('load', function() {
-  const header = document.querySelector('.modern-header .navbar');
-  if (header) {
-    // Disable any smart navbar scripts
-    if (window.SmartNavbar) {
-      window.SmartNavbar = null;
-    }
-    
-    // Override common navbar hiding functions
-    const originalHide = header.hide;
-    header.hide = function() { return false; };
-    
-    if (header.style) {
-      Object.defineProperty(header.style, 'display', {
-        set: function(value) {
-          if (value === 'none') return;
-          this.setProperty('display', 'block', 'important');
-        },
-        get: function() {
-          return 'block';
-        }
-      });
-    }
+    // Just ensure the CSS classes are correct
+    header.style.position = 'fixed';
+    header.style.top = '0';
+    header.style.zIndex = '9999';
+    header.classList.add('fixed-top');
   }
 });
 </script>
