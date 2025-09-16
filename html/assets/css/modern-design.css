@@ -1693,7 +1693,9 @@ html {
 
 /* Search Button */
 .btn-search-modern {
-  width: 100%;
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
   background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
   color: white;
   padding: 16px 24px;

@@ -216,7 +216,7 @@
               
               <!-- Search Button -->
               <button type="submit" class="btn-search-modern">
-                <i class="fa fa-search mr-2"></i>Search Available Cars
+                <i class="fa fa-search mr-2"></i>Search 
               </button>
               
             </form>
