@@ -377,6 +377,13 @@ body {
     padding: 0 0.5rem;
   }
   
+  /* Force all form fields to full width like the first 2 fields */
+  .booking-form-container .row > [class*="col-"] {
+    flex: 0 0 100% !important;
+    max-width: 100% !important;
+    width: 100% !important;
+  }
+  
   /* Mobile form validation styles */
   .form-control-modern.error {
     border-color: #dc3545 !important;
