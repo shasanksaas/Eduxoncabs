@@ -5716,7 +5716,8 @@ tbody.collapse.show {
 .navbar {
   position: relative;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  justify-content: space-between;
   padding: 0.5rem 1rem; }
 
 .navbar-brand {

@@ -30,6 +30,29 @@ body {
   min-height: 70px;
 }
 
+/* Smart Navbar - Auto Hide/Show on Scroll */
+.navbar.fixed-top {
+  transform: translateY(0);
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease;
+  will-change: transform;
+}
+
+.navbar.navbar-hidden {
+  transform: translateY(-100%);
+}
+
+.navbar.navbar-visible {
+  transform: translateY(0);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Enhanced navbar when scrolled */
+.navbar.navbar-visible.scrolled {
+  background: rgba(255, 255, 255, 0.95) !important;
+  backdrop-filter: blur(15px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
 /* Modern Golden Navbar */
 .modern-navbar {
   background: linear-gradient(135deg, #d4af37 0%, #f4d03f 50%, #d4af37 100%);
@@ -223,7 +246,7 @@ body {
   
   .navbar-brand {
     order: 1 !important;
-    margin: 0 0 16px 0 !important;
+    margin-left: 8px;
     align-self: center !important;
   }
   

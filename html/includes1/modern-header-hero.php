@@ -1,7 +1,7 @@
 <!-- Modern SaaS-style Header -->
 <header class="modern-header">
   <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm fixed-top">
-    <div class="container-fluid px-4 d-flex align-items-center">
+    
       <!-- Brand Logo -->
       <a class="navbar-brand me-auto" href="/">
         <img src="img/Eduxoncabs.png" alt="EduxonCabs - Self Drive Car Rental Bhubaneswar" class="d-inline-block align-top" fetchpriority="high" loading="eager">
@@ -48,7 +48,7 @@
         </ul>
       </div>
       </div>
-    </div>
+    
   </nav>
 </header>
 

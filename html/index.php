@@ -1574,6 +1574,9 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 </script>
+
+<!-- Smart Navbar Script -->
+<script src="js/smart-navbar.js"></script>
      
         
 

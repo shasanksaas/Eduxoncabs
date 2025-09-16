@@ -713,3 +713,38 @@ body {
     filter: invert(1);
   }
 }
+
+/* ============================================
+   SMART NAVBAR MOBILE OPTIMIZATIONS
+   ============================================ */
+@media (max-width: 767.98px) {
+  /* Faster transitions on mobile for better performance */
+  .navbar.fixed-top {
+    transition: transform 0.2s ease-out, box-shadow 0.2s ease;
+  }
+  
+  /* Ensure navbar stays hidden during mobile keyboard appearance */
+  .navbar.navbar-hidden {
+    visibility: hidden;
+    opacity: 0;
+    transition: transform 0.2s ease-out, opacity 0.2s ease, visibility 0.2s ease;
+  }
+  
+  .navbar.navbar-visible {
+    visibility: visible;
+    opacity: 1;
+  }
+  
+  /* Improved touch area for mobile nav items */
+  .navbar-nav .nav-link {
+    min-height: 48px;
+    display: flex;
+    align-items: center;
+  }
+  
+  /* Enhanced backdrop blur on mobile when scrolled */
+  .navbar.navbar-visible.scrolled {
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+  }
+}
