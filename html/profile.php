@@ -582,7 +582,7 @@ if(isset($_POST['resend_otp']) && isset($_SESSION['otp_phone'])) {
             width: 20px;
         }
 
-        @media (max-width: 768px) {
+        @media (max-width: 992px) {
             .profile-hero {
                 padding: 2rem 0 1rem;
             }
