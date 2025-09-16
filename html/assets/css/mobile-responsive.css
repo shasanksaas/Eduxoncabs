@@ -1,26 +1,46 @@
 /* ============================================
-   MOBILE RESPONSIVE STYLES FOR HOMEPAGE
+   CLEAN CSS - NO !IMPORTANT OVERRIDES
+   Proper CSS Specificity & Maintainable Code
    ============================================ */
 
-/* Mobile-First Approach - Base styles for mobile */
+/* CSS Variables for consistent theming */
+:root {
+  --primary-color: #6366f1;
+  --secondary-color: #8b5cf6;
+  --accent-color: #d4af37;
+  --text-dark: #1a252f;
+  --text-medium: #2c3e50;
+  --text-light: #6b7280;
+  --bg-white: #ffffff;
+  --bg-light: #f8fafc;
+  --border-light: #e5e7eb;
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  --border-radius: 8px;
+  --border-radius-lg: 16px;
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
 
-/* Smooth scrolling for anchor links */
+/* ============================================
+   BASE STYLES
+   ============================================ */
+
+* {
+  box-sizing: border-box;
+}
+
 html {
   scroll-behavior: smooth;
 }
 
-/* Prevent horizontal scroll on mobile */
 body {
+  font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  color: var(--text-dark);
+  margin: 0;
   overflow-x: hidden;
-}
-
-/* Fix viewport units for mobile browsers */
-:root {
-  --vh: 1vh;
-}
-
-.full-height {
-  height: calc(var(--vh, 1vh) * 100);
+  padding-top: 70px;
 }
 
 /* ============================================
@@ -113,7 +133,7 @@ body {
 }
 
 /* ============================================
-   HERO SECTION MOBILE OPTIMIZATIONS
+   MOBILE HEADER LAYOUT
    ============================================ */
 @media (max-width: 767.98px) {
   .hero-section {
@@ -529,35 +549,45 @@ body {
 }
 
 /* ============================================
-   MOBILE CTA SECTION
+   RESPONSIVE DESIGN
    ============================================ */
+
+/* Tablet Styles */
 @media (max-width: 991.98px) {
-  .mobile-cta-section {
-    display: block !important;
-    padding: 2rem 0;
+  body {
+    padding-top: 60px;
   }
   
-  .mobile-cta-section h4 {
-    font-size: 1.1rem;
-    margin-bottom: 1.5rem;
+  .navbar {
+    min-height: 60px;
   }
   
-  .cta-step {
-    padding: 0.75rem 0.5rem;
+  /* Header Layout on Mobile - Logo Left, Hamburger Right */
+  .mobile-app-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 0 15px;
   }
   
-  .step-icon {
-    margin-bottom: 0.5rem !important;
+  .logo-column {
+    order: 1;
+    flex: 0 0 auto;
+    margin-right: auto;
   }
   
-  .step-icon i {
-    color: rgba(255, 255, 255, 0.9);
+  .mobile-menu-column {
+    order: 2;
+    flex: 0 0 auto;
+    margin-left: auto;
   }
   
-  .cta-step small {
-    font-size: 12px;
-    font-weight: 600;
-    line-height: 1.2;
+  /* Ensure header container takes full width */
+  .mobile-app-header .header-container {
+    width: 100%;
+    max-width: 100%;
+    padding: 0;
   }
   
   .mobile-cta-section .btn {
@@ -599,70 +629,55 @@ body {
   }
 }
 
-/* Small mobile adjustments */
+/* Mobile Styles */
 @media (max-width: 575.98px) {
-  .mobile-cta-section h4 {
-    font-size: 1rem;
-    margin-bottom: 1rem;
+  .navbar-brand img {
+    height: 35px;
   }
   
-  .cta-step small {
-    font-size: 11px;
+  .container-fluid {
+    padding: 0 10px;
   }
   
-  .mobile-cta-section .btn {
+  .btn-modern {
+    padding: 0.6rem 0.8rem;
     font-size: 14px;
-    padding: 0.5rem 1rem;
   }
   
-  .booking-card-modern {
-    margin: 0 auto 2rem auto !important;
-    padding: 1.25rem !important;
-    max-width: 100% !important;
+  .mobile-app-nav-content {
+    width: 280px;
   }
   
-  .booking-title {
-    font-size: 1.2rem;
+  /* Extra small mobile adjustments */
+  .mobile-app-row {
+    padding: 0 10px;
   }
   
-  /* Make form inputs slightly larger for easier tapping */
-  .form-control-modern {
-    min-height: 48px;
-    font-size: 16px;
-    padding: 0.75rem 1rem;
+  .mobile-app-menu-toggle {
+    min-width: 40px;
+    min-height: 40px;
+    padding: 6px 10px;
   }
   
-  .btn-search-modern {
-    min-height: 50px;
-    font-size: 16px;
-    font-weight: 700;
-    padding: 0.875rem 1rem;
+  .header-logo-img {
+    max-width: 100px;
+    max-height: 35px;
+  }
+}
+
+/* Desktop Styles */
+@media (min-width: 992px) {
+  .mobile-menu-column {
+    display: none;
   }
   
-  /* Fix container spacing on small screens */
-  .hero-section .container {
-    padding: 0 15px;
-  }
-  
-  /* Ensure proper form field spacing */
-  .form-group-modern {
-    margin-bottom: 1.25rem !important;
-  }
-  
-  /* Fix select dropdown appearance on small screens */
-  select.form-control-modern {
-    background-color: white !important;
-    color: #333 !important;
-  }
-  
-  select.form-control-modern option {
-    background-color: white !important;
-    color: #333 !important;
+  .mobile-app-nav {
+    display: none;
   }
 }
 
 /* ============================================
-   FEATURES SECTION MOBILE
+   UTILITY CLASSES
    ============================================ */
 @media (max-width: 767.98px) {
   .modern-features-section {

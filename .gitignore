@@ -17,15 +17,13 @@ php_error.log
 Thumbs.db
 
 # Dependencies
-vendor/
 node_modules/
 
 # Config files (uncomment if you want to ignore config files)
 # config.php
 # database.php
 
-# Upload directories
-uploadedDocument/
+# Upload directories (keeping vendor/ and uploadedDocument/ in repo)
 uploads/
 
 # Temporary files
