@@ -5905,7 +5905,11 @@ tbody.collapse.show {
 
 .navbar-light .navbar-brand,
 .navbar-light .navbar-toggler {
-  color: rgba(0, 0, 0, 0.9); }
+  color: rgba(0, 0, 0, 0.9); 
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
   .navbar-light .navbar-brand:focus, .navbar-light .navbar-brand:hover,
   .navbar-light .navbar-toggler:focus,
   .navbar-light .navbar-toggler:hover {
