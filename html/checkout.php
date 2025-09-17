@@ -469,6 +469,13 @@ if ($pdate != '' || $ptime != '' || $ddate != '' || $dtime != '') {
         }
       }
 
+     /* On tablets/phones, show car card above the form */
+     @media (max-width: 991.98px) {
+        .checkout-content > .row {
+           flex-direction: column-reverse !important;
+        }
+     }
+
       .progress-steps {
           display: flex;
           justify-content: center;
