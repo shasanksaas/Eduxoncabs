@@ -350,17 +350,39 @@ if ($pdate != '' || $ptime != '' || $ddate != '' || $dtime != '') {
       }
 
       .coupon-section {
-          background: linear-gradient(135deg, #fef3c7 0%, #fed7aa 100%);
-          border-radius: 12px;
-          padding: 1.5rem;
-          margin-bottom: 1.5rem;
+        background: linear-gradient(135deg, #fef3c7 0%, #fed7aa 100%);
+        border-radius: 12px;
+        padding: 1.5rem;
+        margin-bottom: 1.5rem;
+        border: 1px solid rgba(245, 158, 11, 0.3);
+        box-shadow: var(--shadow-md);
       }
 
       .coupon-input-group {
-          display: flex;
-          gap: 0.75rem;
-          margin-top: 1rem;
+        display: flex;
+        gap: 0.75rem;
+        margin-top: 1rem;
       }
+
+     /* Coupon input + button visual tweaks */
+     .coupon-input-group .form-control-modern {
+        background: #ffffff;
+        border-color: rgba(245, 158, 11, 0.4);
+     }
+     .coupon-input-group .form-control-modern:focus {
+        border-color: #f59e0b;
+        box-shadow: 0 0 0 0.2rem rgba(245, 158, 11, 0.15);
+     }
+     #checkgv.btn-modern {
+        background: linear-gradient(135deg, #f59e0b, #f97316);
+        color: #ffffff;
+        box-shadow: 0 6px 14px rgba(245, 158, 11, 0.35);
+     }
+     #checkgv.btn-modern:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 20px rgba(245, 158, 11, 0.45);
+        color: #ffffff;
+     }
 
       .security-payment-section {
           background: linear-gradient(135deg, #e0f2fe 0%, #b3e5fc 100%);
@@ -400,6 +422,19 @@ if ($pdate != '' || $ptime != '' || $ddate != '' || $dtime != '') {
           .time-grid {
               grid-template-columns: 1fr;
           }
+
+        /* Stack coupon input and button vertically on small screens */
+        .coupon-input-group {
+           flex-direction: column;
+        }
+        .coupon-input-group .form-control-modern,
+        .coupon-input-group .btn-modern {
+           width: 100%;
+        }
+        .coupon-input-group .btn-modern {
+           height: 48px;
+           justify-content: center;
+        }
       }
 
       .progress-steps {
