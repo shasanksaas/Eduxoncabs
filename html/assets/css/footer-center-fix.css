@@ -293,3 +293,57 @@
 .modern-footer .footer-stats .stat-item span {
   font-size: 0.75rem !important; /* compact label */
 }
+
+/* Mobile: center content when footer is single column */
+@media (max-width: 767.98px) {
+  /* Center company logo */
+  .modern-footer .footer-logo {
+    text-align: left !important; /* revert to left on mobile */
+  }
+  .modern-footer .footer-logo img {
+    display: inline-block !important;
+  }
+
+  /* Center section titles */
+  .modern-footer .footer-title,
+  .modern-footer .social-title {
+    text-align: center !important;
+  }
+
+  /* Center list items; remove bullets on mobile */
+  .modern-footer .footer-links {
+    text-align: center !important;
+    list-style: none !important;
+    padding-left: 0 !important;
+    margin-left: 0 !important;
+  }
+  .modern-footer .footer-links li {
+    list-style-type: none !important; /* override desktop bullets */
+  }
+  .modern-footer .footer-links li a {
+    text-align: center !important;
+  }
+
+  /* Center contents of contact information boxes */
+  .modern-footer .contact-card {
+    justify-content: center !important;
+    flex-direction: column !important; /* stack icon/title/description */
+    align-items: center !important; /* center horizontally */
+    text-align: center !important;
+  }
+  .modern-footer .contact-icon {
+    margin-right: 0 !important;
+    margin-bottom: 0.5rem !important; /* space under icon */
+  }
+  .modern-footer .contact-info {
+    text-align: center !important;
+  }
+
+  /* Center social icons row */
+  .modern-footer .footer-social {
+    align-items: center !important;
+  }
+  .modern-footer .social-links {
+    justify-content: center !important;
+  }
+}
