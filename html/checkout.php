@@ -265,6 +265,26 @@ if ($pdate != '' || $ptime != '' || $ddate != '' || $dtime != '') {
           color: white;
       }
 
+     /* Primary submit button: ensure contrast + spacing */
+     #book_now.btn-primary-modern {
+        background: linear-gradient(135deg, var(--primary-color), var(--accent-color)) !important;
+        color: #ffffff !important;
+        border: none;
+        padding: 0.9rem 2.25rem;
+        border-radius: 12px;
+        box-shadow: 0 10px 20px rgba(59, 130, 246, 0.25), 0 4px 10px rgba(16, 185, 129, 0.2);
+        margin-bottom: 15px;
+        transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+     }
+     #book_now.btn-primary-modern:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 14px 26px rgba(59, 130, 246, 0.35), 0 8px 16px rgba(16, 185, 129, 0.25);
+        filter: brightness(1.03);
+     }
+
       .car-summary {
           background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
           border-radius: 16px;
@@ -800,7 +820,7 @@ if ($pdate != '' || $ptime != '' || $ddate != '' || $dtime != '') {
                         <p class="mb-0 text-muted">Apply your discount coupon below</p>
                         <div class="coupon-input-group">
                            <input type="text" data-msg-required="Invalid Coupon." class="form-control-modern" name="coupon" autocomplete="off" id="coupon" placeholder="Enter coupon code" />
-                           <button type="button" name='checkgv' id='checkgv' class="btn btn-warning btn-modern">
+                           <button type="button" name='checkgv' id='checkgv' class="btn btn-warning btn-modern" style="margin-left: 0 !important;border-radius:1rem !important;">
                               <i class="fas fa-check"></i> Apply Coupon
                            </button>
                         </div>
