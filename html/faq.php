@@ -31,6 +31,21 @@ $db = new SiteData();
 body {
     /* Removed padding-top override to allow header spacing */
 }
+
+/* Scoped FAQ header styling: match profile hero blue + white text */
+.faq-header-section {
+  background: linear-gradient(135deg, var(--primary-color, #3b82f6) 0%, #2563eb 100%);
+}
+.faq-header-section,
+.faq-header-section h1,
+.faq-header-section .faq-title,
+.faq-header-section p,
+.faq-header-section .faq-subtitle,
+.faq-header-section a,
+.faq-header-section i,
+.faq-header-section .fa {
+  color: #ffffff !important;
+}
 </style>
 </head>
 <body>
