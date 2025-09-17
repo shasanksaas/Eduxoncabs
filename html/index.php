@@ -433,60 +433,98 @@ s0.parentNode.insertBefore(s1,s0);
       </div>
     </div>
   </section>
-  <!-- Modern About Section -->
-  <section class="section-padding" style="background: linear-gradient(135deg, #f8f9ff 0%, #e8f2ff 100%);">
+  <!-- Ultra Modern About Section -->
+  <section class="ultra-modern-about py-5">
     <div class="container">
-      <div class="row align-items-center">
-        <div class="col-xl-6 col-lg-6 col-md-6">
-          <div class="mb-4">
-            <span class="badge badge-primary-light text-uppercase px-3 py-2 mb-3">Know More About Us</span>
-            <h2 class="section-title text-left mb-4">About <span class="text-primary">EduxonCabs</span> – Best Self Drive Car Rental in Bhubaneswar</h2>
-            <p class="mb-4">
-              <a href="https://eduxoncabs.com/index.php" target="_blank" rel="noopener noreferrer">Eduxon Cabs</a>
-              has been offering reliable self drive car rentals in Bhubaneswar since 2016. With over 5000+ satisfied customers and a fleet of 30+ vehicles, we deliver safe, flexible travel across the city and airport.
+      <div class="row align-items-center g-5">
+        <div class="col-lg-6">
+          <div class="content-wrapper">
+            <div class="modern-badge-new">
+              <span>KNOW MORE ABOUT US</span>
+            </div>
+            <h1 class="ultra-heading">
+              About <span class="gradient-text">EduxonCabs</span>
+              <br><span class="subtitle-text">Best Self Drive Car Rental in Bhubaneswar</span>
+            </h1>
+            <p class="modern-description">
+              <strong class="brand-name">Eduxon Cabs</strong> has been revolutionizing self-drive car rentals in Bhubaneswar since 2016. With over 5000+ satisfied customers and a premium fleet of 30+ vehicles, we deliver exceptional, flexible travel experiences across the city and airport.
             </p>
             
-            <div class="row mb-4">
-              <div class="col-md-6">
-                <ul class="list-unstyled">
-                  <li class="mb-2"><i class="fa fa-check-circle text-success mr-2"></i> 5000+ happy customers</li>
-                  <li class="mb-2"><i class="fa fa-check-circle text-success mr-2"></i> City & Airport pickup</li>
-                  <li class="mb-2"><i class="fa fa-check-circle text-success mr-2"></i> Unlimited kilometers</li>
-                  <li class="mb-2"><i class="fa fa-check-circle text-success mr-2"></i> Zero hidden charges</li>
-                </ul>
+            <div class="features-modern">
+              <div class="feature-pill">
+                <span class="pill-icon">✓</span>
+                <span>5000+ Happy Customers</span>
+              </div>
+              <div class="feature-pill">
+                <span class="pill-icon">📍</span>
+                <span>City & Airport Pickup</span>
+              </div>
+              <div class="feature-pill">
+                <span class="pill-icon">🛣️</span>
+                <span>Unlimited Kilometers</span>
+              </div>
+              <div class="feature-pill">
+                <span class="pill-icon">🛡️</span>
+                <span>Zero Hidden Charges</span>
               </div>
             </div>
             
-            <a href="all-cars-for-self-drive-bhubaneswar.php" class="btn btn-primary btn-lg">
-              View All Vehicles <i class="fa fa-arrow-right ml-2"></i>
-            </a>
+            <div class="cta-section">
+              <a href="all-cars-for-self-drive-bhubaneswar.php" class="ultra-modern-btn">
+                <span>View All Vehicles</span>
+                <div class="btn-arrow">→</div>
+              </a>
+            </div>
           </div>
         </div>
         
-        <div class="col-xl-6 col-lg-6 col-md-6">
-          <div class="row">
-            <div class="col-md-6 mb-4">
-              <div class="text-center p-4 bg-white rounded shadow-sm">
-                <div class="stat-number text-primary">5000+</div>
-                <p class="stat-label">Happy Customers</p>
+        <div class="col-lg-6">
+          <div class="stats-modern-grid">
+            <div class="stat-card-modern primary">
+              <div class="stat-visual">
+                <div class="stat-circle">
+                  <span class="stat-emoji">👥</span>
+                </div>
+              </div>
+              <div class="stat-content">
+                <h3 class="stat-number-new">5000+</h3>
+                <p class="stat-desc">Happy Customers</p>
               </div>
             </div>
-            <div class="col-md-6 mb-4">
-              <div class="text-center p-4 bg-white rounded shadow-sm">
-                <div class="stat-number text-success">30+</div>
-                <p class="stat-label">Cars Available</p>
+            
+            <div class="stat-card-modern success">
+              <div class="stat-visual">
+                <div class="stat-circle">
+                  <span class="stat-emoji">🚗</span>
+                </div>
+              </div>
+              <div class="stat-content">
+                <h3 class="stat-number-new">30+</h3>
+                <p class="stat-desc">Cars Available</p>
               </div>
             </div>
-            <div class="col-md-6 mb-4">
-              <div class="text-center p-4 bg-white rounded shadow-sm">
-                <div class="stat-number text-info">24/7</div>
-                <p class="stat-label">Customer Support</p>
+            
+            <div class="stat-card-modern info">
+              <div class="stat-visual">
+                <div class="stat-circle">
+                  <span class="stat-emoji">🎧</span>
+                </div>
+              </div>
+              <div class="stat-content">
+                <h3 class="stat-number-new">24/7</h3>
+                <p class="stat-desc">Customer Support</p>
               </div>
             </div>
-            <div class="col-md-6 mb-4">
-              <div class="text-center p-4 bg-white rounded shadow-sm">
-                <div class="stat-number text-warning">₹35</div>
-                <p class="stat-label">Starting Price/Hour</p>
+            
+            <div class="stat-card-modern warning">
+              <div class="stat-visual">
+                <div class="stat-circle">
+                  <span class="stat-emoji">💰</span>
+                </div>
+              </div>
+              <div class="stat-content">
+                <h3 class="stat-number-new">₹35</h3>
+                <p class="stat-desc">Starting Price/Hour</p>
               </div>
             </div>
           </div>
@@ -1410,6 +1448,310 @@ $min_hour = $get_hour_res[0]["hours"];
 }
 .text-center {
   text-align: center;
+}
+
+/* Ultra Modern About Section */
+.ultra-modern-about {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.ultra-modern-about::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="1" fill="rgba(255,255,255,0.02)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+  opacity: 0.3;
+}
+
+.content-wrapper {
+  position: relative;
+  z-index: 2;
+}
+
+.modern-badge-new {
+  display: inline-block;
+  margin-bottom: 2rem;
+}
+
+.modern-badge-new span {
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.ultra-heading {
+  font-size: 3.5rem;
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 2rem;
+  color: white;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.gradient-text {
+  background: linear-gradient(45deg, #ffd700, #ffb347);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.subtitle-text {
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.modern-description {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 2.5rem;
+  font-weight: 300;
+}
+
+.brand-name {
+  color: #ffd700;
+  font-weight: 600;
+}
+
+.features-modern {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+}
+
+.feature-pill {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50px;
+  padding: 0.75rem 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: white;
+  font-weight: 500;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+}
+
+.feature-pill:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: translateY(-2px);
+}
+
+.pill-icon {
+  font-size: 1rem;
+}
+
+.ultra-modern-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  background: white;
+  color: #667eea;
+  padding: 1.25rem 2.5rem;
+  border-radius: 60px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1.1rem;
+  transition: all 0.4s ease;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.ultra-modern-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  transition: left 0.6s ease;
+}
+
+.ultra-modern-btn:hover::before {
+  left: 100%;
+}
+
+.ultra-modern-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.3);
+  color: #667eea;
+  text-decoration: none;
+}
+
+.btn-arrow {
+  background: #667eea;
+  color: white;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  transition: all 0.3s ease;
+}
+
+.ultra-modern-btn:hover .btn-arrow {
+  transform: translateX(5px);
+}
+
+.stats-modern-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  position: relative;
+  z-index: 2;
+}
+
+.stat-card-modern {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 24px;
+  padding: 2rem 1.5rem;
+  text-align: center;
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.stat-card-modern::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(45deg, #667eea, #764ba2);
+}
+
+.stat-card-modern:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+  background: white;
+}
+
+.stat-visual {
+  margin-bottom: 1.5rem;
+}
+
+.stat-circle {
+  width: 70px;
+  height: 70px;
+  background: linear-gradient(45deg, #667eea, #764ba2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  box-shadow: 0 8px 30px rgba(102, 126, 234, 0.3);
+}
+
+.stat-emoji {
+  font-size: 1.8rem;
+}
+
+.stat-number-new {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #2c3e50;
+  margin-bottom: 0.5rem;
+  line-height: 1;
+}
+
+.stat-desc {
+  color: #64748b;
+  font-weight: 500;
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+/* Mobile Responsive */
+@media (max-width: 992px) {
+  .ultra-heading {
+    font-size: 2.5rem;
+  }
+  
+  .subtitle-text {
+    font-size: 1.2rem;
+  }
+  
+  .stats-modern-grid {
+    margin-top: 3rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .ultra-heading {
+    font-size: 2rem;
+  }
+  
+  .subtitle-text {
+    font-size: 1rem;
+  }
+  
+  .modern-description {
+    font-size: 1rem;
+  }
+  
+  .features-modern {
+    flex-direction: column;
+  }
+  
+  .feature-pill {
+    justify-content: center;
+  }
+  
+  .stats-modern-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .ultra-modern-btn {
+    padding: 1rem 2rem;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .ultra-heading {
+    font-size: 1.75rem;
+  }
+  
+  .stat-card-modern {
+    padding: 1.5rem 1rem;
+  }
+  
+  .stat-circle {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .stat-emoji {
+    font-size: 1.5rem;
+  }
+  
+  .stat-number-new {
+    font-size: 2rem;
+  }
 }
 </style>
 
