@@ -39,6 +39,7 @@
                         </ul>
                       </li>
                       <li><a href="all-bikes-bike-for-rental-bhubaneswar.php">All Bikes</a></li>
+                      <li><a href="tour-packages-odisha.php">Tour Packages</a></li>
                       <li><a href="contact-us.php">Contact</a></li>
                       <li><a href="profile.php">Profile</a></li>
                       <li><a href="faq.php">FAQ</a></li>
@@ -72,6 +73,7 @@
             <li><a href="about-us.php"><i class="fa fa-info-circle"></i> About Us</a></li>
             <li><a href="all-cars-for-self-drive-bhubaneswar.php"><i class="fa fa-car"></i> All Cars</a></li>
             <li><a href="all-bikes-bike-for-rental-bhubaneswar.php"><i class="fa fa-motorcycle"></i> All Bikes</a></li>
+            <li><a href="tour-packages-odisha.php"><i class="fa fa-map"></i> Tour Packages</a></li>
             <li><a href="contact-us.php"><i class="fa fa-phone"></i> Contact</a></li>
             <li><a href="profile.php"><i class="fa fa-user"></i> Profile</a></li>
             <li><a href="faq.php"><i class="fa fa-question-circle"></i> FAQ</a></li>
