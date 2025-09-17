@@ -11,7 +11,7 @@
   max-width: none !important;
   margin-left: 0 !important;
   margin-right: 0 !important;
-  padding-top: 50px !important;
+  padding-top: 40px !important;
 }
 .footer-widget h5{
   text-transform: none !important;
@@ -34,6 +34,11 @@
   margin-left: 0 !important;
   margin-right: 0 !important;
   font-size: 2rem !important;
+  margin-bottom: 24px !important;
+}
+/* Ensure footer logo has 24px spacing below */
+.modern-footer .footer-logo {
+  margin-bottom: 30px !important;
 }
 
 /* Reset footer links to default */
@@ -171,7 +176,7 @@
 
 .footer-stats .stat-item span,
 .modern-footer .footer-stats .stat-item span {
-  font-size: 0.85rem !important;
+  font-size: 1.5rem !important;
   color: #b0b0b0 !important;
 }
 
@@ -288,10 +293,10 @@
   box-sizing: border-box !important;
 }
 .modern-footer .footer-stats .stat-item strong {
-  font-size: 1.1rem !important; /* compact number */
+  font-size: 2.5rem !important; /* compact number */
 }
 .modern-footer .footer-stats .stat-item span {
-  font-size: 0.75rem !important; /* compact label */
+  font-size: 1.5rem !important; /* compact label */
 }
 
 /* Mobile: center content when footer is single column */
@@ -331,6 +336,12 @@
     align-items: center !important; /* center horizontally */
     text-align: center !important;
   }
+  .modern-footer strong{
+    text-align:  center !important;
+  }
+  .modern-footer p{
+    text-align:  center !important;
+  }
   .modern-footer .contact-icon {
     margin-right: 0 !important;
     margin-bottom: 0.5rem !important; /* space under icon */
@@ -346,4 +357,7 @@
   .modern-footer .social-links {
     justify-content: center !important;
   }
+}
+.modern-footer .stat-item{
+  font-size: 1.5rem !important;
 }
