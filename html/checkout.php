@@ -88,6 +88,7 @@ if ($pdate != '' || $ptime != '' || $ddate != '' || $dtime != '') {
       <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/ui-lightness/jquery-ui.css">
       
       <?php include("includes/inc-css.php"); ?>
+   <link rel="stylesheet" href="assets/css/footer-center-fix.css">
       
       <style>
       :root {
