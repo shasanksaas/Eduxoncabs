@@ -306,6 +306,8 @@ if(isset($_POST['resend_otp']) && isset($_SESSION['otp_phone'])) {
     
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <?php include("includes/inc-css.php");?>
+    <link rel="stylesheet" href="assets/css/footer-center-fix.css">
     
     <!-- Custom CSS -->
     <style>
@@ -604,30 +606,9 @@ if(isset($_POST['resend_otp']) && isset($_SESSION['otp_phone'])) {
             }
         }
     </style>
-</head>
+    </head>
 <body>
-    
-    <!-- Navigation -->
-    <nav class="modern-navbar">
-        <div class="container">
-            <div class="d-flex justify-content-between align-items-center">
-                <a href="/" class="d-flex align-items-center text-decoration-none">
-                    <img src="img/Eduxoncabs.png" alt="EduxonCabs" height="40" class="me-2">
-                </a>
-                <div class="d-flex align-items-center gap-3">
-                    <a href="/" class="text-decoration-none text-dark">
-                        <i class="fa fa-home me-1"></i> Home
-                    </a>
-                    <a href="all-cars-for-self-drive-bhubaneswar.php" class="text-decoration-none text-dark">
-                        <i class="fa fa-car me-1"></i> Cars
-                    </a>
-                    <a href="contact-us.php" class="text-decoration-none text-dark">
-                        <i class="fa fa-phone me-1"></i> Contact
-                    </a>
-                </div>
-            </div>
-        </div>
-    </nav>
+    <?php include("includes/site-header-inner.php");?>
 
     <!-- Hero Section -->
     <section class="profile-hero">
@@ -936,23 +917,11 @@ if(isset($_POST['resend_otp']) && isset($_SESSION['otp_phone'])) {
         </div>
     </div>
 
-    <!-- Footer -->
-    <footer class="bg-dark text-light py-5 mt-5">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6">
-                    <h5>EduxonCabs</h5>
-                    <p>Your trusted self-drive car rental partner in Bhubaneswar.</p>
-                </div>
-                <div class="col-md-6 text-md-end">
-                    <p>&copy; 2024 EduxonCabs. All rights reserved.</p>
-                </div>
-            </div>
-        </div>
-    </footer>
+    <?php include("includes/site-footer.php");?>
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <?php include("includes/inc-js.php");?>
     
     <!-- Custom JavaScript -->
     <script>
