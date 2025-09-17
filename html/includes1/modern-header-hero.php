@@ -347,7 +347,7 @@
           
           <h1 class="hero-title mb-4">
             Self Drive Car
-            <span class="highlight-text" style="margin-bottom: -20px; ">Rental</span>
+            <span class="highlight-text" style="margin-bottom: -20px;color:#fbbf24 !important; ">Rental</span>
             <br style="margin-top: -5px; line-height: 0.8;">in Bhubaneswar
           </h1>
           
