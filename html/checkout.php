@@ -131,13 +131,13 @@ if ($pdate != '' || $ptime != '' || $ddate != '' || $dtime != '') {
           overflow: hidden;
       }
 
-      .checkout-header {
-          background: linear-gradient(135deg, #60a5fa 0%, #34d399 100%);
-          color: white;
-          padding: 2rem;
-          text-align: center;
-          box-shadow: 0 4px 20px rgba(96, 165, 250, 0.3);
-      }
+     .checkout-header {
+        background: linear-gradient(135deg, var(--primary-color, #3b82f6) 0%, #2563eb 100%);
+        color: white;
+        padding: 2rem;
+        text-align: center;
+        box-shadow: 0 4px 20px rgba(37, 99, 235, 0.35);
+     }
 
       .checkout-header h1 {
           font-size: 2.5rem;
@@ -149,6 +149,18 @@ if ($pdate != '' || $ptime != '' || $ddate != '' || $dtime != '') {
           font-size: 1.1rem;
           opacity: 0.9;
       }
+
+     /* Ensure all header text/icons are white */
+     .checkout-header,
+     .checkout-header h1,
+     .checkout-header p,
+     .checkout-header .step,
+     .checkout-header a,
+     .checkout-header i,
+     .checkout-header .fa,
+     .checkout-header .fas {
+        color: #ffffff !important;
+     }
 
       .checkout-content {
           padding: 2rem;
