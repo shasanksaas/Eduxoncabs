@@ -605,6 +605,20 @@ if(isset($_POST['resend_otp']) && isset($_SESSION['otp_phone'])) {
                 justify-content: center !important;
             }
         }
+
+        /* Force white text only inside profile hero */
+        .profile-hero,
+        .profile-hero h1,
+        .profile-hero h2,
+        .profile-hero h3,
+        .profile-hero .display-5,
+        .profile-hero .lead,
+        .profile-hero p,
+        .profile-hero a,
+        .profile-hero i,
+        .profile-hero .fa {
+            color: #ffffff !important;
+        }
     </style>
     </head>
 <body>
