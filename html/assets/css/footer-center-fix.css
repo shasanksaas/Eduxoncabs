@@ -195,3 +195,42 @@
 .payment-methods i {
   font-size: 1.5rem !important;
 }
+
+/* Keep desktop footer layout until 992px */
+@media (min-width: 992px) {
+  /* Ensure the outer footer row keeps 2 columns per line */
+  .modern-footer .footer-main .row > div { float: left; }
+
+  /* Adjust proportions for 2 columns per line */
+  .modern-footer .footer-main .row > div:nth-child(1) {
+     width: 33.33333% !important;
+  }
+  .modern-footer .footer-main .row > div:nth-child(2),
+  .modern-footer .footer-main .row > div:nth-child(3){
+   width: 16.66666% !important;
+  }
+  
+  .modern-footer .footer-main .row > div:nth-child(4) {
+    width: 33.333333% !important;
+  }
+
+  /* Avoid unintended stacking/gaps from utility margins */
+  .modern-footer .footer-main .row > div.mb-4 {
+    margin-bottom: 0 !important;
+  }
+}
+@media (min-width: 768px) and (max-width: 991.98px) {
+  /* Two columns layout on medium screens */
+  .modern-footer .footer-main .row > div {
+    float: left !important;
+    width: 50% !important;
+  }
+  /* Ensure the second row starts cleanly */
+  .modern-footer .footer-main .row > div:nth-child(3) {
+    clear: left !important;
+  }
+  /* Restore vertical spacing between rows */
+  .modern-footer .footer-main .row > div.mb-4 {
+    margin-bottom: 1.5rem !important;
+  }
+}
