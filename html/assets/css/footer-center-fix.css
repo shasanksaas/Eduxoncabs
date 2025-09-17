@@ -11,15 +11,29 @@
   max-width: none !important;
   margin-left: 0 !important;
   margin-right: 0 !important;
-  padding: 0 !important;
+  padding-top: 50px !important;
 }
-
+.footer-widget h5{
+  text-transform: none !important;
+}
+.footer-widget .contact-card{
+  margin-bottom: 16px !important;
+}
+.footer-widget .contact-card strong{
+  font-size: 16px !important;
+}
+.footer-widget .contact-card p{
+  font-size: 14px !important;
+}
+.footer-widget ul {
+  list-style: disc !important;
+}
 /* Reset footer titles to default */
 .footer-title {
   text-align: left !important;
   margin-left: 0 !important;
   margin-right: 0 !important;
-  font-size: 1.25rem !important;
+  font-size: 2rem !important;
 }
 
 /* Reset footer links to default */
@@ -44,7 +58,7 @@
 .footer-links a {
   text-align: left !important;
   display: block !important;
-  font-size: 0.95rem !important;
+  font-size: 1.5rem !important;
   padding: 0 !important;
   font-weight: normal !important;
 }
