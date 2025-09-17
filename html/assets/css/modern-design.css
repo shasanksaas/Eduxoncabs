@@ -433,7 +433,7 @@ body {
 /* Small-Medium Screen Hero CTA - Center alignment fix */
 @media (min-width: 576px) and (max-width: 767.98px) {
   .hero-cta {
-    flex-direction: row !important;
+    flex-direction: column !important;
     gap: 1rem !important;
     justify-content: center !important;
     align-items: center !important;

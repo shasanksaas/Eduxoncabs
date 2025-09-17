@@ -243,6 +243,19 @@
       width: 260px;
     }
   }
+  
+  /* Fix hero CTA button overflow on small tablets (576px–767.98px) */
+  @media (min-width: 576px) and (max-width: 767.98px) {
+    .hero-section .hero-cta .mobile-centered-btn {
+      display: block !important;
+      width: 100% !important;
+      text-align: center !important;
+      margin-bottom: 10px !important;
+    }
+    .hero-section .hero-cta .mobile-centered-btn:last-child {
+      margin-bottom: 0 !important;
+    }
+  }
 </style>
 <header class="modern-header">
   <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm fixed-top" style="display: flex !important; align-items: center !important; justify-content: space-between !important;">
