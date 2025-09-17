@@ -261,3 +261,35 @@
   display: list-item !important;
   padding-left: 0 !important;
 }
+
+/* Footer stats: compact, in-row squares with rounded corners */
+.modern-footer .footer-stats .row {
+  display: flex !important;
+  flex-wrap: nowrap !important; /* keep both in one row */
+  gap: 10px !important; /* space between the two boxes */
+}
+.modern-footer .footer-stats .row > [class*="col-"] {
+  padding: 0 !important;
+  width: calc((100% - 10px) / 2) !important; /* two columns accounting for 10px gap */
+  flex: 0 0 calc((100% - 10px) / 2) !important;
+}
+.modern-footer .footer-stats .stat-item {
+  width: 100% !important;
+  aspect-ratio: auto !important; /* disable square sizing */
+  height: 100px !important; /* fixed height */
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  flex-direction: column !important;
+  border-radius: 12px !important; /* rounded corners */
+  background: rgba(255, 255, 255, 0.12) !important;
+  margin: 0 !important; /* rely on gap instead */
+  padding: 0 !important; /* keep square exact, use content centering */
+  box-sizing: border-box !important;
+}
+.modern-footer .footer-stats .stat-item strong {
+  font-size: 1.1rem !important; /* compact number */
+}
+.modern-footer .footer-stats .stat-item span {
+  font-size: 0.75rem !important; /* compact label */
+}
