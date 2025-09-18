@@ -1,0 +1,97 @@
+/* Additional Performance Optimizations for Core Web Vitals */
+
+/* Lazy loading styles */
+.car-img-optimized {
+  transition: opacity 0.3s ease;
+}
+
+.car-img-optimized[data-loading="true"] {
+  opacity: 0.7;
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* Reduce layout shifts */
+.feature-card-modern {
+  min-height: 200px;
+}
+
+.car-card {
+  min-height: 400px;
+}
+
+.testimonial-card {
+  min-height: 180px;
+}
+
+/* Optimize font loading */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Poppins Regular'), local('Poppins-Regular');
+}
+
+/* Critical above-the-fold styling */
+.hero-section {
+  background-image: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  color: white;
+}
+
+.modern-header .navbar {
+  background: white !important;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  padding: 12px 0;
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+  .hero-section {
+    min-height: 50vh;
+    padding: 30px 0;
+  }
+  
+  .feature-card-modern {
+    min-height: 160px;
+    margin-bottom: 20px;
+  }
+}
+
+/* Preload hover states to prevent layout shift */
+.btn-primary:hover,
+.car-card:hover {
+  transform: translateY(-2px);
+  transition: transform 0.2s ease;
+}
+
+/* Optimize CLS for dynamic content */
+.owl-carousel {
+  min-height: 300px;
+}
+
+.car-gallery-container {
+  min-height: 400px;
+}
+
+/* Improve First Contentful Paint */
+.section-title {
+  font-weight: 600;
+  line-height: 1.2;
+  margin-bottom: 20px;
+}
+
+.feature-title-modern {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 15px;
+}

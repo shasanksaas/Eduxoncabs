@@ -18,6 +18,19 @@ $db = new SiteData();
 <meta name="keywords" content="about EduxonCabs, best self drive car rental Bhubaneswar, car rental company BBSR, reliable car rental Bhubaneswar, 24 hour car rental service, self drive cars Bhubaneswar, trusted car rental provider" />
 <meta name="description" content="EduxonCabs - Leading self drive car rental Bhubaneswar since 2018. 30+ car models, 24/7 service, ₹35/hour. Trusted by 10,000+ customers for reliable car rental BBSR."/>
 <meta name="author" content="Eduxoncabs.com">
+<!-- Canonical URL -->
+<link rel="canonical" href="https://www.eduxoncabs.com/about-us.php">
+<!-- Enhanced Open Graph Tags -->
+<meta property="og:title" content="About EduxonCabs | Best Self Drive Car Rental Bhubaneswar Since 2018">
+<meta property="og:description" content="EduxonCabs - Leading self drive car rental Bhubaneswar since 2018. 30+ car models, 24/7 service, ₹35/hour. Trusted by 10,000+ customers.">
+<meta property="og:image" content="https://www.eduxoncabs.com/img/logo.png">
+<meta property="og:url" content="https://www.eduxoncabs.com/about-us.php">
+<meta property="og:type" content="website">
+<!-- Twitter Card Tags -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="About EduxonCabs | Best Self Drive Car Rental Bhubaneswar">
+<meta name="twitter:description" content="Leading self drive car rental in Bhubaneswar since 2018. 30+ car models, 24/7 service, trusted by 10,000+ customers.">
+<meta name="twitter:image" content="https://www.eduxoncabs.com/img/logo.png">
 <!-- Favicon -->
 <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
 <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
@@ -137,21 +150,21 @@ body {
                   <div class="timeline-year">2018</div>
                   <div class="timeline-content">
                     <h4>The Beginning</h4>
-                    <p>EduxonCabs was launched with a vision to provide safe and reliable self-drive car rental services in Bhubaneswar.</p>
+                    <p>EduxonCabs was launched with a vision to provide safe and reliable <a href="https://www.eduxoncabs.com/" class="text-primary">self-drive car rental services in Bhubaneswar</a> with exceptional customer experience.</p>
                   </div>
                 </div>
                 <div class="timeline-item">
                   <div class="timeline-year">2020</div>
                   <div class="timeline-content">
                     <h4>Expansion</h4>
-                    <p>Expanded our fleet to 30+ car models and established 50+ pickup locations across Odisha.</p>
+                    <p>Expanded our fleet to <a href="https://www.eduxoncabs.com/all-cars-for-self-drive-bhubaneswar.php" class="text-primary">30+ car models</a> and established 50+ pickup locations across Odisha for enhanced accessibility.</p>
                   </div>
                 </div>
                 <div class="timeline-item">
                   <div class="timeline-year">2023</div>
                   <div class="timeline-content">
                     <h4>Innovation</h4>
-                    <p>Introduced 24/7 customer support centers and latest technology for seamless customer experience.</p>
+                    <p>Introduced <a href="https://www.eduxoncabs.com/contact-us.php" class="text-primary">24/7 customer support centers</a> and latest technology for seamless customer experience and instant assistance.</p>
                   </div>
                 </div>
               </div>

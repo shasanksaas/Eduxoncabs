@@ -74,10 +74,18 @@ if (isset($_POST["act"]) && $_POST["act"] == "subscribe") {
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
 
-<!-- Resource hints for better performance -->
-<link rel="preconnect" href="https://code.jquery.com">
-<link rel="dns-prefetch" href="//fonts.googleapis.com">
-<link rel="dns-prefetch" href="//code.jquery.com">
+<!-- Essential preconnect only (limit to 3 most critical) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<!-- Preload critical resources for LCP optimization -->
+<link rel="preload" href="assets/css/main.css" as="style">
+<link rel="preload" href="img/Eduxoncabs.png" as="image" fetchpriority="high">
+<link rel="preload" href="assets/images/Eduxoncabs.png" as="image" fetchpriority="high">
+
+<!-- Google Fonts - Defer to prevent blocking LCP -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet"></noscript>
 
 <title>Self Drive Cars Bhubaneswar | Car Rental BBSR Starting ₹35/Hour | 24 Hour Service</title>
 <meta name="keywords" content="self drive cars Bhubaneswar, self drive car rental Bhubaneswar, car rental Bhubaneswar, self drive cars BBSR, self drive cars Bhubaneswar airport, car rental Bhubaneswar airport, 24 hour car rental Bhubaneswar, hourly car rental Bhubaneswar, unlimited km car rental Bhubaneswar, doorstep delivery car rental Bhubaneswar, cheap car rental Bhubaneswar, affordable self drive cars Bhubaneswar, sedan rental Bhubaneswar, SUV rental Bhubaneswar"/>
@@ -91,48 +99,65 @@ if (isset($_POST["act"]) && $_POST["act"] == "subscribe") {
 <meta property="og:url" content="https://www.eduxoncabs.com/" />
 <meta property="og:image" content="https://www.eduxoncabs.com/img/logo.png" />
 
-<!-- Defer Analytics for better LCP -->
+<!-- Canonical URL for SEO -->
+<link rel="canonical" href="https://www.eduxoncabs.com/">
+
+<!-- Enhanced Open Graph Tags -->
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="en_IN">
+
+<!-- Twitter Card Tags -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Self Drive Cars Bhubaneswar | Car Rental BBSR ₹35/Hour">
+<meta name="twitter:description" content="Best self drive cars Bhubaneswar starting ₹35/hour. 24 hour service with unlimited km & doorstep delivery.">
+<meta name="twitter:image" content="https://www.eduxoncabs.com/img/logo.png">
+
+<!-- Additional SEO Meta Tags -->
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+<meta name="theme-color" content="#007bff">
+
+<!-- Optimized Analytics Loading for Core Web Vitals -->
 <script>
-window.addEventListener('load', function() {
-  setTimeout(function() {
-    // Load Google Analytics after page load
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','https://www.googletagmanager.com/gtag/js?id=G-R24JTT23LT','gtag');
-    
+// Load analytics after user interaction or page load
+function loadAnalytics() {
+  if (window.analyticsLoaded) return;
+  window.analyticsLoaded = true;
+  
+  // Google Analytics
+  const script = document.createElement('script');
+  script.async = true;
+  script.src = 'https://www.googletagmanager.com/gtag/js?id=G-R24JTT23LT';
+  document.head.appendChild(script);
+  
+  script.onload = function() {
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config', 'G-R24JTT23LT');
     gtag('config', 'G-J20L19B243');
     gtag('config', 'AW-11129753133');
-  }, 1000);
-});
+    gtag('config', 'G-680DFSCXM6');
+  };
+}
+
+// Load analytics on user interaction or after 3 seconds
+window.addEventListener('scroll', loadAnalytics, { once: true });
+window.addEventListener('click', loadAnalytics, { once: true });
+window.addEventListener('touchstart', loadAnalytics, { once: true });
+setTimeout(loadAnalytics, 3000);
 </script>
 <!-- Favicon -->
 <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
 <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
 <?php include "includes1/inc-css.php"; ?>
-<!-- Modern Design CSS -->
+<!-- Modern Design CSS - Load after critical styles -->
 <link href="assets/css/modern-design.css" rel="stylesheet">
 <!-- Modern FAQ Section CSS -->
 <link href="assets/css/modern-faq-section.css" rel="stylesheet">
 <!-- Google Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 
-<!--Start of Tawk.to Script-->
-<script type="text/javascript">
-var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-(function(){
-var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-s1.async=true;
-s1.src='https://embed.tawk.to/5af299a65f7cdf4f0533fb81/default';
-s1.charset='UTF-8';
-s1.setAttribute('crossorigin','*');
-s0.parentNode.insertBefore(s1,s0);
-})();
-</script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org/",
@@ -234,26 +259,6 @@ s0.parentNode.insertBefore(s1,s0);
 }
 </script>
 
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-680DFSCXM6"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-680DFSCXM6');
-</script>
-
-</script>
-<!--End of Tawk.to Script-->
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({
-          google_ad_client: "ca-pub-9419287565252741",
-          enable_page_level_ads: true
-     });
-</script>
-
 <meta name="google-site-verification" content="4JJju5tQZWNJy-xHGcY0GDueqFmxCdBrnj7ozilP2bw" />
 <script type="application/ld+json">
 {
@@ -300,6 +305,25 @@ s0.parentNode.insertBefore(s1,s0);
 </script>
 </head>
 <body>
+<!-- Critical LCP Optimization - Immediate DOM prep -->
+<script>
+// Critical performance optimization for LCP
+document.documentElement.style.fontSize = '16px';
+document.body.style.margin = '0';
+document.body.style.padding = '0';
+
+// Preload critical hero content container
+const heroContainer = document.createElement('div');
+heroContainer.className = 'hero-section';
+heroContainer.style.minHeight = '100vh';
+
+// Early DOM preparation to prevent layout shifts
+window.addEventListener('DOMContentLoaded', function() {
+  // Add critical classes early
+  document.body.classList.add('loaded');
+});
+</script>
+
 <div class="r-wrapper">
   <?php include "includes1/modern-header-hero.php"; ?>
   
@@ -366,7 +390,7 @@ s0.parentNode.insertBefore(s1,s0);
             </div>
             <h3 class="feature-title-modern">24/7 Customer Support</h3>
             <p class="feature-description-modern">
-              Round-the-clock assistance for seamless travel experience with instant support and guidance.
+              Round-the-clock assistance for seamless travel experience with <a href="https://www.eduxoncabs.com/contact-us.php" class="text-primary">instant support and guidance</a> for all your car rental needs.
             </p>
           </div>
         </div>
@@ -378,7 +402,7 @@ s0.parentNode.insertBefore(s1,s0);
             </div>
             <h3 class="feature-title-modern">Verified & Clean Cars</h3>
             <p class="feature-description-modern">
-              All vehicles are thoroughly sanitized, verified, and maintained for your safety and comfort.
+              All vehicles are thoroughly sanitized, verified, and maintained for your safety and comfort. <a href="https://www.eduxoncabs.com/all-cars-for-self-drive-bhubaneswar.php" class="text-primary">View our complete fleet</a>.
             </p>
           </div>
         </div>
@@ -558,8 +582,12 @@ s0.parentNode.insertBefore(s1,s0);
             <div class="car-image">
               <a href="https://www.eduxoncabs.com/all-cars-for-self-drive-bhubaneswar.php">
                 <img src="uploadedDocument/cab/<?php echo $key["car_image"]; ?>" 
-                     class="img-fluid" 
-                     alt="<?php echo $key["car_nme"]; ?> - Self Drive Car Rental Bhubaneswar">
+                     class="img-fluid car-img-optimized" 
+                     alt="<?php echo htmlspecialchars($key["car_nme"]); ?> - Self Drive Car Rental Bhubaneswar | ₹<?php echo $key["cost"]; ?>/24Hr"
+                     loading="lazy"
+                     width="350"
+                     height="250"
+                     style="object-fit: cover; border-radius: 8px; background-color: #f8f9fa;">
               </a>
             </div>
             <div class="car-info">
@@ -636,7 +664,12 @@ s0.parentNode.insertBefore(s1,s0);
             </div>
             <div class="testimonial-author">
               <div class="d-flex align-items-center">
-                <img src="assets/images/user-04.png" alt="Ankit Jena" class="testimonial-avatar">
+                <img src="assets/images/user-04.png" 
+                     alt="Ankit Jena - EduxonCabs Customer Review" 
+                     class="testimonial-avatar"
+                     loading="lazy"
+                     width="60"
+                     height="60">
                 <div class="ml-3">
                   <h5 class="mb-0 font-weight-bold">Ankit Jena</h5>
                   <small class="text-muted">Verified Customer</small>
@@ -663,7 +696,12 @@ s0.parentNode.insertBefore(s1,s0);
             </div>
             <div class="testimonial-author">
               <div class="d-flex align-items-center">
-                <img src="assets/images/user-05.png" alt="Saurav Singh" class="testimonial-avatar">
+                <img src="assets/images/user-05.png" 
+                     alt="Saurav Singh - EduxonCabs Customer Review" 
+                     class="testimonial-avatar"
+                     loading="lazy"
+                     width="60"
+                     height="60">
                 <div class="ml-3">
                   <h5 class="mb-0 font-weight-bold">Saurav Singh</h5>
                   <small class="text-muted">Business Traveler</small>
@@ -690,7 +728,12 @@ s0.parentNode.insertBefore(s1,s0);
             </div>
             <div class="testimonial-author">
               <div class="d-flex align-items-center">
-                <img src="assets/images/user-06.png" alt="Shashank Singh" class="testimonial-avatar">
+                <img src="assets/images/user-06.png" 
+                     alt="Shashank Singh - EduxonCabs Customer Review" 
+                     class="testimonial-avatar"
+                     loading="lazy"
+                     width="60"
+                     height="60">
                 <div class="ml-3">
                   <h5 class="mb-0 font-weight-bold">Shashank Singh</h5>
                   <small class="text-muted">Tourist</small>
@@ -1926,6 +1969,89 @@ function scrollToNews() {
 
 <!-- Smart Navbar Script -->
 <script src="js/smart-navbar.js"></script>
+
+<!-- Performance Optimization: Reduce Critical Path Latency -->
+<script>
+// Optimize external resource loading to reduce critical path
+(function() {
+  // Defer heavy external scripts that aren't critical for LCP
+  function deferHeavyResources() {
+    // Preconnect to jQuery CDN only when needed
+    const jqueryPreconnect = document.createElement('link');
+    jqueryPreconnect.rel = 'preconnect';
+    jqueryPreconnect.href = 'https://code.jquery.com';
+    document.head.appendChild(jqueryPreconnect);
+  }
+  
+  // Load on user interaction or after 2 seconds
+  let loaded = false;
+  function initDefer() {
+    if (!loaded) {
+      deferHeavyResources();
+      loaded = true;
+    }
+  }
+  
+  // User interaction events
+  ['mousedown', 'mousemove', 'keypress', 'scroll', 'touchstart'].forEach(function(event) {
+    document.addEventListener(event, initDefer, { passive: true, once: true });
+  });
+  
+  // Fallback timer
+  setTimeout(initDefer, 2000);
+})();
+</script>
+
+<!-- Deferred Analytics and Ads Scripts for Better LCP -->
+<script>
+// Defer all analytics loading until after LCP
+function loadDeferredScripts() {
+  // Load Google Analytics G-680DFSCXM6
+  const gtag1 = document.createElement('script');
+  gtag1.async = true;
+  gtag1.src = 'https://www.googletagmanager.com/gtag/js?id=G-680DFSCXM6';
+  document.head.appendChild(gtag1);
+  
+  gtag1.onload = function() {
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-680DFSCXM6');
+  };
+  
+  // Load AdSense after a delay
+  setTimeout(function() {
+    const adsense = document.createElement('script');
+    adsense.async = true;
+    adsense.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js';
+    document.head.appendChild(adsense);
+    
+    adsense.onload = function() {
+      (adsbygoogle = window.adsbygoogle || []).push({
+        google_ad_client: "ca-pub-9419287565252741",
+        enable_page_level_ads: true
+      });
+    };
+  }, 2000);
+}
+
+// Load deferred scripts after LCP and user interaction
+window.addEventListener('load', function() {
+  // Wait for LCP to complete, then load non-critical scripts
+  setTimeout(loadDeferredScripts, 1000);
+});
+
+// Also load on first user interaction
+let scriptsLoaded = false;
+['mousedown', 'mousemove', 'keypress', 'scroll', 'touchstart', 'click'].forEach(function(event) {
+  document.addEventListener(event, function() {
+    if (!scriptsLoaded) {
+      loadDeferredScripts();
+      scriptsLoaded = true;
+    }
+  }, { passive: true, once: true });
+});
+</script>
      
         
 

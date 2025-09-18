@@ -1,286 +1,61 @@
 <?php
 session_start();
 
-// Enable error reporting for debugging
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
-
-// Debug - show all POST data
-if(!empty($_POST)) {
-    echo "<div style='background: yellow; padding: 10px; margin: 10px;'>";
-    echo "<strong>DEBUG - POST Data:</strong><br>";
-    print_r($_POST);
-    echo "</div>";
-}
-
 require_once("includes/settings.php");
 require_once("includes/database.php");
 require_once("includes/classes/db.cls.php");
 require_once("includes/classes/sitedata.cls.php");
 require_once("includes/functions/common.php");
 require_once("includes/classes/DBquery.cls.php");
-require_once("includes/sms-config.php");
+
 $db = new SiteData();
-
 $dbObj = new dbquery();
-
-$mysqli_conn = new mysqli(SYSTEM_DBHOST, SYSTEM_DBUSER, SYSTEM_DBPWD, SYSTEM_DBNAME);
-if ($mysqli_conn->connect_error) {
-    die("Connection failed: " . $mysqli_conn->connect_error);
-}
-
-// SMS Function - Fast2SMS API
-function sendOTP($phone, $otp) {
-    $message = "Your EduxonCabs verification OTP is: " . $otp . ". Valid for 5 minutes. Do not share with anyone.";
-    
-    // Format phone number - Fast2SMS expects 10 digit number without country code
-    $formatted_phone = ltrim($phone, '0'); // Remove leading zero if any
-    if(strlen($formatted_phone) == 10) {
-        // Good - 10 digit number
-    } else if(strlen($formatted_phone) == 11 && substr($formatted_phone, 0, 1) == '1') {
-        // Remove leading 1 if present
-        $formatted_phone = substr($formatted_phone, 1);
-    } else if(strlen($formatted_phone) == 12 && substr($formatted_phone, 0, 2) == '91') {
-        // Remove country code +91 if present
-        $formatted_phone = substr($formatted_phone, 2);
-    }
-    
-    error_log("Sending OTP to formatted number: " . $formatted_phone);
-    
-    // Build URL with parameters as per Fast2SMS documentation
-    $url = "https://www.fast2sms.com/dev/bulkV2?" . http_build_query(array(
-        "authorization" => SMS_API_KEY,
-        "route" => "dlt",
-        "sender_id" => SMS_SENDER_ID,
-        "message" => $message,
-        "variables_values" => "",
-        "flash" => "0",
-        "numbers" => $formatted_phone,
-        "schedule_time" => ""
-    ));
-    
-    error_log("Fast2SMS URL: " . $url);
-    
-    $curl = curl_init();
-    curl_setopt_array($curl, array(
-        CURLOPT_URL => $url,
-        CURLOPT_RETURNTRANSFER => true,
-        CURLOPT_ENCODING => "",
-        CURLOPT_MAXREDIRS => 10,
-        CURLOPT_TIMEOUT => 30,
-        CURLOPT_SSL_VERIFYHOST => 0,
-        CURLOPT_SSL_VERIFYPEER => 0,
-        CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-        CURLOPT_CUSTOMREQUEST => "GET",
-        CURLOPT_HTTPHEADER => array(
-            "cache-control: no-cache"
-        )
-    ));
-    
-    $response = curl_exec($curl);
-    $err = curl_error($curl);
-    $http_code = curl_getinfo($curl, CURLINFO_HTTP_CODE);
-    curl_close($curl);
-    
-    if ($err) {
-        error_log("SMS cURL Error: " . $err);
-        return false;
-    } else {
-        error_log("SMS HTTP Code: " . $http_code . " Response: " . $response);
-        $result = json_decode($response, true);
-        
-        if($result === null) {
-            error_log("SMS Error: Invalid JSON response");
-            return false;
-        }
-        
-        // Fast2SMS returns "return":true for success
-        if(isset($result['return']) && $result['return'] == true) {
-            error_log("SMS sent successfully");
-            return true;
-        } else {
-            error_log("SMS failed: " . json_encode($result));
-            return false;
-        }
-    }
-}
 
 $msg = "";
 $error_msg = "";
-$show_otp_form = false;
 $show_profile_form = false;
 $verified_phone = "";
 
-// Debug information - check if form is submitted
-if(!empty($_POST['phone_number'])) {
-    $msg = "DEBUG: Phone number received: " . $_POST['phone_number'] . ". Processing OTP generation...";
-}
-
-// Handle phone number submission and OTP generation
+// Handle phone number submission - direct access without OTP
 if(!empty($_POST['phone_number'])) {
     $phone_input = trim($_POST['phone_number']);
     
-    // Clean and validate phone number with country code
+    // Clean and validate phone number
     $phone = preg_replace('/[^0-9]/', '', $phone_input); // Remove all non-digits
     
-    // Normalize phone number to +91 format
+    // Normalize phone number to 10-digit format
     if(strlen($phone) == 10) {
-        // 10 digit number - add country code
-        $formatted_phone = '91' . $phone;
-        $display_phone = '+91 ' . $phone;
+        // 10 digit number - perfect
+        $mobile_number = $phone;
     } else if(strlen($phone) == 11 && substr($phone, 0, 1) == '0') {
-        // 11 digit starting with 0 - remove 0 and add country code
-        $phone = substr($phone, 1);
-        $formatted_phone = '91' . $phone;
-        $display_phone = '+91 ' . $phone;
+        // 11 digit starting with 0 - remove 0
+        $mobile_number = substr($phone, 1);
     } else if(strlen($phone) == 12 && substr($phone, 0, 2) == '91') {
-        // 12 digit starting with 91 - already has country code
-        $formatted_phone = $phone;
-        $display_phone = '+91 ' . substr($phone, 2);
+        // 12 digit starting with 91 - remove country code
+        $mobile_number = substr($phone, 2);
     } else if(strlen($phone) == 13 && substr($phone, 0, 3) == '091') {
-        // 13 digit starting with 091 - remove leading 0
-        $formatted_phone = substr($phone, 1);
-        $display_phone = '+91 ' . substr($phone, 3);
+        // 13 digit starting with 091 - remove leading 0 and country code
+        $mobile_number = substr($phone, 3);
     } else {
         $error_msg = "Please enter a valid Indian mobile number (10 digits). Example: 9692627257 or +91 9692627257";
-        $formatted_phone = null;
+        $mobile_number = null;
     }
     
     // Validate that it's a valid Indian mobile number (starts with 6,7,8,9)
-    if($formatted_phone && strlen($formatted_phone) == 12) {
-        $mobile_number = substr($formatted_phone, 2); // Get the 10-digit part
+    if($mobile_number && strlen($mobile_number) == 10) {
         $first_digit = substr($mobile_number, 0, 1);
         
         if(!in_array($first_digit, ['6', '7', '8', '9'])) {
             $error_msg = "Please enter a valid Indian mobile number starting with 6, 7, 8, or 9.";
-            $formatted_phone = null;
+            $mobile_number = null;
         }
     }
     
-    if($formatted_phone) {
-        // Check if customer exists (use 10-digit format for database)
-        try {
-            $getcustomer = $dbObj->fetch_data("tbl_customer", "phone_number='$mobile_number'", "");
-            
-            // Allow OTP generation for any valid Indian mobile number
-            if(true) { // Change to !empty($getcustomer) to restrict to existing customers only
-                // Generate 6-digit OTP
-                $otp = sprintf("%06d", rand(100000, 999999));
-                
-                // Store OTP in session with timestamp
-                $_SESSION['otp'] = $otp;
-                $_SESSION['otp_phone'] = $mobile_number; // Store 10-digit format
-                $_SESSION['otp_time'] = time();
-                
-                // Try to send SMS
-                if(SMS_ENABLED && SMS_API_KEY != 'YOUR_FAST2SMS_API_KEY') {
-                    // Production mode - send actual SMS (Fast2SMS expects 10-digit number)
-                    if(sendOTP($mobile_number, $otp)) {
-                        $msg = "OTP sent successfully to " . $display_phone . " (ending with ****" . substr($mobile_number, -4) . "). Please check your messages.";
-                        $show_otp_form = true;
-                    } else {
-                        $error_msg = "Failed to send OTP to " . $display_phone . ". Please try again or contact support.";
-                        error_log("Failed to send OTP to: " . $display_phone);
-                    }
-                } else {
-                    // Demo/Development mode
-                    if(DEMO_MODE && DEMO_SHOW_OTP) {
-                        $msg = "⚠️ DEMO MODE: Your OTP is <strong>" . $otp . "</strong> (Valid for 5 minutes)<br><small>In production, this will be sent to " . $display_phone . "</small>";
-                    } else {
-                        $msg = "OTP sent to " . $display_phone . " (ending with ****" . substr($mobile_number, -4) . "). Please check your messages.";
-                    }
-                    $show_otp_form = true;
-                }
-                
-            } else {
-                $error_msg = "No customer found with this phone number. Please register first or contact support.";
-            }
-        } catch (Exception $e) {
-            $error_msg = "Database error: " . $e->getMessage();
-            error_log("Database error in OTP: " . $e->getMessage());
-        }
-    }
-}
-
-// Handle OTP verification
-if(isset($_POST['verify_otp']) && !empty($_POST['otp_code'])) {
-    $entered_otp = $_POST['otp_code'];
-    $phone = $_SESSION['otp_phone'] ?? '';
-    
-    // Check if OTP is valid and not expired (5 minutes = 300 seconds)
-    if(isset($_SESSION['otp']) && isset($_SESSION['otp_time'])) {
-        $time_diff = time() - $_SESSION['otp_time'];
-        
-        if($time_diff <= 300) { // 5 minutes
-            if($entered_otp == $_SESSION['otp']) {
-                // OTP verified successfully
-                $verified_phone = $phone;
-                $show_profile_form = true;
-                $msg = "Phone number verified successfully!";
-                
-                // Clear OTP session data
-                unset($_SESSION['otp']);
-                unset($_SESSION['otp_time']);
-                unset($_SESSION['otp_phone']);
-                
-                // Set verified session
-                $_SESSION['verified_phone'] = $phone;
-                $_SESSION['verification_time'] = time();
-                
-            } else {
-                $error_msg = "Invalid OTP. Please try again.";
-                $show_otp_form = true;
-            }
-        } else {
-            $error_msg = "OTP has expired. Please request a new one.";
-            unset($_SESSION['otp']);
-            unset($_SESSION['otp_time']);
-            unset($_SESSION['otp_phone']);
-        }
-    } else {
-        $error_msg = "No OTP found. Please request a new one.";
-    }
-}
-
-// Check if user is already verified (session valid for 30 minutes)
-if(isset($_SESSION['verified_phone']) && isset($_SESSION['verification_time'])) {
-    $verification_time_diff = time() - $_SESSION['verification_time'];
-    
-    if($verification_time_diff <= 1800) { // 30 minutes = 1800 seconds
-        $verified_phone = $_SESSION['verified_phone'];
+    if($mobile_number) {
+        // Direct access - no OTP verification needed
+        $verified_phone = $mobile_number;
         $show_profile_form = true;
-    } else {
-        // Clear expired verification
-        unset($_SESSION['verified_phone']);
-        unset($_SESSION['verification_time']);
-    }
-}
-
-// Handle resend OTP
-if(isset($_POST['resend_otp']) && isset($_SESSION['otp_phone'])) {
-    $phone = $_SESSION['otp_phone'];
-    $otp = sprintf("%06d", rand(100000, 999999));
-    
-    $_SESSION['otp'] = $otp;
-    $_SESSION['otp_time'] = time();
-    
-    // Try to send SMS
-    if(SMS_ENABLED && SMS_API_KEY != 'YOUR_FAST2SMS_API_KEY') {
-        // Production mode - send actual SMS
-        if(sendOTP($phone, $otp)) {
-            $msg = "New OTP sent successfully to your mobile number. Please check your messages.";
-            $show_otp_form = true;
-        } else {
-            $error_msg = "Failed to resend OTP. Please try again.";
-        }
-    } else {
-        // Demo/Development mode
-        if(DEMO_MODE && DEMO_SHOW_OTP) {
-            $msg = "⚠️ DEMO MODE: Your new OTP is <strong>" . $otp . "</strong> (Valid for 5 minutes)";
-        } else {
-            $msg = "New OTP sent to your mobile number.";
-        }
-        $show_otp_form = true;
+        $msg = "Profile loaded successfully for +91 " . $mobile_number;
     }
 }
 ?>
@@ -478,6 +253,11 @@ if(isset($_POST['resend_otp']) && isset($_SESSION['otp_phone'])) {
             color: #166534;
         }
 
+        .status-pending {
+            background: #fef3c7;
+            color: #92400e;
+        }
+
         .amount-highlight {
             font-weight: 700;
             color: var(--success-color);
@@ -655,15 +435,15 @@ if(isset($_POST['resend_otp']) && isset($_SESSION['otp_phone'])) {
                 </div>
                 <?php endif; ?>
 
-                <?php if(!$show_otp_form && !$show_profile_form): ?>
+                <?php if(!$show_profile_form): ?>
                 <!-- Phone Number Entry Section -->
                 <div class="search-section">
                     <div class="row align-items-center">
                         <div class="col-lg-8">
                             <h3 class="mb-3">
-                                <i class="fa fa-shield-alt text-primary me-2"></i>Secure Profile Access
+                                <i class="fa fa-search text-primary me-2"></i>Find Your Profile
                             </h3>
-                            <p class="text-muted mb-0">Enter your registered Indian mobile number (without +91) to receive an OTP for secure access to your booking history.</p>
+                            <p class="text-muted mb-0">Enter your registered Indian mobile number to view your booking history and profile details.</p>
                         </div>
                         <div class="col-lg-4">
                             <form action="" method="post" class="d-flex flex-column align-items-center gap-3">
@@ -683,51 +463,10 @@ if(isset($_POST['resend_otp']) && isset($_SESSION['otp_phone'])) {
                                         </div>
                                     </div>
                                 </div>
-                                <button type="submit" name="send_otp" class="btn-modern btn-primary-modern w-75 text-center justify-content-center">
-                                    <i class="fa fa-paper-plane"></i> Send OTP
+                                <button type="submit" name="search_profile" class="btn-modern btn-primary-modern w-75 text-center justify-content-center">
+                                    <i class="fa fa-search"></i> View Profile
                                 </button>
                             </form>
-                        </div>
-                    </div>
-                </div>
-                <?php endif; ?>
-
-                <?php if($show_otp_form): ?>
-                <!-- OTP Verification Section -->
-                <div class="search-section">
-                    <div class="row align-items-center">
-                        <div class="col-lg-8">
-                            <h3 class="mb-3">
-                                <i class="fa fa-key text-primary me-2"></i>Enter Verification Code
-                            </h3>
-                            <p class="text-muted mb-2">We've sent a 6-digit verification code to your phone number ending with <strong>****<?php echo substr($_SESSION['otp_phone'] ?? '', -4); ?></strong></p>
-                            <p class="text-muted mb-0 small">Code expires in 5 minutes</p>
-                        </div>
-                        <div class="col-lg-4">
-                            <form action="" method="post" class="d-flex gap-2 mb-3">
-                                <input type="text" 
-                                       name="otp_code" 
-                                       class="form-control-modern flex-grow-1 text-center" 
-                                       placeholder="Enter 6-digit OTP" 
-                                       pattern="[0-9]{6}" 
-                                       maxlength="6"
-                                       style="font-size: 1.2rem; letter-spacing: 0.2rem; font-weight: 600;"
-                                       required />
-                                <button type="submit" name="verify_otp" class="btn-modern btn-primary-modern">
-                                    <i class="fa fa-check"></i> Verify
-                                </button>
-                            </form>
-                            <div class="text-center">
-                                <form action="" method="post" class="d-inline">
-                                    <button type="submit" name="resend_otp" class="btn btn-link p-0 text-primary small">
-                                        <i class="fa fa-refresh me-1"></i>Resend OTP
-                                    </button>
-                                </form>
-                                <span class="mx-2">|</span>
-                                <a href="?" class="text-muted small">
-                                    <i class="fa fa-arrow-left me-1"></i>Change Number
-                                </a>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -739,22 +478,22 @@ if(isset($_POST['resend_otp']) && isset($_SESSION['otp_phone'])) {
                 if ($show_profile_form && !empty($verified_phone)) {
                     $phone = $verified_phone;
 
-                    $getcustomer = $dbObj->fetch_data("tbl_customer", "phone_number='$phone'", "");
+                    $customer = $dbObj->fetch_data("tbl_customer", "phone_number='$phone'", "");
                     
-                    if (!empty($getcustomer)) {
-                        $cust_id = $getcustomer[0]['cust_id'];
-
-                        $getdta = $dbObj->fetch_data("tbl_order", "customer_id='$cust_id' and status='Completed'", " submit_dte DESC");
-                        $count = $dbObj->countRec("tbl_order", "phone='$phone' and status='Completed'", " submit_dte DESC");
-
-                        if($count > 0) {
+                    if (!empty($customer)) {
+                        $customer = $customer[0]; // Get the first record
+                        $cust_id = $customer['cust_id'];
+                        
+                        // Fetch booking history (all bookings regardless of status)
+                        $getdta = $dbObj->fetch_data("tbl_order", "customer_id='$cust_id'", " submit_dte DESC");
+                        $count = $dbObj->countRec("tbl_order", "phone='$phone'", " submit_dte DESC");                        if($count > 0) {
                 ?>
-                            <!-- Verified Access Banner -->
+                            <!-- Profile Found Banner -->
                             <div class="alert-modern alert-success-modern mb-4">
-                                <i class="fa fa-shield-check me-2"></i>
-                                <strong>Verified Access</strong> - You are viewing booking history for <strong><?php echo $phone; ?></strong>
+                                <i class="fa fa-user-check me-2"></i>
+                                <strong>Profile Found</strong> - Showing details for <strong>+91 <?php echo $phone; ?></strong>
                                 <a href="?" class="float-end text-success">
-                                    <i class="fa fa-sign-out-alt me-1"></i>Logout
+                                    <i class="fa fa-search me-1"></i>Search Again
                                 </a>
                             </div>
 
@@ -806,6 +545,7 @@ if(isset($_POST['resend_otp']) && isset($_SESSION['otp_phone'])) {
                                                 <th><i class="fa fa-hashtag me-1"></i>S.N.</th>
                                                 <th><i class="fa fa-car me-1"></i>Vehicle</th>
                                                 <th><i class="fa fa-rupee-sign me-1"></i>Amount</th>
+                                                <th><i class="fa fa-info-circle me-1"></i>Status</th>
                                                 <th><i class="fa fa-calendar-plus me-1"></i>Pickup Date & Time</th>
                                                 <th><i class="fa fa-calendar-minus me-1"></i>Drop Date & Time</th>
                                                 <th><i class="fa fa-file-pdf me-1"></i>Invoice</th>
@@ -827,6 +567,14 @@ if(isset($_POST['resend_otp']) && isset($_SESSION['otp_phone'])) {
                                                     </td>
                                                     <td>
                                                         <span class="amount-highlight">₹<?php echo number_format($key['amount']); ?></span>
+                                                    </td>
+                                                    <td>
+                                                        <?php 
+                                                        $status_class = ($key['status'] == 'Completed') ? 'status-completed' : 'status-pending';
+                                                        ?>
+                                                        <span class="status-badge <?php echo $status_class; ?>">
+                                                            <?php echo htmlspecialchars($key['status']); ?>
+                                                        </span>
                                                     </td>
                                                     <td>
                                                         <div>
@@ -893,34 +641,33 @@ if(isset($_POST['resend_otp']) && isset($_SESSION['otp_phone'])) {
                     }
                 }
                 ?>
-
                 <?php endif; ?>
 
-                <!-- Security Features Information -->
+                <!-- Simple Access Information -->
                 <?php if(!$show_profile_form): ?>
                 <div class="security-features">
                     <h5 class="mb-3">
-                        <i class="fa fa-shield-alt text-primary me-2"></i>Your Privacy & Security
+                        <i class="fa fa-info-circle text-primary me-2"></i>How it Works
                     </h5>
                     <div class="row">
                         <div class="col-md-6">
                             <div class="security-item">
-                                <i class="fa fa-lock security-icon"></i>
-                                <span>OTP-based secure authentication</span>
+                                <i class="fa fa-mobile-alt security-icon"></i>
+                                <span>Enter your registered mobile number</span>
                             </div>
                             <div class="security-item">
-                                <i class="fa fa-clock security-icon"></i>
-                                <span>Session expires after 30 minutes</span>
+                                <i class="fa fa-eye security-icon"></i>
+                                <span>View your booking history instantly</span>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="security-item">
-                                <i class="fa fa-user-shield security-icon"></i>
-                                <span>Access only your own booking data</span>
+                                <i class="fa fa-file-pdf security-icon"></i>
+                                <span>Download invoices and receipts</span>
                             </div>
                             <div class="security-item">
-                                <i class="fa fa-mobile-alt security-icon"></i>
-                                <span>SMS verification for account access</span>
+                                <i class="fa fa-clock security-icon"></i>
+                                <span>Track your rental history</span>
                             </div>
                         </div>
                     </div>
@@ -940,7 +687,7 @@ if(isset($_POST['resend_otp']) && isset($_SESSION['otp_phone'])) {
     <!-- Custom JavaScript -->
     <script>
         // Phone number validation for Indian mobile numbers
-        document.querySelectorAll('input[name="phone_number"], input[name="customer"]').forEach(function(input) {
+        document.querySelectorAll('input[name="phone_number"]').forEach(function(input) {
             input.addEventListener('input', function(e) {
                 // Only allow numbers
                 e.target.value = e.target.value.replace(/[^0-9]/g, '');
@@ -979,62 +726,6 @@ if(isset($_POST['resend_otp']) && isset($_SESSION['otp_phone'])) {
                     return false;
                 }
             });
-        });
-
-        // OTP input validation
-        const otpInput = document.querySelector('input[name="otp_code"]');
-        if (otpInput) {
-            otpInput.addEventListener('input', function(e) {
-                e.target.value = e.target.value.replace(/[^0-9]/g, '');
-            });
-
-            // Auto-submit when 6 digits are entered
-            otpInput.addEventListener('input', function(e) {
-                if (e.target.value.length === 6) {
-                    // Add small delay for better UX
-                    setTimeout(() => {
-                        e.target.closest('form').submit();
-                    }, 500);
-                }
-            });
-        }
-
-        // OTP Countdown Timer
-        function startOTPTimer() {
-            const timerElement = document.getElementById('otp-timer');
-            const resendButton = document.querySelector('button[name="resend_otp"]');
-            
-            if (timerElement && resendButton) {
-                let timeLeft = 300; // 5 minutes
-                
-                function updateTimer() {
-                    const minutes = Math.floor(timeLeft / 60);
-                    const seconds = timeLeft % 60;
-                    timerElement.textContent = `${minutes}:${seconds.toString().padStart(2, '0')}`;
-                    
-                    if (timeLeft <= 0) {
-                        timerElement.textContent = 'Expired';
-                        timerElement.classList.add('text-danger');
-                        resendButton.disabled = false;
-                        clearInterval(timer);
-                    }
-                    
-                    timeLeft--;
-                }
-                
-                const timer = setInterval(updateTimer, 1000);
-                updateTimer(); // Initial call
-                resendButton.disabled = true;
-            }
-        }
-
-        // Auto-focus on OTP input
-        document.addEventListener('DOMContentLoaded', function() {
-            const otpInput = document.querySelector('input[name="otp_code"]');
-            if (otpInput) {
-                otpInput.focus();
-                startOTPTimer();
-            }
         });
 
         // Add smooth scrolling

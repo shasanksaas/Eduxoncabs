@@ -249,7 +249,7 @@
     <div class="container" style="display: flex !important; align-items: center !important; justify-content: space-between !important; width: 100% !important;">
       <!-- Brand Logo - Always on Left -->
       <a class="navbar-brand" href="/" style="order: 1 !important; flex: 0 0 auto !important;">
-        <img src="img/Eduxoncabs.png" alt="EduxonCabs - Self Drive Car Rental Bhubaneswar" class="d-inline-block align-top" fetchpriority="high" loading="eager">
+        <img src="img/Eduxoncabs.png" alt="EduxonCabs - Self Drive Car Rental Bhubaneswar" class="d-inline-block align-top" fetchpriority="high" loading="eager" width="120" height="40">
       </a>
       
       <!-- Desktop Navigation Menu - Center -->
