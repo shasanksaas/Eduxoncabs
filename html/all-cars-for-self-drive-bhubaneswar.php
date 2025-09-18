@@ -29,11 +29,11 @@ $end_dte   = $ddate." ".$dtime;
 $act       = isset($_GET['act']) ? filter($_GET['act'], $mysqli_conn) : '';
 $today	   = date("Y-m-d",strtotime($date));
 $pdate = date("Y-m-d H:i",strtotime($date));
-$city      = isset($_GET['city']) ? filter($_GET['city'], $mysqli_conn) : '';
-
 // New filter parameters
-$car_type = isset($_GET['car_type']) ? filter($_GET['car_type'], $mysqli_conn) : '';
-$fuel_type = isset($_GET['fuel_type']) ? filter($_GET['fuel_type'], $mysqli_conn) : '';
+$pickup_date = isset($_GET['pickup_date']) ? filter($_GET['pickup_date'], $mysqli_conn) : '';
+$pickup_time = isset($_GET['pickup_time']) ? filter($_GET['pickup_time'], $mysqli_conn) : '';
+$dropoff_date = isset($_GET['dropoff_date']) ? filter($_GET['dropoff_date'], $mysqli_conn) : '';
+$dropoff_time = isset($_GET['dropoff_time']) ? filter($_GET['dropoff_time'], $mysqli_conn) : '';
 $price_range = isset($_GET['price_range']) ? filter($_GET['price_range'], $mysqli_conn) : '';
 
 
@@ -92,35 +92,63 @@ body {
               <form method="GET" action="" id="filterForm" class="filter-form-horizontal">
                 <div class="filter-row">
                   <div class="filter-item">
-                    <label for="city">Select City</label>
-                    <select name="city" id="city" class="compact-filter-control">
-                      <option value="">All Cities</option>
-                      <option value="Bhubaneswar" <?php echo ($city == 'Bhubaneswar') ? 'selected' : ''; ?>>Bhubaneswar</option>
-                      <option value="Cuttack">Cuttack</option>
-                      <option value="Puri">Puri</option>
+                    <label for="pickup_date">Pick-up Date</label>
+                    <input type="date" name="pickup_date" id="pickup_date" class="compact-filter-control" value="<?php echo isset($_GET['pickup_date']) ? $_GET['pickup_date'] : ''; ?>">
+                  </div>
+                  
+                  <div class="filter-item">
+                    <label for="pickup_time">Pick-up Time</label>
+                    <select name="pickup_time" id="pickup_time" class="compact-filter-control">
+                      <option value="">Select Time</option>
+                      <option value="06:00">06:00 AM</option>
+                      <option value="07:00">07:00 AM</option>
+                      <option value="08:00">08:00 AM</option>
+                      <option value="09:00">09:00 AM</option>
+                      <option value="10:00">10:00 AM</option>
+                      <option value="11:00">11:00 AM</option>
+                      <option value="12:00">12:00 PM</option>
+                      <option value="13:00">01:00 PM</option>
+                      <option value="14:00">02:00 PM</option>
+                      <option value="15:00">03:00 PM</option>
+                      <option value="16:00">04:00 PM</option>
+                      <option value="17:00">05:00 PM</option>
+                      <option value="18:00">06:00 PM</option>
+                      <option value="19:00">07:00 PM</option>
+                      <option value="20:00">08:00 PM</option>
+                      <option value="21:00">09:00 PM</option>
+                      <option value="22:00">10:00 PM</option>
                     </select>
                   </div>
                   
                   <div class="filter-item">
-                    <label for="car_type">Car Type</label>
-                    <select name="car_type" id="car_type" class="compact-filter-control">
-                      <option value="">All Types</option>
-                      <option value="Hatchback">Hatchback</option>
-                      <option value="Sedan">Sedan</option>
-                      <option value="SUV">SUV</option>
-                      <option value="Luxury">Luxury</option>
-                    </select>
+                    <label for="dropoff_date">Drop-off Date</label>
+                    <input type="date" name="dropoff_date" id="dropoff_date" class="compact-filter-control" value="<?php echo isset($_GET['dropoff_date']) ? $_GET['dropoff_date'] : ''; ?>">
                   </div>
                   
                   <div class="filter-item">
-                    <label for="fuel_type">Fuel Type</label>
-                    <select name="fuel_type" id="fuel_type" class="compact-filter-control">
-                      <option value="">All Fuels</option>
-                      <option value="Petrol">Petrol</option>
-                      <option value="Diesel">Diesel</option>
-                      <option value="CNG">CNG</option>
+                    <label for="dropoff_time">Drop-off Time</label>
+                    <select name="dropoff_time" id="dropoff_time" class="compact-filter-control">
+                      <option value="">Select Time</option>
+                      <option value="06:00">06:00 AM</option>
+                      <option value="07:00">07:00 AM</option>
+                      <option value="08:00">08:00 AM</option>
+                      <option value="09:00">09:00 AM</option>
+                      <option value="10:00">10:00 AM</option>
+                      <option value="11:00">11:00 AM</option>
+                      <option value="12:00">12:00 PM</option>
+                      <option value="13:00">01:00 PM</option>
+                      <option value="14:00">02:00 PM</option>
+                      <option value="15:00">03:00 PM</option>
+                      <option value="16:00">04:00 PM</option>
+                      <option value="17:00">05:00 PM</option>
+                      <option value="18:00">06:00 PM</option>
+                      <option value="19:00">07:00 PM</option>
+                      <option value="20:00">08:00 PM</option>
+                      <option value="21:00">09:00 PM</option>
+                      <option value="22:00">10:00 PM</option>
                     </select>
                   </div>
+                  
                   
                   <div class="filter-item">
                     <label for="price_range">Price Range</label>
@@ -153,20 +181,51 @@ body {
                 <!-- Mobile Filter Dropdown -->
                 <div class="mobile-filter-dropdown" id="mobileFilters">
                   <div class="mobile-filter-grid">
-                    <select name="city_mobile" class="compact-filter-control">
-                      <option value="">All Cities</option>
-                      <option value="Bhubaneswar">Bhubaneswar</option>
+                    <select name="pickup_date_mobile" class="compact-filter-control">
+                      <option value="">Pick-up Date</option>
                     </select>
-                    <select name="car_type_mobile" class="compact-filter-control">
-                      <option value="">All Types</option>
-                      <option value="Hatchback">Hatchback</option>
-                      <option value="Sedan">Sedan</option>
-                      <option value="SUV">SUV</option>
+                    <select name="pickup_time_mobile" class="compact-filter-control">
+                      <option value="">Pick-up Time</option>
+                      <option value="06:00">06:00 AM</option>
+                      <option value="07:00">07:00 AM</option>
+                      <option value="08:00">08:00 AM</option>
+                      <option value="09:00">09:00 AM</option>
+                      <option value="10:00">10:00 AM</option>
+                      <option value="11:00">11:00 AM</option>
+                      <option value="12:00">12:00 PM</option>
+                      <option value="13:00">01:00 PM</option>
+                      <option value="14:00">02:00 PM</option>
+                      <option value="15:00">03:00 PM</option>
+                      <option value="16:00">04:00 PM</option>
+                      <option value="17:00">05:00 PM</option>
+                      <option value="18:00">06:00 PM</option>
+                      <option value="19:00">07:00 PM</option>
+                      <option value="20:00">08:00 PM</option>
+                      <option value="21:00">09:00 PM</option>
+                      <option value="22:00">10:00 PM</option>
                     </select>
-                    <select name="fuel_type_mobile" class="compact-filter-control">
-                      <option value="">All Fuels</option>
-                      <option value="Petrol">Petrol</option>
-                      <option value="Diesel">Diesel</option>
+                    <select name="dropoff_date_mobile" class="compact-filter-control">
+                      <option value="">Drop-off Date</option>
+                    </select>
+                    <select name="dropoff_time_mobile" class="compact-filter-control">
+                      <option value="">Drop-off Time</option>
+                      <option value="06:00">06:00 AM</option>
+                      <option value="07:00">07:00 AM</option>
+                      <option value="08:00">08:00 AM</option>
+                      <option value="09:00">09:00 AM</option>
+                      <option value="10:00">10:00 AM</option>
+                      <option value="11:00">11:00 AM</option>
+                      <option value="12:00">12:00 PM</option>
+                      <option value="13:00">01:00 PM</option>
+                      <option value="14:00">02:00 PM</option>
+                      <option value="15:00">03:00 PM</option>
+                      <option value="16:00">04:00 PM</option>
+                      <option value="17:00">05:00 PM</option>
+                      <option value="18:00">06:00 PM</option>
+                      <option value="19:00">07:00 PM</option>
+                      <option value="20:00">08:00 PM</option>
+                      <option value="21:00">09:00 PM</option>
+                      <option value="22:00">10:00 PM</option>
                     </select>
                     <button type="submit" class="btn-compact-search w-100">
                       <i class="fa fa-search"></i> Apply Filters
@@ -184,34 +243,61 @@ body {
         <div class="cars-section-header">
           <?php 
           // Build filter query
-          $ad_qr = "";
-          if(isset($city) && $city != ''){
-            $ad_qr .= " AND city = '$city' ";
-          }
-          if(isset($fuel_type) && $fuel_type != ''){
-            $ad_qr .= " AND fuel = '$fuel_type' ";
-          }
-          if(isset($car_type) && $car_type != ''){
-            $ad_qr .= " AND car_type = '$car_type' ";
-          }
+          // City filter removed per user request
+          // Car type filter removed - column doesn't exist in database
+          // Fuel type filter removed per user request
+          
+          // Build price range filter
+          $price_filter = "";
           if(isset($price_range) && $price_range != ''){
             switch($price_range) {
               case '0-1000':
-                $ad_qr .= " AND cost BETWEEN 0 AND 1000 ";
+                $price_filter = " AND cost BETWEEN 0 AND 1000 ";
                 break;
               case '1000-2000':
-                $ad_qr .= " AND cost BETWEEN 1000 AND 2000 ";
+                $price_filter = " AND cost BETWEEN 1000 AND 2000 ";
                 break;
               case '2000-3000':
-                $ad_qr .= " AND cost BETWEEN 2000 AND 3000 ";
+                $price_filter = " AND cost BETWEEN 2000 AND 3000 ";
                 break;
               case '3000+':
-                $ad_qr .= " AND cost > 3000 ";
+                $price_filter = " AND cost > 3000 ";
                 break;
             }
           }
           
-          $total_cars = $dbObj->countRec("tbl_cabs","status = 1 $ad_qr ORDER BY cost ASC");
+          // Set up date/time filters for availability checking
+          $filter_from_dt_time = '';
+          $filter_to_dt_time = '';
+          
+          // Only apply availability filter if user has selected specific dates
+          if(isset($pickup_date) && $pickup_date != '' && isset($pickup_time) && $pickup_time != '' && 
+             isset($dropoff_date) && $dropoff_date != '' && isset($dropoff_time) && $dropoff_time != ''){
+            $filter_from_dt_time = "$pickup_date $pickup_time";
+            $filter_to_dt_time = "$dropoff_date $dropoff_time";
+          }
+          
+          // For individual car checks, use default values if no specific dates selected
+          $display_from_dt_time = $filter_from_dt_time ?: $from_dt_time;
+          $display_to_dt_time = $filter_to_dt_time ?: $to_dt_time;
+          
+          // Build availability filter for main query - only if dates are selected
+          $availability_filter = "";
+          if($filter_from_dt_time && $filter_to_dt_time) {
+            $availability_filter = " AND id NOT IN (
+              SELECT DISTINCT car_id FROM tbl_unavail_dtes 
+              WHERE car_id IS NOT NULL AND car_id > 0
+              AND (('$filter_from_dt_time' BETWEEN `unavail_dte` AND `unavail_dte_to` 
+                   OR '$filter_to_dt_time' BETWEEN `unavail_dte` AND `unavail_dte_to`) 
+                   OR (`unavail_dte` BETWEEN '$filter_from_dt_time' AND '$filter_to_dt_time' 
+                   OR `unavail_dte_to` BETWEEN '$filter_from_dt_time' AND '$filter_to_dt_time'))
+            )";
+          }
+          
+          // Combine all filters into final WHERE clause
+          $final_where = "status = 1" . $price_filter . $availability_filter;
+          
+          $total_cars = $dbObj->countRec("tbl_cabs", "$final_where");
           ?>
           <div class="cars-count-badge"><?php echo $total_cars; ?> Cars Available</div>
           <h2 class="cars-section-title">Available Self-Drive Cars</h2>
@@ -220,12 +306,12 @@ body {
         
         <div class="row" id="carsGrid">
           <?php 
-          $cnt = $dbObj->countRec("tbl_cabs","status = 1 $ad_qr ORDER BY cost ASC");
+          $cnt = $dbObj->countRec("tbl_cabs", "$final_where");
           if($cnt > 0){
-            $getCar = $dbObj->fetch_data("tbl_cabs","status = 1 $ad_qr ORDER BY cost ASC");
+            $getCar = $dbObj->fetch_data("tbl_cabs", "$final_where ORDER BY cost ASC");
             foreach($getCar as $key){
               $id = $key['id'];
-              $get_unavail = $dbObj->countRec("tbl_unavail_dtes","car_id = $id AND (('$from_dt_time' BETWEEN `unavail_dte` AND `unavail_dte_to` OR '$to_dt_time' BETWEEN `unavail_dte` AND `unavail_dte_to`) OR (`unavail_dte` BETWEEN '$from_dt_time' AND '$to_dt_time' OR `unavail_dte_to` BETWEEN '$from_dt_time' AND '$to_dt_time'))");
+              $get_unavail = $dbObj->countRec("tbl_unavail_dtes","car_id = $id AND (('$display_from_dt_time' BETWEEN `unavail_dte` AND `unavail_dte_to` OR '$display_to_dt_time' BETWEEN `unavail_dte` AND `unavail_dte_to`) OR (`unavail_dte` BETWEEN '$display_from_dt_time' AND '$display_to_dt_time' OR `unavail_dte_to` BETWEEN '$display_from_dt_time' AND '$display_to_dt_time'))");
               $get_unavail_next6hr = $dbObj->countRec("tbl_unavail_dtes","car_id = $id AND (('$nxt6hr' BETWEEN `unavail_dte` AND `unavail_dte_to` OR '$nxt18hr' BETWEEN `unavail_dte` AND `unavail_dte_to`) OR (`unavail_dte` BETWEEN '$nxt6hr' AND '$nxt18hr' OR `unavail_dte_to` BETWEEN '$nxt6hr' AND '$nxt18hr'))");
           ?>
           <div class="col-lg-4 col-md-6 col-sm-12">
@@ -298,7 +384,7 @@ body {
                       <div class="btn-car-booked">Car Booked</div>
                     <?php endif; ?>
                   <?php else: ?>
-                    <a href="checkout.php?pdate=<?php echo !empty($tdate) ? $tdate : date('Y-m-d'); ?>&ptime=<?php echo !empty($ptime) ? $ptime : '6:00'; ?>&ddate=<?php echo !empty($ddate) ? $ddate : date('Y-m-d'); ?>&dtime=<?php echo !empty($dtime) ? $dtime : '12:00'; ?>&car=<?php echo md5($key['car_nme']); ?>&cartype=<?php echo md5($key['fuel']); ?>&cardta=<?php echo md5($key['id']); ?>" class="btn-book-now">
+                    <a href="checkout.php?pdate=<?php echo !empty($pickup_date) ? $pickup_date : (!empty($tdate) ? $tdate : date('Y-m-d')); ?>&ptime=<?php echo !empty($pickup_time) ? $pickup_time : (!empty($ptime) ? $ptime : '6:00'); ?>&ddate=<?php echo !empty($dropoff_date) ? $dropoff_date : (!empty($ddate) ? $ddate : date('Y-m-d')); ?>&dtime=<?php echo !empty($dropoff_time) ? $dropoff_time : (!empty($dtime) ? $dtime : '12:00'); ?>&car=<?php echo md5($key['car_nme']); ?>&cartype=<?php echo md5($key['fuel']); ?>&cardta=<?php echo md5($key['id']); ?>" class="btn-book-now">
                       <i class="fa fa-calendar mr-2"></i>Book Now
                     </a>
                   <?php endif; ?>
@@ -372,9 +458,10 @@ body {
 <!-- Filter JavaScript -->
 <script>
 function resetFilters() {
-  document.getElementById('city').value = '';
-  document.getElementById('car_type').value = '';
-  document.getElementById('fuel_type').value = '';
+  document.getElementById('pickup_date').value = '';
+  document.getElementById('pickup_time').value = '';
+  document.getElementById('dropoff_date').value = '';
+  document.getElementById('dropoff_time').value = '';
   document.getElementById('price_range').value = '';
   
   // Remove active class from quick filter tags
@@ -397,14 +484,20 @@ function setQuickFilter(type, value) {
   
   // Set filter values based on type
   switch(type) {
-    case 'fuel':
-      document.getElementById('fuel_type').value = value;
-      break;
     case 'price':
       document.getElementById('price_range').value = value;
       break;
-    case 'type':
-      document.getElementById('car_type').value = value;
+    case 'pickup_date':
+      document.getElementById('pickup_date').value = value;
+      break;
+    case 'pickup_time':
+      document.getElementById('pickup_time').value = value;
+      break;
+    case 'dropoff_date':
+      document.getElementById('dropoff_date').value = value;
+      break;
+    case 'dropoff_time':
+      document.getElementById('dropoff_time').value = value;
       break;
     case 'available':
       // This would require additional backend logic
@@ -513,8 +606,25 @@ if(isset($_GET['ermsg']) && $_GET['ermsg']==2){
   
   // Initialize page
   document.addEventListener('DOMContentLoaded', function() {
-    // Add any initialization code here
-    console.log('All Cars page loaded');
+    // Set minimum date to today for pickup and dropoff dates
+    const today = new Date().toISOString().split('T')[0];
+    document.getElementById('pickup_date').min = today;
+    document.getElementById('dropoff_date').min = today;
+    
+    // Auto-update dropoff date when pickup date changes
+    document.getElementById('pickup_date').addEventListener('change', function() {
+      const pickupDate = this.value;
+      if (pickupDate) {
+        document.getElementById('dropoff_date').min = pickupDate;
+        // If dropoff date is before pickup date, update it
+        const dropoffDate = document.getElementById('dropoff_date').value;
+        if (dropoffDate && dropoffDate < pickupDate) {
+          document.getElementById('dropoff_date').value = pickupDate;
+        }
+      }
+    });
+    
+    console.log('All Cars page loaded with date filters');
   });
   </script>
   </body>
