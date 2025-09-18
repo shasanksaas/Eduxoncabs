@@ -646,9 +646,9 @@ if ($pdate != '' || $ptime != '' || $ddate != '' || $dtime != '') {
             <div class="row">
                <!-- Booking Form -->
                <div class="col-lg-8">
-                  <form action="razorpayment.php" method="POST" enctype="multipart/form-data">
+                  <form action="<?php echo ($vehicle_type == 'bike') ? 'bikeRazorPay.php' : 'razorpayment.php'; ?>" method="POST" enctype="multipart/form-data">
                      <!-- Hidden Fields -->
-                     <input type="hidden" name="car_id" id="car_id" value="<?php echo $get_car_dta[0]['id']; ?>" />
+                     <input type="hidden" name="<?php echo ($vehicle_type == 'bike') ? 'vehicle_id' : 'car_id'; ?>" id="car_id" value="<?php echo $get_car_dta[0]['id']; ?>" />
                      <input type="hidden" name="csrf" value="<?php echo $_SESSION["token"]; ?>" />
                      <input type="hidden" name="totalAmt" id="totalAmt" value="" />
                      <input type="hidden" name="gvcode" id="gvcode" value="" />
@@ -657,7 +657,7 @@ if ($pdate != '' || $ptime != '' || $ddate != '' || $dtime != '') {
                      <input type="hidden" name="wkendhr" id="wkendhr" value="0" />
                      <input type="hidden" name="wkdaysamnt" id="wkdaysamnt" value="0" />
                      <input type="hidden" name="wkendamnt" id="wkendamnt" value="0" />
-                     <input type="hidden" name="carnme" id="carnme" value="<?php echo $get_car_dta[0][$vehicle_name_field]; ?>" />
+                     <input type="hidden" name="<?php echo ($vehicle_type == 'bike') ? 'vehicle_name' : 'carnme'; ?>" id="carnme" value="<?php echo $get_car_dta[0][$vehicle_name_field]; ?>" />
                      <input type="hidden" id="securitymoneyprice" name='securitymoneyprice' value="<?php echo $get_car_dta[0]['security']; ?>" />
 
                      <!-- Personal Information Section -->
@@ -897,7 +897,7 @@ if ($pdate != '' || $ptime != '' || $ddate != '' || $dtime != '') {
                            <i class="fas fa-lock me-2"></i>
                            Secure My Booking Now
                         </button>
-                        <a href="razorpayment.php" id="reserve_with_razorpay" name="reserve" class="btn btn-success-modern btn-lg ms-3" style="display:none;">
+                        <a href="<?php echo ($vehicle_type == 'bike') ? 'bikeRazorPay.php' : 'razorpayment.php'; ?>" id="reserve_with_razorpay" name="reserve" class="btn btn-success-modern btn-lg ms-3" style="display:none;">
                            <i class="fas fa-credit-card me-2"></i>
                            Pay with Razorpay
                         </a>
@@ -1103,6 +1103,8 @@ if ($pdate != '' || $ptime != '' || $ddate != '' || $dtime != '') {
 
             });
             $("#book_now").click(function (e) {
+               console.log("Book Now button clicked!");
+               
                // Validate required fields
                var name = $('#name').val();
                var email = $('#email').val();
@@ -1114,16 +1116,20 @@ if ($pdate != '' || $ptime != '' || $ddate != '' || $dtime != '') {
                var ddate = $('#ddate').val();
                var dtime = $('#dtime').val();
                
+               console.log("Form values:", {name, email, phone, dob, licenseNumber, pdate, ptime, ddate, dtime});
+               
                // Check if all required fields are filled
                if (!name || !email || !phone || !dob || !licenseNumber) {
                   e.preventDefault();
                   alert("Please fill in all required personal information fields.");
+                  console.log("Validation failed: Missing personal info");
                   return false;
                }
                
                if (!pdate || !ptime || !ddate || !dtime) {
                   e.preventDefault();
                   alert("Please select pickup and drop-off dates and times.");
+                  console.log("Validation failed: Missing dates/times");
                   return false;
                }
                
@@ -1131,13 +1137,17 @@ if ($pdate != '' || $ptime != '' || $ddate != '' || $dtime != '') {
                if (!/^\d{10}$/.test(phone)) {
                   e.preventDefault();
                   alert("Please enter a valid 10-digit mobile number.");
+                  console.log("Validation failed: Invalid phone number");
                   return false;
                }
                
                // Run time calculation and validation
+               console.log("Running calculateTime...");
                var result = calculateTime(dtime, pdate, ptime, ddate);
+               console.log("calculateTime result:", result);
                if (result === false) {
                   e.preventDefault();
+                  console.log("Validation failed: calculateTime returned false");
                   return false;
                }
                
@@ -1145,9 +1155,11 @@ if ($pdate != '' || $ptime != '' || $ddate != '' || $dtime != '') {
                if (!$('#terms-checkbox').is(':checked')) {
                   e.preventDefault();
                   alert("Please accept the Terms & Conditions to proceed.");
+                  console.log("Validation failed: Terms not accepted");
                   return false;
                }
                
+               console.log("All validations passed, allowing form submission");
                // All validations passed, allow form submission
                return true;
             });

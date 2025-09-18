@@ -138,7 +138,7 @@ if ($form_price == 0 || $form_price != $price) {
         "err_tbl",
         "c_name ='$name',phone='$phone',`from_date_time` = '" .
         $start_book_time .
-        "', `to_date_time`='$end_book_time', `car_id`='$car_id', `form_amount`='$form_price', `actual_amount`='$price',secur_pay_type='$securityPaymode',comment='price mismatch $date' "
+        "', `to_date_time`='$end_book_time', `car_id`='$car_id', `bike_id`='0', `form_amount`='$form_price', `actual_amount`='$price',secur_pay_type='$securityPaymode',comment='price mismatch $date' "
     ); ?>
     <script>
         window.location = "all-cars-for-self-drive-bhubaneswar.php?ermsg=1";
