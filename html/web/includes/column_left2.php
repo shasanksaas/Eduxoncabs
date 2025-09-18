@@ -66,6 +66,11 @@
  <li>
                         <a href="coupon.php" class=" hvr-bounce-to-right"><i class="fa fa-user nav_icon"></i> <span class="nav-label">Manage Coupon </span> </a>
                     </li>
+                    
+                    <li>
+                        <a href="blogs.php" class=" hvr-bounce-to-right"><i class="fa fa-edit nav_icon"></i> <span class="nav-label">Manage Blogs </span> </a>
+                    </li>
+                    
      <li> <a href="location.php" class=" hvr-bounce-to-right"><i class="fa fa-user nav_icon"></i> <span class="nav-label">Locations </span> </a>
                     </li>
                     

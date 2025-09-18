@@ -23,7 +23,7 @@ switch($action){
 		$expdate= filter($_POST['expdate']);
 
 			
-		$respond = $dbObj->insertToDblastId("master_gv","gv_code= '$coupon',from_date='$fromdate', to_date= '$todate', issue_date= '$issuedate', expiry_date = '$expdate', status=1, gv_percent='$couponpercent'");
+		$respond = $dbObj->insertToDblastId("master_gv","gv_code= '$coupon', gv_amount= '0', from_date='$fromdate', to_date= '$todate', issue_date= '$issuedate', expiry_date = '$expdate', status=1, gv_percent='$couponpercent'");
 		
 		
 		if($respond == 1){

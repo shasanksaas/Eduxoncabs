@@ -89,7 +89,7 @@ if(filter($_GET['payment_id'] != "") && filter($_GET['payment_request_id']) != "
 					$dbObj->updateToDb("tbl_order", "`payment_id` = '$payment_id', status = 'Completed'", "`payment_id` = '".$response['id']."'");
 					//$upd_data = $dbObj->updateToDb("tbl_cabs","unavail_datefrm = '$booked_dte', unavail_tmfrm = '$booked_tme', unavail_dateto = '$returned_dte', unavail_tmto = '$returned_tme'", "id = $car_id");
 					$dta = $dbObj->fetch_data("tbl_order","payment_id = '$payment_id'");
-					$dbObj->insertToDb("tbl_unavail_dtes","car_id = '".$dta[0]['car_id']."', unavail_dte = '".$dta[0]['booked_dte'].' '.$dta[0]['booked_tme']."', unavail_dte_to = '".$dta[0]['returned_dte'].' '.$dta[0]['return_tme']."'");
+					$dbObj->insertToDb("tbl_unavail_dtes","type = '1', car_id = '".$dta[0]['car_id']."', bike_id = '0', unavail_dte = '".$dta[0]['booked_dte'].' '.$dta[0]['booked_tme']."', unavail_dte_to = '".$dta[0]['returned_dte'].' '.$dta[0]['return_tme']."', status = '0', payment_id = ''");
 					echo "<h4>Payment ID: " . $response['payments'][0]['payment_id'] . "</h4>" ;
 					 echo "<h4>Payment Name: " . $response['payments'][0]['buyer_name'] . "</h4>" ;
 					 echo "<h4>Payment Email: " . $response['payments'][0]['buyer_email'] . "</h4>" ;
@@ -133,7 +133,7 @@ if(filter($_GET['payment_id'] != "") && filter($_GET['payment_request_id']) != "
                                             $dbObj->updateToDb("tbl_order", "`payment_id` = '$payment_id', status = '$status'", "`payment_id` = '".$response['id']."'");
                                             //$upd_data = $dbObj->updateToDb("tbl_cabs","unavail_datefrm = '$booked_dte', unavail_tmfrm = '$booked_tme', unavail_dateto = '$returned_dte', unavail_tmto = '$returned_tme'", "id = $car_id");
                                             $dta = $dbObj->fetch_data("tbl_order","payment_id = '$payment_id'");
-                                            $dbObj->insertToDb("tbl_unavail_dtes","car_id = '".$dta[0]['car_id']."', unavail_dte = '".$dta[0]['booked_dte'].' '.$dta[0]['booked_tme']."', unavail_dte_to = '".$dta[0]['returned_dte'].' '.$dta[0]['return_tme']."'");
+                                            $dbObj->insertToDb("tbl_unavail_dtes","type = '1', car_id = '".$dta[0]['car_id']."', bike_id = '0', unavail_dte = '".$dta[0]['booked_dte'].' '.$dta[0]['booked_tme']."', unavail_dte_to = '".$dta[0]['returned_dte'].' '.$dta[0]['return_tme']."', status = '0', payment_id = '$payment_id'");
 
                                               $get_location_data = $dbObj->fetch_data("location", "city_id =".$dta[0]['pickup_point']);
                                             

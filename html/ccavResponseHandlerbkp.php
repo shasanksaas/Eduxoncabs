@@ -71,7 +71,7 @@ $dbObj = new dbquery();
 				$returned_tme = $_SESSION['retntme'];
 				$car_id		  = $_SESSION['car_id'];
 				$ins_dta = $dbObj->insertToDb("tbl_order","`payment_id` = '$payment_id',`buyer_name`='$buyer_name',`email`='$email',`phone`='$phone',`amount`='$amount',`booked_car`='$booked_car',`status`='$status',`booked_dte`='$booked_dte',`booked_tme`='$booked_tme',`returned_dte`='$returned_dte',`return_tme`='$returned_tme'");
-				$dbObj->insertToDb("tbl_unavail_dtes","car_id = '$car_id', unavail_dte = '$booked_dte $booked_tme', unavail_dte_to = '$returned_dte $returned_tme'");
+				$dbObj->insertToDb("tbl_unavail_dtes","type = '1', car_id = '$car_id', bike_id = '0', unavail_dte = '$booked_dte $booked_tme', unavail_dte_to = '$returned_dte $returned_tme', status = '0', payment_id = ''");
 				?>
                 <h3 style="color:#6da552">Thank You, Payment succus!!</h3>
                 <?php

@@ -1,4 +1,9 @@
 <?php
+// Simple error logging for payment issues
+function debugLog($message) {
+    error_log("PAYMENT ERROR: " . $message);
+}
+
 require('config.php'); // Load API keys
 require('razorpay-php/Razorpay.php');
 require_once("includes/settings.php");
@@ -10,13 +15,9 @@ require_once("includes/classes/DBquery.cls.php");
 require_once("sendsms.php");
 
 use Mpdf\Mpdf;
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\SMTP;
-use PHPMailer\PHPMailer\Exception;
 
-require_once('PHPMailer/src/Exception.php');
-require_once('PHPMailer/src/PHPMailer.php');
-require_once('PHPMailer/src/SMTP.php');
+require_once('php-mailer/class.phpmailer.php');
+require_once('php-mailer/class.smtp.php');
 // echo "hi";
 
 
@@ -67,6 +68,267 @@ if (!empty($_GET['payment_id']) && !empty($_GET['payment_signature']) && !empty(
             <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
             <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800%7CShadows+Into+Light" rel="stylesheet" type="text/css">
             <?php include("includes/inc-css.php"); ?>
+            <style>
+                * {
+                    box-sizing: border-box;
+                }
+                
+                body {
+                    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                    min-height: 100vh;
+                    margin: 0;
+                    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+                }
+                
+                .confirmation-wrapper {
+                    padding: 20px;
+                    min-height: 100vh;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+                
+                .confirmation-container {
+                    background: rgba(255, 255, 255, 0.95);
+                    backdrop-filter: blur(20px);
+                    border-radius: 24px;
+                    padding: 40px;
+                    max-width: 600px;
+                    width: 100%;
+                    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(255, 255, 255, 0.1);
+                    animation: slideUp 0.8s ease-out;
+                    position: relative;
+                    overflow: hidden;
+                    margin: auto;
+                }
+                
+                .confirmation-container::before {
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    height: 4px;
+                    background: linear-gradient(90deg, #667eea, #764ba2, #f093fb, #f5576c);
+                    border-radius: 24px 24px 0 0;
+                }
+                
+                @keyframes slideUp {
+                    from {
+                        opacity: 0;
+                        transform: translateY(30px);
+                    }
+                    to {
+                        opacity: 1;
+                        transform: translateY(0);
+                    }
+                }
+                
+                .success-icon {
+                    width: 80px;
+                    height: 80px;
+                    margin: 0 auto 20px;
+                    background: linear-gradient(135deg, #4CAF50, #45a049);
+                    border-radius: 50%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    animation: checkmark 0.6s ease-in-out 0.3s both;
+                }
+                
+                .success-icon::after {
+                    content: '✓';
+                    color: white;
+                    font-size: 40px;
+                    font-weight: bold;
+                }
+                
+                @keyframes checkmark {
+                    0% { transform: scale(0); }
+                    50% { transform: scale(1.2); }
+                    100% { transform: scale(1); }
+                }
+                
+                .success-message {
+                    color: #2c3e50;
+                    font-size: 28px;
+                    font-weight: 700;
+                    text-align: center;
+                    margin-bottom: 12px;
+                    letter-spacing: -0.5px;
+                }
+                
+                .success-subtitle {
+                    color: #7f8c8d;
+                    font-size: 16px;
+                    text-align: center;
+                    margin-bottom: 32px;
+                    font-weight: 400;
+                }
+                
+                .booking-details {
+                    background: rgba(248, 250, 252, 0.8);
+                    border-radius: 16px;
+                    padding: 24px;
+                    margin: 24px 0;
+                    border: 1px solid rgba(226, 232, 240, 0.5);
+                }
+                
+                .detail-grid {
+                    display: grid;
+                    gap: 16px;
+                }
+                
+                .detail-row {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    padding: 12px 0;
+                    border-bottom: 1px solid rgba(226, 232, 240, 0.5);
+                }
+                
+                .detail-row:last-child {
+                    border-bottom: none;
+                }
+                
+                .detail-label {
+                    font-weight: 600;
+                    color: #64748b;
+                    font-size: 14px;
+                    text-transform: uppercase;
+                    letter-spacing: 0.5px;
+                    flex: 1;
+                }
+                
+                .detail-value {
+                    font-weight: 600;
+                    color: #1e293b;
+                    font-size: 15px;
+                    text-align: right;
+                    flex: 2;
+                    word-break: break-word;
+                }
+                
+                .detail-value.amount {
+                    color: #059669;
+                    font-size: 18px;
+                    font-weight: 700;
+                }
+                
+                .processing-note {
+                    background: linear-gradient(135deg, #e0f2fe, #b3e5fc);
+                    border: 1px solid #81d4fa;
+                    padding: 20px;
+                    border-radius: 12px;
+                    margin-top: 24px;
+                    text-align: center;
+                    color: #0277bd;
+                    font-weight: 500;
+                    position: relative;
+                }
+                
+                .processing-note::before {
+                    content: '📧';
+                    font-size: 20px;
+                    margin-right: 8px;
+                }
+                
+                .payment-badge {
+                    display: inline-flex;
+                    align-items: center;
+                    background: linear-gradient(135deg, #10b981, #059669);
+                    color: white;
+                    padding: 8px 16px;
+                    border-radius: 20px;
+                    font-weight: 600;
+                    font-size: 14px;
+                    margin-bottom: 24px;
+                }
+                
+                .payment-badge::before {
+                    content: '🔒';
+                    margin-right: 8px;
+                }
+                
+                .booking-id-highlight {
+                    background: linear-gradient(135deg, #667eea, #764ba2);
+                    color: white;
+                    padding: 12px 20px;
+                    border-radius: 12px;
+                    text-align: center;
+                    margin: 20px 0;
+                    font-weight: 600;
+                }
+                
+                /* Mobile Responsiveness */
+                @media (max-width: 768px) {
+                    .confirmation-wrapper {
+                        padding: 16px;
+                        align-items: flex-start;
+                        padding-top: 40px;
+                    }
+                    
+                    .confirmation-container {
+                        padding: 24px;
+                        border-radius: 16px;
+                        margin: 0;
+                    }
+                    
+                    .success-message {
+                        font-size: 24px;
+                    }
+                    
+                    .success-icon {
+                        width: 60px;
+                        height: 60px;
+                    }
+                    
+                    .success-icon::after {
+                        font-size: 30px;
+                    }
+                    
+                    .detail-row {
+                        flex-direction: column;
+                        align-items: flex-start;
+                        gap: 4px;
+                    }
+                    
+                    .detail-value {
+                        text-align: left;
+                        flex: none;
+                        width: 100%;
+                    }
+                    
+                    .booking-details {
+                        padding: 20px;
+                    }
+                }
+                
+                @media (max-width: 480px) {
+                    .confirmation-container {
+                        padding: 20px;
+                        border-radius: 12px;
+                    }
+                    
+                    .success-message {
+                        font-size: 20px;
+                        line-height: 1.3;
+                    }
+                    
+                    .detail-label {
+                        font-size: 12px;
+                    }
+                    
+                    .detail-value {
+                        font-size: 14px;
+                    }
+                    
+                    .processing-note {
+                        padding: 16px;
+                        font-size: 14px;
+                    }
+                }
+            </style>
         </head>
 
         <body>
@@ -137,21 +399,59 @@ if (!empty($_GET['payment_id']) && !empty($_GET['payment_signature']) && !empty(
                                     } else {
                                         $dbObj->updateToDb("tbl_order", "`payment_id` = '$payment_id', `status` = '$status'","`order_id` = '$order_id'");
                                         $dta = $dbObj->fetch_data("tbl_order", "payment_id = '$payment_id'");
-                                        $dbObj->insertToDb("tbl_unavail_dtes", "type = '1',car_id = '" . $dta[0]['car_id'] . "', unavail_dte = '" . $dta[0]['booked_dte'] . ' ' . $dta[0]['booked_tme'] . "', unavail_dte_to = '" . $dta[0]['returned_dte'] . ' ' . $dta[0]['return_tme'] . "'");
+                                        $dbObj->insertToDb("tbl_unavail_dtes", "type = '1',car_id = '" . $dta[0]['car_id'] . "', bike_id = '0', unavail_dte = '" . $dta[0]['booked_dte'] . ' ' . $dta[0]['booked_tme'] . "', unavail_dte_to = '" . $dta[0]['returned_dte'] . ' ' . $dta[0]['return_tme'] . "', status = '0', payment_id = '$payment_id'");
                                         
                                         $get_car_dtls = $dbObj->fetch_data("tbl_cabs", "id = $car_id");
                                         $cab_cost = $get_car_dtls[0]['cost'];
                                         $weekend_cost = $get_car_dtls[0]['weekend_cost'];
                                         $get_location_data = $dbObj->fetch_data("location", "id =" . $dta[0]['pickup_point']);
 
-                                        echo '<h3 style="color:#6da552">Thank You , Payment ' . $payment_status . ' !!</h3>';
-                                        echo "<h4>Payment ID: " . $payment['id'] . "</h4>";
-                                        echo "<h4>Payment Name: " . $payment['notes']['buyer_name'] . "</h4>";
-                                        echo "<h4>Payment Email: " . $payment['notes']['email'] . "</h4>";
-                                        echo "<h4>Booking Date: " . $dta[0]['booked_dte'] . ' ' . $dta[0]['booked_tme'] . "</h4>";
-                                        echo "<h4>Drop up Date: " . $dta[0]['returned_dte'] . ' ' . $dta[0]['return_tme'] . "</h4>";
-                                        echo "<h4>Pickup Point: " . $get_location_data[0]['pickup_point'] . "</h4>";
-                                        echo "<h4>Total Cost  : " . $payment['amount']/100 . "</h4>";
+                                        // Display modern confirmation page
+                                        ?>
+                                        <div class="confirmation-wrapper">
+                                            <div class="confirmation-container">
+                                                <div class="success-icon"></div>
+                                                
+                                                <h1 class="success-message">Payment Successful!</h1>
+                                                <p class="success-subtitle">Your booking has been confirmed</p>
+                                                
+                                                <div class="payment-badge">Payment Completed</div>
+                                                
+                                                <div class="booking-id-highlight">
+                                                    Booking ID: <?php echo $payment['id']; ?>
+                                                </div>
+                                                
+                                                <div class="booking-details">
+                                                    <div class="detail-grid">
+                                                        <div class="detail-row">
+                                                            <span class="detail-label">Customer Name</span>
+                                                            <span class="detail-value"><?php echo $payment['notes']['buyer_name']; ?></span>
+                                                        </div>
+                                                        <div class="detail-row">
+                                                            <span class="detail-label">Email</span>
+                                                            <span class="detail-value"><?php echo $payment['notes']['email']; ?></span>
+                                                        </div>
+                                                        <div class="detail-row">
+                                                            <span class="detail-label">Booking Date</span>
+                                                            <span class="detail-value"><?php echo $dta[0]['booked_dte'] . ' ' . $dta[0]['booked_tme']; ?></span>
+                                                        </div>
+                                                        <div class="detail-row">
+                                                            <span class="detail-label">Return Date</span>
+                                                            <span class="detail-value"><?php echo $dta[0]['returned_dte'] . ' ' . $dta[0]['return_tme']; ?></span>
+                                                        </div>
+                                                        <div class="detail-row">
+                                                            <span class="detail-label">Pickup Point</span>
+                                                            <span class="detail-value"><?php echo $get_location_data[0]['pickup_point']; ?></span>
+                                                        </div>
+                                                        <div class="detail-row">
+                                                            <span class="detail-label">Total Amount</span>
+                                                            <span class="detail-value amount">₹<?php echo number_format($payment['amount']/100, 2); ?></span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <?php
 
 
 
@@ -169,7 +469,10 @@ if (!empty($_GET['payment_id']) && !empty($_GET['payment_signature']) && !empty(
                                                 . "Booked Car :" . $dta[0]['booked_car'] . " \r\n"
                                                 . "Amount : " . $payment['amount']/100;
 
-                                        mail($to, $subject, $messagebody, $headers);
+                                        $email_result = mail($to, $subject, $messagebody, $headers);
+                                        if (!$email_result) {
+                                            debugLog("Email failed to send to: " . $to);
+                                        }
                                         $car = $dta[0]['booked_car'];
                                         $frmDate = $dta[0]['booked_dte'] . ' ' . $dta[0]['booked_tme'];
                                         $toDate = $dta[0]['returned_dte'] . ' ' . $dta[0]['return_tme'];
@@ -342,10 +645,9 @@ if (!empty($_GET['payment_id']) && !empty($_GET['payment_signature']) && !empty(
                                         </div>';
 
                                        
-                                        // require_once( 'MPDF/mpdf.php');
-                                        
-                                        require_once __DIR__ . '/mpdf/vendor/autoload.php';
-                                        $mpdf = new Mpdf();
+                                        // Use the existing MPDF installation
+                                        require_once('MPDF/mpdf.php');
+                                        $mpdf = new mPDF();
 
 
                                         $stylesheet = file_get_contents('pdf.css');

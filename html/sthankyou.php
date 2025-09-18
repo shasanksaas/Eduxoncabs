@@ -114,7 +114,7 @@ if ((filter($_GET['payment_id'],$mysqli_conn) != "") && filter($_GET['payment_re
                                         // INSERT IN  UNAVAILABLE TABLE
 
                                         $dta = $dbObj->fetch_data("tbl_order", "payment_id = '$payment_id'");
-                                        $dbObj->insertToDb("tbl_unavail_dtes", " type = '2', bike_id = '" . $dta[0]['bike_id'] . "', unavail_dte = '" . $dta[0]['booked_dte'] . ' ' . $dta[0]['booked_tme'] . "', unavail_dte_to = '" . $dta[0]['returned_dte'] . ' ' . $dta[0]['return_tme'] . "'");
+                                        $dbObj->insertToDb("tbl_unavail_dtes", "type = '2', car_id = '0', bike_id = '" . $dta[0]['bike_id'] . "', unavail_dte = '" . $dta[0]['booked_dte'] . ' ' . $dta[0]['booked_tme'] . "', unavail_dte_to = '" . $dta[0]['returned_dte'] . ' ' . $dta[0]['return_tme'] . "', status = '0', payment_id = '$payment_id'");
 
                                         $get_location_data = $dbObj->fetch_data("location", "city_id =".$dta[0]['pickup_point']);
 
