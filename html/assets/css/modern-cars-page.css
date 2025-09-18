@@ -465,6 +465,41 @@
   margin-top: 20px;
 }
 
+/* Fix Bootstrap Grid Layout Issues */
+.modern-cars-grid .row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: -15px;
+  margin-right: -15px;
+}
+
+.modern-cars-grid .row > [class*="col-"] {
+  display: flex;
+  flex-direction: column;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-bottom: 30px;
+}
+
+/* Ensure all cards have equal height */
+.modern-cars-grid .modern-car-card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0;
+}
+
+.modern-cars-grid .car-details {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.modern-cars-grid .car-actions {
+  margin-top: auto;
+  padding-top: 15px;
+}
+
 .cars-section-header {
   text-align: center;
   margin-bottom: 25px;
@@ -502,8 +537,10 @@
   overflow: hidden;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
   transition: all 0.3s ease;
-  margin-bottom: 30px;
   border: 1px solid #f3f4f6;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .modern-car-card:hover {
@@ -558,6 +595,9 @@
 
 .car-details {
   padding: 25px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 .car-name {
@@ -621,6 +661,7 @@
 .car-actions {
   display: flex;
   gap: 10px;
+  margin-top: auto;
 }
 
 .btn-book-now {
@@ -762,6 +803,11 @@
   .car-actions {
     flex-direction: column;
   }
+  
+  /* Fix grid on mobile */
+  .modern-cars-grid .row > [class*="col-"] {
+    margin-bottom: 20px;
+  }
 }
 
 @media (max-width: 576px) {
@@ -777,12 +823,45 @@
     font-size: 1.5rem;
   }
   
-  .modern-car-card {
-    margin-bottom: 20px;
-  }
-  
   .car-details {
     padding: 20px;
+  }
+}
+
+/* Additional Grid Fixes for Cross-Browser Compatibility */
+@media (min-width: 992px) {
+  .modern-cars-grid .row {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .modern-cars-grid .col-lg-4 {
+    flex: 0 0 33.333333%;
+    max-width: 33.333333%;
+  }
+  
+  /* Ensure the last row aligns properly */
+  .modern-cars-grid .col-lg-4:nth-child(3n+1) {
+    clear: left;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .modern-cars-grid .col-md-6 {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+  
+  /* Clear every 2nd item on tablet */
+  .modern-cars-grid .col-md-6:nth-child(2n+1) {
+    clear: left;
+  }
+}
+
+/* Fallback for older browsers */
+@supports not (display: flex) {
+  .modern-cars-grid .modern-car-card {
+    min-height: 500px;
   }
 }
 
