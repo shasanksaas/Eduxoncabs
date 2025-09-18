@@ -291,7 +291,13 @@ body {
           <div class="col-lg-4 col-md-6 col-sm-12">
             <div class="modern-car-card">
               <div class="car-image-container">
-                <img src="uploadedDocument/cab/<?php echo $key['car_image'];?>" alt="<?php echo $key['car_nme'];?>" class="car-image">
+                <?php
+                $imgFile = 'uploadedDocument/cab/' . $key['car_image'];
+                if (!file_exists($imgFile) || empty($key['car_image'])) {
+                  $imgFile = 'img/default-car.png';
+                }
+                ?>
+                <img src="<?php echo $imgFile; ?>" alt="<?php echo htmlspecialchars($key['car_nme'], ENT_QUOTES); ?>" class="car-image" style="width:100%; height:200px; object-fit:contain; object-position:center; background:#fff;">
                 <?php if($get_unavail > 0): ?>
                   <?php if($get_unavail_next6hr == 0): ?>
                     <div class="availability-badge available-soon">Available Soon</div>
