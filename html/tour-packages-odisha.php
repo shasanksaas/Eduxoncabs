@@ -851,18 +851,19 @@ input[type="date"].form-control::before {
         <div class="row">
             <div class="col-lg-4 col-md-6 mb-4">
                 <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?q=80&w=600" alt="Konark Sun Temple">
+                    <img src="./assets/images/tour_packages.jpeg" alt="Konark Sun Temple">
                 </div>
             </div>
             <div class="col-lg-4 col-md-6 mb-4">
                 <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?q=80&w=600" alt="Chilika Lake">
+                    <img src="./assets/images/tour_packages_birds.jpg" alt="Chilika Lake">
                 </div>
             </div>
             <div class="col-lg-4 col-md-6 mb-4">
                 <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1545558014-8692077e9b5c?q=80&w=600" alt="Puri Beach">
+                    <img src="./assets/images/tour_packages_temple.webp" alt="Puri Beach">
                 </div>
+            </div>
             </div>
         </div>
     </div>
