@@ -181,53 +181,27 @@ body {
                 <!-- Mobile Filter Dropdown -->
                 <div class="mobile-filter-dropdown" id="mobileFilters">
                   <div class="mobile-filter-grid">
-                    <select name="pickup_date_mobile" class="compact-filter-control">
-                      <option value="">Pick-up Date</option>
-                    </select>
-                    <select name="pickup_time_mobile" class="compact-filter-control">
-                      <option value="">Pick-up Time</option>
-                      <option value="06:00">06:00 AM</option>
-                      <option value="07:00">07:00 AM</option>
-                      <option value="08:00">08:00 AM</option>
-                      <option value="09:00">09:00 AM</option>
-                      <option value="10:00">10:00 AM</option>
-                      <option value="11:00">11:00 AM</option>
-                      <option value="12:00">12:00 PM</option>
-                      <option value="13:00">01:00 PM</option>
-                      <option value="14:00">02:00 PM</option>
-                      <option value="15:00">03:00 PM</option>
-                      <option value="16:00">04:00 PM</option>
-                      <option value="17:00">05:00 PM</option>
-                      <option value="18:00">06:00 PM</option>
-                      <option value="19:00">07:00 PM</option>
-                      <option value="20:00">08:00 PM</option>
-                      <option value="21:00">09:00 PM</option>
-                      <option value="22:00">10:00 PM</option>
-                    </select>
-                    <select name="dropoff_date_mobile" class="compact-filter-control">
-                      <option value="">Drop-off Date</option>
-                    </select>
-                    <select name="dropoff_time_mobile" class="compact-filter-control">
-                      <option value="">Drop-off Time</option>
-                      <option value="06:00">06:00 AM</option>
-                      <option value="07:00">07:00 AM</option>
-                      <option value="08:00">08:00 AM</option>
-                      <option value="09:00">09:00 AM</option>
-                      <option value="10:00">10:00 AM</option>
-                      <option value="11:00">11:00 AM</option>
-                      <option value="12:00">12:00 PM</option>
-                      <option value="13:00">01:00 PM</option>
-                      <option value="14:00">02:00 PM</option>
-                      <option value="15:00">03:00 PM</option>
-                      <option value="16:00">04:00 PM</option>
-                      <option value="17:00">05:00 PM</option>
-                      <option value="18:00">06:00 PM</option>
-                      <option value="19:00">07:00 PM</option>
-                      <option value="20:00">08:00 PM</option>
-                      <option value="21:00">09:00 PM</option>
-                      <option value="22:00">10:00 PM</option>
-                    </select>
-                    <button type="submit" class="btn-compact-search w-100">
+                    <div class="mobile-filter-item">
+                      <label for="pickup_date_mobile" class="mobile-filter-label" style="display:block; text-align:left; font-weight:600; margin-bottom:6px;">Pick-up Date</label>
+                      <input type="date" id="pickup_date_mobile" name="pickup_date" class="compact-filter-control" value="<?php echo isset($_GET['pickup_date']) ? $_GET['pickup_date'] : ''; ?>" min="<?php echo date('Y-m-d'); ?>">
+                    </div>
+
+                    <div class="mobile-filter-item">
+                      <label for="pickup_time_mobile" class="mobile-filter-label" style="display:block; text-align:left; font-weight:600; margin-bottom:6px;">Pick-up Time</label>
+                      <input type="time" id="pickup_time_mobile" name="pickup_time" class="compact-filter-control" value="<?php echo isset($_GET['pickup_time']) ? $_GET['pickup_time'] : ''; ?>">
+                    </div>
+
+                    <div class="mobile-filter-item">
+                      <label for="dropoff_date_mobile" class="mobile-filter-label" style="display:block; text-align:left; font-weight:600; margin-bottom:6px;">Drop-off Date</label>
+                      <input type="date" id="dropoff_date_mobile" name="dropoff_date" class="compact-filter-control" value="<?php echo isset($_GET['dropoff_date']) ? $_GET['dropoff_date'] : ''; ?>" min="<?php echo date('Y-m-d'); ?>">
+                    </div>
+
+                    <div class="mobile-filter-item">
+                      <label for="dropoff_time_mobile" class="mobile-filter-label" style="display:block; text-align:left; font-weight:600; margin-bottom:6px;">Drop-off Time</label>
+                      <input type="time" id="dropoff_time_mobile" name="dropoff_time" class="compact-filter-control" value="<?php echo isset($_GET['dropoff_time']) ? $_GET['dropoff_time'] : ''; ?>">
+                    </div>
+                    </div>
+                    <button type="submit" class="btn-compact-search w-100" style="margin:16px auto 0; display:block; text-align:center;">
                       <i class="fa fa-search"></i> Apply Filters
                     </button>
                   </div>
