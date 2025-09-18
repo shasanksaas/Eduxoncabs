@@ -455,6 +455,42 @@ if ($pdate != '' || $ptime != '' || $ddate != '' || $dtime != '') {
               grid-template-columns: 1fr;
           }
 
+        /* Fix input groups with icons on mobile */
+        .input-group-modern {
+            position: relative;
+            margin-bottom: 1.5rem;
+        }
+        
+        .input-icon {
+            position: absolute;
+            left: 0.75rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-muted);
+            z-index: 10;
+            font-size: 0.9rem;
+            width: 1.2rem;
+            text-align: center;
+        }
+        
+        .input-icon + .form-control-modern {
+            padding-left: 2.5rem !important;
+            font-size: 0.95rem;
+        }
+        
+        /* Specific adjustments for select elements */
+        .input-icon + select.form-control-modern {
+            padding-left: 2.5rem !important;
+            background-position: calc(100% - 0.75rem) center;
+        }
+        
+        /* Ensure proper spacing for form controls */
+        .form-control-modern {
+            padding: 0.75rem 1rem;
+            font-size: 0.95rem;
+            min-height: 48px;
+        }
+
         /* Stack coupon input and button vertically on small screens */
         .coupon-input-group {
            flex-direction: column;
@@ -473,6 +509,37 @@ if ($pdate != '' || $ptime != '' || $ddate != '' || $dtime != '') {
      @media (max-width: 991.98px) {
         .checkout-content > .row {
            flex-direction: column-reverse !important;
+        }
+     }
+
+     /* Additional fixes for very small mobile screens */
+     @media (max-width: 480px) {
+        .input-icon {
+            left: 0.5rem;
+            font-size: 0.85rem;
+            width: 1rem;
+        }
+        
+        .input-icon + .form-control-modern {
+            padding-left: 2rem !important;
+            font-size: 0.9rem;
+        }
+        
+        .input-icon + select.form-control-modern {
+            padding-left: 2rem !important;
+            background-position: calc(100% - 0.5rem) center;
+        }
+        
+        .form-control-modern {
+            padding: 0.7rem 0.75rem;
+            font-size: 0.9rem;
+            min-height: 44px;
+        }
+        
+        /* Adjust placeholder text size */
+        .form-control-modern::placeholder {
+            font-size: 0.85rem;
+            opacity: 0.7;
         }
      }
 
