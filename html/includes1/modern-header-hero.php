@@ -617,5 +617,158 @@ document.addEventListener('DOMContentLoaded', function() {
     header.style.zIndex = '9999';
     header.classList.add('fixed-top');
   }
+
+  // Booking form validation with 24-hour minimum requirement
+  const bookingForm = document.querySelector('.modern-booking-form');
+  const pdateInput = document.getElementById('pdate');
+  const ptimeInput = document.getElementById('ptime');
+  const ddateInput = document.getElementById('ddate');
+  const dtimeInput = document.getElementById('dtime');
+
+  // Set minimum date to today for pickup
+  if (pdateInput) {
+    const today = new Date();
+    const todayString = today.toISOString().split('T')[0];
+    pdateInput.min = todayString;
+  }
+
+  // Set minimum date for drop date based on pickup date
+  function updateDropMinDate() {
+    if (pdateInput && ddateInput && pdateInput.value) {
+      const pickupDate = new Date(pdateInput.value);
+      pickupDate.setDate(pickupDate.getDate() + 1); // Minimum next day
+      const minDropString = pickupDate.toISOString().split('T')[0];
+      ddateInput.min = minDropString;
+      
+      // If current drop date is before minimum, clear it
+      if (ddateInput.value && ddateInput.value < minDropString) {
+        ddateInput.value = '';
+        dtimeInput.value = '';
+      }
+    }
+  }
+
+  // Calculate time difference in hours
+  function calculateTimeDifference(pickupDate, pickupTime, dropDate, dropTime) {
+    if (!pickupDate || !pickupTime || !dropDate || !dropTime) {
+      return 0;
+    }
+
+    const pickup = new Date(pickupDate + 'T' + pickupTime + ':00');
+    const drop = new Date(dropDate + 'T' + dropTime + ':00');
+    
+    const diffMs = drop.getTime() - pickup.getTime();
+    const diffHours = diffMs / (1000 * 60 * 60);
+    
+    return diffHours;
+  }
+
+  // Validate 24-hour minimum booking (must be AT LEAST 24 hours)
+  function validateBookingDuration() {
+    const pickupDate = pdateInput ? pdateInput.value : '';
+    const pickupTime = ptimeInput ? ptimeInput.value : '';
+    const dropDate = ddateInput ? ddateInput.value : '';
+    const dropTime = dtimeInput ? dtimeInput.value : '';
+
+    if (pickupDate && pickupTime && dropDate && dropTime) {
+      const hoursDiff = calculateTimeDifference(pickupDate, pickupTime, dropDate, dropTime);
+      
+      // Special check: if drop date is exactly 1 day after pickup, ensure drop hour >= pickup hour
+      const pickup = new Date(pickupDate);
+      const drop = new Date(dropDate);
+      const daysDiff = Math.floor((drop - pickup) / (1000 * 60 * 60 * 24));
+      
+      if (daysDiff === 1) {
+        const pickupHour = parseInt(pickupTime.split(':')[0]);
+        const dropHour = parseInt(dropTime.split(':')[0]);
+        
+        if (dropHour < pickupHour) {
+          alert('For next-day bookings, drop-off time must be equal to or later than pickup time to ensure minimum 24 hours.');
+          return false;
+        }
+      }
+      
+      if (hoursDiff < 24) {
+        alert('Minimum booking duration is 24 hours. Please select drop date/time at least 24 hours after pickup time.');
+        return false;
+      }
+    }
+    return true;
+  }
+
+  // Event listeners for date/time changes
+  if (pdateInput) {
+    pdateInput.addEventListener('change', updateDropMinDate);
+  }
+
+  // Form submission validation
+  if (bookingForm) {
+    bookingForm.addEventListener('submit', function(e) {
+      if (!validateBookingDuration()) {
+        e.preventDefault();
+        return false;
+      }
+    });
+  }
+
+  // Real-time validation feedback
+  function showValidationFeedback() {
+    const pickupDate = pdateInput ? pdateInput.value : '';
+    const pickupTime = ptimeInput ? ptimeInput.value : '';
+    const dropDate = ddateInput ? ddateInput.value : '';
+    const dropTime = dtimeInput ? dtimeInput.value : '';
+
+    if (pickupDate && pickupTime && dropDate && dropTime) {
+      const hoursDiff = calculateTimeDifference(pickupDate, pickupTime, dropDate, dropTime);
+      
+      // Remove any existing feedback
+      const existingFeedback = document.querySelector('.booking-validation-feedback');
+      if (existingFeedback) {
+        existingFeedback.remove();
+      }
+
+      // Check for next-day booking with insufficient hours
+      const pickup = new Date(pickupDate);
+      const drop = new Date(dropDate);
+      const daysDiff = Math.floor((drop - pickup) / (1000 * 60 * 60 * 24));
+      
+      let showError = false;
+      let errorMessage = '';
+      
+      if (daysDiff === 1) {
+        const pickupHour = parseInt(pickupTime.split(':')[0]);
+        const dropHour = parseInt(dropTime.split(':')[0]);
+        
+        if (dropHour < pickupHour) {
+          showError = true;
+          errorMessage = `<i class="fa fa-exclamation-triangle"></i> For next-day bookings, drop-off time must be equal to or later than pickup time to ensure minimum 24 hours.`;
+        }
+      }
+      
+      if (!showError && hoursDiff > 0 && hoursDiff < 24) {
+        showError = true;
+        errorMessage = `<i class="fa fa-exclamation-triangle"></i> Minimum booking duration is 24 hours. Current selection: ${hoursDiff.toFixed(1)} hours.`;
+      }
+      
+      if (showError) {
+        const feedback = document.createElement('div');
+        feedback.className = 'booking-validation-feedback';
+        feedback.style.cssText = 'color: #dc3545; font-size: 14px; margin-top: 10px; padding: 8px; background: #f8d7da; border: 1px solid #f5c6cb; border-radius: 4px;';
+        feedback.innerHTML = errorMessage;
+        
+        const submitBtn = document.querySelector('.btn-search-modern');
+        if (submitBtn && submitBtn.parentNode) {
+          submitBtn.parentNode.insertBefore(feedback, submitBtn);
+        }
+      }
+    }
+  }
+
+  // Add real-time validation to all date/time inputs
+  [pdateInput, ptimeInput, ddateInput, dtimeInput].forEach(input => {
+    if (input) {
+      input.addEventListener('change', showValidationFeedback);
+    }
+  });
 });
 </script>

@@ -1295,6 +1295,20 @@ if ($pdate != '' || $ptime != '' || $ddate != '' || $dtime != '') {
                   return false;
                }
                
+               // Check 24-hour minimum requirement early
+               if (pdate && ptime && ddate && dtime) {
+                  var pickupDateTime = new Date((pdate + " " + ptime).replace(/-/g, "/"));
+                  var dropoffDateTime = new Date((ddate + " " + dtime).replace(/-/g, "/"));
+                  var hoursDiff = (dropoffDateTime.getTime() - pickupDateTime.getTime()) / (1000 * 60 * 60);
+                  
+                  if (hoursDiff < 24) {
+                     e.preventDefault();
+                     alert("Minimum booking duration is 24 hours. Please select pickup and drop-off times at least 24 hours apart.");
+                     console.log("Validation failed: Less than 24 hours between pickup and dropoff");
+                     return false;
+                  }
+               }
+               
                // Run time calculation and validation
                console.log("Running calculateTime...");
                var result = calculateTime(dtime, pdate, ptime, ddate);
@@ -1385,6 +1399,14 @@ if ($pdate != '' || $ptime != '' || $ddate != '' || $dtime != '') {
                }
 
                var t = diff_hours(dt1, dt2);
+
+               // Enforce minimum 24 hours between pickup and dropoff
+               if (t < 24) {
+                  alert("Sorry, you need to select at least 24 hours between pickup and drop-off time for booking.");
+                  $('#ptime').val('');
+                  $('#dtime').val('');
+                  return false;
+               }
 
                if (t < <?= $min_book_hour; ?>) {
                   alert("Sorry, you need to select more than <?= $min_book_hour; ?> hours for booking.");
