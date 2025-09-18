@@ -376,10 +376,10 @@ body {
                   <?php endif; ?>
                   
                   <div class="bike-info-actions">
-                    <button class="btn-info" onclick="showBikeDetails('<?php echo $bike['id']; ?>')">
+                    <a href="checkout.php?pdate=<?php echo !empty($pickup_date) ? $pickup_date : (!empty($tdate) ? $tdate : date('Y-m-d')); ?>&ptime=<?php echo !empty($pickup_time) ? $pickup_time : (!empty($ptime) ? $ptime : '6:00'); ?>&ddate=<?php echo !empty($dropoff_date) ? $dropoff_date : (!empty($ddate) ? $ddate : date('Y-m-d')); ?>&dtime=<?php echo !empty($dropoff_time) ? $dropoff_time : (!empty($dtime) ? $dtime : '12:00'); ?>&car=<?php echo md5($bike['bike_name']); ?>&cartype=<?php echo md5($bike['fuel']); ?>&cardta=<?php echo md5($bike['id']); ?>&vehicle_type=bike" class="btn-info">
                       <i class="fa fa-info-circle"></i>
                       Details
-                    </button>
+                    </a>
                     <button class="btn-call" onclick="window.open('tel:+919437144274')">
                       <i class="fa fa-phone"></i>
                       Call
@@ -453,12 +453,6 @@ function toggleMobileFilters() {
     mobileFilters.classList.add('show');
     if (toggleBtn) toggleBtn.style.transform = 'rotate(180deg)';
   }
-}
-
-// Bike details modal (placeholder)
-function showBikeDetails(bikeId) {
-  // You can implement a modal or redirect to details page
-  alert('Bike details for ID: ' + bikeId);
 }
 
 // Auto-submit form when filters change
