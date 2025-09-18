@@ -582,12 +582,10 @@ window.addEventListener('DOMContentLoaded', function() {
             <div class="car-image">
               <a href="https://www.eduxoncabs.com/all-cars-for-self-drive-bhubaneswar.php">
                 <img src="uploadedDocument/cab/<?php echo $key["car_image"]; ?>" 
-                     class="img-fluid car-img-optimized" 
-                     alt="<?php echo htmlspecialchars($key["car_nme"]); ?> - Self Drive Car Rental Bhubaneswar | ₹<?php echo $key["cost"]; ?>/24Hr"
-                     loading="lazy"
-                     width="350"
-                     height="250"
-                     style="object-fit: cover; border-radius: 8px; background-color: #f8f9fa;">
+                  class="img-fluid car-img-optimized" 
+                  alt="<?php echo htmlspecialchars($key["car_nme"]); ?> - Self Drive Car Rental Bhubaneswar | ₹<?php echo $key["cost"]; ?>/24Hr"
+                  loading="lazy"
+                  style="width:100%; height:auto; max-height:250px; border-radius:8px; background-color:#f8f9fa; object-fit:contain;">
               </a>
             </div>
             <div class="car-info">
