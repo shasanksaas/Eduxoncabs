@@ -3,13 +3,8 @@ session_start();
 
 require_once('php/simple-php-captcha/simple-php-captcha.php');
 
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\SMTP;
-use PHPMailer\PHPMailer\Exception;
-
-require_once('PHPMailer/src/Exception.php');
-require_once('PHPMailer/src/PHPMailer.php');
-require_once('PHPMailer/src/SMTP.php');
+require_once('php-mailer/class.phpmailer.php');
+require_once('php-mailer/class.smtp.php');
 
 
 // require_once('php/php-mailer/PHPMailerAutoload.php');
@@ -161,6 +156,9 @@ if(isset($_POST['emailSent'])) {
 
 		<!-- Theme Custom CSS -->
 		<link rel="stylesheet" href="css/custom.css">
+		
+		<!-- Footer Center Fix CSS -->
+		<link rel="stylesheet" href="assets/css/footer-center-fix.css">
 
 		<!-- Head Libs -->
 		<script src="vendor/modernizr/modernizr.min.js"></script>

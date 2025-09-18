@@ -33,6 +33,15 @@ $(function() {
     if (element.is('li')) {
         element.addClass('active');
     }
+    
+    // Handle active states for submenu items specifically
+    $('ul.nav-second-level a').each(function() {
+        if (this.href === url.href) {
+            $(this).addClass('active');
+            $(this).closest('ul.nav-second-level').parent().addClass('active');
+            $(this).closest('ul.nav-second-level').addClass('in');
+        }
+    });
 });
 
 

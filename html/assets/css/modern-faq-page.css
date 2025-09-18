@@ -1,0 +1,222 @@
+/* Modern FAQ Page Styles */
+.modern-faq-page {
+  background-color: #f8f9fa;
+  color: #333;
+  font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+}
+
+/* FAQ Header Section */
+.faq-header-section {
+  background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+  color: white;
+  padding: 60px 0;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.faq-header-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.faq-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+  line-height: 1.2;
+}
+
+.faq-subtitle {
+  font-size: 1.2rem;
+  opacity: 0.9;
+  margin-bottom: 0;
+  color: #ecf0f1;
+}
+
+/* FAQ Content Wrapper */
+.faq-content-wrapper {
+  padding: 0 15px;
+}
+
+/* FAQ Sections */
+.faq-section {
+  margin-bottom: 30px;
+}
+
+.section-title {
+  background: white;
+  padding: 20px 25px;
+  border-radius: 12px 12px 0 0;
+  border-left: 5px solid #3498db;
+  margin-bottom: 0;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #2c3e50;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.section-number {
+  background: #3498db;
+  color: white;
+  padding: 8px 12px;
+  border-radius: 50%;
+  font-weight: 700;
+  margin-right: 15px;
+  min-width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+}
+
+/* Policy Cards */
+.policy-card {
+  background: white;
+  padding: 25px;
+  border-radius: 0 0 12px 12px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  border-left: 5px solid #e8f4fd;
+}
+
+/* Policy Subsections */
+.policy-subsection {
+  margin-bottom: 20px;
+  padding: 15px;
+  background: #f8f9fa;
+  border-radius: 8px;
+  border-left: 3px solid #3498db;
+}
+
+.policy-subsection:last-child {
+  margin-bottom: 0;
+}
+
+.subsection-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #2c3e50;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.subsection-title::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  background: #3498db;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+/* Policy Text */
+.policy-text {
+  margin-bottom: 12px;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #555;
+}
+
+.policy-text:last-child {
+  margin-bottom: 0;
+}
+
+.policy-text strong {
+  color: #2c3e50;
+  font-weight: 600;
+}
+
+.policy-text u {
+  text-decoration: underline;
+  color: #3498db;
+}
+
+/* Alert Boxes */
+.alert {
+  padding: 12px 16px;
+  border-radius: 6px;
+  margin: 10px 0;
+  font-weight: 500;
+}
+
+.alert-warning {
+  background-color: #fff3cd;
+  border: 1px solid #ffeaa7;
+  color: #856404;
+}
+
+.alert-info {
+  background-color: #d1ecf1;
+  border: 1px solid #bee5eb;
+  color: #0c5460;
+}
+
+/* Contact Info Highlights */
+.contact-highlight {
+  background: #e8f4fd;
+  padding: 15px;
+  border-radius: 8px;
+  border-left: 4px solid #3498db;
+  margin: 15px 0;
+}
+
+.contact-highlight strong {
+  color: #2c3e50;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .faq-header-section {
+    padding: 40px 0;
+  }
+  
+  .faq-title {
+    font-size: 2rem;
+  }
+  
+  .faq-subtitle {
+    font-size: 1rem;
+  }
+  
+  .section-title {
+    font-size: 1.2rem;
+    padding: 15px 20px;
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .section-number {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+  
+  .policy-card {
+    padding: 20px;
+  }
+  
+  .policy-subsection {
+    padding: 12px;
+  }
+  
+  .faq-content-wrapper {
+    padding: 0 10px;
+  }
+}
+
+/* Print Styles */
+@media print {
+  .faq-header-section {
+    background: none !important;
+    color: black !important;
+  }
+  
+  .policy-card,
+  .policy-subsection {
+    box-shadow: none !important;
+    border: 1px solid #ddd !important;
+  }
+}

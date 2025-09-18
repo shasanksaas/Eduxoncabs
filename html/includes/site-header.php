@@ -21,7 +21,7 @@
 															<li class="dropdown-submenu">
 																<a href="#" style="color:#fff;">Bhubaneswar</a>
 																<ul class="dropdown-menu">
-																	<li><a href="self-drive-car-rental-bhubaneswar-airport.php" style="color:#fff;">Airport Location</a></li>
+																	<li><a href="all-cars-for-self-drive-bhubaneswar.php" style="color:#fff;">Airport Location</a></li>
                                                                   
 																	
 																</ul>

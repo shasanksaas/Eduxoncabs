@@ -46,11 +46,7 @@
                     </li>
                     
                    <li>
-                        <a href="#" class=" hvr-bounce-to-right"><i class="fa fa-bar-chart nav_icon"></i> <span class="nav-label">Reports & Analytics</span><span class="fa arrow"></span></a>
-                        <ul class="nav nav-second-level">
-                            <li><a href="revenue-report.php" class=" hvr-bounce-to-right">Car Revenue Report</a></li>
-                            <li><a href="analytics-dashboard.php" class=" hvr-bounce-to-right">Analytics Dashboard</a></li>
-                        </ul>
+                        <a href="revenue-report.php" class=" hvr-bounce-to-right"><i class="fa fa-bar-chart nav_icon"></i> <span class="nav-label">Car Revenue Report</span></a>
                     </li>
                     
                                      
@@ -70,6 +66,11 @@
  <li>
                         <a href="coupon.php" class=" hvr-bounce-to-right"><i class="fa fa-user nav_icon"></i> <span class="nav-label">Manage Coupon </span> </a>
                     </li>
+                    
+                    <li>
+                        <a href="blogs.php" class=" hvr-bounce-to-right"><i class="fa fa-edit nav_icon"></i> <span class="nav-label">Manage Blogs </span> </a>
+                    </li>
+                    
      <li> <a href="location.php" class=" hvr-bounce-to-right"><i class="fa fa-user nav_icon"></i> <span class="nav-label">Locations </span> </a>
                     </li>
                     

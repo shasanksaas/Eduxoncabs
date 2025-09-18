@@ -1,0 +1,637 @@
+/* ============================================
+   🎨 MODERN SAAS FAQ SECTION STYLES
+   ============================================ */
+
+/* Section Padding */
+.section-padding {
+  padding: 100px 0;
+}
+
+/* FAQ Section Container */
+#modern-faq-section {
+  background: linear-gradient(135deg, 
+    rgba(99, 102, 241, 0.02) 0%, 
+    rgba(168, 85, 247, 0.02) 50%, 
+    rgba(236, 72, 153, 0.02) 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+#modern-faq-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="%23666" opacity="0.03"/><circle cx="75" cy="75" r="1" fill="%23666" opacity="0.03"/><circle cx="50" cy="10" r="1" fill="%23666" opacity="0.03"/><circle cx="10" cy="50" r="1" fill="%23666" opacity="0.03"/><circle cx="90" cy="30" r="1" fill="%23666" opacity="0.03"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+  pointer-events: none;
+}
+
+/* FAQ Badge */
+.faq-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(135deg, 
+    rgba(99, 102, 241, 0.1) 0%, 
+    rgba(168, 85, 247, 0.08) 100%);
+  border: 1px solid rgba(99, 102, 241, 0.2);
+  border-radius: 50px;
+  padding: 12px 24px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #6366f1;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 24px;
+}
+
+.badge-icon svg {
+  width: 20px;
+  height: 20px;
+  color: #6366f1;
+}
+
+/* FAQ Title */
+.faq-title {
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 24px;
+  line-height: 1.2;
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #ec4899 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* FAQ Subtitle */
+.faq-subtitle {
+  font-size: 1.25rem;
+  color: #64748b;
+  max-width: 600px;
+  margin: 0 auto 60px;
+  line-height: 1.6;
+}
+
+/* FAQ Grid */
+.faq-grid {
+  margin-bottom: 80px;
+}
+
+/* FAQ Card */
+.faq-card {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  border-radius: 20px;
+  padding: 0;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  height: auto;
+  min-height: 120px;
+  overflow: hidden;
+  position: relative;
+}
+
+.faq-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #6366f1 0%, #8b5cf6 50%, #ec4899 100%);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.faq-card:hover::before {
+  transform: scaleX(1);
+}
+
+.faq-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 25px 50px rgba(99, 102, 241, 0.15);
+  border-color: rgba(99, 102, 241, 0.3);
+}
+
+/* FAQ Header */
+.faq-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 28px;
+  cursor: pointer;
+  position: relative;
+  z-index: 2;
+}
+
+.faq-icon {
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.faq-card:hover .faq-icon {
+  transform: scale(1.1) rotate(5deg);
+  box-shadow: 0 8px 20px rgba(99, 102, 241, 0.3);
+}
+
+.faq-question {
+  flex: 1;
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #1e293b;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.faq-toggle {
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  background: rgba(99, 102, 241, 0.1);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #6366f1;
+  transition: all 0.3s ease;
+}
+
+.faq-card.active .faq-toggle {
+  transform: rotate(180deg);
+  background: #6366f1;
+  color: white;
+}
+
+/* FAQ Content */
+.faq-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  opacity: 0;
+}
+
+.faq-card.active .faq-content {
+  max-height: 1000px;
+  opacity: 1;
+}
+
+.faq-answer {
+  padding: 0 28px 28px;
+  animation: fadeInUp 0.4s ease;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* FAQ List Styling */
+.faq-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.faq-list li {
+  padding: 12px 0;
+  padding-left: 28px;
+  position: relative;
+  color: #475569;
+  line-height: 1.6;
+  border-bottom: 1px solid rgba(226, 232, 240, 0.5);
+}
+
+.faq-list li:last-child {
+  border-bottom: none;
+}
+
+.faq-list li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  top: 12px;
+  width: 20px;
+  height: 20px;
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  color: white;
+  border-radius: 50%;
+  font-size: 12px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Highlight Answer */
+.highlight-answer {
+  background: linear-gradient(135deg, 
+    rgba(16, 185, 129, 0.1) 0%, 
+    rgba(5, 150, 105, 0.08) 100%);
+  border-left: 4px solid #10b981;
+  padding: 20px;
+  border-radius: 12px;
+  margin: 0;
+  color: #374151;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+/* Penalty Information */
+.penalty-info {
+  background: linear-gradient(135deg, 
+    rgba(249, 115, 22, 0.1) 0%, 
+    rgba(234, 88, 12, 0.08) 100%);
+  border: 1px solid rgba(249, 115, 22, 0.2);
+  border-radius: 16px;
+  padding: 24px;
+}
+
+.penalty-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(249, 115, 22, 0.1);
+}
+
+.penalty-item:last-child {
+  border-bottom: none;
+}
+
+.penalty-label {
+  color: #92400e;
+  font-weight: 600;
+}
+
+.penalty-amount {
+  background: #f97316;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+.penalty-note {
+  background: rgba(249, 115, 22, 0.05);
+  padding: 12px;
+  border-radius: 8px;
+  margin: 12px 0 0;
+  font-size: 0.9rem;
+  color: #92400e;
+  text-align: center;
+}
+
+/* KM Limitations - spacing handled by margin-bottom */
+
+.km-category {
+  background: rgba(99, 102, 241, 0.05);
+  border: 1px solid rgba(99, 102, 241, 0.1);
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 16px;
+}
+
+.km-category h4 {
+  color: #6366f1;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 0 0 8px;
+}
+
+.unlimited {
+  color: #10b981;
+  font-weight: 600;
+  margin: 0;
+}
+
+.extra-charge {
+  color: #f97316;
+  font-weight: 600;
+  margin: 4px 0 0;
+}
+
+.interstate-note {
+  background: rgba(59, 130, 246, 0.1);
+  border: 1px solid rgba(59, 130, 246, 0.2);
+  padding: 12px;
+  border-radius: 8px;
+  color: #1d4ed8;
+  margin: 16px 0 0;
+  text-align: center;
+}
+
+/* Late Charges */
+.late-charges {
+  background: linear-gradient(135deg, 
+    rgba(239, 68, 68, 0.1) 0%, 
+    rgba(220, 38, 38, 0.08) 100%);
+  border: 1px solid rgba(239, 68, 68, 0.2);
+  border-radius: 16px;
+  padding: 24px;
+}
+
+.warning-box {
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.2);
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.warning-box strong {
+  color: #dc2626;
+  font-size: 1.1rem;
+}
+
+.warning-box p {
+  color: #7f1d1d;
+  margin: 8px 0 0;
+}
+
+/* Charge Breakdown - spacing handled by border-bottom */
+
+.charge-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(239, 68, 68, 0.1);
+}
+
+.charge-item:last-child {
+  border-bottom: none;
+}
+
+.charge-item span:first-child {
+  color: #991b1b;
+  font-weight: 600;
+}
+
+.charge-item .amount {
+  background: #ef4444;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+/* Delivery Options - spacing handled by margin-bottom */
+
+.delivery-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: rgba(99, 102, 241, 0.02);
+  border: 1px solid rgba(99, 102, 241, 0.1);
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 16px;
+}
+
+.delivery-item.free {
+  background: rgba(16, 185, 129, 0.05);
+  border-color: rgba(16, 185, 129, 0.2);
+}
+
+.delivery-item.paid {
+  background: rgba(59, 130, 246, 0.05);
+  border-color: rgba(59, 130, 246, 0.2);
+}
+
+.delivery-icon {
+  font-size: 2rem;
+  flex-shrink: 0;
+}
+
+.delivery-info h4 {
+  margin: 0 0 4px;
+  color: #1e293b;
+  font-weight: 600;
+}
+
+.delivery-info p {
+  margin: 0;
+  color: #64748b;
+}
+
+.free-label {
+  color: #10b981 !important;
+  font-weight: 600 !important;
+}
+
+/* Support Section */
+.faq-support-section {
+  margin-top: 60px;
+}
+
+.support-card {
+  background: linear-gradient(135deg, 
+    rgba(99, 102, 241, 0.95) 0%, 
+    rgba(168, 85, 247, 0.95) 100%);
+  border-radius: 24px;
+  padding: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.support-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="dots" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="1.5" fill="white" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23dots)"/></svg>');
+  pointer-events: none;
+}
+
+.support-content {
+  flex: 1;
+  position: relative;
+  z-index: 2;
+}
+
+.support-content h3 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0 0 8px;
+}
+
+.support-content p {
+  font-size: 1.125rem;
+  margin: 0;
+  opacity: 0.9;
+}
+
+.support-actions {
+  display: flex;
+  gap: 16px;
+  position: relative;
+  z-index: 2;
+}
+
+.support-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 16px 32px;
+  border-radius: 50px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+}
+
+.support-btn.primary {
+  background: white;
+  color: #6366f1;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.support-btn.primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+  color: #6366f1;
+  text-decoration: none;
+}
+
+.support-btn.secondary {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(10px);
+}
+
+.support-btn.secondary:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.5);
+  transform: translateY(-2px);
+  color: white;
+  text-decoration: none;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .faq-title {
+    font-size: 3rem;
+  }
+}
+
+@media (max-width: 992px) {
+  .section-padding {
+    padding: 80px 0;
+  }
+  
+  .faq-title {
+    font-size: 2.5rem;
+  }
+  
+  .faq-subtitle {
+    font-size: 1.125rem;
+  }
+  
+  .support-card {
+    flex-direction: column;
+    text-align: center;
+    gap: 32px;
+  }
+  
+  .support-actions {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .section-padding {
+    padding: 60px 0;
+  }
+  
+  .faq-title {
+    font-size: 2.25rem;
+  }
+  
+  .faq-header {
+    padding: 24px;
+  }
+  
+  .faq-answer {
+    padding: 0 24px 24px;
+  }
+  
+  .support-card {
+    padding: 32px 24px;
+  }
+  
+  .support-content h3 {
+    font-size: 1.5rem;
+  }
+  
+  .support-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .support-btn {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 576px) {
+  .faq-title {
+    font-size: 2rem;
+  }
+  
+  .faq-header {
+    padding: 20px;
+    gap: 12px;
+  }
+  
+  .faq-answer {
+    padding: 0 20px 20px;
+  }
+  
+  .faq-icon {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .faq-question {
+    font-size: 1rem;
+  }
+  
+  .penalty-info,
+  .late-charges {
+    padding: 20px;
+  }
+  
+  .delivery-item {
+    padding: 16px;
+  }
+}

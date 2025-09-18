@@ -5716,7 +5716,8 @@ tbody.collapse.show {
 .navbar {
   position: relative;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  justify-content: space-between;
   padding: 0.5rem 1rem; }
 
 .navbar-brand {
@@ -5904,7 +5905,11 @@ tbody.collapse.show {
 
 .navbar-light .navbar-brand,
 .navbar-light .navbar-toggler {
-  color: rgba(0, 0, 0, 0.9); }
+  color: rgba(0, 0, 0, 0.9); 
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
   .navbar-light .navbar-brand:focus, .navbar-light .navbar-brand:hover,
   .navbar-light .navbar-toggler:focus,
   .navbar-light .navbar-toggler:hover {

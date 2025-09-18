@@ -42,13 +42,13 @@ switch($action){
 		$fuel  		 = filter($_REQUEST['fuel']);
 		$security  	 = filter($_REQUEST['security']);
 		$date 	 	 = date("Y-m-d");	
-		$respond = $dbObj->insertToDblastId("tbl_cabs","car_nme = '$car_nme', car_image = '$newfilename', car_desc = '$car_desc', cost = '$cost', weekend_cost ='$weekendcost', no_of_seat = '$no_of_seat', fuel = '$fuel', security = '$security', pickup = '$pickup', created_dte = '$date',city = '$city', offers='$offers', status = 1");
+		$respond = $dbObj->insertToDblastId("tbl_cabs","car_nme = '$car_nme', car_image = '$newfilename', car_desc = '$car_desc', cost = '$cost', weekend_cost ='$weekendcost', unavail_datefrm = '1000-01-01', unavail_tmfrm = '00:00', unavail_dateto = '1000-01-01', unavail_tmto = '00:00', no_of_seat = '$no_of_seat', fuel = '$fuel', security = '$security', pickup = '$pickup', created_dte = '$date',city = '$city', offers='$offers', status = 1");
 		
 		/*for($j=0; $j<count(array_filter($unavail_datefrm));$j++){
 			$dbObj->insertToDb("tbl_unavail_dtes","car_id = '$respond', unavail_dte = '$unavail_datefrm[$j]', unavail_tme = '$unavail_tmfrm[$j]', unavail_dte_to = '$unavail_dateto[$j]', unavail_to_tme = '$unavail_tmto[$j]'");
 		}*/
 		for($j=0; $j<count(array_filter($unavail_datefrm));$j++){
-				$dbObj->insertToDb("tbl_unavail_dtes","car_id = '$respond', unavail_dte = '$unavail_datefrm[$j] $unavail_tmfrm[$j]', unavail_dte_to = '$unavail_dateto[$j] $unavail_tmto[$j]'");
+				$dbObj->insertToDb("tbl_unavail_dtes","type = '0', car_id = '$respond', bike_id = '0', unavail_dte = '$unavail_datefrm[$j] $unavail_tmfrm[$j]', unavail_dte_to = '$unavail_dateto[$j] $unavail_tmto[$j]', status = '0', payment_id = ''");
 			}
 		
 		
@@ -94,14 +94,14 @@ switch($action){
 			$respond = $dbObj->updateToDb("tbl_cabs","car_nme = '$car_nme', car_image = '$newfilename', car_desc = '$car_desc', cost = '$cost',weekend_cost ='$weekendcost', no_of_seat = '$no_of_seat', fuel = '$fuel', security = '$security', pickup = '$pickup', created_dte = '$date', city = '$city', offers='$offers' , status = 1","id = $id");
 			$dbObj->delete("tbl_unavail_dtes","car_id = $id");
 			for($j=0; $j<count(array_filter($unavail_datefrm));$j++){
-				$dbObj->insertToDb("tbl_unavail_dtes","car_id = '$id', unavail_dte = '$unavail_datefrm[$j] $unavail_tmfrm[$j]', unavail_dte_to = '$unavail_dateto[$j] $unavail_tmto[$j]'");
+				$dbObj->insertToDb("tbl_unavail_dtes","type = '0', car_id = '$id', bike_id = '0', unavail_dte = '$unavail_datefrm[$j] $unavail_tmfrm[$j]', unavail_dte_to = '$unavail_dateto[$j] $unavail_tmto[$j]', status = '0', payment_id = ''");
 			}
 			
 		}else{
 			$respond = $dbObj->updateToDb("tbl_cabs","car_nme = '$car_nme', car_desc = '$car_desc', cost = '$cost', weekend_cost ='$weekendcost', no_of_seat = '$no_of_seat', fuel = '$fuel', security = '$security', pickup = '$pickup', created_dte = '$date', city = '$city', offers='$offers', status = 1","id = $id");
 			$dbObj->delete("tbl_unavail_dtes","car_id = $id");
 			for($j=0; $j<count(array_filter($unavail_datefrm));$j++){
-				$dbObj->insertToDb("tbl_unavail_dtes","car_id = '$id', unavail_dte = '$unavail_datefrm[$j] $unavail_tmfrm[$j]', unavail_dte_to = '$unavail_dateto[$j] $unavail_tmto[$j]'");
+				$dbObj->insertToDb("tbl_unavail_dtes","type = '0', car_id = '$id', bike_id = '0', unavail_dte = '$unavail_datefrm[$j] $unavail_tmfrm[$j]', unavail_dte_to = '$unavail_dateto[$j] $unavail_tmto[$j]', status = '0', payment_id = ''");
 			}
 		}
 		if($respond == 1){

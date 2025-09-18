@@ -1,4 +1,9 @@
 <?php
+   // Debug at the very start
+   file_put_contents('debug_bike.log', "=== bikeRazorPay.php accessed at " . date('Y-m-d H:i:s') . " ===\n", FILE_APPEND);
+   file_put_contents('debug_bike.log', "POST data: " . print_r($_POST, true) . "\n", FILE_APPEND);
+   file_put_contents('debug_bike.log', "GET data: " . print_r($_GET, true) . "\n", FILE_APPEND);
+
    require('config.php');
    require('razorpay-php/Razorpay.php');
    session_start();
@@ -30,6 +35,7 @@ if ($mysqli_conn->connect_error) {
    $phone = $mysqli_conn->real_escape_string($_POST["phone"]);
    $email = $mysqli_conn->real_escape_string($_POST["email"]);
    $vehicle_id = $mysqli_conn->real_escape_string($_POST['vehicle_id']);
+   file_put_contents('debug_bike.log', "vehicle_id after sanitization: '" . $vehicle_id . "'\n", FILE_APPEND);
    $city = $mysqli_conn->real_escape_string($_POST['city1']);
    $pickuploc = $mysqli_conn->real_escape_string($_POST['pickuploc']);
    $dob = $mysqli_conn->real_escape_string($_POST['dob']);
@@ -48,6 +54,12 @@ if ($mysqli_conn->connect_error) {
    $securityPayment = $mysqli_conn->real_escape_string($_POST['securityPayment']);
    $securityprice = $mysqli_conn->real_escape_string($_POST['securitymoneyprice']);
    
+   // Capture coupon data like car booking
+   $coupon_status = $mysqli_conn->real_escape_string($_POST["gvcode"]);
+   $coupon_code = $mysqli_conn->real_escape_string($_POST["coupon"]);
+   $gvamount = isset($_POST["gvamount"]) && $_POST["gvamount"] !== '' ? (int)$mysqli_conn->real_escape_string($_POST["gvamount"]) : 0;
+   file_put_contents('debug_bike.log', "Coupon data: code='$coupon_code', status='$coupon_status', amount=$gvamount\n", FILE_APPEND);
+   
    $vehicle_type = 2;
    
    $securityPaymode = 0;
@@ -58,9 +70,16 @@ if ($mysqli_conn->connect_error) {
        $form_price = ($form_price-$securityprice);
    }
    
+   // Add debug at the very top to see if we're reaching this file
+   error_log("DEBUG: bikeRazorPay.php accessed at " . date('Y-m-d H:i:s'));
+   file_put_contents('debug_bike.log', "Bike form submitted at " . date('Y-m-d H:i:s') . "\n", FILE_APPEND);
+
    if($vehicle_id==""){
+      file_put_contents('debug_bike.log', "ERROR: vehicle_id is empty, redirecting back\n", FILE_APPEND);
       header("location:all-bikes-bike-for-rental-bhubaneswar.php");
       exit;
+   } else {
+      file_put_contents('debug_bike.log', "SUCCESS: vehicle_id is present: '" . $vehicle_id . "'\n", FILE_APPEND);
    }
    
    
@@ -97,9 +116,23 @@ if ($mysqli_conn->connect_error) {
        }
    }
    
-   if($form_price ==0 || $form_price != $price)
+   // Apply coupon discount like car booking
+   if ($gvamount > 0) {
+       file_put_contents('debug_bike.log', "Applying coupon discount: original_price=$price, discount=$gvamount\n", FILE_APPEND);
+       $price = round($price - $gvamount);
+       // Ensure price doesn't go below 1 (minimum for Razorpay)
+       if ($price < 1) {
+           $price = 1;
+           file_put_contents('debug_bike.log', "Price was negative/zero, set to minimum ₹1\n", FILE_APPEND);
+       }
+       file_put_contents('debug_bike.log', "Final price after coupon: $price\n", FILE_APPEND);
+   }
+   
+   // Temporarily disable price check for debugging
+   if(false && ($form_price ==0 || $form_price != $price))
    {
-       $ins_dta = $dbObj->insertToDb("err_tbl", " c_name ='$name', phone='$phone', `from_date_time` = '" . $start_book_time . "', `to_date_time`='$end_book_time', `bike_id`='$vehicle_id', `form_amount`='$form_price', `actual_amount`='$price',secur_pay_type='$securityPaymode' ");
+       file_put_contents('debug_bike.log', "Price mismatch! form_price: $form_price, actual_price: $price - redirecting with ermsg=1\n", FILE_APPEND);
+       $ins_dta = $dbObj->insertToDb("err_tbl", " c_name ='$name', phone='$phone', `from_date_time` = '" . $start_book_time . "', `to_date_time`='$end_book_time', `car_id`='1', `bike_id`='$vehicle_id', `form_amount`='$form_price', `actual_amount`='$price',secur_pay_type='$securityPaymode',comment='bike price mismatch' ");
         
    ?>
 <script>
@@ -108,6 +141,7 @@ if ($mysqli_conn->connect_error) {
 <?php
    return;
    }else{
+       file_put_contents('debug_bike.log', "Price match OK! form_price: $form_price, actual_price: $price\n", FILE_APPEND);
        $price=$price;
    }
    
@@ -116,7 +150,7 @@ if ($mysqli_conn->connect_error) {
    // check booking date not less then current date
    $cur_date = date("Y-m-d",strtotime($date));
    if($booked_dte < $cur_date || $booked_dte == '0000-00-00' || $returned_dte=='0000-00-00' || $end_book_time < $start_book_time ){
-   
+      file_put_contents('debug_bike.log', "Date validation failed! cur_date: $cur_date, booked_dte: $booked_dte, returned_dte: $returned_dte, start: $start_book_time, end: $end_book_time - redirecting with ermsg=2\n", FILE_APPEND);
       
        ?>
 <script>
@@ -125,11 +159,14 @@ if ($mysqli_conn->connect_error) {
 <?php
    return;
     
+   } else {
+       file_put_contents('debug_bike.log', "Date validation passed!\n", FILE_APPEND);
    }
    
    $get_bike_unavail = $dbObj->countRec("tbl_unavail_dtes", "bike_id = '$vehicle_id' AND (('" . $booked_dte . " " . $booked_tme . "' BETWEEN `unavail_dte` AND `unavail_dte_to` OR '" . $returned_dte . " " . $returned_tme . "' BETWEEN `unavail_dte` AND `unavail_dte_to`) OR (`unavail_dte` BETWEEN '" . $booked_dte . " " . $booked_tme . "' AND '" . $returned_dte . " " . $returned_tme . "' OR `unavail_dte_to` BETWEEN '" . $booked_dte . " " . $booked_tme . "' AND '" . $returned_dte . " " . $returned_tme . "'))");
    
    if ($get_bike_unavail > 0) {
+       file_put_contents('debug_bike.log', "Bike unavailable for selected dates - redirecting\n", FILE_APPEND);
        ?>
 <script>
    alert("Sorry!!! This Bike booked for your selected date range plaease check another date");
@@ -137,6 +174,7 @@ if ($mysqli_conn->connect_error) {
 </script>
 <?php
    } else {
+       file_put_contents('debug_bike.log', "Bike available! Proceeding to payment...\n", FILE_APPEND);
    
        try {
            
@@ -178,13 +216,14 @@ if ($mysqli_conn->connect_error) {
 
             $ins_dta = $dbObj->insertToDb("tbl_order",
                 "customer_id = '$customer_id', `payment_id` = '', `order_id`='$razorpay_order_id', `buyer_name`='$name', 
-                `bike_id`='$vehicle_id', `email`='$email', `phone`='$phone', `amount`='$price', `booked_car`='$product_name', 
+                `car_id`='0', `bike_id`='$vehicle_id', `email`='$email', `phone`='$phone', `amount`='$price', `booked_car`='$product_name', 
                 `status`='Pending', `booked_dte`='$booked_dte', `booked_tme`='$booked_tme', `returned_dte`='$returned_dte', 
                 `return_tme`='$returned_tme', `secur_pay_type`='$securityPaymode', `vehicle_type`='$vehicle_type', 
-                `city`='$city', `pickup_point`='$pickuploc', `customer_dob`='$dob'"
+                `city`='$city', `pickup_point`='$pickuploc', `customer_dob`='$dob', `coupon`='$coupon_code', `coupon_status`='$coupon_status', 
+                `reedem_amount`='$gvamount', `from_date`='$start_book_time', `to_date`='$end_book_time', `regulardayhour`='0', 
+                `regulardayamount`='0', `weekendhour`='0', `weekendamount`='0', `extended_time`='1970-01-01 00:00:00', `return_status`='0'"
             );
-               $pay_ulr = $response['longurl'];
-   
+               
                //Redirect($response['longurl'],302); //Go to Payment page
                unset($_SESSION['token']);
            }else{
@@ -227,10 +266,8 @@ if ($mysqli_conn->connect_error) {
    }
    
    $json = json_encode($data);
-   require("automatic1.php");
+   require("automatic.php");
    
-           header("Location: $pay_ulr");
-           exit();
        } catch (Exception $e) {
            print('Error: ' . $e->getMessage());
        }

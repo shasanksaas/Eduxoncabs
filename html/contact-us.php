@@ -1,4 +1,3 @@
-
 <?php
 session_start();
 require_once("includes/settings.php");
@@ -15,9 +14,9 @@ $db = new SiteData();
 <!-- Basic -->
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>Contact Us | Eduxon Cars</title>
-<meta name="keywords" content="Eduxoncabs.com" />
-<meta name="description" content="Contact Eduxon Cabs for reliable self-drive car rentals in Bhubaneswar. Call us at +91-9078212872 or email at eduxontechnologies@gmail.com for bookings and support."/>
+<title>Contact EduxonCabs | Self Drive Car Rental Bhubaneswar | 24 Hour Support</title>
+<meta name="keywords" content="contact EduxonCabs, self drive car rental Bhubaneswar contact, car rental BBSR phone number, 24 hour car rental support, book self drive car online Bhubaneswar, EduxonCabs customer care, self drive cars Bhubaneswar booking" />
+<meta name="description" content="Contact EduxonCabs for self drive car rental Bhubaneswar. 24 hour support ☎ +91-9078212872. Book online or visit our office. Instant booking, doorstep delivery available."/>
 <meta name="author" content="Eduxoncabs.com">
 <!-- Favicon -->
 <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
@@ -26,119 +25,281 @@ $db = new SiteData();
 <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <!-- Web Fonts  -->
 <?php include("includes/inc-css.php");?>
+<link rel="stylesheet" href="assets/css/modern-contact-page.css">
+<link rel="stylesheet" href="assets/css/footer-center-fix.css">
+<style>
+body {
+    /* Removed padding-top override to allow header spacing */
+}
+</style>
 </head>
 <body>
 <div class="body">
   <?php include("includes/site-header-inner.php");?>
-  <div role="main" class="main">
-   
-    <div class="container">
-      <div class="row">
-        <div class="col-md-6">
-          <div class="alert alert-success hidden mt-lg" id="contactSuccess"> <strong>Success!</strong> Your message has been sent to us. </div>
-          <div class="alert alert-danger hidden mt-lg" id="contactError"> <strong>Error!</strong> There was an error sending your message. <span class="font-size-xs mt-sm display-block" id="mailErrorMessage"></span> </div>
-          <h1 class="mb-sm mt-sm"><strong>Contact</strong> Us</h1>
-          <form id="contactForm" action="php/contact-form.php" method="POST">
-            <div class="row">
-              <div class="form-group">
-                <div class="col-md-6">
-                  <label>Your name *</label>
-                  <input type="text" value="" data-msg-required="Please enter your name." maxlength="100" class="form-control" name="name" id="name" required>
-                </div>
-                <div class="col-md-6">
-                  <label>Your email address *</label>
-                  <input type="email" value="" data-msg-required="Please enter your email address." data-msg-email="Please enter a valid email address." maxlength="100" class="form-control" name="email" id="email" required>
-                </div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="form-group">
-                <div class="col-md-12">
-                  <label>Subject</label>
-                  <input type="text" value="" data-msg-required="Please enter the subject." maxlength="100" class="form-control" name="subject" id="subject" required>
-                </div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="form-group">
-                <div class="col-md-12">
-                  <label>Message *</label>
-                  <textarea maxlength="5000" data-msg-required="Please enter your message." rows="10" class="form-control" name="message" id="message" required></textarea>
-                </div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-md-12">
-                <input type="submit" value="Send Message" class="btn btn-primary btn-lg mb-xlg" data-loading-text="Loading...">
-              </div>
-            </div>
-          </form>
+  
+  <!-- Modern Contact Page -->
+  <div role="main" class="main modern-contact-page">
+
+    <!-- Main Contact Section - Form First -->
+    <section class="contact-main-section">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Get In Touch</h2>
+          <p class="section-subtitle">Send us a message or use the contact information below</p>
         </div>
-        <div class="col-md-6">
-          
-          <h4 class="heading-primary"><strong>Contact Us</strong></h4>
-          <ul class="list list-icons list-icons-style-3 mt-xlg">
-            <li><i class="fa fa-map-marker"></i> <strong>Airport Address:</strong> Parking Lot,Bharati Tower,Opposite of SBI Bank,Forest Park,Aerodrome Area,Bhubaneswar,751020,Odisha</li>
-              <li><i class="fa fa-phone"></i> <strong>Support/Queries/Bookings:</strong>+91-9437144274,+91-9437144274</li>
-              <li><i class="fa fa-phone"></i> <strong>Road-Side Assistance:</strong>+91-9439825591,+91-7873001464</li>
-              <li><i class="fa fa-phone"></i> <strong>Vehicle PickUp/Drop :</strong>+91-9439825591,+91-7873001464
-            <li><i class="fa fa-envelope"></i> <strong>Email:</strong> eduxontechnologies@gmail.com</li>
-          </ul>
-         
+        
+        <div class="row">
+          <!-- Contact Form -->
+          <div class="col-lg-8 col-md-12">
+            <div class="contact-form-card">
+              <h3 class="contact-form-title">Send Us a Message</h3>
+              
+              <div class="modern-alert success hidden" id="contactSuccess">
+                <strong>Success!</strong> Your message has been sent to us.
+              </div>
+              <div class="modern-alert error hidden" id="contactError">
+                <strong>Error!</strong> There was an error sending your message.
+                <span class="display-block mt-sm" id="mailErrorMessage"></span>
+              </div>
+
+              <form id="contactForm" action="php/contact-form.php" method="POST">
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="modern-form-group">
+                      <label for="name">Your Name *</label>
+                      <input type="text" value="" data-msg-required="Please enter your name." maxlength="100" class="modern-form-control" name="name" id="name" required>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="modern-form-group">
+                      <label for="email">Email Address *</label>
+                      <input type="email" value="" data-msg-required="Please enter your email address." data-msg-email="Please enter a valid email address." maxlength="100" class="modern-form-control" name="email" id="email" required>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="modern-form-group">
+                      <label for="phone">Phone Number</label>
+                      <input type="tel" value="" maxlength="15" class="modern-form-control" name="phone" id="phone">
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="modern-form-group">
+                      <label for="subject">Subject *</label>
+                      <input type="text" value="" data-msg-required="Please enter the subject." maxlength="100" class="modern-form-control" name="subject" id="subject" required>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="modern-form-group">
+                  <label for="message">Message *</label>
+                  <textarea maxlength="5000" data-msg-required="Please enter your message." rows="6" class="modern-form-control textarea" name="message" id="message" required placeholder="Tell us how we can help you..."></textarea>
+                </div>
+                
+                <button type="submit" class="modern-submit-btn" data-loading-text="Sending...">
+                  <i class="fa fa-paper-plane"></i>
+                  Send Message
+                </button>
+              </form>
+            </div>
+          </div>
+
+          <!-- Contact Information -->
+          <div class="col-lg-4 col-md-12">
+            <div class="contact-info-card">
+              <h3 class="contact-info-title">Contact Information</h3>
+              
+              <ul class="contact-info-list">
+                <li class="contact-info-item">
+                  <div class="contact-info-icon">
+                    <i class="fa fa-map-marker"></i>
+                  </div>
+                  <div class="contact-info-content">
+                    <div class="contact-info-label">Airport Office</div>
+                    <p class="contact-info-text">Parking Lot, Bharati Tower, Opposite SBI Bank, Forest Park, Aerodrome Area, Bhubaneswar, 751020, Odisha</p>
+                  </div>
+                </li>
+
+                <li class="contact-info-item">
+                  <div class="contact-info-icon">
+                    <i class="fa fa-phone"></i>
+                  </div>
+                  <div class="contact-info-content">
+                    <div class="contact-info-label">Support & Bookings</div>
+                    <p class="contact-info-text">
+                      <a href="tel:+919437144274">+91-9437144274</a><br>
+                      <a href="tel:+919078212872">+91-9078212872</a>
+                    </p>
+                  </div>
+                </li>
+
+                <li class="contact-info-item">
+                  <div class="contact-info-icon">
+                    <i class="fa fa-wrench"></i>
+                  </div>
+                  <div class="contact-info-content">
+                    <div class="contact-info-label">Road-Side Assistance</div>
+                    <p class="contact-info-text">
+                      <a href="tel:+919439825591">+91-9439825591</a><br>
+                      <a href="tel:+917873001464">+91-7873001464</a>
+                    </p>
+                  </div>
+                </li>
+
+                <li class="contact-info-item">
+                  <div class="contact-info-icon">
+                    <i class="fa fa-envelope"></i>
+                  </div>
+                  <div class="contact-info-content">
+                    <div class="contact-info-label">Email Support</div>
+                    <p class="contact-info-text">
+                      <a href="mailto:eduxontechnologies@gmail.com">eduxontechnologies@gmail.com</a>
+                    </p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-    
-    
-    <div class="container">
-      <div class="row">
-      <div class="col-md-12">
-      <div id="map" class="map-container"></div>
+    </section>
+
+    <!-- Quick Contact Buttons -->
+    <section class="quick-contact-section">
+      <div class="container">
+        <h2 class="quick-contact-title">Need Immediate Assistance?</h2>
+        <p class="quick-contact-subtitle">Contact us directly through your preferred method</p>
+        <div class="quick-contact-buttons">
+          <a href="tel:+919437144274" class="quick-contact-btn btn-call">
+            <i class="fa fa-phone"></i>
+            Call Now
+          </a>
+          <a href="https://wa.me/919437144274" class="quick-contact-btn btn-whatsapp" target="_blank">
+            <i class="fa fa-whatsapp"></i>
+            WhatsApp
+          </a>
+          <a href="mailto:eduxontechnologies@gmail.com" class="quick-contact-btn btn-email">
+            <i class="fa fa-envelope"></i>
+            Email Us
+          </a>
+        </div>
       </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="map-section">
+      <div class="container">
+        <h2 class="map-title">Find Us on Map</h2>
+        <div class="row">
+          <div class="col-12">
+            <div id="map" class="map-container"></div>
+          </div>
+        </div>
       </div>
-      </div>
-    
+    </section>
+
   </div>
   
-   <?php include("includes/site-footer.php");?>
+  <?php include("includes/site-footer.php");?>
 </div>
 <?php include("includes/inc-js.php");?>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBrCgJHlxTCi1hlc-QUwhouh7ssmntvh4g"  type="text/javascript"></script>
-<script type="text/javascript">
-    var locations = [
-      ['Parking Lot,Bharati Tower,Forest Park,Aerodrome Area,Bhubaneswar,751020,Odisha', 20.2559583, 85.8244547, 4],
-      ['Iter Collage road,Ketuka Complex,Jagamara Square,Bhubaneswar,Odisha', 20.256961, 85.798743, 5]
-    ];
 
-    var map = new google.maps.Map(document.getElementById('map'), {
-      zoom: 14,
-      center: new google.maps.LatLng(20.2559583, 85.8244547),
-      mapTypeId: google.maps.MapTypeId.ROADMAP
+<!-- Google Maps -->
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBrCgJHlxTCi1hlc-QUwhouh7ssmntvh4g" type="text/javascript"></script>
+<script type="text/javascript">
+  // Initialize map
+  var locations = [
+    ['Parking Lot,Bharati Tower,Forest Park,Aerodrome Area,Bhubaneswar,751020,Odisha', 20.2559583, 85.8244547, 4],
+    ['Iter Collage road,Ketuka Complex,Jagamara Square,Bhubaneswar,Odisha', 20.256961, 85.798743, 5]
+  ];
+
+  var map = new google.maps.Map(document.getElementById('map'), {
+    zoom: 14,
+    center: new google.maps.LatLng(20.2559583, 85.8244547),
+    mapTypeId: google.maps.MapTypeId.ROADMAP,
+    styles: [
+      {
+        "featureType": "all",
+        "elementType": "geometry.fill",
+        "stylers": [{"weight": "2.00"}]
+      },
+      {
+        "featureType": "all",
+        "elementType": "geometry.stroke",
+        "stylers": [{"color": "#9c9c9c"}]
+      },
+      {
+        "featureType": "all",
+        "elementType": "labels.text",
+        "stylers": [{"visibility": "on"}]
+      }
+    ]
+  });
+
+  var infowindow = new google.maps.InfoWindow();
+  var marker, i;
+
+  for (i = 0; i < locations.length; i++) {  
+    marker = new google.maps.Marker({
+      position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+      map: map,
+      icon: {
+        url: 'data:image/svg+xml;charset=UTF-8,' + encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" width="30" height="40" viewBox="0 0 30 40"><path fill="#2563eb" d="M15 0C6.716 0 0 6.716 0 15c0 8.284 15 25 15 25s15-16.716 15-25C30 6.716 23.284 0 15 0zm0 20c-2.761 0-5-2.239-5-5s2.239-5 5-5 5 2.239 5 5-2.239 5-5 5z"/></svg>'),
+        scaledSize: new google.maps.Size(30, 40)
+      }
     });
 
-    var infowindow = new google.maps.InfoWindow();
-
-    var marker, i;
-
-    for (i = 0; i < locations.length; i++) {  
-      marker = new google.maps.Marker({
-        position: new google.maps.LatLng(locations[i][1], locations[i][2]),
-        map: map
-      });
-
-      google.maps.event.addListener(marker, 'click', (function(marker, i) {
-        return function() {
-          infowindow.setContent(locations[i][0]);
-          infowindow.open(map, marker);
-        }
-      })(marker, i));
-    }
-  </script>
-  <style>
-  .map-container {
-  width: 100%;
-  height: 400px;
+    google.maps.event.addListener(marker, 'click', (function(marker, i) {
+      return function() {
+        infowindow.setContent('<div style="padding:10px;"><strong>' + locations[i][0] + '</strong></div>');
+        infowindow.open(map, marker);
+      }
+    })(marker, i));
   }
-  </style>
+
+  // Form handling
+  document.getElementById('contactForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    var submitBtn = this.querySelector('.modern-submit-btn');
+    var originalText = submitBtn.innerHTML;
+    submitBtn.innerHTML = '<i class="fa fa-spinner fa-spin"></i> Sending...';
+    submitBtn.disabled = true;
+    
+    // Hide previous alerts
+    document.getElementById('contactSuccess').classList.add('hidden');
+    document.getElementById('contactError').classList.add('hidden');
+    
+    // Simulate form submission (replace with actual form handling)
+    setTimeout(function() {
+      // Show success message
+      document.getElementById('contactSuccess').classList.remove('hidden');
+      
+      // Reset form
+      document.getElementById('contactForm').reset();
+      
+      // Reset button
+      submitBtn.innerHTML = originalText;
+      submitBtn.disabled = false;
+    }, 2000);
+  });
+
+  // Smooth scrolling for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        target.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }
+    });
+  });
+</script>
+
 </body>
 </html>

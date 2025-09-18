@@ -46,7 +46,7 @@
                           <li class="r-has-child">
                             <a href="all-cars-for-self-drive-bhubaneswar.php">All Cars</a>
                             <ul class="pl-0 ml-0">
-                              <li><a href="self-drive-car-rental-bhubaneswar-airport.php">Airport Location</a></li>
+                              <li><a href="all-cars-for-self-drive-bhubaneswar.php">Airport Location</a></li>
                               <!--<li><a href="allcars-self-drive-car.php?city=3">Patia Location</a></li>-->
                             </ul>
                           </li>

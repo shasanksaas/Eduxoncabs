@@ -52,7 +52,7 @@ li {
 	transition: min-height 0.3s ease;
 	width: 100%;
 	z-index: 1001;
-	min-height: 125px;
+	
 }
 
 #header.header-no-min-height .header-body {

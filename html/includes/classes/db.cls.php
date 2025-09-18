@@ -21,7 +21,7 @@ class WADB {
         
         // Check connection
         if (!$this->oDbLink) {
-            die("Database Connection Failed: " . $this->oDbLink->connect_error);
+            die("Database Connection Failed: " . mysqli_connect_error() . "<br>Host: $sDbHost<br>User: $sDbUser<br>Database: $sDbName");
         }
     }
     function db_connect(){

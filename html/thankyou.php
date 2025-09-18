@@ -11,6 +11,15 @@ require_once('php-mailer/PHPMailerAutoload.php');
 
 $db = new SiteData();
 $dbObj = new dbquery();
+
+// Clear booking form session data on successful completion
+unset($_SESSION['booking_name']);
+unset($_SESSION['booking_email']);
+unset($_SESSION['booking_phone']);
+unset($_SESSION['booking_dob']);
+unset($_SESSION['booking_license']);
+unset($_SESSION['booking_message']);
+
 if (filter($_GET['payment_id'] != "") && filter($_GET['payment_request_id']) != "") {
     ?>
     <!DOCTYPE html>
@@ -93,7 +102,7 @@ if (filter($_GET['payment_id'] != "") && filter($_GET['payment_request_id']) != 
                                       $dbObj->updateToDb("tbl_order", "`payment_id` = '$payment_id', status = 'Completed'", "`payment_id` = '".$response['id']."'");
                                       //$upd_data = $dbObj->updateToDb("tbl_cabs","unavail_datefrm = '$booked_dte', unavail_tmfrm = '$booked_tme', unavail_dateto = '$returned_dte', unavail_tmto = '$returned_tme'", "id = $car_id");
                                       $dta = $dbObj->fetch_data("tbl_order","payment_id = '$payment_id'");
-                                      $dbObj->insertToDb("tbl_unavail_dtes","car_id = '".$dta[0]['car_id']."', unavail_dte = '".$dta[0]['booked_dte'].' '.$dta[0]['booked_tme']."', unavail_dte_to = '".$dta[0]['returned_dte'].' '.$dta[0]['return_tme']."'");
+                                      $dbObj->insertToDb("tbl_unavail_dtes","type = '1', car_id = '".$dta[0]['car_id']."', bike_id = '0', unavail_dte = '".$dta[0]['booked_dte'].' '.$dta[0]['booked_tme']."', unavail_dte_to = '".$dta[0]['returned_dte'].' '.$dta[0]['return_tme']."', status = '0', payment_id = '$payment_id'");
                                       echo "<h4>Payment ID: " . $response['payments'][0]['payment_id'] . "</h4>" ;
                                       echo "<h4>Payment Name: " . $response['payments'][0]['buyer_name'] . "</h4>" ;
                                       echo "<h4>Payment Email: " . $response['payments'][0]['buyer_email'] . "</h4>" ;
@@ -137,7 +146,7 @@ if (filter($_GET['payment_id'] != "") && filter($_GET['payment_request_id']) != 
                                         $dbObj->updateToDb("tbl_order", "`payment_id` = '$payment_id', status = '$status'", "`payment_id` = '" . $response['id'] . "'");
                                         //$upd_data = $dbObj->updateToDb("tbl_cabs","unavail_datefrm = '$booked_dte', unavail_tmfrm = '$booked_tme', unavail_dateto = '$returned_dte', unavail_tmto = '$returned_tme'", "id = $car_id");
                                         $dta = $dbObj->fetch_data("tbl_order", "payment_id = '$payment_id'");
-                                        $dbObj->insertToDb("tbl_unavail_dtes", "car_id = '" . $dta[0]['car_id'] . "', unavail_dte = '" . $dta[0]['booked_dte'] . ' ' . $dta[0]['booked_tme'] . "', unavail_dte_to = '" . $dta[0]['returned_dte'] . ' ' . $dta[0]['return_tme'] . "'");
+                                        $dbObj->insertToDb("tbl_unavail_dtes", "type = '1', car_id = '" . $dta[0]['car_id'] . "', bike_id = '0', unavail_dte = '" . $dta[0]['booked_dte'] . ' ' . $dta[0]['booked_tme'] . "', unavail_dte_to = '" . $dta[0]['returned_dte'] . ' ' . $dta[0]['return_tme'] . "', status = '0', payment_id = '$payment_id'");
                                         $get_car_dtls = $dbObj->fetch_data("tbl_cabs", "id = $car_id");
                                         $cab_cost = $get_car_dtls[0]['cost'];
                                         $weekend_cost = $get_car_dtls[0]['weekend_cost'];
@@ -411,7 +420,12 @@ if (filter($_GET['payment_id'] != "") && filter($_GET['payment_request_id']) != 
 
     <?php include("includes/inc-js.php"); ?>
 
-
+    <!-- Clear saved form data on successful booking -->
+    <script type="text/javascript">
+        // Clear saved booking form data from localStorage
+        localStorage.removeItem('eduxon_booking_form_data');
+        console.log('Booking form data cleared after successful completion');
+    </script>
 
         </body>
 
