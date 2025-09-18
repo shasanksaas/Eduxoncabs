@@ -237,6 +237,35 @@ if ($pdate != '' || $ptime != '' || $ddate != '' || $dtime != '') {
       .input-icon + .form-control-modern {
           padding-left: 3rem;
       }
+      
+      /* iOS Safari and mobile device specific fixes */
+      @supports (-webkit-touch-callout: none) {
+          /* iOS Safari specific styles */
+          .input-group-modern {
+              position: relative !important;
+              -webkit-transform: translateZ(0) !important;
+          }
+          
+          .input-icon {
+              position: absolute !important;
+              left: 1rem !important;
+              top: 50% !important;
+              transform: translateY(-50%) !important;
+              z-index: 10 !important;
+              pointer-events: none !important;
+          }
+          
+          .input-icon + .form-control-modern {
+              padding-left: 3rem !important;
+              -webkit-appearance: none !important;
+          }
+          
+          .input-icon + select.form-control-modern {
+              padding-left: 3rem !important;
+              -webkit-appearance: none !important;
+              appearance: none !important;
+          }
+      }
 
       .btn-modern {
           padding: 0.875rem 2rem;
@@ -455,40 +484,55 @@ if ($pdate != '' || $ptime != '' || $ddate != '' || $dtime != '') {
               grid-template-columns: 1fr;
           }
 
-        /* Fix input groups with icons on mobile */
+        /* Fix input groups with icons on mobile - Enhanced for iOS */
         .input-group-modern {
-            position: relative;
-            margin-bottom: 1.5rem;
+            position: relative !important;
+            margin-bottom: 1.5rem !important;
         }
         
         .input-icon {
-            position: absolute;
-            left: 0.75rem;
-            top: 50%;
-            transform: translateY(-50%);
-            color: var(--text-muted);
-            z-index: 10;
-            font-size: 0.9rem;
-            width: 1.2rem;
-            text-align: center;
+            position: absolute !important;
+            left: 0.5rem !important;
+            top: 50% !important;
+            transform: translateY(-50%) !important;
+            color: var(--text-muted) !important;
+            z-index: 10 !important;
+            font-size: 0.85rem !important;
+            width: 1rem !important;
+            text-align: center !important;
+            pointer-events: none !important;
         }
         
         .input-icon + .form-control-modern {
-            padding-left: 2.5rem !important;
-            font-size: 0.95rem;
+            padding-left: 2.2rem !important;
+            font-size: 0.9rem !important;
+            -webkit-appearance: none !important;
+            border-radius: 12px !important;
         }
         
-        /* Specific adjustments for select elements */
+        /* iOS Safari specific fixes */
         .input-icon + select.form-control-modern {
-            padding-left: 2.5rem !important;
-            background-position: calc(100% - 0.75rem) center;
+            padding-left: 2.2rem !important;
+            background-position: calc(100% - 0.5rem) center !important;
+            background-size: 12px !important;
+            -webkit-appearance: none !important;
+            appearance: none !important;
         }
         
-        /* Ensure proper spacing for form controls */
+        /* Ensure proper spacing for form controls on iOS */
         .form-control-modern {
-            padding: 0.75rem 1rem;
-            font-size: 0.95rem;
-            min-height: 48px;
+            padding: 0.7rem 0.75rem !important;
+            font-size: 0.9rem !important;
+            min-height: 44px !important;
+            line-height: 1.4 !important;
+            -webkit-appearance: none !important;
+            border-radius: 12px !important;
+        }
+        
+        /* iOS Safari textarea fix */
+        textarea.form-control-modern {
+            resize: vertical !important;
+            min-height: 80px !important;
         }
 
         /* Stack coupon input and button vertically on small screens */
@@ -512,34 +556,77 @@ if ($pdate != '' || $ptime != '' || $ddate != '' || $dtime != '') {
         }
      }
 
-     /* Additional fixes for very small mobile screens */
+     /* Additional fixes for very small mobile screens and iOS devices */
      @media (max-width: 480px) {
         .input-icon {
-            left: 0.5rem;
-            font-size: 0.85rem;
-            width: 1rem;
+            left: 0.4rem !important;
+            font-size: 0.8rem !important;
+            width: 0.9rem !important;
         }
         
         .input-icon + .form-control-modern {
-            padding-left: 2rem !important;
-            font-size: 0.9rem;
+            padding-left: 1.8rem !important;
+            font-size: 0.85rem !important;
         }
         
         .input-icon + select.form-control-modern {
-            padding-left: 2rem !important;
-            background-position: calc(100% - 0.5rem) center;
+            padding-left: 1.8rem !important;
+            background-position: calc(100% - 0.4rem) center !important;
         }
         
         .form-control-modern {
-            padding: 0.7rem 0.75rem;
-            font-size: 0.9rem;
-            min-height: 44px;
+            padding: 0.65rem 0.5rem !important;
+            font-size: 0.85rem !important;
+            min-height: 42px !important;
         }
         
-        /* Adjust placeholder text size */
+        /* Adjust placeholder text size for iOS */
         .form-control-modern::placeholder {
-            font-size: 0.85rem;
-            opacity: 0.7;
+            font-size: 0.8rem !important;
+            opacity: 0.7 !important;
+        }
+        
+        /* iOS Safari input zoom prevention */
+        .form-control-modern {
+            font-size: 16px !important; /* Prevents zoom on iOS */
+        }
+        
+        .input-icon + .form-control-modern {
+            font-size: 16px !important; /* Prevents zoom on iOS */
+        }
+     }
+     
+     /* iOS Safari specific fixes */
+     @media screen and (-webkit-min-device-pixel-ratio: 2) {
+        .input-group-modern {
+            -webkit-transform: translateZ(0) !important;
+            transform: translateZ(0) !important;
+        }
+        
+        .input-icon {
+            -webkit-font-smoothing: antialiased !important;
+            -moz-osx-font-smoothing: grayscale !important;
+        }
+        
+        .form-control-modern {
+            -webkit-font-smoothing: antialiased !important;
+            -webkit-tap-highlight-color: transparent !important;
+        }
+     }
+     
+     /* iPhone specific orientation fixes */
+     @media screen and (max-width: 414px) and (orientation: portrait) {
+        .input-icon {
+            left: 0.3rem !important;
+            font-size: 0.75rem !important;
+        }
+        
+        .input-icon + .form-control-modern {
+            padding-left: 1.6rem !important;
+        }
+        
+        .input-icon + select.form-control-modern {
+            padding-left: 1.6rem !important;
         }
      }
 
