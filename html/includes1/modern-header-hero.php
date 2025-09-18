@@ -401,7 +401,7 @@
                   <i class="fa fa-map-marker mr-2"></i>Pickup Location
                 </label>
                 <div class="input-group-modern">
-                  <select class="form-control-modern" name="pickuploc" id="pickuploc" required style="color: #000000 !important; background-color: #ffffff !important;">
+                  <select class="form-control-modern" name="pickuploc" id="pickuploc" required style="color: #000000 !important; background-color: #ffffff !important; -webkit-appearance: none; -moz-appearance: none; appearance: none; background-image: none; padding-right: 12px;">
                     <option value="" style="color: #666666 !important;">Choose pickup location</option>
                     <?php
                     // Get location data for Bhubaneswar (city_id = 1)
@@ -422,7 +422,7 @@
                   <i class="fa fa-map-marker mr-2"></i>Drop Location
                 </label>
                 <div class="input-group-modern">
-                  <select class="form-control-modern" name="droploc" id="droploc" required style="color: #000000 !important; background-color: #ffffff !important;">
+                  <select class="form-control-modern" name="droploc" id="droploc" required style="color: #000000 !important; background-color: #ffffff !important; -webkit-appearance: none; -moz-appearance: none; appearance: none; background-image: none; padding-right: 12px;">
                     <option value="" style="color: #666666 !important;">Choose drop location</option>
                     <?php
                     // Use the same location data for drop-off points
@@ -443,7 +443,7 @@
                     <label class="form-label-modern">
                       <i class="fa fa-calendar mr-2"></i>Pickup Date
                     </label>
-                    <input type="text" class="form-control-modern" name="pdate" id="pdate" 
+                    <input type="date" class="form-control-modern" name="pdate" id="pdate" 
                            placeholder="Select date" required autocomplete="off">
                   </div>
                 </div>
@@ -473,7 +473,7 @@
                     <label class="form-label-modern">
                       <i class="fa fa-calendar mr-2"></i>Drop Date
                     </label>
-                    <input type="text" class="form-control-modern" name="ddate" id="ddate" 
+                    <input type="date" class="form-control-modern" name="ddate" id="ddate" 
                            placeholder="Select date" required autocomplete="off">
                   </div>
                 </div>
