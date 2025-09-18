@@ -585,7 +585,7 @@ input[type="date"].form-control::before {
             <!-- Package 1: Heritage Tour -->
             <div class="col-lg-4 col-md-6 mb-4">
                 <div class="package-card">
-                    <div class="package-image" style="background-image: url('https://images.unsplash.com/photo-1578662996442-48f60103fc96?q=80&w=800');">
+                      <div class="package-image"style="background-image: url('./assets/images/tour_packages_temple.webp');">
                         <div class="package-badge">3N/4D</div>
                     </div>
                     <div class="package-content">
@@ -617,7 +617,7 @@ input[type="date"].form-control::before {
             <!-- Package 2: Nature & Wildlife -->
             <div class="col-lg-4 col-md-6 mb-4">
                 <div class="package-card">
-                    <div class="package-image" style="background-image: url('https://images.unsplash.com/photo-1544735716-392fe2489ffa?q=80&w=800');">
+                    <div class="package-image"style="background-image: url('./assets/images/tour_packages_birds.jpg');">
                         <div class="package-badge">4N/5D</div>
                     </div>
                     <div class="package-content">
@@ -649,7 +649,7 @@ input[type="date"].form-control::before {
             <!-- Package 3: Complete Odisha -->
             <div class="col-lg-4 col-md-6 mb-4">
                 <div class="package-card">
-                    <div class="package-image" style="background-image: url('https://images.unsplash.com/photo-1545558014-8692077e9b5c?q=80&w=800');">
+                    <div class="package-image" style="background-image: url('./assets/images/tour_packages.jpeg');">
                         <div class="package-badge">6N/7D</div>
                     </div>
                     <div class="package-content">
