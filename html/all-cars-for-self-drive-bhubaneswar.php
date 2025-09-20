@@ -151,7 +151,7 @@ body {
                   
                   
                   <div class="filter-item">
-                    <label for="price_range">Price Range</label>
+                    <label for="price_range">Price Rangeee</label>
                     <select name="price_range" id="price_range" class="compact-filter-control">
                       <option value="">All Prices</option>
                       <option value="0-1000">₹0 - ₹1000</option>
