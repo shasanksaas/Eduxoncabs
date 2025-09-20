@@ -204,3 +204,23 @@ jobs:
 - Use GitHub Secrets for sensitive information
 - Regularly rotate SSH keys for enhanced security
 - Monitor deployment logs for any unauthorized access attempts
+
+Credentials:
+
+  staging:
+    DB_CONNECTION=mysql
+    DB_HOST=mysql-eduxoncabs.alwaysdata.net
+    DB_PORT=3306
+    DB_DATABASE=eduxoncabs_stage
+    DB_USER=431397_username
+    DB_PASSWORD=9090Aksingh_
+
+  prod:
+    DB_HOST=localhost
+    DB_USER=eduxonca_buser
+    DB_PASSWORD=Admin@3211
+    DB_NAME=eduxcabdb
+
+  alwaysdata:
+    shashankshekharofficial15@Gmail.com
+    9090Aksingh_

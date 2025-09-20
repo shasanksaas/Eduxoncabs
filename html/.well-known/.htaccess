@@ -1,0 +1,19 @@
+# Allow access to .well-known directory for SSL validation
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    
+    # Allow access to .well-known directory
+    RewriteRule ^\.well-known/ - [L]
+</IfModule>
+
+# Ensure proper MIME type for validation files
+<Files "*.txt">
+    ForceType text/plain
+</Files>
+
+# Allow access to all files in this directory
+Order allow,deny
+Allow from all
+
+# Prevent directory browsing
+Options -Indexes
