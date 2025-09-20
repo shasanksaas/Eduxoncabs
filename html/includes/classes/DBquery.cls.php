@@ -1,8 +1,11 @@
 <?php
+// Include centralized database connection
+require_once(__DIR__ . "/../db_connection.php");
+
 class dbquery extends SiteData {	
 	
 	function exeCute($qry){
-		$mysqli_conn = mysqli_connect(SYSTEM_DBHOST, SYSTEM_DBUSER, SYSTEM_DBPWD, SYSTEM_DBNAME); 
+		global $mysqli_conn; // Use centralized connection
         $conn=$this->getConnection();
 		
 
@@ -29,7 +32,7 @@ class dbquery extends SiteData {
 // 		return $res_data;
 // 	}
 function fetch_data($tbl_nm, $condition="", $order="", $limit="") {
-    $mysqli_conn = mysqli_connect(SYSTEM_DBHOST, SYSTEM_DBUSER, SYSTEM_DBPWD, SYSTEM_DBNAME);
+    global $mysqli_conn; // Use centralized connection
     $conn=$this->getConnection();
 
     $select = "SELECT * FROM $tbl_nm";
@@ -50,7 +53,7 @@ function fetch_data($tbl_nm, $condition="", $order="", $limit="") {
 // 	}
 	
 	function insertToDb($tbl, $fields) {
-		$mysqli_conn = mysqli_connect(SYSTEM_DBHOST, SYSTEM_DBUSER, SYSTEM_DBPWD, SYSTEM_DBNAME);
+		global $mysqli_conn; // Use centralized connection
     $conn=$this->getConnection();
 		$insert = "INSERT INTO $tbl SET $fields";
 		$exe = $this->insert($insert);
@@ -58,7 +61,7 @@ function fetch_data($tbl_nm, $condition="", $order="", $limit="") {
 	}
 	
 	function insertToDblastId($tbl, $fields) {
-		$mysqli_conn = mysqli_connect(SYSTEM_DBHOST, SYSTEM_DBUSER, SYSTEM_DBPWD, SYSTEM_DBNAME);
+		global $mysqli_conn; // Use centralized connection
     $conn=$this->getConnection();
 		$insert = "INSERT INTO $tbl SET $fields";
 		$exe = $this->insert($insert);
@@ -66,7 +69,7 @@ function fetch_data($tbl_nm, $condition="", $order="", $limit="") {
 	}
 
 	function updateToDb($tbl, $fields, $condition) {
-		$mysqli_conn = mysqli_connect(SYSTEM_DBHOST, SYSTEM_DBUSER, SYSTEM_DBPWD, SYSTEM_DBNAME);
+		global $mysqli_conn; // Use centralized connection
     $conn=$this->getConnection();
 		$update = "UPDATE $tbl SET $fields WHERE $condition";
 		$exe = $this->update($update);
@@ -74,7 +77,7 @@ function fetch_data($tbl_nm, $condition="", $order="", $limit="") {
 	}
 	
 	function selectFromDb($tbl, $fields = "*", $condition = "", $order = "", $limit = "") {
-		$mysqli_conn = mysqli_connect(SYSTEM_DBHOST, SYSTEM_DBUSER, SYSTEM_DBPWD, SYSTEM_DBNAME);
+		global $mysqli_conn; // Use centralized connection
     $conn=$this->getConnection();
 		$select = "SELECT $fields FROM $tbl";
 		if ($condition != "") $select .= " WHERE $condition";
@@ -86,7 +89,7 @@ function fetch_data($tbl_nm, $condition="", $order="", $limit="") {
 	}
 
 	function delete($tbl, $condition) {
-		$mysqli_conn = mysqli_connect(SYSTEM_DBHOST, SYSTEM_DBUSER, SYSTEM_DBPWD, SYSTEM_DBNAME);
+		global $mysqli_conn; // Use centralized connection
     $conn=$this->getConnection();
 		$select = "DELETE FROM $tbl WHERE $condition";
 		$sql = mysqli_query($mysqli_conn, $select);
@@ -103,7 +106,7 @@ function fetch_data($tbl_nm, $condition="", $order="", $limit="") {
 // 		return $result['count']; 
 // 	}
 function countRec($tbl_nm, $condition="") {
-    $mysqli_conn = mysqli_connect(SYSTEM_DBHOST, SYSTEM_DBUSER, SYSTEM_DBPWD, SYSTEM_DBNAME); 
+    global $mysqli_conn; // Use centralized connection
     $conn=$this->getConnection(); // This is a WADB object, NOT mysqli
 
     $select = "SELECT COUNT(*) AS count FROM $tbl_nm";
@@ -116,7 +119,7 @@ function countRec($tbl_nm, $condition="") {
 }
 
 	function fetchSingleLatest($tbl_nm, $condition = "", $key = "") {
-		$mysqli_conn = mysqli_connect(SYSTEM_DBHOST, SYSTEM_DBUSER, SYSTEM_DBPWD, SYSTEM_DBNAME);
+		global $mysqli_conn; // Use centralized connection
     $conn=$this->getConnection();// This is a WADB object, NOT mysqli
 		$select = "SELECT * FROM $tbl_nm";
 		if ($condition != "") $select .= " WHERE $condition";
@@ -127,7 +130,7 @@ function countRec($tbl_nm, $condition="") {
 	}
 
 	function checkDuplicate($tbl_nm, $condition) {
-		$mysqli_conn = mysqli_connect(SYSTEM_DBHOST, SYSTEM_DBUSER, SYSTEM_DBPWD, SYSTEM_DBNAME);
+		global $mysqli_conn; // Use centralized connection
     $conn=$this->getConnection();
 		$select = "SELECT COUNT(*) AS count FROM $tbl_nm WHERE $condition";
 		$sql = mysqli_query($mysqli_conn, $select);

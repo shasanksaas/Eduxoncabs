@@ -81,7 +81,7 @@ try {
                     // You can add database updates here to track delivery status
                     // For example, update a delivery_status table:
                     /*
-                    $mysqli_conn = new mysqli(SYSTEM_DBHOST, SYSTEM_DBUSER, SYSTEM_DBPWD, SYSTEM_DBNAME);
+                    require_once("includes/db_connection.php");
                     if (!$mysqli_conn->connect_error) {
                         $stmt = $mysqli_conn->prepare("INSERT INTO sms_delivery_log (request_id, mobile, status, status_description, amount_debited, sent_time, delivery_time, created_at) VALUES (?, ?, ?, ?, ?, ?, ?, NOW())");
                         $stmt->bind_param("sssssss", $request_id, $mobile, $status, $status_description, $amount_debited, $sent_time, $delivery_time);

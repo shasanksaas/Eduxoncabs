@@ -13,14 +13,12 @@ require_once("includes/functions/common.php");
 
 require_once("includes/classes/DBquery.cls.php");
 
+// Include centralized database connection
+require_once("includes/db_connection.php");
+
 $db = new SiteData();
 
 $dbObj = new dbquery();
-
-$mysqli_conn = new mysqli(SYSTEM_DBHOST, SYSTEM_DBUSER, SYSTEM_DBPWD, SYSTEM_DBNAME);
-if ($mysqli_conn->connect_error) {
-    die("Connection failed: " . $mysqli_conn->connect_error);
-}
 
 $get_id = filter($_GET['cardta'],$mysqli_conn);
 

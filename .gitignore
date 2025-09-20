@@ -4,7 +4,7 @@
 *.cache
 error_log
 php_error.log
-
+*.env
 # IDE files
 .vscode/
 .idea/
