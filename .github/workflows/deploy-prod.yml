@@ -18,28 +18,41 @@ jobs:
 
       - name: Pull and deploy on production server
         run: |
-          ssh -o StrictHostKeyChecking=no pm2f7nn8yhci@staging.eduxoncabs.com << 'EOF'
+          ssh -o StrictHostKeyChecking=no pm2f7nn8yhci@eduxoncabs.com << 'EOF'
             echo "=== Starting production deployment ==="
 
             # Go to repo and update
             cd /home/pm2f7nn8yhci/repositories/eduxoncabs || { echo "Repo missing"; exit 1; }
-            git reset --hard
-            git pull origin main || { echo "Git pull failed"; exit 1; }
+            
+            # Configure git to handle divergent branches
+            git config pull.rebase false
+            git config user.email "deploy@eduxoncabs.com"
+            git config user.name "Deploy Bot"
+            
+            # Reset to clean state and fetch latest
+            git reset --hard HEAD
+            git clean -fd
+            git fetch origin main
+            
+            # Force reset to match remote exactly
+            git reset --hard origin/main || { echo "Git reset failed"; exit 1; }
+            
+            echo "Repository updated successfully"
 
             # Keep .env safe
             if [ -f /home/pm2f7nn8yhci/public_html/.env ]; then
-              cp /home/pm2f7nn8yhci/public_html/.env /tmp/.env.backup
+              cp /home/pm2f7nn8yhci/public_html/.env /tmp/.env.backup.prod
             fi
 
-            # Clean public folder except .env
-            find /home/pm2f7nn8yhci/public_html/ -mindepth 1 ! -name ".env" -exec rm -rf {} +
+            # Clean public folder except .env and .well-known
+            find /home/pm2f7nn8yhci/public_html/ -mindepth 1 ! -name ".env" ! -path "*/.well-known*" -exec rm -rf {} +
 
-            # Move new html files into place
-            mv /home/pm2f7nn8yhci/repositories/eduxoncabs/html/* /home/pm2f7nn8yhci/public_html/
+            # Copy (not move) new html files into place
+            cp -r /home/pm2f7nn8yhci/repositories/eduxoncabs/html/* /home/pm2f7nn8yhci/public_html/
 
             # Restore .env if it existed
-            if [ -f /tmp/.env.backup ]; then
-              mv /tmp/.env.backup /home/pm2f7nn8yhci/public_html/.env
+            if [ -f /tmp/.env.backup.prod ]; then
+              mv /tmp/.env.backup.prod /home/pm2f7nn8yhci/public_html/.env
             fi
 
             # Set permissions
