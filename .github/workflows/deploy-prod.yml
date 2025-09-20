@@ -16,10 +16,10 @@ jobs:
         with:
           ssh-private-key: ${{ secrets.STAGE_SSH_KEY }}
 
-      - name: Pull and deploy on production server
+      - name: Pull and deploy on Production server
         run: |
-          ssh -o StrictHostKeyChecking=no pm2f7nn8yhci@eduxoncabs.com << 'EOF'
-            echo "=== Starting production deployment ==="
+          ssh -o StrictHostKeyChecking=no pm2f7nn8yhci@staging.eduxoncabs.com << 'EOF'
+            echo "=== Starting deployment ==="
 
             # Go to repo and update
             cd /home/pm2f7nn8yhci/repositories/eduxoncabs || { echo "Repo missing"; exit 1; }
@@ -47,5 +47,5 @@ jobs:
             find /home/pm2f7nn8yhci/public_html/ -type f ! -name ".env" -exec chmod 644 {} \;
             find /home/pm2f7nn8yhci/public_html/ -type d -exec chmod 755 {} \;
 
-            echo "=== Production deployment complete ==="
+            echo "=== Deployment complete ==="
           EOF
