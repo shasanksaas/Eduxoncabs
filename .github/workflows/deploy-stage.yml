@@ -20,19 +20,41 @@ jobs:
           ssh-private-key: ${{ secrets.STAGE_SSH_KEY }}
 
 
-      - name: Deploy to staging
+      - name: Pull latest code from stage branch
         run: |
-          ssh -o StrictHostKeyChecking=no pm2f7nn8yhci@staging.eduxoncabs.com << 'EOF'
-            # Go to the repo
-            cd /home/pm2f7nn8yhci/repositories/stage_eduxoncabs
+          ssh -o StrictHostKeyChecking=no -T pm2f7nn8yhci@staging.eduxoncabs.com << 'EOF'
+            echo "=== Starting code pull step ==="
+            cd /home/pm2f7nn8yhci/repositories/stage_eduxoncabs || { echo "ERROR: Failed to cd to repo directory"; exit 1; }
             
-            # Reset any local changes and pull latest
-            git reset --hard
-            git pull origin stage
+            echo "Current directory: $(pwd)"
+            echo "Git status before reset:"
+            git status || { echo "ERROR: Git status failed"; exit 1; }
             
-            # Copy built HTML/public files to the staging public folder
-            cp -r stage/eduxoncabs/html/* /home/pm2f7nn8yhci/stage_public_html/
+            echo "Resetting local changes..."
+            git reset --hard || { echo "ERROR: Git reset failed"; exit 1; }
             
-            # Ensure proper permissions to override old files
-            chmod -R 755 /home/pm2f7nn8yhci/stage_public_html/
+            echo "Pulling latest changes from stage branch..."
+            git pull origin stage || { echo "ERROR: Git pull failed"; exit 1; }
+            
+            echo "=== Code pull completed successfully ==="
+          EOF
+
+      - name: Copy files to staging public folder
+        run: |
+          ssh -o StrictHostKeyChecking=no -T pm2f7nn8yhci@staging.eduxoncabs.com << 'EOF'
+            echo "=== Starting file copy step ==="
+            
+            echo "Checking source directory..."
+            ls -la /home/pm2f7nn8yhci/repositories/stage_eduxoncabs/html/ || { echo "ERROR: Source html directory not found"; exit 1; }
+            
+            echo "Copying files to staging public folder..."
+            cp -r /home/pm2f7nn8yhci/repositories/stage_eduxoncabs/html/* /home/pm2f7nn8yhci/stage_public_html/ || { echo "ERROR: File copy failed"; exit 1; }
+            
+            echo "Setting proper permissions..."
+            chmod -R 755 /home/pm2f7nn8yhci/stage_public_html/ || { echo "ERROR: Permission setting failed"; exit 1; }
+            
+            echo "Verifying deployment..."
+            ls -la /home/pm2f7nn8yhci/stage_public_html/ | head -10
+            
+            echo "=== File copy completed successfully ==="
           EOF
