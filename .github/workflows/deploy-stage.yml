@@ -23,19 +23,32 @@ jobs:
 
             # Go to repo and update
             cd /home/pm2f7nn8yhci/repositories/stage_eduxoncabs || { echo "Repo missing"; exit 1; }
-            git reset --hard
-            git pull origin stage || { echo "Git pull failed"; exit 1; }
+            
+            # Configure git to handle divergent branches
+            git config pull.rebase false
+            git config user.email "deploy@eduxoncabs.com"
+            git config user.name "Deploy Bot"
+            
+            # Reset to clean state and fetch latest
+            git reset --hard HEAD
+            git clean -fd
+            git fetch origin stage
+            
+            # Force reset to match remote exactly
+            git reset --hard origin/stage || { echo "Git reset failed"; exit 1; }
+            
+            echo "Repository updated successfully"
 
             # Keep .env safe
             if [ -f /home/pm2f7nn8yhci/stage_public_html/.env ]; then
               cp /home/pm2f7nn8yhci/stage_public_html/.env /tmp/.env.backup
             fi
 
-            # Clean public folder except .env
-            find /home/pm2f7nn8yhci/stage_public_html/ -mindepth 1 ! -name ".env" -exec rm -rf {} +
+            # Clean public folder except .env and .well-known
+            find /home/pm2f7nn8yhci/stage_public_html/ -mindepth 1 ! -name ".env" ! -path "*/.well-known*" -exec rm -rf {} +
 
-            # Move new html files into place
-            mv /home/pm2f7nn8yhci/repositories/stage_eduxoncabs/html/* /home/pm2f7nn8yhci/stage_public_html/
+            # Copy (not move) new html files into place
+            cp -r /home/pm2f7nn8yhci/repositories/stage_eduxoncabs/html/* /home/pm2f7nn8yhci/stage_public_html/
 
             # Restore .env if it existed
             if [ -f /tmp/.env.backup ]; then
