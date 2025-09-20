@@ -443,7 +443,7 @@ if(!empty($_POST['phone_number'])) {
                             <h3 class="mb-3">
                                 <i class="fa fa-search text-primary me-2"></i>Find Your Profile
                             </h3>
-                            <p class="text-muted mb-0">Enter your registered Indian mobile number to view your booking history and profile details.</p>
+                            <p class="text-muted mb-0">Enter your registered Indian mobile number to view your booking </p>
                         </div>
                         <div class="col-lg-4">
                             <form action="" method="post" class="d-flex flex-column align-items-center gap-3">
