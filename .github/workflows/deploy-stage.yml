@@ -19,50 +19,19 @@ jobs:
         with:
           ssh-private-key: ${{ secrets.STAGE_SSH_KEY }}
 
-
-      - name: Pull latest code from stage branch
+      - name: Sync only html folder to staging server
         run: |
-          ssh -o StrictHostKeyChecking=no -T pm2f7nn8yhci@staging.eduxoncabs.com << 'EOF'
-            echo "=== Starting code pull step ==="
-            cd /home/pm2f7nn8yhci/repositories/stage_eduxoncabs || { echo "ERROR: Failed to cd to repo directory"; exit 1; }
-            
-            echo "Current directory: $(pwd)"
-            echo "Git status before reset:"
-            git status || { echo "ERROR: Git status failed"; exit 1; }
-            
-            echo "Resetting local changes..."
-            git reset --hard || { echo "ERROR: Git reset failed"; exit 1; }
-            
-            echo "Pulling latest changes from stage branch..."
-            git pull origin stage || { echo "ERROR: Git pull failed"; exit 1; }
-            
-            echo "=== Code pull completed successfully ==="
+          echo "=== Starting rsync deployment ==="
+          rsync -avz --delete --stats \
+            --exclude='.git*' \
+            --exclude='*.log' \
+            --exclude='test_*.php' \
+            ./html/ pm2f7nn8yhci@staging.eduxoncabs.com:/home/pm2f7nn8yhci/stage_public_html/
+
+          echo "=== Setting permissions on server ==="
+          ssh -o StrictHostKeyChecking=no pm2f7nn8yhci@staging.eduxoncabs.com << 'EOF'
+            find /home/pm2f7nn8yhci/stage_public_html/ -type f -exec chmod 644 {} \;
+            find /home/pm2f7nn8yhci/stage_public_html/ -type d -exec chmod 755 {} \;
           EOF
 
-      - name: Sync changed files to staging public folder
-        run: |
-          ssh -o StrictHostKeyChecking=no -T pm2f7nn8yhci@staging.eduxoncabs.com << 'EOF'
-            echo "=== Starting incremental file sync ==="
-            
-            echo "Checking source directory..."
-            ls -la /home/pm2f7nn8yhci/repositories/stage_eduxoncabs/html/ || { echo "ERROR: Source html directory not found"; exit 1; }
-            
-            echo "Syncing only changed files using rsync..."
-            rsync -av --delete --stats \
-              --exclude='.git*' \
-              --exclude='*.log' \
-              --exclude='test_*.php' \
-              /home/pm2f7nn8yhci/repositories/stage_eduxoncabs/html/ \
-              /home/pm2f7nn8yhci/stage_public_html/ || { echo "ERROR: Rsync failed"; exit 1; }
-            
-            echo "Setting proper permissions on changed files..."
-            find /home/pm2f7nn8yhci/stage_public_html/ -type f -exec chmod 644 {} \; || { echo "ERROR: File permission setting failed"; exit 1; }
-            find /home/pm2f7nn8yhci/stage_public_html/ -type d -exec chmod 755 {} \; || { echo "ERROR: Directory permission setting failed"; exit 1; }
-            
-            echo "Deployment summary:"
-            echo "Total files in staging: $(find /home/pm2f7nn8yhci/stage_public_html/ -type f | wc -l)"
-            echo "Last 5 modified files:"
-            find /home/pm2f7nn8yhci/stage_public_html/ -type f -printf '%T@ %p\n' | sort -n | tail -5 | cut -d' ' -f2-
-            
-            echo "=== Incremental sync completed successfully ==="
-          EOF
+          echo "=== Deployment finished ==="
