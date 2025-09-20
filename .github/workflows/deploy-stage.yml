@@ -31,7 +31,7 @@ jobs:
             git pull origin stage
             
             # Copy built HTML/public files to the staging public folder
-            cp -r stage/eduxoncabs/html/* /home/pm2f7nn8yhci/stage_public_html/
+            cp -r /home/pm2f7nn8yhci/repositories/stage_eduxoncabs/html/* /home/pm2f7nn8yhci/stage_public_html/
             
             # Ensure proper permissions to override old files
             chmod -R 755 /home/pm2f7nn8yhci/stage_public_html/
