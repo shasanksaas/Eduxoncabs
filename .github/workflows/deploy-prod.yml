@@ -18,7 +18,7 @@ jobs:
 
       - name: Pull and deploy on production server
         run: |
-          ssh -o StrictHostKeyChecking=no pm2f7nn8yhci@staging.eduxoncabs.com << 'EOF'
+          ssh -o StrictHostKeyChecking=no pm2f7nn8yhci@eduxoncabs.com << 'EOF'
             echo "=== Starting production deployment ==="
 
             # Go to repo and update
