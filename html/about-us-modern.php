@@ -14,7 +14,7 @@ $db = new SiteData();
 <!-- Basic -->
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>About EduxonCabsss | Best Self Drive Car Rental Bhubaneswar Since 2018</title>
+<title>About EduxonCabs | Best Self Drive Car Rental Bhubaneswar Since 2018</title>
 <meta name="keywords" content="about EduxonCabs, best self drive car rental Bhubaneswar, car rental company BBSR, reliable car rental Bhubaneswar, 24 hour car rental service, self drive cars Bhubaneswar, trusted car rental provider" />
 <meta name="description" content="EduxonCabs - Leading self drive car rental Bhubaneswar since 2018. 30+ car models, 24/7 service, ₹35/hour. Trusted by 10,000+ customers for reliable car rental BBSR."/>
 <meta name="author" content="Eduxoncabs.com">
