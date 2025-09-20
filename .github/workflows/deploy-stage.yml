@@ -11,33 +11,41 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-
       - name: Setup SSH key
         uses: webfactory/ssh-agent@v0.9.0
         with:
           ssh-private-key: ${{ secrets.STAGE_SSH_KEY }}
 
-      - name: Sync only html folder to staging server
+      - name: Pull and deploy on staging server
         run: |
-          echo "=== Starting rsync deployment ==="
-          rsync -avz --delete --stats \
-            --exclude='.git*' \
-            --exclude='*.log' \
-            --exclude='test_*.php' \
-            --exclude='.env' \
-            -e "ssh -o StrictHostKeyChecking=no" \
-            ./html/ pm2f7nn8yhci@staging.eduxoncabs.com:/home/pm2f7nn8yhci/stage_public_html/
-
-          echo "=== Setting permissions on server ==="
           ssh -o StrictHostKeyChecking=no pm2f7nn8yhci@staging.eduxoncabs.com << 'EOF'
-            # Keep .env safe
-            chmod 600 /home/pm2f7nn8yhci/stage_public_html/.env 2>/dev/null || true
+            echo "=== Starting deployment ==="
 
-            # Normal permissions for the rest
+            # Go to repo and update
+            cd /home/pm2f7nn8yhci/repositories/stage_eduxoncabs || { echo "Repo missing"; exit 1; }
+            git reset --hard
+            git pull origin stage || { echo "Git pull failed"; exit 1; }
+
+            # Keep .env safe
+            if [ -f /home/pm2f7nn8yhci/stage_public_html/.env ]; then
+              cp /home/pm2f7nn8yhci/stage_public_html/.env /tmp/.env.backup
+            fi
+
+            # Clean public folder except .env
+            find /home/pm2f7nn8yhci/stage_public_html/ -mindepth 1 ! -name ".env" -exec rm -rf {} +
+
+            # Move new html files into place
+            mv /home/pm2f7nn8yhci/repositories/stage_eduxoncabs/html/* /home/pm2f7nn8yhci/stage_public_html/
+
+            # Restore .env if it existed
+            if [ -f /tmp/.env.backup ]; then
+              mv /tmp/.env.backup /home/pm2f7nn8yhci/stage_public_html/.env
+            fi
+
+            # Set permissions
+            chmod 600 /home/pm2f7nn8yhci/stage_public_html/.env 2>/dev/null || true
             find /home/pm2f7nn8yhci/stage_public_html/ -type f ! -name ".env" -exec chmod 644 {} \;
             find /home/pm2f7nn8yhci/stage_public_html/ -type d -exec chmod 755 {} \;
-          EOF
 
-          echo "=== Deployment finished ==="
+            echo "=== Deployment complete ==="
+          EOF
