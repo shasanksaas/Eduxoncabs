@@ -1,0 +1,32 @@
+name: Deploy to Production
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    name: Deploy to Production Server
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup SSH key
+        uses: webfactory/ssh-agent@v0.8.1
+        with:
+          ssh-private-key: ${{ secrets.STAGE_SSH_KEY }} # same key as staging
+
+      - name: Deploy to production
+        run: |
+          ssh -o StrictHostKeyChecking=no pm2f7nn8yhci@production.eduxoncabs.com << 'EOF'
+            cd /home/pm2f7nn8yhci/repositories/eduxoncabs
+            git reset --hard
+            git pull origin main
+
+            # Copy built files to prod public folder
+            cp -r prod/eduxoncabs/html/* /home/pm2f7nn8yhci/public_html/
+            chmod -R 755 /home/pm2f7nn8yhci/public_html/
+          EOF

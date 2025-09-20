@@ -1,0 +1,37 @@
+name: Deploy to Staging
+
+on:
+  push:
+    branches:
+      - stage
+
+jobs:
+  deploy:
+    name: Deploy to Staging Server
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup SSH key
+        uses: webfactory/ssh-agent@v0.8.1
+        with:
+          ssh-private-key: ${{ secrets.STAGE_SSH_KEY }}
+
+      - name: Deploy to staging
+        run: |
+          ssh -o StrictHostKeyChecking=no pm2f7nn8yhci@staging.eduxoncabs.com << 'EOF'
+            # Go to the repo
+            cd /home/pm2f7nn8yhci/repositories/stage_eduxoncabs
+            
+            # Reset any local changes and pull latest
+            git reset --hard
+            git pull origin stage
+            
+            # Copy built HTML/public files to the staging public folder
+            cp -r stage/eduxoncabs/html/* /home/pm2f7nn8yhci/stage_public_html/
+            
+            # Ensure proper permissions to override old files
+            chmod -R 755 /home/pm2f7nn8yhci/stage_public_html/
+          EOF
