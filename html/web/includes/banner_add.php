@@ -1,8 +1,6 @@
 <?php
-$mysqli_conn = mysqli_connect(SYSTEM_DBHOST, SYSTEM_DBUSER, SYSTEM_DBPWD, SYSTEM_DBNAME);
-if (!$mysqli_conn) {
-            die("Database Connection Failed: " . $mysqli_conn->connect_error);
-        }
+// Include centralized database connection
+require_once(__DIR__ . "/../../includes/db_connection.php");
 
 $required = "<font color='#FF0000' size='1'>*</font>";
 $fdata = array();

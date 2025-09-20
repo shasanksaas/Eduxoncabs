@@ -20,10 +20,8 @@
    $db = new SiteData();
    $dbObj = new dbquery();
    
-    $mysqli_conn = new mysqli(SYSTEM_DBHOST, SYSTEM_DBUSER, SYSTEM_DBPWD, SYSTEM_DBNAME);
-if ($mysqli_conn->connect_error) {
-    die("Connection failed: " . $mysqli_conn->connect_error);
-}
+   // Include centralized database connection
+   require_once("includes/db_connection.php");
    
     $date = date('Y-m-d H:i:s');
     //$date = date('Y-m-d H:i:s',strtotime($date)+19800);

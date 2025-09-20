@@ -1,5 +1,7 @@
 <?php
 
+// Include centralized database connection at the top level
+require_once(__DIR__ . "/../../../includes/db_connection.php");
 
 // function filter($data) {
 //     $data = trim(htmlentities(strip_tags($data)));
@@ -13,11 +15,9 @@
 // }
 
 function filter($data,$conn="") {
+    global $mysqli_conn; // Use global connection
     if($conn==""){
-        $conn = mysqli_connect(SYSTEM_DBHOST, SYSTEM_DBUSER, SYSTEM_DBPWD, SYSTEM_DBNAME);
-        if ($conn->connect_error) {
-            die("Connection failed: " . $conn->connect_error);
-        }
+        $conn = $mysqli_conn; // Use the centralized connection
     }
     $data = trim(htmlentities(strip_tags($data ?? ''))); 
     $data = stripslashes($data); 

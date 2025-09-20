@@ -1,8 +1,6 @@
 <?php
-$mysqli_conn = mysqli_connect(SYSTEM_DBHOST, SYSTEM_DBUSER, SYSTEM_DBPWD, SYSTEM_DBNAME);
-if ($mysqli_conn->connect_error) {
-    die("Connection failed: " . $mysqli_conn->connect_error);
-}
+// Include centralized database connection
+require_once(__DIR__ . "/../../includes/db_connection.php");
 
 /**
  * @link: http://www.Awcore.com/dev
