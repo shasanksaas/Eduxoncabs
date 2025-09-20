@@ -11,22 +11,41 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-
       - name: Setup SSH key
         uses: webfactory/ssh-agent@v0.9.0
         with:
-          ssh-private-key: ${{ secrets.STAGE_SSH_KEY }} # same key as staging
+          ssh-private-key: ${{ secrets.PROD_SSH_KEY }}
 
-      - name: Deploy to production
+      - name: Pull and deploy on production server
         run: |
-          ssh -o StrictHostKeyChecking=no pm2f7nn8yhci@production.eduxoncabs.com << 'EOF'
-            cd /home/pm2f7nn8yhci/repositories/eduxoncabs
-            git reset --hard
-            git pull origin main
+          ssh -o StrictHostKeyChecking=no pm2f7nn8yhci@staging.eduxoncabs.com << 'EOF'
+            echo "=== Starting production deployment ==="
 
-            # Copy built files to prod public folder
-            cp -r prod/eduxoncabs/html/* /home/pm2f7nn8yhci/public_html/
-            chmod -R 755 /home/pm2f7nn8yhci/public_html/
+            # Go to repo and update
+            cd /home/pm2f7nn8yhci/repositories/eduxoncabs || { echo "Repo missing"; exit 1; }
+            git reset --hard
+            git pull origin main || { echo "Git pull failed"; exit 1; }
+
+            # Keep .env safe
+            if [ -f /home/pm2f7nn8yhci/public_html/.env ]; then
+              cp /home/pm2f7nn8yhci/public_html/.env /tmp/.env.backup
+            fi
+
+            # Clean public folder except .env
+            find /home/pm2f7nn8yhci/public_html/ -mindepth 1 ! -name ".env" -exec rm -rf {} +
+
+            # Move new html files into place
+            mv /home/pm2f7nn8yhci/repositories/eduxoncabs/html/* /home/pm2f7nn8yhci/public_html/
+
+            # Restore .env if it existed
+            if [ -f /tmp/.env.backup ]; then
+              mv /tmp/.env.backup /home/pm2f7nn8yhci/public_html/.env
+            fi
+
+            # Set permissions
+            chmod 600 /home/pm2f7nn8yhci/public_html/.env 2>/dev/null || true
+            find /home/pm2f7nn8yhci/public_html/ -type f ! -name ".env" -exec chmod 644 {} \;
+            find /home/pm2f7nn8yhci/public_html/ -type d -exec chmod 755 {} \;
+
+            echo "=== Production deployment complete ==="
           EOF
