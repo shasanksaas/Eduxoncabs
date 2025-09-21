@@ -87,9 +87,9 @@ if (isset($_POST["act"]) && $_POST["act"] == "subscribe") {
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
 <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet"></noscript>
 
-<title>Self Drive Cars Bhubaneswar | Car Rental BBSR Starting ₹35/Hour | 24 Hour Service</title>
+<title>Self Drive Cars in Bhubaneswar | Car Rental Bhubaneswar – EduxonCabs</title>
 <meta name="keywords" content="self drive cars Bhubaneswar, self drive car rental Bhubaneswar, car rental Bhubaneswar, self drive cars BBSR, self drive cars Bhubaneswar airport, car rental Bhubaneswar airport, 24 hour car rental Bhubaneswar, hourly car rental Bhubaneswar, unlimited km car rental Bhubaneswar, doorstep delivery car rental Bhubaneswar, cheap car rental Bhubaneswar, affordable self drive cars Bhubaneswar, sedan rental Bhubaneswar, SUV rental Bhubaneswar"/>
-<meta name="description" content="Best self drive cars Bhubaneswar starting ₹35/hour. 24 hour car rental BBSR with unlimited km, doorstep delivery & airport pickup. Book sedan, SUV rental Bhubaneswar online. Affordable self drive car rental with no hidden charges."/>
+<meta name="description" content="Book affordable self drive cars in Bhubaneswar with EduxonCabs. 24/7 car rental in Bhubaneswar, unlimited km, doorstep delivery & airport pickup. Reserve now!"/>
 <meta name="author" content="EduxonCabs - Self Drive Car Rental Bhubaneswar">
 <meta property="product:brand" content="Self Drive Cars Bhubaneswar | EduxonCabs" />
 <meta property="og:site_name" content="EduxonCabs - Self Drive Car Rental Bhubaneswar" />
@@ -303,6 +303,40 @@ setTimeout(loadAnalytics, 3000);
   }
 }
 </script>
+
+<!-- WebSite Schema for Site Name Markers -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "url": "https://www.eduxoncabs.com/",
+  "name": "Self Drive Cars in Bhubaneswar",
+  "alternateName": "EduxonCabs",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://www.eduxoncabs.com/all-cars-for-self-drive-bhubaneswar.php?search={search_term_string}",
+    "query-input": "required name=search_term_string"
+  }
+}
+</script>
+
+<!-- Organization Schema for Brand Recognition -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "url": "https://www.eduxoncabs.com/",
+  "name": "Self Drive Cars in Bhubaneswar",
+  "alternateName": "EduxonCabs",
+  "logo": "https://www.eduxoncabs.com/img/Eduxoncabs.png",
+  "sameAs": [
+    "https://www.facebook.com/eduxoncabs/",
+    "https://www.instagram.com/eduxon_cars/",
+    "https://www.google.com/search?kgmid=/g/11g8_2z210"
+  ]
+}
+</script>
+
 </head>
 <body>
 <!-- Critical LCP Optimization - Immediate DOM prep -->
@@ -466,10 +500,10 @@ window.addEventListener('DOMContentLoaded', function() {
             <div class="modern-badge-new">
               <span>KNOW MORE ABOUT US</span>
             </div>
-            <h1 class="ultra-heading">
+            <h2 class="ultra-heading">
               About <span class="gradient-text">EduxonCabs</span>
               <br><span class="subtitle-text">Best Self Drive Car Rental in Bhubaneswar</span>
-            </h1>
+            </h2>
             <p class="modern-description">
               <strong class="brand-name">Eduxon Cabs</strong> has been revolutionizing self-drive car rentals in Bhubaneswar since 2016. With over 5000+ satisfied customers and a premium fleet of 30+ vehicles, we deliver exceptional, flexible travel experiences across the city and airport.
             </p>

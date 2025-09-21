@@ -58,9 +58,9 @@ $nxt18hr = date('Y-m-d H:i:s',strtotime($st_dte ."+18 hour"));
 <!-- Basic -->
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>All Self Drive Cars Bhubaneswar | Sedan, SUV Rental BBSR | EduxonCabs</title>
+<title>Self Drive Cars in Bhubaneswar | Sedan & SUV Car Rental – EduxonCabs</title>
 <meta name="keywords" content="all self drive cars Bhubaneswar, sedan rental Bhubaneswar, SUV rental Bhubaneswar, Maruti Dzire rental Bhubaneswar, luxury car rental Bhubaneswar, self drive cars BBSR, car rental Bhubaneswar, affordable self drive cars Bhubaneswar, unlimited km car rental Bhubaneswar, hourly car rental Bhubaneswar" />
-<meta name="description" content="Browse all self drive cars Bhubaneswar including sedan, SUV, luxury cars. Maruti Dzire, Hyundai Creta, Honda City available. Unlimited km, hourly rental from ₹35/hour. Book online!"/>
+<meta name="description" content="Explore the best self drive cars in Bhubaneswar – sedan, SUV & luxury options. Affordable car rental in BBSR with unlimited km & doorstep delivery. Book now!"/>
 <meta name="author" content="Eduxoncabs.com">
 <!-- Favicon -->
 <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
@@ -396,7 +396,7 @@ body {
       <div class="container">
         <div class="row">
           <div class="col-lg-8">
-            <h3 class="all-cars-text-heading">All Cars - Explore a Wide Range of Self-Drive Cars in Bhubaneswar</h3>
+            <h1 class="all-cars-text-heading">All Cars - Explore a Wide Range of Self-Drive Cars in Bhubaneswar</h1>
             <p class="all-cars-text-para">At <strong>Eduxon Cabs,</strong> we offer a wide selection of self-drive cars in Bhubaneswar, providing you with the flexibility and convenience to travel at your own pace. Whether you need a compact hatchback for city commuting, a comfortable sedan for business trips, an SUV for long drives, or a luxury car for a premium experience, we have the perfect vehicle for every need.</p>
             <p class="all-cars-text-para">Our self-drive car rental in Bhubaneswar is designed to give you a seamless experience with easy booking, transparent pricing, and no hidden charges. We also provide self-drive car rental services at Bhubaneswar Airport, ensuring you can pick up your car right after landing.</p>
           </div>

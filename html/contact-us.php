@@ -31,6 +31,12 @@ $db = new SiteData();
 body {
     /* Removed padding-top override to allow header spacing */
 }
+h1.section-title {
+    font-family: 'Montserrat', 'Arial', sans-serif;
+    font-weight: 600;
+    font-size: 2.2rem;
+    line-height: 1.3;
+}
 </style>
 </head>
 <body>
@@ -44,7 +50,7 @@ body {
     <section class="contact-main-section">
       <div class="container">
         <div class="section-header">
-          <h2 class="section-title">Get In Touch</h2>
+          <h1 class="section-title">Contact EduxonCabs – Self Drive Car Rental in Bhubaneswar</h1>
           <p class="section-subtitle">Send us a message or use the contact information below</p>
         </div>
         

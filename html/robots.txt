@@ -1,20 +1,20 @@
 User-agent: *
 Allow: /
+
+# Block admin and sensitive directories
 Disallow: /eduxoncabs_admin/
 Disallow: /includes/
 Disallow: /vendor/
 Disallow: /test/
 Disallow: /uploadedDocument/
+
+# Block dynamic URLs with parameters
 Disallow: /*?act=
 Disallow: /*?id=
+
+# Block payment and checkout pages
 Disallow: /pay.php
 Disallow: /checkout.php
-
-# Allow important SEO pages
-Allow: /all-cars-for-self-drive-bhubaneswar.php
-Allow: /self-drive-car-rental-bhubaneswar-airport.php
-Allow: /about-us.php
-Allow: /contact-us.php
 
 # Sitemap location
 Sitemap: https://www.eduxoncabs.com/sitemap.xml

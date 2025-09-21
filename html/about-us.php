@@ -63,11 +63,7 @@ body {
                 <i class="fa fa-star"></i>
                 <span>Trusted Since 2018</span>
               </div>
-              <h1 class="about-hero-title">
-                Redefining 
-                <span class="gradient-text">Self-Drive</span>
-                Car Rentals
-              </h1>
+              <h1 class="about-hero-title">About EduxonCabs – Self Drive Car Rental in Bhubaneswar</h1>
               <p class="about-hero-description">
                 From a vision to transform India's transportation industry to becoming Bhubaneswar's most trusted self-drive car rental service - our journey is driven by innovation, reliability, and customer satisfaction.
               </p>

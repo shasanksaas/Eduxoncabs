@@ -386,9 +386,10 @@
         </div>
       </div>
       
-      <!-- Booking Form - Shows First on Mobile -->
+      <!-- Hero Right Side - Booking Form -->
       <div class="col-lg-6 col-md-12 order-1 order-lg-2 mb-5 mb-lg-0">
-        <div class="booking-card-modern" id="booking-form">          
+        <!-- Booking Form -->
+        <div class="booking-card-modern mt-4" id="booking-form">          
           <div class="booking-form-container">
             <h3 class="booking-title">Book Your Perfect Car</h3>
             <p class="booking-subtitle">Choose from our premium fleet</p>
