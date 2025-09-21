@@ -1,23 +1,2 @@
 User-agent: *
-Allow: /
-Disallow: /eduxoncabs_admin/
-Disallow: /includes/
-Disallow: /vendor/
-Disallow: /test/
-Disallow: /uploadedDocument/
-Disallow: /*?act=
-Disallow: /*?id=
-Disallow: /pay.php
-Disallow: /checkout.php
-
-# Allow important SEO pages
-Allow: /all-cars-for-self-drive-bhubaneswar.php
-Allow: /self-drive-car-rental-bhubaneswar-airport.php
-Allow: /about-us.php
-Allow: /contact-us.php
-
-# Sitemap location
-Sitemap: https://www.eduxoncabs.com/sitemap.xml
-
-# Crawl delay for politeness
-Crawl-delay: 1
+Disallow: /

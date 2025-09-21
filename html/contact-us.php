@@ -13,6 +13,7 @@ $db = new SiteData();
 <head>
 <!-- Basic -->
 <meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <title>Contact EduxonCabs | Self Drive Car Rental Bhubaneswar | 24 Hour Support</title>
 <meta name="keywords" content="contact EduxonCabs, self drive car rental Bhubaneswar contact, car rental BBSR phone number, 24 hour car rental support, book self drive car online Bhubaneswar, EduxonCabs customer care, self drive cars Bhubaneswar booking" />

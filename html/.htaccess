@@ -1,3 +1,30 @@
+# ===========================================
+# STAGING SITE PROTECTION - NEVER REMOVE
+# ===========================================
+
+# Prevent Search Engine Indexing
+Header always set X-Robots-Tag "noindex, nofollow"
+Header always set X-Frame-Options "DENY"
+Header always set X-Content-Type-Options "nosniff"
+
+# Block Search Engine Bots
+<RequireAll>
+    Require all granted
+    Require not env block_spider
+</RequireAll>
+
+SetEnvIfNoCase User-Agent "googlebot" block_spider
+SetEnvIfNoCase User-Agent "bingbot" block_spider
+SetEnvIfNoCase User-Agent "slurp" block_spider
+SetEnvIfNoCase User-Agent "duckduckbot" block_spider
+SetEnvIfNoCase User-Agent "baiduspider" block_spider
+SetEnvIfNoCase User-Agent "yandexbot" block_spider
+SetEnvIfNoCase User-Agent "facebookexternalhit" block_spider
+
+# ===========================================
+# END STAGING PROTECTION
+# ===========================================
+
 # Enable URL rewriting
 RewriteEngine On
 RewriteOptions inherit

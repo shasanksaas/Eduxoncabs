@@ -71,6 +71,7 @@ if (isset($_POST["act"]) && $_POST["act"] == "subscribe") {
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
 <head>
 <meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
 
@@ -100,7 +101,7 @@ if (isset($_POST["act"]) && $_POST["act"] == "subscribe") {
 <meta property="og:image" content="https://www.eduxoncabs.com/img/logo.png" />
 
 <!-- Canonical URL for SEO -->
-<link rel="canonical" href="https://www.eduxoncabs.com/">
+<!-- <link rel="canonical" href="https://www.eduxoncabs.com/"> -->
 
 <!-- Enhanced Open Graph Tags -->
 <meta property="og:image:width" content="1200">
@@ -124,7 +125,8 @@ function loadAnalytics() {
   if (window.analyticsLoaded) return;
   window.analyticsLoaded = true;
   
-  // Google Analytics
+  // Google Analytics - DISABLED FOR STAGING
+  /*
   const script = document.createElement('script');
   script.async = true;
   script.src = 'https://www.googletagmanager.com/gtag/js?id=G-R24JTT23LT';
@@ -139,6 +141,7 @@ function loadAnalytics() {
     gtag('config', 'AW-11129753133');
     gtag('config', 'G-680DFSCXM6');
   };
+  */
 }
 
 // Load analytics on user interaction or after 3 seconds
@@ -259,7 +262,7 @@ setTimeout(loadAnalytics, 3000);
 }
 </script>
 
-<meta name="google-site-verification" content="4JJju5tQZWNJy-xHGcY0GDueqFmxCdBrnj7ozilP2bw" />
+<!-- <meta name="google-site-verification" content="4JJju5tQZWNJy-xHGcY0GDueqFmxCdBrnj7ozilP2bw" /> -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -2004,7 +2007,8 @@ function scrollToNews() {
 <script>
 // Defer all analytics loading until after LCP
 function loadDeferredScripts() {
-  // Load Google Analytics G-680DFSCXM6
+  // Load Google Analytics G-680DFSCXM6 - DISABLED FOR STAGING
+  /*
   const gtag1 = document.createElement('script');
   gtag1.async = true;
   gtag1.src = 'https://www.googletagmanager.com/gtag/js?id=G-680DFSCXM6';
@@ -2016,6 +2020,7 @@ function loadDeferredScripts() {
     gtag('js', new Date());
     gtag('config', 'G-680DFSCXM6');
   };
+  */
   
   // Load AdSense after a delay
   setTimeout(function() {
