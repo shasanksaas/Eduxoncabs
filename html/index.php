@@ -87,7 +87,7 @@ if (isset($_POST["act"]) && $_POST["act"] == "subscribe") {
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
 <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet"></noscript>
 
-<title>Self Drive Cars in Bhubaneswar | Car Rental Bhubaneswar – EduxonCabs</title>
+<title>Self Drive Cars in Bhubaneswar | Car Rental – EduxonCabs</title>
 <meta name="keywords" content="self drive cars Bhubaneswar, self drive car rental Bhubaneswar, car rental Bhubaneswar, self drive cars BBSR, self drive cars Bhubaneswar airport, car rental Bhubaneswar airport, 24 hour car rental Bhubaneswar, hourly car rental Bhubaneswar, unlimited km car rental Bhubaneswar, doorstep delivery car rental Bhubaneswar, cheap car rental Bhubaneswar, affordable self drive cars Bhubaneswar, sedan rental Bhubaneswar, SUV rental Bhubaneswar"/>
 <meta name="description" content="Book affordable self drive cars in Bhubaneswar with EduxonCabs. 24/7 car rental in Bhubaneswar, unlimited km, doorstep delivery & airport pickup. Reserve now!"/>
 <meta name="author" content="EduxonCabs - Self Drive Car Rental Bhubaneswar">
