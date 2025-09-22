@@ -69,6 +69,9 @@ if(!empty($_POST['phone_number'])) {
     <meta name="description" content="Access your EduxonCabs profile to view booking history, manage reservations, and track your self-drive car rentals in Bhubaneswar."/>
     <meta name="author" content="EduxonCabs">
     
+    <!-- Canonical URL -->
+    <?php outputCanonicalTag('/profile.php'); ?>
+    
     <!-- Favicon -->
     <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
     <link rel="apple-touch-icon" href="img/apple-touch-icon.png">

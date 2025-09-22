@@ -1,12 +1,24 @@
 User-agent: *
 Allow: /
 
+# Allow important resource directories
+Allow: /vendor/
+Allow: /includes/css/
+Allow: /includes/js/
+Allow: /assets/
+Allow: /css/
+Allow: /js/
+Allow: /img/
+
 # Block admin and sensitive directories
 Disallow: /eduxoncabs_admin/
-Disallow: /includes/
-Disallow: /vendor/
+Disallow: /includes/classes/
+Disallow: /includes/functions/
+Disallow: /includes/settings.php
+Disallow: /includes/database.php
 Disallow: /test/
 Disallow: /uploadedDocument/
+Disallow: /web/
 
 # Block dynamic URLs with parameters
 Disallow: /*?act=
