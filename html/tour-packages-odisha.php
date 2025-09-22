@@ -57,6 +57,9 @@ if (isset($_POST["act"]) && $_POST["act"] == "tour_enquiry") {
 <meta name="keywords" content="Odisha tour packages, Bhubaneswar tour packages, Puri Konark tour, Chilika Lake tour, Satapada tour, Odisha heritage tour, temple tour Odisha, Odisha travel packages"/>
 <meta name="description" content="Explore Odisha with our customized tour packages. Visit Bhubaneswar, Puri, Konark, Chilika Lake, Satapada with comfortable vehicles and expert drivers. Book your Odisha tour today!"/>
 
+<!-- Canonical URL -->
+<?php outputCanonicalTag('/tour-packages-odisha.php'); ?>
+
 <!-- Bootstrap CSS -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
 <!-- Font Awesome -->

@@ -53,6 +53,8 @@ if($tdate!="" && $ptime!="" && $ddate!="" && $dtime){
 <meta name="keywords" content="all self drive bikes Bhubaneswar, scooty rental Bhubaneswar, motorcycle rental Bhubaneswar, bike rental BBSR, self drive bikes Bhubaneswar, affordable bike rental Bhubaneswar, hourly bike rental Bhubaneswar, Activa rental Bhubaneswar, KTM rental Bhubaneswar" />
 <meta name="description" content="Browse all self drive bikes in Bhubaneswar including scooty, motorcycles, sports bikes. Honda Activa, KTM, Pulsar available. Affordable hourly rental from ₹25/hour. Book online!"/>
 <meta name="author" content="Eduxoncabs.com">
+<!-- Canonical URL -->
+<?php outputCanonicalTag('/all-bikes-modern.php'); ?>
 <!-- Favicon -->
 <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
 <link rel="apple-touch-icon" href="img/apple-touch-icon.png">

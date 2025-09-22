@@ -62,6 +62,8 @@ $nxt18hr = date('Y-m-d H:i:s',strtotime($st_dte ."+18 hour"));
 <meta name="keywords" content="all self drive cars Bhubaneswar, sedan rental Bhubaneswar, SUV rental Bhubaneswar, Maruti Dzire rental Bhubaneswar, luxury car rental Bhubaneswar, self drive cars BBSR, car rental Bhubaneswar, affordable self drive cars Bhubaneswar, unlimited km car rental Bhubaneswar, hourly car rental Bhubaneswar" />
 <meta name="description" content="Explore the best self drive cars in Bhubaneswar – sedan, SUV & luxury options. Affordable car rental in BBSR with unlimited km & doorstep delivery. Book now!"/>
 <meta name="author" content="Eduxoncabs.com">
+<!-- Canonical URL -->
+<?php outputCanonicalTag('/all-cars-for-self-drive-bhubaneswar.php'); ?>
 <!-- Favicon -->
 <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
 <link rel="apple-touch-icon" href="img/apple-touch-icon.png">

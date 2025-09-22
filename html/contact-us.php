@@ -18,6 +18,8 @@ $db = new SiteData();
 <meta name="keywords" content="contact EduxonCabs, self drive car rental Bhubaneswar contact, car rental BBSR phone number, 24 hour car rental support, book self drive car online Bhubaneswar, EduxonCabs customer care, self drive cars Bhubaneswar booking" />
 <meta name="description" content="Contact EduxonCabs for self drive car rental Bhubaneswar. 24 hour support ☎ +91-9078212872. Book online or visit our office. Instant booking, doorstep delivery available."/>
 <meta name="author" content="Eduxoncabs.com">
+<!-- Canonical URL -->
+<?php outputCanonicalTag('/contact-us.php'); ?>
 <!-- Favicon -->
 <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
 <link rel="apple-touch-icon" href="img/apple-touch-icon.png">

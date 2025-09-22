@@ -18,6 +18,8 @@ $db = new SiteData();
 <meta name="keywords" content="about-self-drive-car-rental" />
 <meta name="description" content="Self Drive Car Rental - Eduxoncabs is the leading self driven car rental provider in Odisha offers best in class self drive car rental services near bhubaneswar Airport.">
 <meta name="author" content="Eduxoncabs.com">
+<!-- Canonical URL -->
+<?php outputCanonicalTag('/self-drive-car.php'); ?>
 <!-- Favicon -->
 <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
 <link rel="apple-touch-icon" href="img/apple-touch-icon.png">

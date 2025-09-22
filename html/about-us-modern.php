@@ -18,6 +18,8 @@ $db = new SiteData();
 <meta name="keywords" content="about EduxonCabs, best self drive car rental Bhubaneswar, car rental company BBSR, reliable car rental Bhubaneswar, 24 hour car rental service, self drive cars Bhubaneswar, trusted car rental provider" />
 <meta name="description" content="EduxonCabs - Leading self drive car rental Bhubaneswar since 2018. 30+ car models, 24/7 service, ₹35/hour. Trusted by 10,000+ customers for reliable car rental BBSR."/>
 <meta name="author" content="Eduxoncabs.com">
+<!-- Canonical URL -->
+<?php outputCanonicalTag('/about-us-modern.php'); ?>
 <!-- Favicon -->
 <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
 <link rel="apple-touch-icon" href="img/apple-touch-icon.png">

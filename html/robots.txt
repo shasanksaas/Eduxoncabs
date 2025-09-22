@@ -15,6 +15,7 @@ Disallow: /*?id=
 # Block payment and checkout pages
 Disallow: /pay.php
 Disallow: /checkout.php
+Disallow: /automatic.php
 
 # Sitemap location
 Sitemap: https://www.eduxoncabs.com/sitemap.xml

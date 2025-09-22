@@ -1,4 +1,7 @@
-<?php include_once 'config.php'; ?>
+<?php 
+include_once 'config.php'; 
+require_once 'includes/functions/common.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,6 +9,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Privacy Policy - EduxonCabs | Self Drive Car Rental Bhubaneswar</title>
     <meta name="description" content="Privacy Policy for EduxonCabs - Learn how we protect your personal information and data privacy for our self drive car rental services in Bhubaneswar.">
+    
+    <!-- Canonical URL -->
+    <?php outputCanonicalTag('/privacy.php'); ?>
     
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" rel="stylesheet">

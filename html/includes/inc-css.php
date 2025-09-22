@@ -2,14 +2,17 @@
 <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
 
 <!-- FontAwesome -->
-<link rel="stylesheet" href="css/font-awesome.min.css">
+<link rel="stylesheet" href="vendor/font-awesome/css/font-awesome.min.css">
+
+<!-- Animate CSS -->
+<link rel="stylesheet" href="vendor/animate/animate.min.css">
 
 <!-- Theme CSS -->
 <link rel="stylesheet" href="css/theme.css">
 <link rel="stylesheet" href="css/theme-elements.css">
 <link rel="stylesheet" href="css/theme-blog.css">
 <link rel="stylesheet" href="css/theme-shop.css">
-<link rel="stylesheet" href="css/theme-animate.css">
+<!-- theme-animate.css doesn't exist, removing to fix 404 -->
 
 <!-- Skin CSS -->
 <link rel="stylesheet" href="css/skins/default.css">

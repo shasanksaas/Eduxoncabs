@@ -1,6 +1,7 @@
 <?php
 // Mock version for LCP testing - no database connections
 session_start();
+require_once("includes/functions/common.php");
 
 // Mock database data for testing
 $mockCarData = [
@@ -48,7 +49,7 @@ $mockLocationData = [
 <meta property="og:image" content="https://www.eduxoncabs.com/img/logo.png" />
 
 <!-- Canonical URL for SEO -->
-<link rel="canonical" href="https://www.eduxoncabs.com/">
+<?php outputCanonicalTag('/'); ?>
 
 <!-- Enhanced Open Graph Tags -->
 <meta property="og:image:width" content="1200">
@@ -134,7 +135,10 @@ body { font-family: 'Inter', Arial, sans-serif; margin: 0; padding: 0; }
     "@type": "PostalAddress",
     "addressLocality": "Bhubaneswar",
     "addressRegion": "Odisha",
-    "addressCountry": "IN"
+    "addressCountry": {
+      "@type": "Country",
+      "name": "IN"
+    }
   },
   "geo": {
     "@type": "GeoCoordinates",

@@ -18,6 +18,8 @@ $db = new SiteData();
 <meta name="keywords" content="self drive car rental FAQ, car rental booking process Bhubaneswar, self drive cars rental policies, how to book car rental Bhubaneswar, car rental documents required, self drive car charges Bhubaneswar, EduxonCabs FAQ, car rental without driver Bhubaneswar" />
 <meta name="description" content="FAQ for self drive car rental Bhubaneswar. Learn about booking process, documents required, charges, policies for car rental without driver. Get answers about EduxonCabs services."/>
 <meta name="author" content="Eduxoncabs.com">
+<!-- Canonical URL -->
+<?php outputCanonicalTag('/faq-modern.php'); ?>
 <!-- Favicon -->
 <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
 <link rel="apple-touch-icon" href="img/apple-touch-icon.png">

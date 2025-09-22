@@ -8,95 +8,57 @@
 <!-- Self Drive Car Rental Bhubaneswar Main Pages -->
 <url>
   <loc>https://www.eduxoncabs.com/</loc>
-  <lastmod>2025-09-14T10:00:00+00:00</lastmod>
+  <lastmod>2025-09-22T10:00:00+00:00</lastmod>
   <changefreq>daily</changefreq>
   <priority>1.00</priority>
 </url>
 <url>
-  <loc>https://www.eduxoncabs.com/index.php</loc>
-  <lastmod>2025-09-14T10:00:00+00:00</lastmod>
-  <changefreq>daily</changefreq>
-  <priority>0.90</priority>
-</url>
-<url>
   <loc>https://www.eduxoncabs.com/all-cars-for-self-drive-bhubaneswar.php</loc>
-  <lastmod>2025-09-14T10:00:00+00:00</lastmod>
+  <lastmod>2025-09-22T10:00:00+00:00</lastmod>
   <changefreq>weekly</changefreq>
   <priority>0.90</priority>
-</url>
-<url>
-  <loc>https://www.eduxoncabs.com/self-drive-car-rental-bhubaneswar-airport.php</loc>
-  <lastmod>2025-09-14T10:00:00+00:00</lastmod>
-  <changefreq>weekly</changefreq>
-  <priority>0.85</priority>
 </url>
 <url>
   <loc>https://www.eduxoncabs.com/about-us.php</loc>
-  <lastmod>2025-09-14T10:00:00+00:00</lastmod>
+  <lastmod>2025-09-22T10:00:00+00:00</lastmod>
   <changefreq>monthly</changefreq>
   <priority>0.70</priority>
 </url>
 <url>
   <loc>https://www.eduxoncabs.com/contact-us.php</loc>
-  <lastmod>2025-09-14T10:00:00+00:00</lastmod>
+  <lastmod>2025-09-22T10:00:00+00:00</lastmod>
   <changefreq>monthly</changefreq>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://eduxoncabs.com/allbikes-bike-for-rental_2.php</loc>
-  <lastmod>2022-01-14T10:34:03+00:00</lastmod>
+  <loc>https://www.eduxoncabs.com/faq.php</loc>
+  <lastmod>2025-09-22T10:00:00+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.70</priority>
+</url>
+<url>
+  <loc>https://www.eduxoncabs.com/all-bikes-bike-for-rental-bhubaneswar.php</loc>
+  <lastmod>2025-09-22T10:00:00+00:00</lastmod>
+  <changefreq>weekly</changefreq>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://eduxoncabs.com/contact.php</loc>
-  <lastmod>2022-01-14T10:34:03+00:00</lastmod>
-  <priority>0.80</priority>
+  <loc>https://www.eduxoncabs.com/tour-packages-odisha.php</loc>
+  <lastmod>2025-09-22T10:00:00+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.75</priority>
 </url>
 <url>
-  <loc>https://eduxoncabs.com/page.php?page=faq</loc>
-  <lastmod>2022-01-14T10:34:03+00:00</lastmod>
-  <priority>0.80</priority>
+  <loc>https://www.eduxoncabs.com/self-drive-car.php</loc>
+  <lastmod>2025-09-22T10:00:00+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.70</priority>
 </url>
 <url>
-  <loc>https://eduxoncabs.com/cprofile.php</loc>
-  <lastmod>2022-01-14T10:34:03+00:00</lastmod>
-  <priority>0.80</priority>
+  <loc>https://www.eduxoncabs.com/privacy.php</loc>
+  <lastmod>2025-09-22T10:00:00+00:00</lastmod>
+  <changefreq>yearly</changefreq>
+  <priority>0.50</priority>
 </url>
-<url>
-  <loc>https://eduxoncabs.com/checkout.php?pdate=2022-01-14&amp;ptime=6:00&amp;ddate=2022-01-14&amp;dtime=12:00&amp;car=681b28d38458b98612f3ee221a55f645&amp;cartype=f132ff045dac3d28cb540ade34cbb8de&amp;cardta=a3c65c2974270fd093ee8a9bf8ae7d0b</loc>
-  <lastmod>2022-01-14T10:34:03+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://eduxoncabs.com/checkout.php?pdate=2022-01-14&amp;ptime=6:00&amp;ddate=2022-01-14&amp;dtime=12:00&amp;car=c40ce65292cc5acbe63d28cec73f321d&amp;cartype=f132ff045dac3d28cb540ade34cbb8de&amp;cardta=07e1cd7dca89a1678042477183b7ac3f</loc>
-  <lastmod>2022-01-14T10:34:03+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://eduxoncabs.com/checkout.php?pdate=2022-01-14&amp;ptime=6:00&amp;ddate=2022-01-14&amp;dtime=12:00&amp;car=333ce2c8fc8d00ffebaf568ebaafa90c&amp;cartype=f132ff045dac3d28cb540ade34cbb8de&amp;cardta=ec5decca5ed3d6b8079e2e7e7bacc9f2</loc>
-  <lastmod>2022-01-14T10:34:03+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://eduxoncabs.com/checkout.php?pdate=2022-01-14&amp;ptime=6:00&amp;ddate=2022-01-14&amp;dtime=12:00&amp;car=74e8018825b22883728f53b3c57daadf&amp;cartype=f132ff045dac3d28cb540ade34cbb8de&amp;cardta=65ded5353c5ee48d0b7d48c591b8f430</loc>
-  <lastmod>2022-01-14T10:34:03+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://eduxoncabs.com/checkout.php?pdate=2022-01-14&amp;ptime=6:00&amp;ddate=2022-01-14&amp;dtime=12:00&amp;car=74e8018825b22883728f53b3c57daadf&amp;cartype=f132ff045dac3d28cb540ade34cbb8de&amp;cardta=9fc3d7152ba9336a670e36d0ed79bc43</loc>
-  <lastmod>2022-01-14T10:34:03+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://eduxoncabs.com/checkout.php?pdate=2022-01-14&amp;ptime=6:00&amp;ddate=2022-01-14&amp;dtime=12:00&amp;car=db468e5d76c17879d68c7ab0e39d842d&amp;cartype=6fc795a056016eb1191a79f75069dd4d&amp;cardta=42a0e188f5033bc65bf8d78622277c4e</loc>
-  <lastmod>2022-01-14T10:34:03+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://eduxoncabs.com/faq.php</loc>
-  <lastmod>2022-01-14T10:34:03+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-
 
 </urlset>

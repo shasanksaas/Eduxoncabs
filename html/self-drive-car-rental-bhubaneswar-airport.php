@@ -48,6 +48,8 @@ $nxt18hr = date('Y-m-d H:i:s',strtotime($date ."+18 hour"));
 <meta name="keywords" content="self drive cars Bhubaneswar airport, car rental Bhubaneswar airport, airport pickup car rental, self drive car rental Bhubaneswar airport, car rental BBSR airport, doorstep delivery car rental Bhubaneswar, 24 hour car rental Bhubaneswar, unlimited km car rental Bhubaneswar, instant booking car rental Bhubaneswar" />
 <meta name="description" content="Self drive cars Bhubaneswar airport with free pickup & drop. 24 hour car rental service at BBSR airport. Doorstep delivery, unlimited km. Book online for instant confirmation!"/>
 <meta name="author" content="Eduxoncabs.com">
+<!-- Canonical URL -->
+<?php outputCanonicalTag('/self-drive-car-rental-bhubaneswar-airport.php'); ?>
 <!-- Favicon -->
 <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
 <link rel="apple-touch-icon" href="img/apple-touch-icon.png">

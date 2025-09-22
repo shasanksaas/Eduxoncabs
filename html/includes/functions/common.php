@@ -176,4 +176,33 @@ function showImage($image,$width="",$height="",$alt="",$title="",$parameters="")
 	}
 	return $img;
 }
+
+/**
+ * Generate canonical URL for SEO
+ * Always uses https://www.eduxoncabs.com/ as the preferred domain
+ * Removes query parameters to avoid duplicate content issues
+ */
+function getCanonicalUrl($custom_path = null) {
+    $canonical_base = 'https://www.eduxoncabs.com';
+    
+    if ($custom_path) {
+        // Use custom path if provided (for specific page overrides)
+        $canonical_url = $canonical_base . $custom_path;
+    } else {
+        // Auto-generate from current request URI, removing query parameters
+        $current_path = strtok($_SERVER["REQUEST_URI"], '?');
+        $canonical_url = $canonical_base . $current_path;
+    }
+    
+    return htmlspecialchars($canonical_url, ENT_QUOTES, 'UTF-8');
+}
+
+/**
+ * Output canonical meta tag
+ * Usage: outputCanonicalTag(); or outputCanonicalTag('/custom-page.php');
+ */
+function outputCanonicalTag($custom_path = null) {
+    $canonical_url = getCanonicalUrl($custom_path);
+    echo '<link rel="canonical" href="' . $canonical_url . '" />' . "\n";
+}
 ?>

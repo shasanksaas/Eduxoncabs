@@ -100,7 +100,7 @@ if (isset($_POST["act"]) && $_POST["act"] == "subscribe") {
 <meta property="og:image" content="https://www.eduxoncabs.com/img/logo.png" />
 
 <!-- Canonical URL for SEO -->
-<link rel="canonical" href="https://www.eduxoncabs.com/">
+<?php outputCanonicalTag('/'); ?>
 
 <!-- Enhanced Open Graph Tags -->
 <meta property="og:image:width" content="1200">
@@ -170,7 +170,10 @@ setTimeout(loadAnalytics, 3000);
     "@type": "PostalAddress",
     "addressLocality": "Bhubaneswar",
     "addressRegion": "Odisha",
-    "addressCountry": "IN"
+    "addressCountry": {
+      "@type": "Country",
+      "name": "IN"
+    }
   },
   "geo": {
     "@type": "GeoCoordinates",
@@ -183,40 +186,61 @@ setTimeout(loadAnalytics, 3000);
     "@type": "City",
     "name": "Bhubaneswar"
   },
-  "hasOfferingCatalog": {
-    "@type": "OfferingCatalog",
-    "name": "Self Drive Car Rental Services",
-    "itemListElement": [
-      {
-        "@type": "Offer",
-        "itemOffered": {
-          "@type": "Service",
-          "name": "Hourly Car Rental Bhubaneswar",
-          "description": "Self drive cars starting ₹35/hour"
-        }
+  "makesOffer": [
+    {
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Hourly Car Rental Bhubaneswar",
+        "description": "Self drive cars starting ₹35/hour"
       },
-      {
-        "@type": "Offer",
-        "itemOffered": {
-          "@type": "Service",
-          "name": "Daily Car Rental Bhubaneswar",
-          "description": "24 hour car rental with unlimited km"
-        }
-      },
-      {
-        "@type": "Offer",
-        "itemOffered": {
-          "@type": "Service",
-          "name": "Airport Car Rental Bhubaneswar",
-          "description": "Car rental Bhubaneswar airport pickup and drop"
-        }
+      "priceSpecification": {
+        "@type": "PriceSpecification",
+        "price": "35",
+        "priceCurrency": "INR",
+        "unitCode": "HUR"
       }
-    ]
-  },
+    },
+    {
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Daily Car Rental Bhubaneswar",
+        "description": "24 hour car rental with unlimited km"
+      },
+      "priceSpecification": {
+        "@type": "PriceSpecification",
+        "price": "840",
+        "priceCurrency": "INR",
+        "unitCode": "DAY"
+      }
+    },
+    {
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Airport Car Rental Bhubaneswar",
+        "description": "Car rental Bhubaneswar airport pickup and drop"
+      },
+      "priceSpecification": {
+        "@type": "PriceSpecification",
+        "price": "35",
+        "priceCurrency": "INR",
+        "unitCode": "HUR"
+      }
+    }
+  ],
   "potentialAction": {
     "@type": "SearchAction",
-    "target": "https://www.eduxoncabs.com/{search_term_string}",
-    "query-input": "required name=search_term_string"
+    "target": {
+      "@type": "EntryPoint",
+      "urlTemplate": "https://www.eduxoncabs.com/all-cars-for-self-drive-bhubaneswar.php?search={search_term_string}"
+    },
+    "query-input": {
+      "@type": "PropertyValueSpecification",
+      "valueRequired": true,
+      "valueName": "search_term_string"
+    }
   }
 }
 </script>
@@ -227,35 +251,90 @@ setTimeout(loadAnalytics, 3000);
   "@type": "AutoRental",
   "name": "EduxonCabs Self Drive Car Rental",
   "description": "Self drive cars Bhubaneswar starting ₹35/hour. Sedan, SUV rental with unlimited km, doorstep delivery, airport pickup.",
-  "provider": {
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Bharti Towers, 129, Ekamra Rd, Forest Park",
+    "addressLocality": "Bhubaneswar",
+    "addressRegion": "Odisha",
+    "postalCode": "751009",
+    "addressCountry": "IN"
+  },
+  "offeredBy": {
     "@type": "Organization",
+    "@id": "https://www.eduxoncabs.com/#organization",
     "name": "EduxonCabs",
     "url": "https://www.eduxoncabs.com"
   },
   "areaServed": {
     "@type": "City",
     "name": "Bhubaneswar",
-    "addressRegion": "Odisha",
-    "addressCountry": "IN"
-  },
-  "offers": [
-    {
-      "@type": "Offer",
-      "name": "Hourly Car Rental Bhubaneswar",
-      "description": "Self drive cars starting ₹35/hour",
-      "price": "35",
-      "priceCurrency": "INR",
-      "availability": "https://schema.org/InStock"
-    },
-    {
-      "@type": "Offer", 
-      "name": "Daily Car Rental Bhubaneswar",
-      "description": "24 hour car rental with unlimited km",
-      "price": "1000",
-      "priceCurrency": "INR",
-      "availability": "https://schema.org/InStock"
+    "containedInPlace": {
+      "@type": "State",
+      "name": "Odisha",
+      "containedInPlace": {
+        "@type": "Country",
+        "name": "India"
+      }
     }
-  ]
+  },
+  "serviceType": "Car Rental",
+  "vehicleType": ["Sedan", "SUV", "Hatchback"],
+  "rentalDuration": "PT1H/P1D",
+  "priceRange": "₹35-₹2000"
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Self Drive Car Rental Services Bhubaneswar",
+  "description": "Professional self drive car rental services in Bhubaneswar with hourly and daily options",
+  "provider": {
+    "@type": "Organization",
+    "@id": "https://www.eduxoncabs.com/#organization",
+    "name": "EduxonCabs"
+  },
+  "areaServed": {
+    "@type": "City",
+    "name": "Bhubaneswar"
+  },
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Car Rental Services",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Hourly Car Rental Bhubaneswar",
+          "description": "Self drive cars starting ₹35/hour"
+        },
+        "priceSpecification": {
+          "@type": "PriceSpecification",
+          "price": "35",
+          "priceCurrency": "INR",
+          "unitCode": "HUR"
+        },
+        "availability": "https://schema.org/InStock"
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Daily Car Rental Bhubaneswar", 
+          "description": "24 hour car rental with unlimited km"
+        },
+        "priceSpecification": {
+          "@type": "PriceSpecification",
+          "price": "840",
+          "priceCurrency": "INR",
+          "unitCode": "DAY"
+        },
+        "availability": "https://schema.org/InStock"
+      }
+    ]
+  }
 }
 </script>
 
@@ -272,7 +351,7 @@ setTimeout(loadAnalytics, 3000);
     "streetAddress": "Bharti Towers, 129, Ekamra Rd, Forest Park",
     "addressLocality": "Bhubaneswar",
     "addressRegion": "Odisha",
-    "postalCode": "751020",
+    "postalCode": "751009",
     "addressCountry": "IN"
   },
   "telephone": "+91 94371 44274",
